@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adding Interactivity to Your Flutter App  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/tutorials/interactive/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/tutorials/interactive/index.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Adding Interactivity to Your Flutter App&body=From URL: http://localhost:4000/tutorials/interactive/index.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Adding Interactivity to Your Flutter App </h1>
+   </div>
+
+  </header>
+  
+
+  
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What you’ll learn:</b></p>
+
+  <ul>
+    <li>How to respond to taps.</li>
+    <li>How to create a custom widget.</li>
+    <li>The difference between stateless and stateful widgets.</li>
+  </ul>
+
+</div>
+
+<p>How do you modify your app to make it react to user input?
+In this tutorial, you’ll add interactivity to an app that contains only
+non-interactive widgets.  Specifically, you’ll modify an icon to make
+it tappable by creating a custom stateful widget
+that manages two stateless widgets.</p>
+
+<h3 id="contents">Contents</h3>
+
+<ul>
+  <li><a href="#stateful-stateless">Stateful and stateless widgets</a></li>
+  <li><a href="#creating-stateful-widget">Creating a stateful widget</a>
+    <ul>
+      <li><a href="#step-1">Step 1: Decide which object manages the widget’s state</a></li>
+      <li><a href="#step-2">Step 2: Subclass StatefulWidget</a></li>
+      <li><a href="#step-3">Step 3: Subclass State</a></li>
+      <li><a href="#step-4">Step 4: Plug the stateful widget into the widget tree</a></li>
+      <li><a href="#problems">Problems?</a></li>
+    </ul>
+  </li>
+  <li><a href="#managing-state">Managing state</a>
+    <ul>
+      <li><a href="#self-managed">The widget manages its own state</a></li>
+      <li><a href="#parent-managed">The parent manages the widget’s state</a></li>
+      <li><a href="#mix-and-match">A mix-and-match approach</a></li>
+    </ul>
+  </li>
+  <li><a href="#other-interactive-widgets">Other interactive widgets</a>
+    <ul>
+      <li><a href="#standard-widgets">Standard widgets</a></li>
+      <li><a href="#material-components">Material Components</a></li>
+    </ul>
+  </li>
+  <li><a href="#resources">Resources</a></li>
+</ul>
+
+<h2 id="getting-ready">Getting ready</h2>
+
+<p>If you’ve already build the layout in
+<a href="/tutorials/layout/">Building Layouts in Flutter</a>,
+skip to the next section.</p>
+
+<ul>
+  <li>Make sure you’ve <a href="/get-started/install/">set up</a> your environment.</li>
+  <li><a href="/get-started/test-drive/#create-app">Create a basic Flutter app.</a></li>
+  <li>Replace the <code class="highlighter-rouge">lib/main.dart</code> file with
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/main.dart"><code class="highlighter-rouge">main.dart</code></a>
+from GitHub.</li>
+  <li>Replace the <code class="highlighter-rouge">pubspec.yaml</code> file with
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/pubspec.yaml"><code class="highlighter-rouge">pubspec.yaml</code></a>
+from GitHub.</li>
+  <li>Create an <code class="highlighter-rouge">images</code> directory in your project, and add
+<a href="https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg"><code class="highlighter-rouge">lake.jpg</code>.</a></li>
+</ul>
+
+<p>Once you have a connected and enabled device, or you’ve launched the <a href="/setup-macos/#set-up-the-ios-simulator">iOS
+simulator</a> (part of the Flutter install),
+you are good to go!
+&lt;/aside&gt;</p>
+
+<p><a href="https://flutter.io/tutorials/layout/">Building Layouts for Flutter</a>
+showed how to create the layout for the following screenshot.</p>
+
+<p><img src="images/lakes.jpg" style="border:1px solid black" alt="The starting Lakes app that we will modify" /></p>
+
+<p>When the app first launches, the star is solid red, indicating that this lake
+has previously been favorited. The number next to the star indicates that
+41 people have favorited this lake.  After completing this tutorial,
+tapping the star removes its favorited status, replacing
+the solid star with an outline and decreasing the count. Tapping
+again favorites the lake, drawing a solid star and increasing the count.</p>
+
+<p><img src="images/favorited-not-favorited.png" alt="the custom widget you'll create" /></p>
+
+<p>To accomplish this, you’ll create a single custom widget that includes both the
+star and the count, which are themselves widgets. Because tapping the star
+changes state for both widgets, so the same widget should manage both.</p>
+
+<p>You can get right to touching the code in
+<a href="#step-2">Step 2: Subclass StatefulWidget</a>.
+If you want to try different ways of managing state, skip to
+<a href="#managing-state">Managing state</a>.</p>
+
+<p><a name="stateful-stateless"></a></p>
+<h2 id="stateful-and-stateless-widgets">Stateful and stateless widgets</h2>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>Some widgets are stateful, and some are stateless.</li>
+    <li>If a widget changes—the user interacts with it,
+for example—it’s <em>stateful</em>.</li>
+    <li>A widget’s state consists of values that can change, like a slider’s
+current value or whether a checkbox is checked.</li>
+    <li>A widget’s state is stored in a State object, separating the widget’s
+state from its appearance.</li>
+    <li>When the widget’s state changes, the state object calls
+<code class="highlighter-rouge">setState()</code>, telling the framework to redraw the widget.</li>
+  </ul>
+
+</div>
+
+<p>A <em>stateless</em> widget has no internal state to manage.
+<a href="https://docs.flutter.io/flutter/widgets/Icon-class.html">Icon</a>,
+<a href="https://docs.flutter.io/flutter/material/IconButton-class.html">IconButton</a>,
+and <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> are
+examples of stateless widgets, which subclass
+<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>.</p>
+
+<p>A <em>stateful</em> widget is dynamic. The user can interact with a stateful widget
+(by typing into a form, or moving a slider, for example),
+or it changes over time (perhaps a data feed causes the UI to update).
+<a href="https://docs.flutter.io/flutter/material/Checkbox-class.html">Checkbox</a>,
+<a href="https://docs.flutter.io/flutter/material/Radio-class.html">Radio</a>,
+<a href="https://docs.flutter.io/flutter/material/Slider-class.html">Slider</a>,
+<a href="https://docs.flutter.io/flutter/material/InkWell-class.html">InkWell</a>,
+<a href="https://docs.flutter.io/flutter/widgets/Form-class.html">Form</a>, and
+<a href="https://docs.flutter.io/flutter/material/TextField-class.html">TextField</a>
+are examples of stateful widgets, which subclass
+<a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a>.</p>
+
+<p><a name="creating-stateful-widget"></a></p>
+<h2 id="creating-a-stateful-widget">Creating a stateful widget</h2>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>To create a custom stateful widget, subclass two classes:
+StatefulWidget and State.</li>
+    <li>The state object contains the widget’s state and the widget’s <code class="highlighter-rouge">build()</code>
+method.</li>
+    <li>When the widget’s state changes, the state object calls
+<code class="highlighter-rouge">setState()</code>, telling the framework to redraw the widget.</li>
+  </ul>
+
+</div>
+
+<p>In this section, you’ll create a custom stateful widget.
+You’ll replace two stateless widgets—the solid red star and the
+numeric count next to it—with a single custom
+stateful widget that manages a row with two children widgets: an IconButton
+and Text.</p>
+
+<p>Implementing a custom stateful widget requires creating two classes:</p>
+
+<ul>
+  <li>A subclass of StatefulWidget that defines the widget.</li>
+  <li>A subclass of State that contains the state for that widget and defines
+the widget’s <code class="highlighter-rouge">build()</code> method.</li>
+</ul>
+
+<p>This section shows how to build a StatefulWidget, called FavoriteWidget,
+for the Lakes app. The first step is choosing how FavoriteWidget’s state
+is managed.</p>
+
+<p><a name="step-1"></a></p>
+<h3 id="step-1-decide-which-object-manages-the-widgets-state">Step 1: Decide which object manages the widget’s state</h3>
+
+<p>A widget’s state can be managed in several ways, but in our example
+the widget itself, FavoriteWidget, will manage its own state.
+In this example, toggling the star is an isolated action that doesn’t
+affect the parent widget or the rest of the UI,
+so the widget can handle its state internally.</p>
+
+<p>Learn more about the separation of widget and state,
+and how state might be managed, in <a href="#managing-state">Managing state</a>.</p>
+
+<p><a name="step-2"></a></p>
+<h3 id="step-2-subclass-statefulwidget">Step 2: Subclass StatefulWidget</h3>
+
+<p>The FavoriteWidget class manages its own state, so it overrides
+<code class="highlighter-rouge">createState()</code> to create the State object.
+The framework calls <code class="highlighter-rouge">createState()</code> when it wants to build the widget.
+In this example, <code class="highlighter-rouge">createState()</code> creates an instance of _FavoriteWidgetState,
+which you’ll implement in the next step.</p>
+
+<!-- code/layout/lakes-interactive/main.dart -->
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class FavoriteWidget extends StatefulWidget {
+  @override
+  _FavoriteWidgetState createState() =&gt; new _FavoriteWidgetState();
+}</code></pre>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Members or classes that start with an underscore (_) are private.
+For more information, see <a href="https://www.dartlang.org/guides/language/language-tour#libraries-and-visibility">Libraries and
+visibility,</a>
+a section in the
+<a href="https://www.dartlang.org/guides/language/language-tour">Dart language tour.</a></p>
+</aside>
+
+<p><a name="step-3"></a></p>
+<h3 id="step-3-subclass-state">Step 3: Subclass State</h3>
+
+<p>The custom State class stores the mutable information—the logic and
+internal state that can change over the lifetime of the widget.
+When the app first launches, the UI displays a solid red star,
+indicating that the lake has “favorite” status, and has 41 “likes”.
+The state object stores this information in the
+<code class="highlighter-rouge">_isFavorited</code> and <code class="highlighter-rouge">_favoriteCount</code> variables.</p>
+
+<p>The state object also defines the <code class="highlighter-rouge">build</code> method. This <code class="highlighter-rouge">build</code> method
+creates a row containing a red IconButton, and Text.  The widget uses
+<a href="https://docs.flutter.io/flutter/material/IconButton-class.html">IconButton</a>,
+(instead of Icon), because it has an <code class="highlighter-rouge">onPressed</code> property that
+defines the callback method for handling a tap.
+IconButton also has an <code class="highlighter-rouge">icon</code> property that holds the Icon.</p>
+
+<p>The <code class="highlighter-rouge">_toggleFavorite()</code> method, which is called when the IconButton is pressed,
+calls <code class="highlighter-rouge">setState()</code>. Calling <code class="highlighter-rouge">setState()</code> is critical, because this tells
+the framework that the widget’s state has changed and the widget
+should redraw. The <code class="highlighter-rouge">_toggleFavorite</code> function swaps the UI between
+1) a star icon and the number ‘41’, and
+2) a star_border icon and the number ‘40’.</p>
+
+<!-- code/layout/lakes-interactive/main.dart -->
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class _FavoriteWidgetState extends State&lt;FavoriteWidget&gt; {
+  <span class="nocode highlight">bool _isFavorited = true;</span>
+  <span class="nocode highlight">int _favoriteCount = 41;</span>
+
+  <span class="nocode highlight">void _toggleFavorite()</span> {
+    <span class="nocode highlight">setState(()</span> {
+      // If the lake is currently favorited, unfavorite it.
+      if (_isFavorited) {
+        _favoriteCount -= 1;
+        _isFavorited = false;
+        // Otherwise, favorite it.
+      } else {
+        _favoriteCount += 1;
+        _isFavorited = true;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        new Container(
+          padding: new EdgeInsets.all(0.0),
+          child: new IconButton(
+            <span class="nocode highlight">icon: (_isFavorited</span>
+                <span class="nocode highlight">? new Icon(Icons.star)</span>
+                <span class="nocode highlight">: new Icon(Icons.star_border)),</span>
+            color: Colors.red[500],
+            <span class="nocode highlight">onPressed: _toggleFavorite,</span>
+          ),
+        ),
+        new SizedBox(
+          width: 18.0,
+          child: new Container(
+            <span class="nocode highlight">child: new Text(&#39;$_favoriteCount&#39;),</span>
+          ),
+        ),
+      ],
+    );
+  }
+}</code></pre>
+
+<aside class="alert alert-success">
+  <p><i class="fa fa-lightbulb-o"> </i> <strong>Tip:</strong>
+Placing the Text in a SizedBox and setting its width prevents a discernible
+“jump” when the text changes between the values of 40 and 41—this
+would otherwise occur because those values have different widths.</p>
+</aside>
+
+<p><a name="step-4"></a></p>
+<h3 id="step-4-plug-the-stateful-widget-into-the-widget-tree">Step 4: Plug the stateful widget into the widget tree</h3>
+
+<p>Add your custom stateful widget to the widget tree in the app’s
+build method. First, locate the code that creates the Icon and Text, and delete it:</p>
+
+<!-- code/layout/lakes/main.dart -->
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// ...
+<span class="nocode strike">new Icon(</span>
+  <span class="nocode strike">Icons.star,</span>
+  <span class="nocode strike">color: Colors.red[500],</span>
+<span class="nocode strike">),</span>
+<span class="nocode strike">new Text(&#39;41&#39;)</span>
+// ...</code></pre>
+
+<p>In the same location, create the stateful widget:</p>
+
+<!-- code/layout/lakes-interactive/main.dart -->
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Widget titleSection = new Container(
+      // ...
+      child: new Row(
+        children: [
+          new Expanded(
+            child: new Column(
+              // ...
+          ),
+          <span class="nocode highlight">new FavoriteWidget()</span>,
+        ],
+      ),
+    );
+
+    return new MaterialApp(
+      // ...
+    );
+  }
+}</code></pre>
+
+<p><br />That’s it! When you hot reload the app, the star icon should now respond to taps.</p>
+
+<h3 id="problems">Problems?</h3>
+
+<p>If you can’t get your code to run, look in your IDE for possible errors.
+<a href="https://flutter.io/debugging/">Debugging Flutter Apps</a> might help.
+If you still can’t find the problem,
+check your code against the interactive Lakes example on GitHub.</p>
+
+<ul>
+  <li><a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes-interactive/main.dart"><code class="highlighter-rouge">lib/main.dart</code></a></li>
+  <li><a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes-interactive/pubspec.yaml"><code class="highlighter-rouge">pubspec.yaml</code></a>—no changes to this file</li>
+  <li><a href="https://github.com/flutter/website/blob/master/_includes/code/layout/lakes-interactive/images/lake.jpg"><code class="highlighter-rouge">lakes.jpg</code></a>—no changes to this file</li>
+</ul>
+
+<p>If you still have questions, refer to <a href="/support/">Get support.</a></p>
+
+<hr />
+
+<p>The rest of this page covers several ways a widget’s state can be managed,
+and lists other available interactive widgets.</p>
+
+<p><a name="managing-state"></a></p>
+<h2 id="managing-state">Managing state</h2>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>There are different approaches for managing state.</li>
+    <li>You, as the widget designer, choose which approach to use.</li>
+    <li>If in doubt, start by managing state in the parent widget.</li>
+  </ul>
+
+</div>
+
+<p>Who manage’s the stateful widget’s state? The widget itself? The parent widget?
+Both? Another object? The answer is… it depends.
+There are several valid ways to make your widget interactive.
+You, as the widget designer, makes the decision based on how you expect your
+widget to be used. Here are the most common ways to manage state:</p>
+
+<ul>
+  <li><a href="#self-managed">The widget manages its own state</a></li>
+  <li><a href="#parent-managed">The parent manages the widget’s state</a></li>
+  <li><a href="#mix-and-match">A mix-and-match approach</a></li>
+</ul>
+
+<p>How do you decide which approach to use? The following principles should help
+you decide:</p>
+
+<ul>
+  <li>
+    <p>If the state in question is user data,
+for example the checked or unchecked mode of a checkbox,
+or the position of a slider,
+then the state is best managed by the parent widget.</p>
+  </li>
+  <li>
+    <p>If the state in question is aesthetic, for example an animation,
+then the state is best managed by the widget itself.</p>
+  </li>
+</ul>
+
+<p>If in doubt, start by managing state in the parent widget.</p>
+
+<p>We’ll give examples of the different ways of managing state by creating three
+simple examples: TapboxA, TapboxB, and TapboxC.
+The examples all work similarly—each creates a container that,
+when tapped, toggles between a green or grey box.
+The <code class="highlighter-rouge">_active</code> boolean determines the color: green for active or
+grey for inactive.</p>
+
+<p><img src="images/tapbox-active-state.png" style="border:1px solid black" alt="a large green box with the text, 'Active'" />      <img src="images/tapbox-inactive-state.png" style="border:1px solid black" alt="a large grey box with the text, 'Inactive'" /></p>
+
+<p>These examples use
+<a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html">GestureDetector</a>
+to capture activity on the Container.</p>
+
+<p><a name="self-managed"></a></p>
+<h3 id="the-widget-manages-its-own-state">The widget manages its own state</h3>
+
+<p>Sometimes it makes the most sense for the widget to manage its state internally.
+For example,
+<a href="https://docs.flutter.io/flutter/widgets/ListView-class.html">ListView</a>
+automatically scrolls when its content exceeds the render box. Most
+developers using ListView don’t want to manage ListView’s
+scrolling behavior, so ListView itself manages its scroll offset.</p>
+
+<p>The _TapboxAState class:</p>
+
+<ul>
+  <li>Manages state for TapboxA.</li>
+  <li>Defines the <code class="highlighter-rouge">_active</code> boolean which determines the box’s current color.</li>
+  <li>Defines the <code class="highlighter-rouge">_handleTap()</code> function, which updates <code class="highlighter-rouge">_active</code> when the box is
+tapped and calls the <code class="highlighter-rouge">setState()</code> function to update the UI.</li>
+  <li>Implements all interactive behavior for the widget.</li>
+</ul>
+
+<!-- code/layout/lakes-interactive/main.dart -->
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// TapboxA manages its own state.
+
+//------------------------- TapboxA ----------------------------------
+
+class TapboxA extends StatefulWidget {
+  TapboxA({Key key}) : super(key: key);
+
+  @override
+  _TapboxAState createState() =&gt; new _TapboxAState();
+}
+
+class _TapboxAState extends State&lt;TapboxA&gt; {
+  bool _active = false;
+
+  void _handleTap() {
+    setState(() {
+      _active = !_active;
+    });
+  }
+
+  Widget build(BuildContext context) {
+    return new GestureDetector(
+      onTap: _handleTap,
+      child: new Container(
+        child: new Center(
+          child: new Text(
+            _active ? &#39;Active&#39; : &#39;Inactive&#39;,
+            style: new TextStyle(fontSize: 32.0, color: Colors.white),
+          ),
+        ),
+        width: 200.0,
+        height: 200.0,
+        decoration: new BoxDecoration(
+          color: _active ? Colors.lightGreen[700] : Colors.grey[600],
+        ),
+      ),
+    );
+  }
+}
+
+//------------------------- MyApp ----------------------------------
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Flutter Demo&#39;,
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text(&#39;Flutter Demo&#39;),
+        ),
+        body: new Center(
+          child: new TapboxA(),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+<p><strong>Dart code:</strong>
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/tapbox-a/main.dart"><code class="highlighter-rouge">lib/main.dart</code></a></p>
+
+<hr />
+
+<p><a name="parent-managed"></a></p>
+<h3 id="the-parent-widget-manages-the-widgets-state">The parent widget manages the widget’s state</h3>
+
+<p>Often it makes the most sense for the parent widget to manage the state
+and tell its child widget when to update. For example,
+<a href="https://docs.flutter.io/flutter/material/IconButton-class.html">IconButton</a>
+allows you to treat an icon as a tappable button.
+IconButton is a stateless widget because we decided that
+the parent widget needs to know whether the button has been tapped,
+so it can take appropriate action.</p>
+
+<p>In the following example, TapboxB exports its state to its parent
+through a callback. Because TapboxB doesn’t manage any state, it
+subclasses StatelessWidget.</p>
+
+<p>The ParentWidgetState class:</p>
+
+<ul>
+  <li>Manages the <code class="highlighter-rouge">_active</code> state for TapboxB.</li>
+  <li>Implements <code class="highlighter-rouge">_handleTapboxChanged()</code>, the method called when the box is tapped.</li>
+  <li>When the state changes, calls <code class="highlighter-rouge">setState()</code> to update the UI.</li>
+</ul>
+
+<p>The TapboxB class:</p>
+
+<ul>
+  <li>Extends StatelessWidget because all state is handled by its parent.</li>
+  <li>When a tap is detected, it notifies the parent.</li>
+</ul>
+
+<!-- code/layout/tapbox-b/main.dart -->
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// ParentWidget manages the state for TapboxB.
+
+//------------------------ ParentWidget --------------------------------
+
+class ParentWidget extends StatefulWidget {
+  @override
+  _ParentWidgetState createState() =&gt; new _ParentWidgetState();
+}
+
+class _ParentWidgetState extends State&lt;ParentWidget&gt; {
+  bool _active = false;
+
+  void _handleTapboxChanged(bool newValue) {
+    setState(() {
+      _active = newValue;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      child: new TapboxB(
+        active: _active,
+        onChanged: _handleTapboxChanged,
+      ),
+    );
+  }
+}
+
+//------------------------- TapboxB ----------------------------------
+
+class TapboxB extends StatelessWidget {
+  TapboxB({Key key, this.active: false, @required this.onChanged})
+      : super(key: key);
+
+  final bool active;
+  final ValueChanged&lt;bool&gt; onChanged;
+
+  void _handleTap() {
+    onChanged(!active);
+  }
+
+  Widget build(BuildContext context) {
+    return new GestureDetector(
+      onTap: _handleTap,
+      child: new Container(
+        child: new Center(
+          child: new Text(
+            active ? &#39;Active&#39; : &#39;Inactive&#39;,
+            style: new TextStyle(fontSize: 32.0, color: Colors.white),
+          ),
+        ),
+        width: 200.0,
+        height: 200.0,
+        decoration: new BoxDecoration(
+          color: active ? Colors.lightGreen[700] : Colors.grey[600],
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+<p><strong>Dart code:</strong>
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/tapbox-b/main.dart"><code class="highlighter-rouge">lib/main.dart</code></a></p>
+
+<aside class="alert alert-success">
+  <p><i class="fa fa-lightbulb-o"> </i> <strong>Tip:</strong>
+When creating API, consider using the <code class="highlighter-rouge">@required</code> annotation for
+any parameters that your code relies on.
+To use <code class="highlighter-rouge">@required</code>, import the <a href="https://docs.flutter.io/flutter/foundation/foundation-library.html">foundation
+library</a>
+(which re-exports Dart’s
+<a href="https://pub.dartlang.org/packages/meta">meta.dart</a> library):</p>
+
+  <pre>
+import 'package: flutter/foundation.dart';
+</pre>
+</aside>
+
+<hr />
+
+<p><a name="mix-and-match"></a></p>
+<h3 id="a-mix-and-match-approach">A mix-and-match approach</h3>
+
+<p>For some widgets, a mix-and-match approach makes the most sense.
+In this scenario, the stateful widget manages some of the state,
+and the parent widget manages other aspects of the state.</p>
+
+<p>In the TapboxC example, on tap down, a dark green border appears around the box.
+On tap up, the border disappears and the box’s color changes.
+TapboxC exports its <code class="highlighter-rouge">_active</code> state to its parent but
+manages its <code class="highlighter-rouge">_highlight</code> state internally.
+This example has two State objects, _ParentWidgetState and _TapboxCState.</p>
+
+<p>The _ParentWidgetState object:</p>
+
+<ul>
+  <li>Manages the <code class="highlighter-rouge">_active</code> state.</li>
+  <li>Implements <code class="highlighter-rouge">_handleTapboxChanged()</code>, the method called when the box is tapped.</li>
+  <li>Calls <code class="highlighter-rouge">setState()</code> to update the UI when a tap occurs and the <code class="highlighter-rouge">_active</code>
+state changes.</li>
+</ul>
+
+<p>The _TapboxCState object:</p>
+
+<ul>
+  <li>Manages the <code class="highlighter-rouge">_highlight</code> state.</li>
+  <li>The GestureDetector listens to all tap events.
+As the user taps down, it adds the highlight
+(implemented as a dark green border).
+As the user releases the tap, it removes the highlight.</li>
+  <li>Calls <code class="highlighter-rouge">setState()</code> to update the UI on tap down, tap up, or tap cancel, and
+the <code class="highlighter-rouge">_highlight</code> state changes.</li>
+  <li>On a tap event, passes that state change to the parent widget to take
+appropriate action using the
+<a href="https://docs.flutter.io/flutter/widgets/State/widget.html">widget</a>
+property.</li>
+</ul>
+
+<!-- code/layout/tapbox-c/main.dart -->
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>//---------------------------- ParentWidget ----------------------------
+
+class ParentWidget extends StatefulWidget {
+  @override
+  _ParentWidgetState createState() =&gt; new _ParentWidgetState();
+}
+
+class _ParentWidgetState extends State&lt;ParentWidget&gt; {
+  bool _active = false;
+
+  void _handleTapboxChanged(bool newValue) {
+    setState(() {
+      _active = newValue;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      child: new TapboxC(
+        active: _active,
+        onChanged: _handleTapboxChanged,
+      ),
+    );
+  }
+}
+
+//----------------------------- TapboxC ------------------------------
+
+class TapboxC extends StatefulWidget {
+  TapboxC({Key key, this.active: false, @required this.onChanged})
+      : super(key: key);
+
+  final bool active;
+  final ValueChanged&lt;bool&gt; onChanged;
+
+  _TapboxCState createState() =&gt; new _TapboxCState();
+}
+
+class _TapboxCState extends State&lt;TapboxC&gt; {
+  bool _highlight = false;
+
+  void _handleTapDown(TapDownDetails details) {
+    setState(() {
+      _highlight = true;
+    });
+  }
+
+  void _handleTapUp(TapUpDetails details) {
+    setState(() {
+      _highlight = false;
+    });
+  }
+
+  void _handleTapCancel() {
+    setState(() {
+      _highlight = false;
+    });
+  }
+
+  void _handleTap() {
+    widget.onChanged(!widget.active);
+  }
+
+  Widget build(BuildContext context) {
+    // This example adds a green border on tap down.
+    // On tap up, the square changes to the opposite state.
+    return new GestureDetector(
+      onTapDown: _handleTapDown, // Handle the tap events in the order that
+      onTapUp: _handleTapUp, // they occur: down, up, tap, cancel
+      onTap: _handleTap,
+      onTapCancel: _handleTapCancel,
+      child: new Container(
+        child: new Center(
+          child: new Text(widget.active ? &#39;Active&#39; : &#39;Inactive&#39;,
+              style: new TextStyle(fontSize: 32.0, color: Colors.white)),
+        ),
+        width: 200.0,
+        height: 200.0,
+        decoration: new BoxDecoration(
+          color:
+              widget.active ? Colors.lightGreen[700] : Colors.grey[600],
+          border: _highlight
+              ? new Border.all(
+                  color: Colors.teal[700],
+                  width: 10.0,
+                )
+              : null,
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+<p>An alternate implementation might have exported the highlight state to the
+parent while keeping the active state internal,
+but if you asked someone to use that tap box, they’d probably complain that
+it doesn’t make much sense. The developer cares whether the box is active.
+The developer probably doesn’t care how the highlighting is managed,
+and prefers that the tap box handles those details.</p>
+
+<p><strong>Dart code:</strong>
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/tapbox-c/main.dart"><code class="highlighter-rouge">lib/main.dart</code></a></p>
+
+<hr />
+
+<p><a name="other-interactive-widgets"></a></p>
+<h2 id="other-interactive-widgets">Other interactive widgets</h2>
+
+<p>Flutter offers a variety of buttons and similar interactive widgets.
+Most of these widgets implement the <a href="https://material.io/guidelines/">Material Design
+guidelines,</a> which define a set of
+components with an opinionated UI.</p>
+
+<p>If you prefer, you can use
+<a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html">GestureDetector</a>
+to build interactivity into any custom widget. You can find examples of
+GestureDetector in <a href="#managing-state">Managing state</a>, and in the
+<a href="https://github.com/flutter/flutter/tree/master/examples/flutter_gallery">Flutter
+Gallery</a>.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Flutter also provides a set of iOS-style widgets called
+<a href="https://docs.flutter.io/flutter/cupertino/cupertino-library.html">Cupertino</a>.</p>
+</aside>
+
+<p>When you need interactivity,
+it’s easiest to use one of the prefabricated widgets. Here’s a partial list:</p>
+
+<h3 id="standard-widgets">Standard widgets:</h3>
+
+<ul>
+  <li><a href="https://docs.flutter.io/flutter/widgets/Form-class.html">Form</a></li>
+  <li><a href="https://docs.flutter.io/flutter/widgets/FormField-class.html">FormField</a></li>
+</ul>
+
+<h3 id="material-components">Material Components:</h3>
+
+<ul>
+  <li><a href="https://docs.flutter.io/flutter/material/Checkbox-class.html">Checkbox</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/DropdownButton-class.html">DropdownButton</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/FlatButton-class.html">FlatButton</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/FloatingActionButton-class.html">FloatingActionButton</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/IconButton-class.html">IconButton</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/Radio-class.html">Radio</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/RaisedButton-class.html">RaisedButton</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/Slider-class.html">Slider</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/Switch-class.html">Switch</a></li>
+  <li><a href="https://docs.flutter.io/flutter/material/TextField-class.html">TextField</a></li>
+</ul>
+
+<p><a name="resources"></a></p>
+<h2 id="resources">Resources</h2>
+
+<p>The following resources may help when adding interactivity to your app.</p>
+
+<ul>
+  <li><a href="https://flutter.io/widgets-intro/#handling-gestures">Handling gestures</a>,
+a section in <a href="https://flutter.io/widgets-intro/">A Tour of the Flutter Widget
+Framework</a><br />
+How to create a button and make it respond to input.</li>
+  <li><a href="https://flutter.io/gestures/">Gestures in Flutter</a><br />
+A description of Flutter’s gesture mechanism.</li>
+  <li><a href="https://docs.flutter.io/">Flutter API documentation</a><br />
+Reference documentation for all of the Flutter libraries.</li>
+  <li><a href="https://github.com/flutter/flutter/tree/master/examples/flutter_gallery">Flutter
+Gallery</a><br />
+Demo app showcasing many Material Components and other Flutter features.</li>
+  <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Flutter’s Layered
+ Design (video)</a><br />
+ This video includes information about state and stateless widgets.
+ Presented by Google engineer, Ian Hickson.</li>
+</ul>
+
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

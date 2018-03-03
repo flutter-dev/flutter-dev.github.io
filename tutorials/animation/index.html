@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tutorial: Animations in Flutter  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/tutorials/animation/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/tutorials/animation/index.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Tutorial: Animations in Flutter&body=From URL: http://localhost:4000/tutorials/animation/index.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Tutorial: Animations in Flutter </h1>
+   </div>
+
+  </header>
+  
+
+  <div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What you’ll learn:</b></p>
+
+  <ul>
+    <li>How to use the fundamental classes from the animation library to add
+animation to a widget.</li>
+    <li>When to use AnimatedWidget vs. AnimatedBuilder.</li>
+  </ul>
+
+</div>
+
+<p>This tutorial shows you how to build animations in Flutter.
+After introducing some of the essential concepts, classes, and methods
+in the animation library, it walks you through 5 animation examples.
+The examples build on each other,
+introducing you to different aspects of the animation library.</p>
+
+<ul>
+  <li><a href="#concepts">Essential animation concepts and classes</a>
+    <ul>
+      <li><a href="#animation-class">Animations&lt;double&gt;</a></li>
+      <li><a href="#animationcontroller">AnimationController</a></li>
+      <li><a href="#curvedanimation">CurvedAnimation</a></li>
+      <li><a href="#tween">Tween</a></li>
+      <li><a href="#animation-notifications">Animation notifications</a></li>
+    </ul>
+  </li>
+  <li><a href="#animation-examples">Animation examples</a>
+    <ul>
+      <li><a href="#rendering-animations">Rendering animations</a></li>
+      <li><a href="#monitoring">Monitoring the progress of an animation</a></li>
+      <li><a href="#simplifying-with-animatedwidget">Simplifying with AnimatedWidget</a></li>
+      <li><a href="#refactoring-with-animatedbuilder">Refactoring with AnimatedBuilder</a></li>
+      <li><a href="#simultaneous-animations">Simultaneous animations</a></li>
+    </ul>
+  </li>
+  <li><a href="#next-steps">Next steps</a></li>
+</ul>
+
+<p><a name="concepts"></a></p>
+<h2 id="essential-animation-concepts-and-classes">Essential animation concepts and classes</h2>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>The Animation object, a core class in Flutter’s animation library,
+interpolates the values used to guide an animation.</li>
+    <li>The Animation object knows the current state of an animation (for example,
+whether it’s started, stopped, or moving forward or in reverse),
+but doesn’t know anything about what appears onscreen.</li>
+    <li>An AnimationController manages the Animation.</li>
+    <li>A CurvedAnimation defines progression as a non-linear curve.</li>
+    <li>A Tween interpolates between the range of data as used by the
+object being animated. For example, a Tween might define an interpolation
+from red to blue, or from 0 to 255.</li>
+    <li>Use Listeners and StatusListeners to monitor animation state changes.</li>
+  </ul>
+
+</div>
+
+<p>The animation system in Flutter is based on typed
+<a href="https://docs.flutter.io/flutter/animation/Animation-class.html"><code class="highlighter-rouge">Animation</code></a>
+objects. Widgets can either incorporate these animations in their build
+functions directly by reading their current value and listening to their
+state changes or they can use the animations as the basis of more elaborate
+animations that they pass along to other widgets.</p>
+
+<p><a name="animation-class"></a></p>
+<h3 id="animationdouble">Animation&lt;double&gt;</h3>
+
+<p>In Flutter, an Animation object knows nothing about what is onscreen.
+An Animation is an abstract class that understands its current value
+and its state (completed or dismissed). One of the more commonly used
+animation types is Animation&lt;double&gt;.</p>
+
+<p>An Animation object in Flutter is a class that sequentially generates
+interpolated numbers between two values over a certain duration.
+The output of an Animation object may be linear, a curve, a step function,
+or any other mapping you can devise. Depending on how the Animation object
+is controlled, it could run in reverse, or even switch directions in the
+middle.</p>
+
+<p>Animations can also interpolate types other than double, such as
+Animation&lt;Color&gt; or Animation&lt;Size&gt;.</p>
+
+<p><code class="highlighter-rouge">Animation</code> object has state. Its current value is always available
+in the <code class="highlighter-rouge">.value</code> member.</p>
+
+<p>An Animation object knows nothing about rendering or <code class="highlighter-rouge">build()</code> functions.</p>
+
+<h3 id="curvedanimation">CurvedAnimation</h3>
+
+<p>A CurvedAnimation defines the animation’s progress as a non-linear curve.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>final CurvedAnimation curve =
+    new CurvedAnimation(parent: controller, curve: Curves.easeIn);</code></pre>
+
+<aside class="alert alert-success">
+  <p><strong>Note:</strong>
+The <a href="https://docs.flutter.io/flutter/animation/Curves-class.html">Curves</a>
+class defines many commonly used curves, or you can create your own.
+For example:</p>
+
+  <!-- skip -->
+  <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class ShakeCurve extends Curve {
+  @override
+  double transform(double t) {
+    return math.sin(t * math.PI * 2);
+  }
+}</code></pre>
+</aside>
+
+<p>CurvedAnimation and AnimationController (described in the next section)
+are both of type Animation&lt;double&gt;, so you can pass them interchangeably.
+The CurvedAnimation wraps the object it’s modifying—you
+don’t subclass AnimationController to implement a curve.</p>
+
+<h3 id="animationcontroller">AnimationController</h3>
+
+<p>AnimationController is a special Animation object that generates a new
+value whenever the hardware is ready for a new frame. By default,
+an AnimationController linearly produces the numbers from 0.0 to 1.0
+during a given duration. For example, this code creates an Animation object,
+but does not start it running:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>final AnimationController controller = new AnimationController(
+    duration: const Duration(milliseconds: 2000), vsync: this);</code></pre>
+
+<p>AnimationController derives from Animation&lt;double&gt;, so it can be used
+wherever an Animation object is needed. However, the AnimationController
+has additional methods to control the animation. For example, you start
+an animation with the <code class="highlighter-rouge">.forward()</code> method. The generation of numbers is
+tied to the screen refresh, so typically 60 numbers are generated per
+second. After each number is generated, each Animation object calls the
+attached Listener objects. To create a custom display list for each
+child, see
+<a href="https://docs.flutter.io/flutter/widgets/RepaintBoundary-class.html">RepaintBoundary</a>.</p>
+
+<p>When creating an AnimationController, you pass it a <code class="highlighter-rouge">vsync</code> argument.
+The presence of <code class="highlighter-rouge">vsync</code> prevents offscreen animations from consuming
+unnecessary resources. You can use your stateful object as the vsync
+by adding SingleTickerProviderStateMixin to the class definition.
+You can see an example of this in
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate1/main.dart">animate1</a>
+on GitHub.</p>
+
+<aside class="alert alert-success">
+  <p><strong>Note</strong>:
+In some cases, a position might exceed the AnimationController’s
+0.0-1.0 range. For example, the <code class="highlighter-rouge">fling()</code> function allows you to provide
+velocity, force, and position (via the Force object).
+The position can be anything and so can be outside of the 0.0 to 1.0 range.</p>
+
+  <p>A CurvedAnimation can also exceed the 0.0 to 1.0 range,
+even if the AnimationController doesn’t. Depending on the curve selected,
+the output of the CurvedAnimation can have a wider range than the input.
+For example, elastic curves such as Curves.elasticIn will significantly
+overshoot or undershoot the default range.</p>
+</aside>
+
+<h3 id="tween">Tween</h3>
+
+<p>By default, the AnimationController object ranges from 0.0 to 1.0.
+If you need a different range or a different data type,
+you can use a Tween to configure an animation to interpolate to a
+different range or data type. For example, the following Tween
+goes from -200.0 to 0.0:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>final Tween doubleTween = new Tween&lt;double&gt;(begin: -200.0, end: 0.0);</code></pre>
+
+<p>A Tween is a stateless object that takes only <code class="highlighter-rouge">begin</code> and <code class="highlighter-rouge">end</code>.
+The sole job of a Tween is to define a mapping from an input range
+to an output range. The input range is commonly 0.0 to 1.0,
+but that’s not a requirement.</p>
+
+<p>A Tween inherits from Animatable&lt;T&gt;, not from Animation&lt;T&gt;.
+An Animatable, like Animation, doesn’t have to output double.
+For example, ColorTween specifies a progression between two colors.</p>
+
+<!--- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>final Tween colorTween =
+    new ColorTween(begin: Colors.transparent, end: Colors.black54);</code></pre>
+
+<p>A Tween object does not store any state. Instead, it provides the
+<code class="highlighter-rouge">evaluate(Animation&lt;double&gt; animation)</code> method that applies the mapping
+function to the current value of the animation. The current value of the
+<code class="highlighter-rouge">Animation</code> object can be found in the <code class="highlighter-rouge">.value</code> method.
+The evaluate function also performs some housekeeping,
+such as ensuring that begin and end are returned when the animation
+values are 0.0 and 1.0, respectively.</p>
+
+<h4 id="tweenanimate">Tween.animate</h4>
+
+<p>To use a Tween object, call <code class="highlighter-rouge">animate()</code> on the Tween, passing in the
+controller object. For example, the following code generates the
+integer values from 0 to 255 over the course of 500 ms.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>final AnimationController controller = new AnimationController(
+    duration: const Duration(milliseconds: 500), vsync: this);
+Animation&lt;int&gt; alpha = new IntTween(begin: 0, end: 255).animate(controller);</code></pre>
+
+<p>Notice that <code class="highlighter-rouge">animate()</code> returns an Animation, not an Animatable.</p>
+
+<p>The following example shows a controller, a curve, and a Tween:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>final AnimationController controller = new AnimationController(
+    duration: const Duration(milliseconds: 500), vsync: this);
+final Animation curve =
+    new CurvedAnimation(parent: controller, curve: Curves.easeOut);
+Animation&lt;int&gt; alpha = new IntTween(begin: 0, end: 255).animate(curve);</code></pre>
+
+<h3 id="animation-notifications">Animation notifications</h3>
+
+<p>An Animation object can have Listeners and StatusListeners,
+defined with <code class="highlighter-rouge">addListener()</code> and <code class="highlighter-rouge">addStatusListener()</code>.
+A Listener is called whenever the value of the animation changes.
+The most common behavior of a Listener is to call <code class="highlighter-rouge">setState()</code>
+to cause a rebuild. A StatusListener is called when an animation begins,
+ends, moves forward, or moves reverse, as defined by AnimationStatus.
+The next section has an example of the <code class="highlighter-rouge">addListener()</code> method,
+and <a href="#monitoring">Monitoring the progress of the animation</a> shows an
+example of <code class="highlighter-rouge">addStatusListener()</code>.</p>
+
+<hr />
+
+<h2 id="animation-examples">Animation examples</h2>
+
+<p>This section walks you through 5 animation examples.
+Each section provides a link to the source code for that example.</p>
+
+<h3 id="rendering-animations">Rendering animations</h3>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>How to add basic animation to a widget using <code class="highlighter-rouge">addListener()</code> and
+<code class="highlighter-rouge">setState()</code>.</li>
+    <li>Every time the Animation generates a new number, the <code class="highlighter-rouge">addListener()</code>
+function calls <code class="highlighter-rouge">setState()</code>.</li>
+    <li>How to define an AnimatedController with the required <code class="highlighter-rouge">vsync</code> parameter.</li>
+    <li>Understanding the “<code class="highlighter-rouge">..</code>” syntax in “<code class="highlighter-rouge">..addListener</code>”, also known as Dart’s
+<em>cascade notation</em>.</li>
+    <li>To make a class private, start its name with an underscore (<code class="highlighter-rouge">_</code>).</li>
+  </ul>
+
+</div>
+
+<p>So far you’ve learned how to generate a sequence of numbers over time.
+Nothing has been rendered to the screen. To render with an
+Animation&lt;&gt; object, store the Animation object as a
+member of your Widget, then use its value to decide how to draw.</p>
+
+<p>Consider the following application that draws the Flutter logo without
+animation:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
+
+class LogoApp extends StatefulWidget {
+  _LogoAppState createState() =&gt; new _LogoAppState();
+}
+
+class _LogoAppState extends State&lt;LogoApp&gt; {
+  Widget build(BuildContext context) {
+    return new Center(
+      child: new Container(
+        margin: new EdgeInsets.symmetric(vertical: 10.0),
+        height: 300.0,
+        width: 300.0,
+        child: new FlutterLogo(),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(new LogoApp());
+}</code></pre>
+
+<p>The following shows the same code modified to animate the
+logo to grow from nothing to full size. When
+defining an AnimationController, you must pass in a <code class="highlighter-rouge">vsync</code> object.
+The <code class="highlighter-rouge">vsync</code> parameter is described in the
+<a href="#animationcontroller">AnimationController</a> section.</p>
+
+<p>The changes from the non-animated example are highlighted:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code><span class="nocode highlight">import &#39;package:flutter/animation.dart&#39;;</span>
+import &#39;package:flutter/material.dart&#39;;
+
+class LogoApp extends StatefulWidget {
+  _LogoAppState createState() =&gt; new _LogoAppState();
+}
+
+class _LogoAppState extends State&lt;LogoApp&gt; <span class="nocode highlight">with SingleTickerProviderStateMixin</span> {
+  <span class="nocode highlight">Animation&lt;double&gt; animation;</span>
+  <span class="nocode highlight">AnimationController controller;</span>
+
+  <span class="nocode highlight">initState() {</span>
+    <span class="nocode highlight">super.initState();</span>
+    <span class="nocode highlight">controller = new AnimationController(</span>
+        <span class="nocode highlight">duration: const Duration(milliseconds: 2000), vsync: this);</span>
+    <span class="nocode highlight">animation = new Tween(begin: 0.0, end: 300.0).animate(controller)</span>
+      <span class="nocode highlight">..addListener(() {</span>
+        <span class="nocode highlight">setState(() {</span>
+          <span class="nocode highlight">// the state that has changed here is the animation object’s value</span>
+        <span class="nocode highlight">});</span>
+      <span class="nocode highlight">});</span>
+    <span class="nocode highlight">controller.forward();</span>
+  <span class="nocode highlight">}</span>
+
+  Widget build(BuildContext context) {
+    return new Center(
+      child: new Container(
+        margin: new EdgeInsets.symmetric(vertical: 10.0),
+        height: <span class="nocode highlight">animation.value,</span>
+        width: <span class="nocode highlight">animation.value,</span>
+        child: new FlutterLogo(),
+      ),
+    );
+  }
+
+  <span class="nocode highlight">dispose() {</span>
+    <span class="nocode highlight">controller.dispose();</span>
+    <span class="nocode highlight">super.dispose();</span>
+  }
+}
+
+void main() {
+  runApp(new LogoApp());
+}</code></pre>
+
+<p>The <code class="highlighter-rouge">addListener()</code> function calls <code class="highlighter-rouge">setState()</code>, so every time the
+Animation generates a new number, the current frame is marked dirty,
+which forces <code class="highlighter-rouge">build()</code> to be called again.
+In <code class="highlighter-rouge">build()</code>, the container changes size because its height and width
+now use <code class="highlighter-rouge">animation.value</code> instead of a hardcoded value.
+Dispose of the controller when the animation is finished to prevent
+memory leaks.</p>
+
+<p>With these few changes, you’ve created your first animation in Flutter!
+You can find the source for this example,
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate1/main.dart">animate1.</a></p>
+
+<aside class="alert alert-success">
+  <p><strong>Dart language tricks</strong>
+You may not be familiar with Dart’s cascade notation—the two
+dots in <code class="highlighter-rouge">..addListener()</code>. This syntax means that the <code class="highlighter-rouge">addListener()</code>
+method is called with the return value from <code class="highlighter-rouge">animate()</code>.
+Consider the following example:</p>
+
+  <!-- skip -->
+  <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code><span class="nocode highlight">animation = tween.animate(controller)</span>
+          <span class="nocode highlight">..addListener(()</span> {
+            setState(() {
+              // the animation object’s value is the changed state
+            });
+          });</code></pre>
+
+  <p>This code is equivalent to:</p>
+
+  <!-- skip -->
+  <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code><span class="nocode highlight">animation = tween.animate(controller);</span>
+<span class="nocode highlight">animation.addListener(()</span> {
+            setState(() {
+              // the animation object’s value is the changed state
+            });
+          });</code></pre>
+
+  <p>You can learn more about cascade notation in the
+<a href="https://www.dartlang.org/guides/language/language-tour">Dart Language Tour.</a></p>
+</aside>
+
+<h3 id="simplifying-with-animatedwidget">Simplifying with AnimatedWidget</h3>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>How to use the AnimatedWidget helper class (instead of <code class="highlighter-rouge">addListener()</code>
+and <code class="highlighter-rouge">setState()</code>) to create a widget that animates.</li>
+    <li>Use AnimatedWidget to create a widget that performs a reusable animation.
+To separate the transition from the widget, use an
+<a href="#refactoring-with-animatedbuilder">AnimatedBuilder.</a></li>
+    <li>Examples of AnimatedWidgets in the Flutter API: AnimatedBuilder,
+AnimatedModalBarrier, DecoratedBoxTransition, FadeTransition,
+PositionedTransition, RelativePositionedTransition, RotationTransition,
+ScaleTransition, SizeTransition, SlideTransition.</li>
+  </ul>
+
+</div>
+
+<p>The AnimatedWidget class allows you to separate out the widget code
+from the animation code in the <code class="highlighter-rouge">setState()</code> call. AnimatedWidget
+doesn’t need to maintain a State object to hold the animation.</p>
+
+<p>In the refactored example below, LogoApp now derives from AnimatedWidget
+instead of StatefulWidget. AnimatedWidget uses the current value of the
+animation when drawing itself. The LogoApp still manages the
+AnimationController and the Tween.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Demonstrate a simple animation with AnimatedWidget
+
+import &#39;package:flutter/animation.dart&#39;;
+import &#39;package:flutter/material.dart&#39;;
+
+class AnimatedLogo extends AnimatedWidget {
+  AnimatedLogo({Key key, Animation&lt;double&gt; animation})
+      : super(key: key, listenable: animation);
+
+  Widget build(BuildContext context) {
+    final Animation&lt;double&gt; animation = listenable;
+    return new Center(
+      child: new Container(
+        margin: new EdgeInsets.symmetric(vertical: 10.0),
+        height: animation.value,
+        width: animation.value,
+        child: new FlutterLogo(),
+      ),
+    );
+  }
+}
+
+class LogoApp extends StatefulWidget {
+  _LogoAppState createState() =&gt; new _LogoAppState();
+}
+
+class _LogoAppState extends State&lt;LogoApp&gt; with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation&lt;double&gt; animation;
+
+  initState() {
+    super.initState();
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 2000), vsync: this);
+    animation = new Tween(begin: 0.0, end: 300.0).animate(controller);
+    controller.forward();
+  }
+
+  Widget build(BuildContext context) {
+    return new AnimatedLogo(animation: animation);
+  }
+
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}
+
+void main() {
+  runApp(new LogoApp());
+}</code></pre>
+
+<p>LogoApp passes the Animation object to the base class and uses
+<code class="highlighter-rouge">animation.value</code> to set the height and width of the container, so
+it works exactly the same as before.</p>
+
+<p>You can find the source for this example,
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate2/main.dart">animate2,</a>
+on GitHub.</p>
+
+<p><a name="monitoring"></a></p>
+<h3 id="monitoring-the-progress-of-the-animation">Monitoring the progress of the animation</h3>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>Use addStatusListener for notifications of changes to the animation’s
+state, such as starting, stopping, or reversing direction.</li>
+    <li>Run an animation in an infinite loop by reversing direction when
+the animation has either completed or returned to its starting state.</li>
+  </ul>
+
+</div>
+
+<p>It’s often helpful to know when an animation changes state,
+such as finishing, moving forward, or reversing.
+You can get notifications for this with <code class="highlighter-rouge">addStatusListener()</code>.
+The following code modifies the
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate1/main.dart">animate1</a>
+example so that it listens for a state change and prints an update.
+The highlighted line shows the change:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class _LogoAppState extends State&lt;LogoApp&gt; with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation&lt;double&gt; animation;
+
+  initState() {
+    super.initState();
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 2000), vsync: this);
+    animation = new Tween(begin: 0.0, end: 300.0).animate(controller)
+      <span class="nocode highlight">..addStatusListener((state) =&gt; print(&quot;$state&quot;));</span>
+    controller.forward();
+  }
+  //...
+}</code></pre>
+
+<p>Running this code produces lines like the following:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-sh language-sh"><code>AnimationStatus.forward
+AnimationStatus.completed</code></pre>
+
+<p>Next, use <code class="highlighter-rouge">addStatusListener()</code> to reverse the animation at the
+beginning or the end. This creates a “breathing” effect:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class _LogoAppState extends State&lt;LogoApp&gt; with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation&lt;double&gt; animation;
+
+  initState() {
+    super.initState();
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 2000), vsync: this);
+    animation = new Tween(begin: 0.0, end: 300.0).animate(controller);
+
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        controller.forward();
+      }
+    });
+    controller.forward();
+  }
+  //...
+}</code></pre>
+
+<p>You can find the source for this example,
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate3/main.dart">animate3,</a>
+on GitHub.</p>
+
+<h3 id="refactoring-with-animatedbuilder">Refactoring with AnimatedBuilder</h3>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>An AnimatedBuilder understands how to render the transition.</li>
+    <li>An AnimatedBuilder doesn’t know how to render the widget, nor does it
+manage the Animation object.</li>
+    <li>Use AnimatedBuilder to describe an animation as part of a build method
+for another widget. If you simply want to define a widget with a reusable
+animation, use <a href="#simplifying-with-animatedwidget">AnimatedWidget.</a></li>
+    <li>Examples of AnimatedBuilders in the Flutter API: BottomSheet, ExpansionTile,
+PopupMenu, ProgressIndicator, RefreshIndicator, Scaffold, SnackBar, TabBar,
+TextField.</li>
+  </ul>
+
+</div>
+
+<p>One problem with the code in the
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate3/main.dart">animate3</a>
+example, is that changing
+the animation required changing the widget that renders the logo.
+A better solution is to separate responsibilities into different
+classes:</p>
+
+<ul>
+  <li>Render the logo</li>
+  <li>Define the Animation object</li>
+  <li>Render the transition</li>
+</ul>
+
+<p>You can accomplish this separation with the help of the
+AnimatedBuilder class. An AnimatedBuilder is a separate class in the
+render tree. Like AnimatedWidget, AnimatedBuilder automatically
+listens to notifications from the Animation object, and marks
+the widget tree dirty as necessary, so you don’t need to call
+<code class="highlighter-rouge">addListener()</code>.</p>
+
+<p>The widget tree for the
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate5/main.dart">animate5</a>
+example looks like this:</p>
+
+<p><img src="images/AnimatedBuilder-WidgetTree.png" alt="A widget tree with Container pointing to ContainerTransition, pointing to AnimatedBuilder, pointing to (AnonymousBuilder), pointing to LogoWidget." /></p>
+
+<p>Starting from the bottom of the widget tree, the code for rendering
+the logo is straightforward:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class LogoWidget extends StatelessWidget {
+  // Leave out the height and width so it fills the animating parent
+  build(BuildContext context) {
+    return new Container(
+      margin: new EdgeInsets.symmetric(vertical: 10.0),
+      child: new FlutterLogo(),
+    );
+  }
+}</code></pre>
+
+<p>The middle three blocks in the diagram are all created in the
+<code class="highlighter-rouge">build()</code> method in GrowTransition. The GrowTransition widget itself
+is stateless and holds the set of final variables necessary to
+define the transition animation. The build() function creates and
+returns the AnimatedBuilder, which takes the (Anonymous builder)
+method and the LogoWidget object as parameters. The work of
+rendering the transition actually happens in the (Anonymous builder)
+method, which creates a Container of the appropriate size to force
+the LogoWidget to shrink to fit.</p>
+
+<p>One tricky point in the code below is that the child looks like it’s
+specified twice. What’s happening is that the outer reference of
+child is passed to AnimatedBuilder, which passes it to the anonymous
+closure, which then uses that object as its child. The net result is
+that the AnimatedBuilder is inserted in between the two widgets in
+the render tree.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class GrowTransition extends StatelessWidget {
+  GrowTransition({this.child, this.animation});
+
+  final Widget child;
+  final Animation&lt;double&gt; animation;
+
+  Widget build(BuildContext context) {
+    return new Center(
+      child: new AnimatedBuilder(
+          animation: animation,
+          builder: (BuildContext context, Widget child) {
+            return new Container(
+                height: animation.value, width: animation.value, child: child);
+          },
+          child: child),
+    );
+  }
+}</code></pre>
+
+<p>Finally, the code to initialize the animation looks very similar to
+the first example,
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate1/main.dart">animate1.</a>
+The <code class="highlighter-rouge">initState()</code> method creates an AnimationController
+and a Tween, then binds them with <code class="highlighter-rouge">animate()</code>. The magic happens in the
+<code class="highlighter-rouge">build()</code> method, which returns a GrowTransition object with a
+LogoWidget as a child, and an animation object to drive the transition.
+These are the three elements listed in the bullet points above.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class LogoApp extends StatefulWidget {
+  _LogoAppState createState() =&gt; new _LogoAppState();
+}
+
+class _LogoAppState extends State&lt;LogoApp&gt; with TickerProviderStateMixin {
+  Animation animation;
+  AnimationController controller;
+
+  initState() {
+    super.initState();
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 2000), vsync: this);
+    final CurvedAnimation curve =
+        new CurvedAnimation(parent: controller, curve: Curves.easeIn);
+    animation = new Tween(begin: 0.0, end: 300.0).animate(curve);
+    controller.forward();
+  }
+
+  Widget build(BuildContext context) {
+    return new GrowTransition(child: new LogoWidget(), animation: animation);
+  }
+
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}
+
+void main() {
+  runApp(new LogoApp());
+}</code></pre>
+
+<p>You can find the source for this example,
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate4/main.dart">animate4,</a>
+on GitHub.</p>
+
+<h3 id="simultaneous-animations">Simultaneous animations</h3>
+
+<div class="whats-the-point">
+
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</b></p>
+
+  <ul>
+    <li>The <a href="https://docs.flutter.io/flutter/animation/Curves-class.html">Curves</a>
+class defines an array of commonly used curves that you can use with a
+<a href="https://docs.flutter.io/flutter/animation/CurvedAnimation-class.html">CurvedAnimation</a>.</li>
+  </ul>
+
+</div>
+
+<p>In this section, you’ll build on the example from <a href="#monitoring">monitoring
+the progress of the animation</a>
+(<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate3/main.dart">animate3</a>),
+which used AnimatedWidget to animate in and out continuously. Consider the case
+where you want to animate in and out while the opacity animates from
+transparent to opaque.</p>
+
+<aside class="alert alert-success">
+  <p><strong>Note:</strong>
+This example shows how to use multiple tweens on the same animation
+controller, where each tween manages a different effect in the animation.
+It is for illustrative purposes only. If you were tweening opacity and
+size in production code, you’d probably use
+<a href="https://docs.flutter.io/flutter/widgets/FadeTransition-class.html">FadeTransition</a> and
+<a href="https://docs.flutter.io/flutter/widgets/SizeTransition-class.html">SizeTransition</a>
+instead.</p>
+</aside>
+
+<p>Each tween manages an aspect of the animation. For example:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>final AnimationController controller =
+    new AnimationController(duration: const Duration(milliseconds: 2000), vsync: this);
+final Animation&lt;double&gt; sizeAnimation =
+    new Tween(begin: 0.0, end: 300.0).animate(controller);
+final Animation&lt;double&gt; opacityAnimation =
+    new Tween(begin: 0.1, end: 1.0).animate(controller);</code></pre>
+
+<p>You can get the size with <code class="highlighter-rouge">sizeAnimation.value</code> and the opacity
+with <code class="highlighter-rouge">opacityAnimation.value</code>, but the constructor for AnimatedWidget
+only takes a single Animation object. To solve this problem,
+the example creates its own Tween objects and explicitly calculates the
+values.</p>
+
+<p>LogoApp widget was changed to encapsulate its own Tween objects.
+Its <code class="highlighter-rouge">build</code> method calls the Tween <code class="highlighter-rouge">.evaluate()</code> function on the parent’s
+animation object to calculate the required size and opacity values.</p>
+
+<p>The following code shows the changes with highlights:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/animation.dart&#39;;
+import &#39;package:flutter/material.dart&#39;;
+
+class AnimatedLogo extends AnimatedWidget {
+  // The Tweens are static because they don&#39;t change.
+  <span class="nocode highlight">static final _opacityTween = new Tween&lt;double&gt;(begin: 0.1, end: 1.0);</span>
+  <span class="nocode highlight">static final _sizeTween = new Tween&lt;double&gt;(begin: 0.0, end: 300.0);</span>
+
+  AnimatedLogo({Key key, Animation&lt;double&gt; animation})
+      : super(key: key, listenable: animation);
+
+  Widget build(BuildContext context) {
+    final Animation&lt;double&gt; animation = listenable;
+    return new Center(
+      <span class="nocode highlight">child: new Opacity(</span>
+        <span class="nocode highlight">opacity: _opacityTween.evaluate(animation),</span>
+        child: new Container(
+          margin: new EdgeInsets.symmetric(vertical: 10.0),
+          height: <span class="nocode highlight">_sizeTween.evaluate(animation)</span>,
+          width: <span class="nocode highlight">_sizeTween.evaluate(animation)</span>,
+          child: new FlutterLogo(),
+        ),
+      ),
+    );
+  }
+}
+
+class LogoApp extends StatefulWidget {
+  _LogoAppState createState() =&gt; new _LogoAppState();
+}
+
+class _LogoAppState extends State&lt;LogoApp&gt; with TickerProviderStateMixin {
+  AnimationController controller;
+  Animation&lt;double&gt; animation;
+
+  initState() {
+    super.initState();
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 2000), vsync: this);
+    animation = <span class="nocode highlight">new CurvedAnimation(parent: controller, curve: Curves.easeIn);</span>
+
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        controller.forward();
+      }
+    });
+
+    controller.forward();
+  }
+
+  Widget build(BuildContext context) {
+    return new AnimatedLogo(animation: animation);
+  }
+
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}
+
+void main() {
+  runApp(new LogoApp());
+}</code></pre>
+
+<p>You can find the source for this example,
+<a href="https://raw.githubusercontent.com/flutter/website/master/_includes/code/animation/animate5/main.dart">animate5,</a>
+on GitHub.</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>This tutorial gives you a foundation for creating animations in Flutter
+using Tweens, but there are many other classes to explore.
+You might investigate the specialized Tween classes,
+animations specific to Material Design, ReverseAnimation, shared element
+transitions (also known as Hero animations), physics simulations and
+<code class="highlighter-rouge">fling()</code> methods. See the <a href="/animations/">animations landing page</a>
+for the latest available documents and examples.</p>
+
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

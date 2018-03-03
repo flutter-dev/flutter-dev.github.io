@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML/CSS Analogs in Flutter  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/web-analogs/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/web-analogs.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page HTML/CSS Analogs in Flutter&body=From URL: http://localhost:4000/web-analogs.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">HTML/CSS Analogs in Flutter </h1>
+   </div>
+
+  </header>
+  
+
+  <link rel="stylesheet" href="/css/two_column.css" />
+
+<ul id="markdown-toc">
+  <li><a href="#performing-basic-layout-operations" id="markdown-toc-performing-basic-layout-operations">Performing Basic Layout Operations</a>    <ul>
+      <li><a href="#styling-and-aligning-text" id="markdown-toc-styling-and-aligning-text">Styling and Aligning Text</a></li>
+      <li><a href="#setting-background-color" id="markdown-toc-setting-background-color">Setting Background Color</a></li>
+      <li><a href="#centering-components" id="markdown-toc-centering-components">Centering Components</a></li>
+      <li><a href="#setting-container-width" id="markdown-toc-setting-container-width">Setting Container Width</a></li>
+    </ul>
+  </li>
+  <li><a href="#manipulating-position-and-size" id="markdown-toc-manipulating-position-and-size">Manipulating Position and Size</a>    <ul>
+      <li><a href="#setting-absolute-position" id="markdown-toc-setting-absolute-position">Setting Absolute Position</a></li>
+      <li><a href="#rotating-components" id="markdown-toc-rotating-components">Rotating Components</a></li>
+      <li><a href="#scaling-components" id="markdown-toc-scaling-components">Scaling Components</a></li>
+      <li><a href="#applying-a-linear-gradient" id="markdown-toc-applying-a-linear-gradient">Applying a Linear Gradient</a>        <ul>
+          <li><a href="#vertical-gradient" id="markdown-toc-vertical-gradient">Vertical Gradient</a></li>
+          <li><a href="#horizontal-gradient" id="markdown-toc-horizontal-gradient">Horizontal Gradient</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#manipulating-shapes" id="markdown-toc-manipulating-shapes">Manipulating Shapes</a>    <ul>
+      <li><a href="#rounding-corners" id="markdown-toc-rounding-corners">Rounding Corners</a></li>
+      <li><a href="#adding-box-shadows" id="markdown-toc-adding-box-shadows">Adding Box Shadows</a></li>
+      <li><a href="#making-circles-and-ellipses" id="markdown-toc-making-circles-and-ellipses">Making Circles and Ellipses</a></li>
+    </ul>
+  </li>
+  <li><a href="#manipulating-text" id="markdown-toc-manipulating-text">Manipulating Text</a>    <ul>
+      <li><a href="#adjusting-text-spacing" id="markdown-toc-adjusting-text-spacing">Adjusting Text Spacing</a></li>
+      <li><a href="#transforming-text" id="markdown-toc-transforming-text">Transforming Text</a></li>
+      <li><a href="#making-inline-formatting-changes" id="markdown-toc-making-inline-formatting-changes">Making Inline Formatting Changes</a></li>
+      <li><a href="#creating-text-excerpts" id="markdown-toc-creating-text-excerpts">Creating Text Excerpts</a></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="begin-examples"></div>
+<p>This page is for users who are familiar with the HTML and CSS syntax for
+arranging components of an application’s UI. It maps HTML/CSS code snippets to
+their Flutter/Dart code equivalents.</p>
+
+<p>The examples assume:</p>
+<ul>
+  <li>The HTML document starts with a modern HTML DOCTYPE, and the CSS box model
+for all HTML elements is set to <a href="https://css-tricks.com/box-sizing/">border-box</a>,
+for consistency with the Flutter model.
+    <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;!DOCTYPE html&gt;
+
+ {
+   box-sizing: border-box;
+ }</code></pre>
+  </li>
+  <li>In Flutter, the default styling of the “Lorem ipsum” text is defined by the
+<code class="highlighter-rouge">bold24Roboto</code> variable as follows, to keep the syntax simple:
+    <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>TextStyle bold24Roboto = new TextStyle(
+  color: Colors.white,
+  fontSize: 24.0,
+  fontWeight: FontWeight.w900,
+);</code></pre>
+  </li>
+</ul>
+
+<h2 id="performing-basic-layout-operations">Performing Basic Layout Operations</h2>
+
+<p>The following examples show how to perform the most common UI layout tasks.</p>
+
+<h3 id="styling-and-aligning-text">Styling and Aligning Text</h3>
+<p>Font style, size, and other text attributes that CSS handles with the font and
+color properties are individual properties of a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html">TextStyle</a>
+child of a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> widget.</p>
+
+<p>In both HTML and Flutter, by default child elements or widgets are anchored at
+the top left.</p>
+
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+    Lorem ipsum
+&lt;/div&gt;
+
+.greybox {
+      background-color: #e0e0e0; /* grey 300 */
+      width: 320px;
+      height: 240px;
+<span class="nocode highlight">      font: 900 24px Georgia;</span>
+    }</code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Text(
+    &quot;Lorem ipsum&quot;,
+    style: <span class="nocode highlight">new TextStyle(
+      fontSize: 24.0
+      fontWeight: FontWeight.w900,
+      fontFamily: &quot;Georgia&quot;,
+    ),</span>
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="setting-background-color">Setting Background Color</h3>
+<p>In Flutter, you set background color in a <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a>’s
+<code class="highlighter-rouge">decoration</code> property.</p>
+
+<p>The CSS examples use the hex color equivalents to the Material color palette.</p>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  Lorem ipsum
+&lt;/div&gt;
+
+.greybox {
+<span class="nocode highlight">      background-color: #e0e0e0; </span> /* grey 300 */
+      width: 320px;
+      height: 240px;
+      font: 900 24px Roboto;
+    }</code></pre>
+</div>
+
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+    child: new Text(
+      &quot;Lorem ipsum&quot;,
+      style: bold24Roboto,
+    ),
+    width: 320.0,
+    height: 240.0,
+<span class="nocode highlight">    color: Colors.grey[300],</span>
+  );</code></pre>
+</div>
+
+<h3 id="centering-components">Centering Components</h3>
+<p>A <a href="https://docs.flutter.io/flutter/widgets/Center-class.html">Center</a> widget
+centers its child both horizontally and vertically.</p>
+
+<p>To accomplish a similar effect in CSS, the parent element uses either a flex
+or table-cell display behavior. The examples on this page show the flex
+behavior.</p>
+
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  Lorem ipsum
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+<span class="nocode highlight">  display: flex;
+  align-items: center;
+  justify-content: center; </span>
+}</code></pre>
+</div>
+
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: <span class="nocode highlight"> new Center(
+    child: </span> new Text(
+      &quot;Lorem ipsum&quot;,
+      style: bold24Roboto,
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="setting-container-width">Setting Container Width</h3>
+
+<p>To specify the width of a <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a>
+widget you set its <code class="highlighter-rouge">width</code> property. This is a fixed width, unlike the
+CSS max-width property which adjusts container width up to a maximum value. To
+mimic that effect in Flutter, use the <code class="highlighter-rouge">constraints</code> property of the Container.
+Create a new <a href="https://docs.flutter.io/flutter/rendering/BoxConstraints-class.html">BoxConstraints</a>
+widget with a <code class="highlighter-rouge">minWidth</code> or <code class="highlighter-rouge">maxWidth</code>.</p>
+
+<p>For nested Containers, if the parent’s width is less than the child’s width,
+the child Container sizes itself to match the parent.</p>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+<span class="nocode highlight">  width: 320px; </span>
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">    width: 100%;
+  max-width: 240px; </span>
+}</code></pre>
+</div>
+
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red box
+      child: new Text(
+        &quot;Lorem ipsum&quot;,
+        style: bold24Roboto,
+      ),
+      decoration: new BoxDecoration(
+        color: Colors.red[400],
+      ),
+      padding: new EdgeInsets.all(16.0),
+<span class="nocode highlight">      width: 240.0, </span>//max-width is 240.0
+    ),
+  ),
+<span class="nocode highlight">  width: 320.0, </span>
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h2 id="manipulating-position-and-size">Manipulating Position and Size</h2>
+<p>The following examples show how to perform more complex operations on widget
+position, size, and background.</p>
+
+<h3 id="setting-absolute-position">Setting Absolute Position</h3>
+
+<p>By default, widgets are positioned relative to their parent.</p>
+
+<p>To specify an absolute position for a widget as x-y coordinates, nest it in a
+<a href="https://docs.flutter.io/flutter/widgets/Positioned-class.html">Positioned</a>
+widget that is in turn nested in a <a href="https://docs.flutter.io/flutter/widgets/Stack-class.html">Stack</a>
+widget.</p>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+<span class="nocode highlight">  position: relative; </span>
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  position: absolute;
+  top: 24px;
+  left: 24px; </span>
+}</code></pre>
+</div>
+
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+<span class="nocode highlight">  child: new Stack(
+    children: [
+      new Positioned( // red box
+        child: </span> new Container(
+          child: new Text(
+            &quot;Lorem ipsum&quot;,
+            style: bold24Roboto,
+          ),
+          decoration: new BoxDecoration(
+            color: Colors.red[400],
+          ),
+          padding: new EdgeInsets.all(16.0),
+        ),
+<span class="nocode highlight">        left: 24.0,
+        top: 24.0,
+      ),
+    ],
+  ), </span>
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="rotating-components">Rotating Components</h3>
+
+<p>To rotate a widget, nest it in a <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html">Transform</a>
+widget. Use the Transform widget’s <code class="highlighter-rouge">alignment</code> and <code class="highlighter-rouge">origin</code> properties to
+specify the transform origin (fulcrum) in relative and absolute terms, respectively.</p>
+
+<p>For a simple 2D rotation, the widget is rotated on the Z axis using radians.
+(degrees × π / 180)</p>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  transform: rotate(15deg); </span>
+}</code></pre>
+</div>
+
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // gray box
+  child: new Center(
+    child: <span class="nocode highlight"> new Transform(
+      child: </span> new Container( // red box
+        child: new Text(
+          &quot;Lorem ipsum&quot;,
+          style: bold24Roboto,
+          textAlign: TextAlign.center,
+        ),
+        decoration: new BoxDecoration(
+          color: Colors.red[400],
+        ),
+        padding: new EdgeInsets.all(16.0),
+      ),
+<span class="nocode highlight">      alignment: Alignment.center,
+      transform: new Matrix4.identity()
+        ..rotateZ(15 * 3.1415927 / 180),
+    ), </span>
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="scaling-components">Scaling Components</h3>
+
+<p>To scale a widget up or down, nest it in a <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html">Transform</a>
+widget. Use the Transform widget’s <code class="highlighter-rouge">alignment</code> and <code class="highlighter-rouge">origin</code> properties to specify
+the transform origin (fulcrum) in relative and absolute terms, respectively.</p>
+
+<p>For a simple scaling operation along the x-axis, create a new
+<a href="https://docs.flutter.io/flutter/vector_math_64/Matrix4-class.html">Matrix4</a>
+identity object and use its scale() method to specify the scaling factor.</p>
+
+<p>When you scale a parent widget, all its child widgets are scaled accordingly.</p>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  transform: scale(1.5); </span>
+}</code></pre>
+</div>
+
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // gray box
+  child: new Center(
+    child: <span class="nocode highlight"> new Transform(
+      child: </span> new Container( // red box
+        child: new Text(
+          &quot;Lorem ipsum&quot;,
+          style: bold24Roboto,
+          textAlign: TextAlign.center,
+        ),
+        decoration: new BoxDecoration(
+          color: Colors.red[400],
+        ),
+        padding: new EdgeInsets.all(16.0),
+      ),
+<span class="nocode highlight">      alignment: Alignment.center,
+      transform: new Matrix4.identity()
+        ..scale(1.5),
+     ), </span>
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="applying-a-linear-gradient">Applying a Linear Gradient</h3>
+
+<p>To apply a linear gradient to a widget’s background, nest it in a
+<a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> widget.
+Then use the Container widget’s <code class="highlighter-rouge">decoration</code> property to create a <a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>
+object, and use BoxDecoration’s <code class="highlighter-rouge">gradient</code> property to transform the background
+fill.</p>
+
+<p>The gradient “angle” is based on the Alignment (x, y) values:</p>
+
+<ul>
+  <li>If the beginning and ending x values are equal, the gradient is vertical
+(0° | 180°).</li>
+  <li>If the beginning and ending y values are equal, the gradient is horizontal
+(90° | 270°).</li>
+</ul>
+
+<h4 id="vertical-gradient">Vertical Gradient</h4>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  background: linear-gradient(180deg, #ef5350, rgba(0, 0, 0, 0) 80%); </span>
+}</code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red box
+      child: new Text(
+        &quot;Lorem ipsum&quot;,
+        style: bold24Roboto,
+      ),
+<span class="nocode highlight">      decoration: new BoxDecoration(
+        gradient: new LinearGradient(
+          begin: const Alignment(0.0, -1.0),
+          end: const Alignment(0.0, 0.6),
+          colors: &lt;Color&gt;[
+            const Color(0xffef5350),
+            const Color(0x00ef5350)
+          ],
+        ),
+      ), </span>
+      padding: new EdgeInsets.all(16.0),
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h4 id="horizontal-gradient">Horizontal Gradient</h4>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  background: linear-gradient(90deg, #ef5350, rgba(0, 0, 0, 0) 80%); </span>
+}</code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red box
+      child: new Text(
+        &quot;Lorem ipsum&quot;,
+        style: bold24Roboto,
+      ),
+<span class="nocode highlight">      decoration: new BoxDecoration(
+        gradient: new LinearGradient(
+          begin: const Alignment(-1.0, 0.0),
+          end: const Alignment(0.6, 0.0),
+          colors: &lt;Color&gt;[
+            const Color(0xffef5350),
+            const Color(0x00ef5350)
+          ],
+        ),
+      ), </span>
+      padding: new EdgeInsets.all(16.0),
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h2 id="manipulating-shapes">Manipulating Shapes</h2>
+<p>The following examples show how to make and customize shapes.</p>
+
+<h3 id="rounding-corners">Rounding Corners</h3>
+<p>To round the corners of a rectangular shape, use the <code class="highlighter-rouge">borderRadius</code> property of a
+<a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>
+object. Create a new <a href="https://docs.flutter.io/flutter/painting/BorderRadius-class.html">BorderRadius</a>
+object that specifies the radii for rounding each corner.</p>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* gray 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  border-radius: 8px; </span>
+}</code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red circle
+      child: new Text(
+        &quot;Lorem ipsum&quot;,
+        style: bold24Roboto,
+      ),
+      decoration: new BoxDecoration(
+        color: Colors.red[400],
+<span class="nocode highlight">        borderRadius: new BorderRadius.all(
+          const Radius.circular(8.0),
+        ), </span>
+      ),
+      padding: new EdgeInsets.all(16.0),
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="adding-box-shadows">Adding Box Shadows</h3>
+<p>In CSS you can specify shadow offset and blur in shorthand, using the box-shadow
+property. This example shows two box shadows, with properties:</p>
+<ul>
+  <li><code class="highlighter-rouge">xOffset: 0px, yOffset: 2px, blur: 4px, color: black @80% alpha</code></li>
+  <li><code class="highlighter-rouge">xOffset: 0px, yOffset: 06x, blur: 20px, color: black @50% alpha</code>.</li>
+</ul>
+
+<p>In Flutter, each property and value is specified separately. Use the <code class="highlighter-rouge">boxShadow</code>
+property of BoxDecoration to create a list of <a href="https://docs.flutter.io/flutter/painting/BoxShadow-class.html">BoxShadow</a>
+widgets. You can define one or multiple BoxShadow widgets, which can be stacked
+to customize the shadow depth, color, etc.</p>
+
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8),
+              0 6px 20px rgba(0, 0, 0, 0.5);</span>
+}</code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red box
+      child: new Text(
+        &quot;Lorem ipsum&quot;,
+        style: bold24Roboto,
+      ),
+      decoration: new BoxDecoration(
+        color: Colors.red[400],
+<span class="nocode highlight">        boxShadow: &lt;BoxShadow&gt;[
+          new BoxShadow (
+            color: const Color(0xcc000000),
+            offset: new Offset(0.0, 2.0),
+            blurRadius: 4.0,
+          ),
+          new BoxShadow (
+            color: const Color(0x80000000),
+            offset: new Offset(0.0, 6.0),
+            blurRadius: 20.0,
+          ),
+        ], </span>
+      ),
+      padding: new EdgeInsets.all(16.0),
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  decoration: new BoxDecoration(
+    color: Colors.grey[300],
+  ),
+  margin: new EdgeInsets.only(bottom: 16.0),
+);</code></pre>
+</div>
+
+<h3 id="making-circles-and-ellipses">Making Circles and Ellipses</h3>
+<p>Making a circle in CSS requires a workaround of applying a border-radius of
+50% to all four sides of a rectangle.</p>
+
+<p>While this approach is supported with the <code class="highlighter-rouge">borderRadius</code> property of
+<a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>,
+Flutter provides a <code class="highlighter-rouge">shape</code> property with <a href="https://docs.flutter.io/flutter/painting/BoxShape-class.html">BoxShape enum</a>
+for this purpose.</p>
+
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redcircle&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* gray 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redcircle {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  text-align: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%; </span>
+}</code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red circle
+      child: new Text(
+        &quot;Lorem ipsum&quot;,
+        style: bold24Roboto,
+<span class="nocode highlight">        textAlign: TextAlign.center, </span>
+      ),
+      decoration: new BoxDecoration(
+        color: Colors.red[400],
+<span class="nocode highlight">        shape: BoxShape.circle, </span>
+      ),
+      padding: new EdgeInsets.all(16.0),
+<span class="nocode highlight">      width: 160.0,
+      height: 160.0, </span>
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h2 id="manipulating-text">Manipulating Text</h2>
+<p>The following examples show how to specify fonts and other text attributes. They
+also show how to transform text strings, customize spacing, and create excerpts.</p>
+
+<h3 id="adjusting-text-spacing">Adjusting Text Spacing</h3>
+
+<p>In CSS you specify the amount of white space between each letter or word by
+giving a length value for the letter-spacing and word-spacing properties,
+respectively. The amount of space can be in px, pt, cm, em, etc.</p>
+
+<p>In Flutter, you specify white space as logical pixels (negative values are allowed)
+for the <code class="highlighter-rouge">letterSpacing</code> and wordSpacing <code class="highlighter-rouge">properties</code> of a
+<a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html">TextStyle</a>
+child of a Text widget.</p>
+
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  letter-spacing: 4px; </span>
+}</code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red box
+      child: new Text(
+        &quot;Lorem ipsum&quot;,
+        style: new TextStyle(
+          color: Colors.white,
+          fontSize: 24.0,
+          fontWeight: FontWeight.w900,
+<span class="nocode highlight">          letterSpacing: 4.0, </span>
+        ),
+      ),
+      decoration: new BoxDecoration(
+        color: Colors.red[400],
+      ),
+      padding: new EdgeInsets.all(16.0),
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="transforming-text">Transforming Text</h3>
+<p>In HTML/CSS, you perform simple case transformations using the text-transform
+property.</p>
+
+<p>In Flutter, you transform the contents of a Text widget using the methods and
+operators of the <a href="https://docs.flutter.io/flutter/dart-core/String-class.html">String class</a>
+in the dart:core library.</p>
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+<span class="nocode highlight">    Lorem ipsum </span>
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  text-transform: uppercase; </span>
+}</code></pre>
+</div>
+
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red box
+      child: new Text(
+<span class="nocode highlight">        &quot;Lorem ipsum&quot;.toUpperCase(), </span>
+        style: bold24Roboto,
+      ),
+      decoration: new BoxDecoration(
+        color: Colors.red[400],
+      ),
+      padding: new EdgeInsets.all(16.0),
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="making-inline-formatting-changes">Making Inline Formatting Changes</h3>
+
+<p>A <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> widget lets
+you display text with the same formatting characteristics. To
+display text that uses multiple styles (in this example, a single word with
+emphasis), use a <a href="https://docs.flutter.io/flutter/widgets/RichText-class.html">RichText</a>
+widget instead. Its <code class="highlighter-rouge">text</code> property can specify one or more
+<a href="https://docs.flutter.io/flutter/painting/TextSpan-class.html">TextSpan</a> widgets
+that can be individually styled.</p>
+
+<p>In the following example, “Lorem” is in a TextSpan widget with the default
+(inherited) text styling, and “ipsum” is in a separate TextSpan with custom
+styling.</p>
+
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+<span class="nocode highlight">    Lorem &lt;em&gt;ipsum&lt;/em&gt; </span>
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+<span class="nocode highlight">  font: 900 24px Roboto; </span>
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+}
+<span class="nocode highlight"> .redbox em {
+  font: 300 48px Roboto;
+  font-style: italic;
+} </span></code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red box
+      child: <span class="nocode highlight"> new RichText(
+        text: new TextSpan(
+          style: bold24Roboto,
+          children: &lt;TextSpan&gt;[
+            new TextSpan(text: &quot;Lorem &quot;),
+            new TextSpan(
+              text: &quot;ipsum&quot;,
+              style: new TextStyle(
+                fontWeight: FontWeight.w300,
+                fontStyle: FontStyle.italic,
+                fontSize: 48.0,
+              ),
+            ),
+          ],
+        ),
+      ), </span>
+      decoration: new BoxDecoration(
+        backgroundColor: Colors.red[400],
+      ),
+      padding: new EdgeInsets.all(16.0),
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+
+<h3 id="creating-text-excerpts">Creating Text Excerpts</h3>
+
+<p>An excerpt displays the initial line(s) of text in a paragraph, and handles the
+overflow text, often using an ellipsis. In HTML/CSS an excerpt can be no longer
+than one line. Truncating after multiple lines requires some JavaScript code.</p>
+
+<p>In Flutter, use the <code class="highlighter-rouge">maxLines</code> property of a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a>
+widget to specify the number of lines to include in the excerpt, and the
+<code class="highlighter-rouge">overflow</code> property for handling overflow text.</p>
+
+<div class="lefthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
+  &lt;div class=&quot;redbox&quot;&gt;
+    Lorem ipsum dolor sit amet, consec etur
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.greybox {
+  background-color: #e0e0e0; /* grey 300 */
+  width: 320px;
+  height: 240px;
+  font: 900 24px Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.redbox {
+  background-color: #ef5350; /* red 400 */
+  padding: 16px;
+  color: #ffffff;
+<span class="nocode highlight">  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; </span>
+}</code></pre>
+</div>
+<div class="righthighlight">
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>var container = new Container( // grey box
+  child: new Center(
+    child: new Container( // red box
+      child: new Text(
+        &quot;Lorem ipsum dolor sit amet, consec etur&quot;,
+        style: bold24Roboto,
+<span class="nocode highlight">        overflow: TextOverflow.ellipsis,
+        maxLines: 1, </span>
+      ),
+      decoration: new BoxDecoration(
+        backgroundColor: Colors.red[400],
+      ),
+      padding: new EdgeInsets.all(16.0),
+    ),
+  ),
+  width: 320.0,
+  height: 240.0,
+  color: Colors.grey[300],
+);</code></pre>
+</div>
+<div class="end-examples"></div>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

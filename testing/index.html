@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Testing Flutter Apps  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/testing/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/testing.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Testing Flutter Apps&body=From URL: http://localhost:4000/testing.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Testing Flutter Apps </h1>
+   </div>
+
+  </header>
+  
+
+  <ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#unit-testing" id="markdown-toc-unit-testing">Unit testing</a></li>
+  <li><a href="#widget-testing" id="markdown-toc-widget-testing">Widget testing</a></li>
+  <li><a href="#integration-testing" id="markdown-toc-integration-testing">Integration testing</a>    <ul>
+      <li><a href="#adding-the-flutter_driver-dependency" id="markdown-toc-adding-the-flutter_driver-dependency">Adding the flutter_driver dependency</a></li>
+      <li><a href="#creating-instrumented-flutter-apps" id="markdown-toc-creating-instrumented-flutter-apps">Creating instrumented Flutter apps</a></li>
+      <li><a href="#writing-integration-tests" id="markdown-toc-writing-integration-tests">Writing integration tests</a></li>
+      <li><a href="#running-integration-tests" id="markdown-toc-running-integration-tests">Running integration tests</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The more features your app has, the harder it is to test it manually. A
+good set of automated tests will help you make sure your app performs
+correctly before you publish it while retaining your feature and bug fix
+velocity.</p>
+
+<p>There are many kinds of automated testing. These are summarized below:</p>
+
+<ul>
+  <li>A <em>unit test</em> tests a single function, method, or class. External dependencies
+of the unit under test are generally mocked out using, for example,
+<a href="https://github.com/fibulwinter/dart-mockito/blob/master/README.md"><code class="highlighter-rouge">package:mockito</code></a>.
+Unit tests generally do not read from/write to disk, render to screen and do
+not receive user actions from outside the process running the test. The goal
+of a unit test is to verify the correctness of a unit of logic under a
+variety of conditions.</li>
+  <li>A <em>widget test</em> (in other UI frameworks referred to as <em>component test</em>) tests
+a single widget. Testing a widget involves multiple classes and requires a
+test environment that provides the appropriate widget lifecycle context. For
+example, it should be able to receive and respond to user actions and events,
+perform layout, and instantiate child widgets. A widget test is
+therefore more comprehensive than a unit test. However, like a unit test, a
+widget test’s environment is replaced with an implementation much simpler than
+a full-blown UI system. The goal of a widget test is to verify that the
+widget’s UI looks and interacts as expected.</li>
+  <li>An <a href="https://en.wikipedia.org/wiki/Integration_testing"><em>integration test</em></a>
+tests a complete app or a large part of an app. Generally, an
+<em>integration test</em> runs on a real device or an OS emulator, such as iOS
+Simulator or Android Emulator. The app under test is typically isolated from
+the test driver code to avoid skewing the results. The goal of an integration
+test is to verify that the app functions correctly as a whole, that all the
+widgets it is composed of integrate with each other as expected. You can also
+use your integration tests to verify your app’s performance.</li>
+</ul>
+
+<p>Here is a table summarizing the tradeoffs concerning the choice between
+different kinds of tests:</p>
+
+<table class="flutter-table">
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Unit</th>
+      <th>Widget</th>
+      <th>Integration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Confidence</strong></td>
+      <td>Low</td>
+      <td>Higher</td>
+      <td>Highest</td>
+    </tr>
+    <tr>
+      <td><strong>Maintenance cost</strong></td>
+      <td>Low</td>
+      <td>Higher</td>
+      <td>Highest</td>
+    </tr>
+    <tr>
+      <td><strong>Dependencies</strong></td>
+      <td>Few</td>
+      <td>More</td>
+      <td>Lots</td>
+    </tr>
+    <tr>
+      <td><strong>Execution speed</strong></td>
+      <td>Quick</td>
+      <td>Slower</td>
+      <td>Slowest</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Tip</strong>: As a rule of thumb a well-tested app has a very high number of unit
+and widget tests, tracked by <a href="https://en.wikipedia.org/wiki/Code_coverage">code coverage</a>,
+and a good number of integration tests covering all the important usage
+scenarios.</p>
+
+<h2 id="unit-testing">Unit testing</h2>
+
+<p>Some Flutter libraries, such as <code class="highlighter-rouge">dart:ui</code>, are not available in the standalone
+Dart VM that ships with the default Dart SDK. The <code class="highlighter-rouge">flutter test</code> command lets
+you run your tests in a local Dart VM with a headless version of the Flutter
+Engine, which supplies these libraries. Using this command you can run any test,
+whether it depends on Flutter libraries or not.</p>
+
+<p>Write a Flutter unit test as a normal <code class="highlighter-rouge">package:test</code> test. Writing unit tests
+using <code class="highlighter-rouge">package:test</code> is documented <a href="https://github.com/dart-lang/test/blob/master/README.md">here</a>.</p>
+
+<p>Example:</p>
+
+<p>Add this file to <code class="highlighter-rouge">test/unit_test.dart</code>:</p>
+
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:test/test.dart&#39;;
+
+void main() {
+  test(&#39;my first unit test&#39;, () {
+    <span class="nocode highlight">var answer = 42;</span>
+    expect(answer, 42);
+  });
+}</code></pre>
+
+<p>In addition, you must add the following block to your <code class="highlighter-rouge">pubspec.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dev_dependencies</span><span class="pi">:</span>
+  <span class="s">flutter_test</span><span class="pi">:</span>
+    <span class="s">sdk</span><span class="pi">:</span> <span class="s">flutter</span>
+</code></pre>
+</div>
+
+<p>(This is needed even if your test does not itself explicitly import
+<code class="highlighter-rouge">flutter_test</code>, because the test framework itself uses it behind the
+scenes.)</p>
+
+<p>To run the test, run <code class="highlighter-rouge">flutter test test/unit_test.dart</code> from your
+project directory (not from the <code class="highlighter-rouge">test</code> subdirectory).</p>
+
+<p>To run all your tests, run <code class="highlighter-rouge">flutter test</code> from your project directory.</p>
+
+<h2 id="widget-testing">Widget testing</h2>
+
+<p>You implement a widget test in a similar way as a unit test. To perform an
+interaction with a widget in your test, use the
+<a href="https://docs.flutter.io/flutter/flutter_test/WidgetTester-class.html"><code class="highlighter-rouge">WidgetTester</code></a>
+utility that Flutter provides. For example, you can send tap and scroll
+gestures. You can also use
+<a href="https://docs.flutter.io/flutter/flutter_test/WidgetTester-class.html"><code class="highlighter-rouge">WidgetTester</code></a>
+to find child widgets in the widget tree, read text, and verify that the values
+of widget properties are correct.</p>
+
+<p>Example:</p>
+
+<p>Add this file to <code class="highlighter-rouge">test/widget_test.dart</code>:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:flutter_test/flutter_test.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">testWidgets</span><span class="o">(</span><span class="s">'my first widget test'</span><span class="o">,</span> <span class="o">(</span><span class="n">WidgetTester</span> <span class="n">tester</span><span class="o">)</span> <span class="n">async</span> <span class="o">{</span>
+    <span class="c1">// You can use keys to locate the widget you need to test</span>
+    <span class="kd">var</span> <span class="n">sliderKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UniqueKey</span><span class="o">();</span>
+    <span class="kd">var</span> <span class="n">value</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+
+    <span class="c1">// Tells the tester to build a UI based on the widget tree passed to it</span>
+    <span class="n">await</span> <span class="n">tester</span><span class="o">.</span><span class="na">pumpWidget</span><span class="o">(</span>
+      <span class="k">new</span> <span class="n">StatefulBuilder</span><span class="o">(</span>
+        <span class="nl">builder:</span> <span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">StateSetter</span> <span class="n">setState</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+            <span class="nl">home:</span> <span class="k">new</span> <span class="n">Material</span><span class="o">(</span>
+              <span class="nl">child:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+                <span class="nl">child:</span> <span class="k">new</span> <span class="n">Slider</span><span class="o">(</span>
+                  <span class="nl">key:</span> <span class="n">sliderKey</span><span class="o">,</span>
+                  <span class="nl">value:</span> <span class="n">value</span><span class="o">,</span>
+                  <span class="nl">onChanged:</span> <span class="o">(</span><span class="kt">double</span> <span class="n">newValue</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+                      <span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span><span class="o">;</span>
+                    <span class="o">});</span>
+                  <span class="o">},</span>
+                <span class="o">),</span>
+              <span class="o">),</span>
+            <span class="o">),</span>
+          <span class="o">);</span>
+        <span class="o">},</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+    <span class="n">expect</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">equals</span><span class="o">(</span><span class="mf">0.0</span><span class="o">));</span>
+
+    <span class="c1">// Taps on the widget found by key</span>
+    <span class="n">await</span> <span class="n">tester</span><span class="o">.</span><span class="na">tap</span><span class="o">(</span><span class="n">find</span><span class="o">.</span><span class="na">byKey</span><span class="o">(</span><span class="n">sliderKey</span><span class="o">));</span>
+
+    <span class="c1">// Verifies that the widget updated the value correctly</span>
+    <span class="n">expect</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">equals</span><span class="o">(</span><span class="mf">0.5</span><span class="o">));</span>
+  <span class="o">});</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Run <code class="highlighter-rouge">flutter test test/widget_test.dart</code>.</p>
+
+<p>Check out <a href="https://docs.flutter.io/flutter/flutter_test/flutter_test-library.html"><code class="highlighter-rouge">package:flutter_test</code> API</a>
+for all the utilities available for widget testing.</p>
+
+<p>To help debug widget tests, you can use the <a href="https://docs.flutter.io/flutter/widgets/debugDumpApp.html"><code class="highlighter-rouge">debugDumpApp()</code></a> function to visualize the UI state of your test or simply <code class="highlighter-rouge">flutter run test/widget_test.dart</code> to see your test run in your preferred runtime environment such as a simulator or a device. During a <code class="highlighter-rouge">flutter run</code> session on a widget test, you can also interactively tap parts of the screen for the Flutter tool to print the suggested <a href="https://docs.flutter.io/flutter/flutter_test/CommonFinders-class.html"><code class="highlighter-rouge">Finder</code></a>.</p>
+
+<h2 id="integration-testing">Integration testing</h2>
+
+<p>A Flutter integration test is also written using <code class="highlighter-rouge">package:test</code>. A full test is a
+pair - a test script and a Flutter app instrumented to receive commands
+from the test. Unlike unit and widget tests, integration test code does not run
+in the same process as the app that’s being tested. Instead, the tested
+app is launched on a <em>real device</em> or in an <em>emulator</em> (e.g. Android
+simulator or iOS Simulator). The test script runs on your computer. It connects
+to the app and issues commands to the app to perform various
+user actions. This is known as “driving” the app. Flutter provides tools
+and APIs, collectively referred to as <em>Flutter Driver</em>, to do just that.</p>
+
+<blockquote>
+  <p>If you are familiar with Selenium/WebDriver (web), Espresso (Android) or UI
+Automation (iOS), then Flutter Driver is Flutter’s equivalent to those
+integration testing tools. In addition, Flutter Driver provides API for
+recording performance traces (a.k.a. the <em>timeline</em>) from actions performed
+by the test.</p>
+</blockquote>
+
+<p>Flutter Driver is:</p>
+
+<ul>
+  <li>a command-line tool <code class="highlighter-rouge">flutter drive</code></li>
+  <li>a package <code class="highlighter-rouge">package:flutter_driver</code> (<a href="https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html">API</a>)</li>
+</ul>
+
+<p>Together, the two allow you to:</p>
+
+<ul>
+  <li>create instrumented app for integration testing</li>
+  <li>write a test</li>
+  <li>run the test</li>
+</ul>
+
+<h3 id="adding-the-flutter_driver-dependency">Adding the flutter_driver dependency</h3>
+
+<p>To use <code class="highlighter-rouge">flutter_driver</code>, you must add the following block to your <code class="highlighter-rouge">pubspec.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dev_dependencies</span><span class="pi">:</span>
+  <span class="s">flutter_driver</span><span class="pi">:</span>
+    <span class="s">sdk</span><span class="pi">:</span> <span class="s">flutter</span>
+</code></pre>
+</div>
+
+<h3 id="creating-instrumented-flutter-apps">Creating instrumented Flutter apps</h3>
+
+<p>An instrumented app is a Flutter app that has the Flutter Driver
+<em>extension</em> enabled. To enable the extension call <code class="highlighter-rouge">enableFlutterDriverExtension()</code>.</p>
+
+<p>Example:</p>
+
+<p>Let’s assume you have an app with the entry point in
+<code class="highlighter-rouge">my_app/lib/main.dart</code>. To create an instrumented version of it, create a Dart
+file under <code class="highlighter-rouge">my_app/test_driver/</code>. Name it after the feature you are testing;
+let’s go for <code class="highlighter-rouge">user_list_scrolling.dart</code> located in my_app/test_driver/:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// This line imports the extension</span>
+<span class="kn">import</span> <span class="s">'package:flutter_driver/driver_extension.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// This line enables the extension</span>
+  <span class="n">enableFlutterDriverExtension</span><span class="o">();</span>
+
+  <span class="c1">// Call the `main()` of your app or call `runApp` with whatever widget</span>
+  <span class="c1">// you are interested in testing.</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h3 id="writing-integration-tests">Writing integration tests</h3>
+
+<p>An integration test is a plain <code class="highlighter-rouge">package:test</code> test that uses the Flutter Driver
+API to tell the app what to do and then verifies that the app
+did it.</p>
+
+<p>Example:</p>
+
+<p>Just for fun let’s also make our test record the performance timeline. Let’s
+create a test file <code class="highlighter-rouge">user_list_scrolling_test.dart</code> located in <code class="highlighter-rouge">my_app/test_driver/</code>:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
+
+<span class="c1">// Imports the Flutter Driver API</span>
+<span class="kn">import</span> <span class="s">'package:flutter_driver/flutter_driver.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:test/test.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">group</span><span class="o">(</span><span class="s">'scrolling performance test'</span><span class="o">,</span> <span class="o">()</span> <span class="o">{</span>
+    <span class="n">FlutterDriver</span> <span class="n">driver</span><span class="o">;</span>
+
+    <span class="n">setUpAll</span><span class="o">(()</span> <span class="n">async</span> <span class="o">{</span>
+      <span class="c1">// Connects to the app</span>
+      <span class="n">driver</span> <span class="o">=</span> <span class="n">await</span> <span class="n">FlutterDriver</span><span class="o">.</span><span class="na">connect</span><span class="o">();</span>
+    <span class="o">});</span>
+
+    <span class="n">tearDownAll</span><span class="o">(()</span> <span class="n">async</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">driver</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Closes the connection</span>
+        <span class="n">driver</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">});</span>
+
+    <span class="n">test</span><span class="o">(</span><span class="s">'measure'</span><span class="o">,</span> <span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
+      <span class="c1">// Record the performance timeline of things that happen inside the closure</span>
+      <span class="n">Timeline</span> <span class="n">timeline</span> <span class="o">=</span> <span class="n">await</span> <span class="n">driver</span><span class="o">.</span><span class="na">traceAction</span><span class="o">(()</span> <span class="n">async</span> <span class="o">{</span>
+        <span class="c1">// Find the scrollable user list</span>
+        <span class="n">SerializableFinder</span> <span class="n">userList</span> <span class="o">=</span> <span class="n">find</span><span class="o">.</span><span class="na">byValueKey</span><span class="o">(</span><span class="s">'user-list'</span><span class="o">);</span>
+
+        <span class="c1">// Scroll down 5 times</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+          <span class="c1">// Scroll 300 pixels down, for 300 millis</span>
+          <span class="n">await</span> <span class="n">driver</span><span class="o">.</span><span class="na">scroll</span><span class="o">(</span>
+              <span class="n">userList</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="o">-</span><span class="mf">300.0</span><span class="o">,</span> <span class="k">new</span> <span class="n">Duration</span><span class="o">(</span><span class="nl">milliseconds:</span> <span class="mi">300</span><span class="o">));</span>
+
+          <span class="c1">// Emulate a user's finger taking its time to go back to the original</span>
+          <span class="c1">// position before the next scroll</span>
+          <span class="n">await</span> <span class="k">new</span> <span class="n">Future</span><span class="o">&lt;</span><span class="n">Null</span><span class="o">&gt;.</span><span class="na">delayed</span><span class="o">(</span><span class="k">new</span> <span class="n">Duration</span><span class="o">(</span><span class="nl">milliseconds:</span> <span class="mi">500</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Scroll up 5 times</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+          <span class="n">await</span> <span class="n">driver</span><span class="o">.</span><span class="na">scroll</span><span class="o">(</span>
+              <span class="n">userList</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">,</span> <span class="mf">300.0</span><span class="o">,</span> <span class="k">new</span> <span class="n">Duration</span><span class="o">(</span><span class="nl">milliseconds:</span> <span class="mi">300</span><span class="o">));</span>
+          <span class="n">await</span> <span class="k">new</span> <span class="n">Future</span><span class="o">&lt;</span><span class="n">Null</span><span class="o">&gt;.</span><span class="na">delayed</span><span class="o">(</span><span class="k">new</span> <span class="n">Duration</span><span class="o">(</span><span class="nl">milliseconds:</span> <span class="mi">500</span><span class="o">));</span>
+        <span class="o">}</span>
+      <span class="o">});</span>
+
+      <span class="c1">// The `timeline` object contains all the performance data recorded during</span>
+      <span class="c1">// the scrolling session. It can be digested into a handful of useful</span>
+      <span class="c1">// aggregate numbers, such as "average frame build time".</span>
+      <span class="n">TimelineSummary</span> <span class="n">summary</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TimelineSummary</span><span class="o">.</span><span class="na">summarize</span><span class="o">(</span><span class="n">timeline</span><span class="o">);</span>
+      <span class="n">summary</span><span class="o">.</span><span class="na">writeSummaryToFile</span><span class="o">(</span><span class="s">'stocks_scroll_perf'</span><span class="o">,</span> <span class="nl">pretty:</span> <span class="kc">true</span><span class="o">);</span>
+      <span class="n">summary</span><span class="o">.</span><span class="na">writeTimelineToFile</span><span class="o">(</span><span class="s">'stocks_scroll_perf'</span><span class="o">,</span> <span class="nl">pretty:</span> <span class="kc">true</span><span class="o">);</span>
+    <span class="o">});</span>
+  <span class="o">});</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h3 id="running-integration-tests">Running integration tests</h3>
+
+<p>To run the test on an Android device, connect the device via USB to your
+computer and enable USB debugging. Then run the following command:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>flutter drive --target=my_app/test_driver/user_list_scrolling.dart
+</code></pre>
+</div>
+
+<p>This command will:</p>
+
+<ul>
+  <li>build the <code class="highlighter-rouge">--target</code> app and install it on the device</li>
+  <li>launch the app</li>
+  <li>run the <code class="highlighter-rouge">user_list_scrolling_test.dart</code> test located in <code class="highlighter-rouge">my_app/test_driver/</code></li>
+</ul>
+
+<p>You might be wondering how the command finds the correct test file. The
+<code class="highlighter-rouge">flutter drive</code> command uses a convention to look for the test file in the same
+directory as the instrumented <code class="highlighter-rouge">--target</code> app that has the same file name
+but for the <code class="highlighter-rouge">_test</code> suffix in it.</p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

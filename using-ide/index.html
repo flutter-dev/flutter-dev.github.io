@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developing Flutter apps in an IDE  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/using-ide/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/using-ide.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Developing Flutter apps in an IDE&body=From URL: http://localhost:4000/using-ide.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Developing Flutter apps in an IDE </h1>
+   </div>
+
+  </header>
+  
+
+  <p>The Flutter plugin provides a fully integrated development experience in the
+Android Studio or IntelliJ IDEs.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#installation-and-setup" id="markdown-toc-installation-and-setup">Installation and setup</a>    <ul>
+      <li><a href="#updating-the-plugins" id="markdown-toc-updating-the-plugins">Updating the plugins<a name="updating"></a></a></li>
+    </ul>
+  </li>
+  <li><a href="#creating-projects" id="markdown-toc-creating-projects">Creating projects</a>    <ul>
+      <li><a href="#creating-a-new-project" id="markdown-toc-creating-a-new-project">Creating a new project</a></li>
+      <li><a href="#creating-a-new-project-from-existing-source-code" id="markdown-toc-creating-a-new-project-from-existing-source-code">Creating a new project from existing source code</a></li>
+    </ul>
+  </li>
+  <li><a href="#editing-code-and-viewing-code-problems" id="markdown-toc-editing-code-and-viewing-code-problems">Editing code, and viewing code problems</a></li>
+  <li><a href="#running-and-debugging" id="markdown-toc-running-and-debugging">Running and Debugging</a>    <ul>
+      <li><a href="#selecting-a-target" id="markdown-toc-selecting-a-target">Selecting a target</a></li>
+      <li><a href="#run-app-without-breakpoints" id="markdown-toc-run-app-without-breakpoints">Run app without breakpoints</a></li>
+      <li><a href="#run-app-with-breakpoints" id="markdown-toc-run-app-with-breakpoints">Run app with breakpoints</a></li>
+    </ul>
+  </li>
+  <li><a href="#fast-edit-and-refresh-development-cycle" id="markdown-toc-fast-edit-and-refresh-development-cycle">Fast edit and refresh development cycle</a></li>
+  <li><a href="#advanced-debugging" id="markdown-toc-advanced-debugging">Advanced debugging</a>    <ul>
+      <li><a href="#debugging-visual-layout-issues" id="markdown-toc-debugging-visual-layout-issues">Debugging visual layout issues</a></li>
+      <li><a href="#debugging-with-observatory" id="markdown-toc-debugging-with-observatory">Debugging with Observatory</a></li>
+    </ul>
+  </li>
+  <li><a href="#editing-tips-for-flutter-code" id="markdown-toc-editing-tips-for-flutter-code">Editing tips for Flutter code</a>    <ul>
+      <li><a href="#assists--quick-fixes" id="markdown-toc-assists--quick-fixes">Assists &amp; Quick Fixes</a>        <ul>
+          <li><a href="#wrap-with-new-widget-assist" id="markdown-toc-wrap-with-new-widget-assist">Wrap with new widget assist</a></li>
+          <li><a href="#wrap-widget-list-with-new-widget-assist" id="markdown-toc-wrap-widget-list-with-new-widget-assist">Wrap widget list with new widget assist</a></li>
+          <li><a href="#convert-child-to-children-assist" id="markdown-toc-convert-child-to-children-assist">Convert child to children assist</a></li>
+        </ul>
+      </li>
+      <li><a href="#live-templates" id="markdown-toc-live-templates">Live Templates</a></li>
+      <li><a href="#intellij-keyboard-shortcuts" id="markdown-toc-intellij-keyboard-shortcuts">IntelliJ keyboard shortcuts</a></li>
+      <li><a href="#hot-reloads-vs-full-application-restarts" id="markdown-toc-hot-reloads-vs-full-application-restarts">‘Hot Reloads’ vs ‘Full Application Restarts’</a></li>
+    </ul>
+  </li>
+  <li><a href="#edit-android-code" id="markdown-toc-edit-android-code">Editing Android code in IntelliJ IDEA</a></li>
+  <li><a href="#tips-and-tricks" id="markdown-toc-tips-and-tricks">Tips and tricks</a></li>
+  <li><a href="#troubleshooting" id="markdown-toc-troubleshooting">Troubleshooting</a>    <ul>
+      <li><a href="#known-issues-and-feedback" id="markdown-toc-known-issues-and-feedback">Known issues and feedback</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="installation-and-setup">Installation and setup</h2>
+
+<p>Please follow the <a href="/get-started/editor/">Editor Setup</a> instructions to install
+the Dart and Flutter plugins.</p>
+
+<h3 id="updating-the-plugins">Updating the plugins<a name="updating"></a></h3>
+
+<p>Updates to the plugins will be shipped on a regular basis. You should get
+prompted in IntelliJ when an update is available.</p>
+
+<p>To check for updates manually:</p>
+
+<ol>
+  <li>Open preferences (<strong>IntelliJ IDEA&gt;Check for Updates…</strong> on macOS,
+<strong>Help&gt;Check for Updates…</strong> on Linux).</li>
+  <li>If <code class="highlighter-rouge">dart</code> or <code class="highlighter-rouge">flutter</code> are listed, update them.</li>
+</ol>
+
+<h2 id="creating-projects">Creating projects</h2>
+
+<h3 id="creating-a-new-project">Creating a new project</h3>
+
+<p>To create a new Flutter IntelliJ project from the Flutter starter app template:</p>
+
+<ol>
+  <li>In IntelliJ, click <strong>Create New Project</strong> from the ‘Welcome’ window or
+<strong>File&gt;New&gt;Project…</strong> from the main IDE window.</li>
+  <li>Select <strong>Flutter</strong> in the menu, and click <strong>Next</strong>.</li>
+  <li>Enter your desired <strong>Project name</strong> and <strong>Project location</strong>.</li>
+  <li>Click <strong>Finish</strong>.</li>
+</ol>
+
+<h3 id="creating-a-new-project-from-existing-source-code">Creating a new project from existing source code</h3>
+
+<p>To create a new Flutter IntelliJ project containing existing Flutter source code
+files:</p>
+
+<ol>
+  <li>In IntelliJ, click <strong>Create New Project</strong> from the ‘Welcome’ window or
+<strong>File&gt;New&gt;Project…</strong> from the main IDE window.
+    <ul>
+      <li><strong>Note</strong>: Do <em>not</em> use the <strong>New&gt;Project from existing sources…</strong> option for Flutter projects.</li>
+    </ul>
+  </li>
+  <li>Select <strong>Flutter</strong> in the menu, and click <strong>Next</strong>.</li>
+  <li>Under <strong>Project location</strong> enter, or browse to, the directory holding your
+existing Flutter source code files.</li>
+  <li>Click <strong>Finish</strong>.</li>
+</ol>
+
+<h2 id="editing-code-and-viewing-code-problems">Editing code, and viewing code problems</h2>
+
+<p>The Dart plugin performs code analysis that enables:</p>
+
+<ul>
+  <li>Syntax highlighting.</li>
+  <li>Code completions based on rich type analysis.</li>
+  <li>Navigating to type declarations (<strong>Navigate&gt;Declaration</strong>), and finding type
+usages (<strong>Edit&gt;Find&gt;Find Usages</strong>).</li>
+  <li>Viewing all current source code problems (<strong>View&gt;Tool Windows&gt;Dart Analysis</strong>).
+Any analysis issues will be shows in the Dart Analysis pane:<br />
+<img src="/images/intellij/dart-analysis.png" alt="Dart Analysis pane" /></li>
+</ul>
+
+<h2 id="running-and-debugging">Running and Debugging</h2>
+
+<p>Running and Debugging is controlled from the main toolbar:</p>
+
+<p><img src="/images/intellij/main-toolbar.png" alt="Main IntelliJ toolbar" /></p>
+
+<h3 id="selecting-a-target">Selecting a target</h3>
+
+<p>When a Flutter project is open in IntelliJ, you should see a set of Flutter
+specific buttons on the right-hand side of the toolbar.</p>
+
+<p><em>Note</em>: If the Run &amp; Debug buttons are disabled, and no targets are listed, Flutter
+has not been able to discover any connected iOS or Android devices or simulators.
+You need to connect a device, or start a simulator, to proceed.</p>
+
+<ol>
+  <li>Locate the <strong>Flutter Target Selector</strong> drop-down button. This will show a
+ list of available targets. Select the target you want your app to started on.
+    <ul>
+      <li>When you connect devices, or start simulators, additional entries will appear.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="run-app-without-breakpoints">Run app without breakpoints</h3>
+
+<ol>
+  <li>Click the <strong>Play icon</strong> in the toolbar, or invoke <strong>Run&gt;Run</strong>.
+    <ul>
+      <li>The bottom <strong>Run</strong> pane will show logs output:<br />
+<img src="/images/intellij/log.png" alt="Log pane" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="run-app-with-breakpoints">Run app with breakpoints</h3>
+
+<ol>
+  <li>If desired, set breakpoints in your source code.</li>
+  <li>Click the <strong>Debug icon</strong> in the toolbar, or invoke <strong>Run&gt;Debug</strong>.
+    <ul>
+      <li>The bottom <strong>Debugger</strong> pane will show Stack Frames and Variables.</li>
+      <li>The bottom <strong>Console</strong> pane will show detailed logs output.</li>
+      <li>Debugging is based on a default launch configuration. To customize this,
+click. the drop-down button to the right of the device selector, and select
+<strong>Edit configuration</strong>.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="fast-edit-and-refresh-development-cycle">Fast edit and refresh development cycle</h2>
+
+<p>Flutter offers a best-in-class developer cycle enabling you to see the effect
+of your changes almost instantly with the ‘hot reload’ feature. See
+<a href="/hot-reload/">Hot reloading Flutter Apps</a> for details.</p>
+
+<h2 id="advanced-debugging">Advanced debugging</h2>
+
+<h3 id="debugging-visual-layout-issues">Debugging visual layout issues</h3>
+
+<p>To debug a visual issue, start the app with ‘Debug’, and then open the Flutter
+inspector tool window using ‘View &gt; Tool Windows &gt; Flutter Inspector’.</p>
+
+<p><img src="/images/intellij/visual-debugging.png" alt="IntelliJ Flutter Inspector Window" /></p>
+
+<p>This offers many debugging tools; for details on these please see
+<a href="https://flutter.io/debugging/">Debugging Flutter Apps</a>.</p>
+
+<ul>
+  <li>
+    <p>‘Toggle Select Widget Mode’: Select a widget on the device to inspect it in the
+<a href="/inspector/">Flutter Inspector</a>.</p>
+  </li>
+  <li>
+    <p>‘Toggle Debug Paint’: Add visual debugging hints to the rendering displaying
+ borders, padding, alignment, and spacers.</p>
+  </li>
+  <li>
+    <p>‘Toggle Platform Mode’: Toggle between rendering for Android or iOS.</p>
+  </li>
+  <li>
+    <p>‘Toggle Performance Overlay’: Show performance graphs for the GPU &amp; CPU threads.</p>
+  </li>
+  <li>
+    <p>‘Open Timeline View’: Analyze activity of the application as it runs.</p>
+  </li>
+  <li>
+    <p>‘Open Observatory’: A profiler for Dart applications.</p>
+  </li>
+</ul>
+
+<p>Also available in the additional actions menu:</p>
+
+<ul>
+  <li>
+    <p>‘Show Paint Baselines’: Causes each RenderBox to paint a line at each of its
+baselines.</p>
+  </li>
+  <li>
+    <p>‘Enable Repaint Rainbow’: Show rotating colors on layers when repainting.</p>
+  </li>
+  <li>
+    <p>‘Enable Slow Animations’: Slow down animations to enable visual inspection.</p>
+  </li>
+  <li>
+    <p>‘Hide Slow Mode Banner’: Hide the ‘slow mode’ banner even when running a
+debug build.</p>
+  </li>
+</ul>
+
+<h3 id="debugging-with-observatory">Debugging with Observatory</h3>
+
+<p>Observatory is an additional debugging and profiling tool presented with an
+html-based UI. For details see the <a href="https://dart-lang.github.io/observatory/">Observatory page</a>.</p>
+
+<p>To open Observatory:</p>
+
+<ol>
+  <li>Run your app in debug mode.</li>
+  <li>Select the ‘open observatory’ action from the Debug panel (see screenshot below), click the <strong>Stopwatch icon</strong> (‘Open Observatory’).</li>
+</ol>
+
+<p><img src="/images/intellij/debug-panel.png" alt="Debugging panel" /></p>
+
+<h2 id="editing-tips-for-flutter-code">Editing tips for Flutter code</h2>
+
+<h3 id="assists--quick-fixes">Assists &amp; Quick Fixes</h3>
+
+<p>Assists are code changes related to a certain code identifier. A number of these
+are available when the cursor is placed on a Flutter widget identifier, as
+indicated by the yellow lightbulb icon. The assist can be invoked by clicking
+the lightbulb, or by using the keyboard shortcut <code class="highlighter-rouge">Alt-Enter</code>, as illustrated
+here:</p>
+
+<p><img src="/images/intellij/assists.gif" alt="IntelliJ editing assists" /></p>
+
+<p>Quick Fixes are similar, only they are shown with a piece of code has an error and they
+can assist in correcting it. They are indicated with a red lightbulb.</p>
+
+<h4 id="wrap-with-new-widget-assist">Wrap with new widget assist</h4>
+<p>This can be used when you have a widget that you want to wrap in a surrounding widget,
+for example if you want to wrap a widget in a <code class="highlighter-rouge">Row</code> or <code class="highlighter-rouge">Column</code>.</p>
+
+<h4 id="wrap-widget-list-with-new-widget-assist">Wrap widget list with new widget assist</h4>
+<p>Similar to the assist above, but for wrapping an existing list of widgets rather than an
+individual widget.</p>
+
+<h4 id="convert-child-to-children-assist">Convert child to children assist</h4>
+<p>Changes a child argument to a children argument, and wraps the argument value in a list.</p>
+
+<h3 id="live-templates">Live Templates</h3>
+
+<p>Live templates can be used to speed up entering typical code structures. They
+are invoked by typing their ‘prefix’, and then selecting it in the code
+completion window:</p>
+
+<p><img src="/images/intellij/templates.gif" alt="IntelliJ live templates" /></p>
+
+<p>The Flutter plugin includes the following templates:</p>
+
+<ul>
+  <li>Prefix <code class="highlighter-rouge">stless</code>: Create a new subclass of <code class="highlighter-rouge">StatelessWidget</code>.</li>
+  <li>Prefix <code class="highlighter-rouge">stful</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code> and it’s associated
+ State subclass.</li>
+  <li>Prefix <code class="highlighter-rouge">stanim</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code>, and it’s
+ associated State subclass including a field initialized with an
+ <code class="highlighter-rouge">AnimationController</code>.</li>
+</ul>
+
+<p>You can also define custom templates in <strong>Settings &gt; Editor &gt; Live Templates</strong>.</p>
+
+<h3 id="intellij-keyboard-shortcuts">IntelliJ keyboard shortcuts</h3>
+
+<p><strong>Hot Reload</strong></p>
+
+<p>On Linux (IntelliJ keymaps <em>Default for XWin</em>) and Windows the keyboard shortcuts
+are <code class="highlighter-rouge">ctrl-alt-;</code> and <code class="highlighter-rouge">ctrl-\</code>.</p>
+
+<p>On macOS (IntelliJ keymap <em>Mac OS X 10.5+ copy</em>) the keyboard shortcuts are <code class="highlighter-rouge">⌘-⌥-;</code>
+and <code class="highlighter-rouge">⌘-\</code>.</p>
+
+<p>Keyboard mappings can be changed in IntelliJ Preferences/Settings: Select
+<em>Keymap</em>, then enter <em>flutter</em> into the search box in the upper right corner.
+Right click the binding you want to change and <em>Add Keyboard Shortcut</em>.</p>
+
+<p><img src="/images/intellij/keymap-settings-flutter-plugin.png" alt="IntelliJ Settings Keymap" /></p>
+
+<h3 id="hot-reloads-vs-full-application-restarts">‘Hot Reloads’ vs ‘Full Application Restarts’</h3>
+
+<p>Hot Reload works by injecting updated source code files into the running Dart VM
+(Virtual Machine). This includes not only adding new classes, but also adding
+methods and fields to existing classes, and changing existing functions. A few
+types of code changes cannot be hot reloaded though:</p>
+
+<ul>
+  <li>Global variable initializers.</li>
+  <li>Static field initializers.</li>
+  <li>The <code class="highlighter-rouge">main()</code> method of the app.</li>
+</ul>
+
+<p>For these changes you can fully restart your application, without having to end
+your debugging session:</p>
+
+<ol>
+  <li>Don’t click the Stop button; simply re-click the Run button (if in a run
+session) or Debug button (if in a debug session), or shift-click the ‘hot
+reload’ button.</li>
+</ol>
+
+<h2 id="edit-android-code">Editing Android code in IntelliJ IDEA</h2>
+
+<p>To enable editing of Android code in IntelliJ IDEA, you need to configure the
+location of the Android SDK:</p>
+
+<ol>
+  <li>In Preferences-&gt;Plugins, enable <strong>Android Support</strong> if you haven’t already.</li>
+  <li>Right-click the <strong>android</strong> folder in the Project view, and select <strong>Open
+Module Settings</strong>.</li>
+  <li>In <strong>Sources</strong> tab, locate the <strong>Language level</strong> field, and select level ‘8’
+or later.</li>
+  <li>In <strong>Dependencies</strong> tab, locate the <strong>Module SDK</strong> field, and select an
+Android SDK. If no SDK is listed, click <strong>New…</strong> and specify the location of
+the Android SDK. Make sure to select an Android SDK matching the one used by
+Flutter (as reported by <code class="highlighter-rouge">flutter doctor</code>).</li>
+  <li>Click <strong>OK</strong>.</li>
+</ol>
+
+<h2 id="tips-and-tricks">Tips and tricks</h2>
+
+<p>Please checkout these ‘cheat sheets’:</p>
+
+<ul>
+  <li><a href="/downloads/Flutter-IntelliJ-cheat-sheet-MacOS.pdf">Flutter IntelliJ cheat sheet, MacOS version</a></li>
+  <li><a href="/downloads/Flutter-IntelliJ-cheat-sheet-WindowsLinux.pdf">Flutter IntelliJ cheat sheet, Windows &amp; Linux version</a></li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="known-issues-and-feedback">Known issues and feedback</h3>
+
+<p>Important known issues that may impact your experience are documented in the
+<a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter plugin README</a> file.</p>
+
+<p>All known bugs are tracked in the issue trackers:</p>
+
+<ul>
+  <li>Flutter plugin: <a href="https://github.com/flutter/flutter-intellij/issues">GitHub issue
+   tracker</a>.</li>
+  <li>Dart plugin: <a href="https://youtrack.jetbrains.com/issues?q=%23dart%20%23Unresolved">JetBrains
+   YouTrack</a>.</li>
+</ul>
+
+<p>We very much welcome feedback, both on bugs/issues and feature requests. Prior
+to filing new issues, please:</p>
+
+<ul>
+  <li>do a quick search in the issue trackers to see if the issue is already
+   tracked.</li>
+  <li>make sure you have <a href="#updating">updated</a> to the most recent version of the
+   plugin.</li>
+</ul>
+
+<p>When filing new issues, please include the output of <a href="https://flutter.io/bug-reports/#provide-some-flutter-diagnostics"><code class="highlighter-rouge">flutter
+doctor</code></a>.</p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

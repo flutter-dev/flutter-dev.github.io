@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Tour of the Flutter Widget Framework  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/widgets-intro/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/widgets-intro.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page A Tour of the Flutter Widget Framework&body=From URL: http://localhost:4000/widgets-intro.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">A Tour of the Flutter Widget Framework </h1>
+   </div>
+
+  </header>
+  
+
+  <ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#hello-world" id="markdown-toc-hello-world">Hello World</a></li>
+  <li><a href="#basic-widgets" id="markdown-toc-basic-widgets">Basic widgets</a></li>
+  <li><a href="#using-material-components" id="markdown-toc-using-material-components">Using Material Components</a></li>
+  <li><a href="#handling-gestures" id="markdown-toc-handling-gestures">Handling gestures</a></li>
+  <li><a href="#changing-widgets-in-response-to-input" id="markdown-toc-changing-widgets-in-response-to-input">Changing widgets in response to input</a></li>
+  <li><a href="#bringing-it-all-together" id="markdown-toc-bringing-it-all-together">Bringing it all together</a></li>
+  <li><a href="#responding-to-widget-lifecycle-events" id="markdown-toc-responding-to-widget-lifecycle-events">Responding to widget lifecycle events</a></li>
+  <li><a href="#keys" id="markdown-toc-keys">Keys</a></li>
+  <li><a href="#global-keys" id="markdown-toc-global-keys">Global Keys</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Flutter widgets are built using a modern react-style framework, which takes
+inspiration from <a href="http://facebook.github.io/react/">React</a>. The central idea is
+that you build your UI out of widgets. Widgets describe what their view
+should look like given their current configuration and state. When a widget’s
+state changes, the widget rebuilds its description, which the framework diffs
+against the previous description in order to determine the minimal changes
+needed in the underlying render tree to transition from one state to the next.</p>
+
+<aside id="note" class="alert alert-info">
+  <p><strong>Note:</strong> If you would like to become better acquainted with Flutter by diving
+into some code, check out
+<a href="/tutorials/layout/">Building Layouts in Flutter</a> and
+<a href="/tutorials/interactive/">Adding Interactivity to Your Flutter App</a>.</p>
+</aside>
+
+<h2 id="hello-world">Hello World</h2>
+
+<p>The minimal Flutter app simply calls the
+<a href="https://docs.flutter.io/flutter/widgets/runApp.html"><code class="highlighter-rouge">runApp</code></a> function
+with a widget:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span>
+    <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+        <span class="s">'Hello, world!'</span><span class="o">,</span>
+        <span class="nl">textDirection:</span> <span class="n">TextDirection</span><span class="o">.</span><span class="na">ltr</span><span class="o">,</span>
+      <span class="o">),</span>
+    <span class="o">),</span>
+  <span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>The <a href="https://docs.flutter.io/flutter/widgets/runApp.html"><code class="highlighter-rouge">runApp</code></a> function
+takes the given
+<a href="https://docs.flutter.io/flutter/widgets/Widget-class.html"><code class="highlighter-rouge">Widget</code></a> and
+makes it the root of the widget tree. In this example, the widget tree consists
+of two widgets, the
+<a href="https://docs.flutter.io/flutter/widgets/Center-class.html"><code class="highlighter-rouge">Center</code></a> widget
+and its child, the
+<a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a> widget.
+The framework forces the root widget to cover the screen, which means the text
+“Hello, world” ends up centered on screen. The text direction needs to be
+specified in this instance; when the MaterialApp widget is used, this is taken
+care of for you, as demonstrated later.</p>
+
+<p>When writing an app, you’ll commonly author new widgets that are subclasses of
+either
+<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html"><code class="highlighter-rouge">StatelessWidget</code></a>
+or
+<a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html"><code class="highlighter-rouge">StatefulWidget</code></a>,
+depending on whether your widget manages any state. A widget’s main job is
+to implement a
+<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html"><code class="highlighter-rouge">build</code></a>
+function, which describes the widget in terms of other, lower-level widgets.
+The framework will build those widgets in turn until the process bottoms out
+in widgets that represent the underlying <a href="https://docs.flutter.io/flutter/rendering/RenderObject-class.html"><code class="highlighter-rouge">RenderObject</code></a>, which computes and describes the geometry of the widget.</p>
+
+<h2 id="basic-widgets">Basic widgets</h2>
+
+<p><em>Main article: <a href="https://flutter.io/widgets/layout">Widgets Overview - Layout Models</a></em></p>
+
+<p>Flutter comes with a suite of powerful basic widgets, of which the following are
+very commonly used:</p>
+
+<ul>
+  <li>
+    <p><a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a>: The
+<a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a> widget
+lets you create a run of styled text within your application.</p>
+  </li>
+  <li>
+    <p><a href="https://docs.flutter.io/flutter/widgets/Row-class.html"><code class="highlighter-rouge">Row</code></a>,
+<a href="https://docs.flutter.io/flutter/widgets/Column-class.html"><code class="highlighter-rouge">Column</code></a>:
+These flex widgets let you create flexible layouts in both the horizontal
+(<a href="https://docs.flutter.io/flutter/widgets/Row-class.html"><code class="highlighter-rouge">Row</code></a>) and
+vertical
+(<a href="https://docs.flutter.io/flutter/widgets/Column-class.html"><code class="highlighter-rouge">Column</code></a>)
+directions. Its design is based on the web’s flexbox layout model.</p>
+  </li>
+  <li>
+    <p><a href="https://docs.flutter.io/flutter/widgets/Stack-class.html"><code class="highlighter-rouge">Stack</code></a>:
+Instead of being linearly oriented (either horizontally or vertically), a
+<a href="https://docs.flutter.io/flutter/widgets/Stack-class.html"><code class="highlighter-rouge">Stack</code></a>
+widget lets you stack widgets on top of each other in paint order. You can
+then use the
+<a href="https://docs.flutter.io/flutter/widgets/Positioned-class.html"><code class="highlighter-rouge">Positioned</code></a>
+widget on children of a
+<a href="https://docs.flutter.io/flutter/widgets/Stack-class.html"><code class="highlighter-rouge">Stack</code></a> to
+position them relative to the top, right, bottom, or left edge of the stack.
+Stacks are based on the web’s absolute positioning layout model.</p>
+  </li>
+  <li>
+    <p><a href="https://docs.flutter.io/flutter/widgets/Container-class.html"><code class="highlighter-rouge">Container</code></a>:
+The <a href="https://docs.flutter.io/flutter/widgets/Container-class.html"><code class="highlighter-rouge">Container</code></a>
+widget lets you create rectangular visual element. A container can be
+decorated with a
+<a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html"><code class="highlighter-rouge">BoxDecoration</code></a>,
+such as a background, a border, or a shadow. A
+<a href="https://docs.flutter.io/flutter/widgets/Container-class.html"><code class="highlighter-rouge">Container</code></a>
+can also have margins, padding, and constraints applied to its size. In
+addition, a
+<a href="https://docs.flutter.io/flutter/widgets/Container-class.html"><code class="highlighter-rouge">Container</code></a>
+can be transformed in three dimensional space using a matrix.</p>
+  </li>
+</ul>
+
+<p>Below are some simple widgets that combine these and other widgets:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">MyAppBar</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="n">MyAppBar</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">});</span>
+
+  <span class="c1">// Fields in a Widget subclass are always marked "final".</span>
+
+  <span class="kd">final</span> <span class="n">Widget</span> <span class="n">title</span><span class="o">;</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
+      <span class="nl">height:</span> <span class="mf">56.0</span><span class="o">,</span> <span class="c1">// in logical pixels</span>
+      <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">symmetric</span><span class="o">(</span><span class="nl">horizontal:</span> <span class="mf">8.0</span><span class="o">),</span>
+      <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span><span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">blue</span><span class="o">[</span><span class="mi">500</span><span class="o">]),</span>
+      <span class="c1">// Row is a horizontal, linear layout.</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Row</span><span class="o">(</span>
+        <span class="c1">// &lt;Widget&gt; is the type of items in the list.</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="k">new</span> <span class="n">IconButton</span><span class="o">(</span>
+            <span class="nl">icon:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">menu</span><span class="o">),</span>
+            <span class="nl">tooltip:</span> <span class="s">'Navigation menu'</span><span class="o">,</span>
+            <span class="nl">onPressed:</span> <span class="kc">null</span><span class="o">,</span> <span class="c1">// null disables the button</span>
+          <span class="o">),</span>
+          <span class="c1">// Expanded expands its child to fill the available space.</span>
+          <span class="k">new</span> <span class="n">Expanded</span><span class="o">(</span>
+            <span class="nl">child:</span> <span class="n">title</span><span class="o">,</span>
+          <span class="o">),</span>
+          <span class="k">new</span> <span class="n">IconButton</span><span class="o">(</span>
+            <span class="nl">icon:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">search</span><span class="o">),</span>
+            <span class="nl">tooltip:</span> <span class="s">'Search'</span><span class="o">,</span>
+            <span class="nl">onPressed:</span> <span class="kc">null</span><span class="o">,</span>
+          <span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MyScaffold</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Material is a conceptual piece of paper on which the UI appears.</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Material</span><span class="o">(</span>
+      <span class="c1">// Column is a vertical, linear layout.</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="k">new</span> <span class="n">MyAppBar</span><span class="o">(</span>
+            <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+              <span class="s">'Example title'</span><span class="o">,</span>
+              <span class="nl">style:</span> <span class="n">Theme</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">primaryTextTheme</span><span class="o">.</span><span class="na">title</span><span class="o">,</span>
+            <span class="o">),</span>
+          <span class="o">),</span>
+          <span class="k">new</span> <span class="n">Expanded</span><span class="o">(</span>
+            <span class="nl">child:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+              <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Hello, world!'</span><span class="o">),</span>
+            <span class="o">),</span>
+          <span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="nl">title:</span> <span class="s">'My app'</span><span class="o">,</span> <span class="c1">// used by the OS task switcher</span>
+    <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyScaffold</span><span class="o">(),</span>
+  <span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Be sure to have a <code class="highlighter-rouge">uses-material-design: true</code> entry in the <code class="highlighter-rouge">flutter</code>
+section of your <code class="highlighter-rouge">pubspec.yaml</code> file. It allows to use the predefined
+set of <a href="https://design.google.com/icons/">Material icons</a>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">name</span><span class="pi">:</span> <span class="s">my_app</span>
+<span class="s">flutter</span><span class="pi">:</span>
+  <span class="s">uses-material-design</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<p>Many widgets need to be inside of a
+<a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html"><code class="highlighter-rouge">MaterialApp</code></a>
+to display properly, in order to inherit theme data. Therefore, we run the
+application with a
+<a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html"><code class="highlighter-rouge">MaterialApp</code></a>.</p>
+
+<p>The <code class="highlighter-rouge">MyAppBar</code> widget creates a
+<a href="https://docs.flutter.io/flutter/widgets/Container-class.html"><code class="highlighter-rouge">Container</code></a>
+with a height of 56 device-independent pixels with an internal padding of 8
+pixels, both on the left and the right. Inside the container, <code class="highlighter-rouge">MyAppBar</code> uses a
+<a href="https://docs.flutter.io/flutter/widgets/Row-class.html"><code class="highlighter-rouge">Row</code></a> layout to
+organize its children. The middle child, the <code class="highlighter-rouge">title</code> widget, is marked as
+<a href="https://docs.flutter.io/flutter/widgets/Expanded-class.html"><code class="highlighter-rouge">Expanded</code></a>,
+which means it expands to fill any remaining available space that hasn’t been
+consumed by the other children. You can have multiple
+<a href="https://docs.flutter.io/flutter/widgets/Expanded-class.html"><code class="highlighter-rouge">Expanded</code></a>
+children and determine the ratio in which they consume the available space using
+the
+<a href="https://docs.flutter.io/flutter/widgets/Expanded-class.html#flex"><code class="highlighter-rouge">flex</code></a>
+argument to
+<a href="https://docs.flutter.io/flutter/widgets/Expanded-class.html"><code class="highlighter-rouge">Expanded</code></a>.</p>
+
+<p>The <code class="highlighter-rouge">MyScaffold</code> widget organizes its children in a vertical column. At the
+top of the column it places an instance of <code class="highlighter-rouge">MyAppBar</code>, passing the app bar a
+<a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a> widget to
+use as its title. Passing widgets as arguments to other widgets is a powerful
+technique that lets you create generic widgets that can be reused in a wide
+variety of ways. Finally, <code class="highlighter-rouge">MyScaffold</code> uses a
+<a href="https://docs.flutter.io/flutter/widgets/Expanded-class.html"><code class="highlighter-rouge">Expanded</code></a> to
+fill the remaining space with its body, which consists a centered message.</p>
+
+<h2 id="using-material-components">Using Material Components</h2>
+
+<p><em>Main article: <a href="https://flutter.io/widgets/material">Widgets Overview - Material Components</a></em></p>
+
+<p>Flutter provides a number of widgets that help you build apps that follow
+Material Design. A Material app starts with the
+<a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html"><code class="highlighter-rouge">MaterialApp</code></a>
+widget, which builds a number of useful widgets at the root of your app,
+including a
+<a href="https://docs.flutter.io/flutter/widgets/Navigator-class.html"><code class="highlighter-rouge">Navigator</code></a>,
+which manages a stack of widgets identified by strings, also known as “routes”.
+The
+<a href="https://docs.flutter.io/flutter/widgets/Navigator-class.html"><code class="highlighter-rouge">Navigator</code></a>
+lets you transition smoothly between screens of your application. Using the
+<a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html"><code class="highlighter-rouge">MaterialApp</code></a>
+widget is entirely optional but a good practice.</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="nl">title:</span> <span class="s">'Flutter Tutorial'</span><span class="o">,</span>
+    <span class="nl">home:</span> <span class="k">new</span> <span class="n">TutorialHome</span><span class="o">(),</span>
+  <span class="o">));</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">TutorialHome</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Scaffold is a layout for the major Material Components.</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">leading:</span> <span class="k">new</span> <span class="n">IconButton</span><span class="o">(</span>
+          <span class="nl">icon:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">menu</span><span class="o">),</span>
+          <span class="nl">tooltip:</span> <span class="s">'Navigation menu'</span><span class="o">,</span>
+          <span class="nl">onPressed:</span> <span class="kc">null</span><span class="o">,</span>
+        <span class="o">),</span>
+        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Example title'</span><span class="o">),</span>
+        <span class="nl">actions:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="k">new</span> <span class="n">IconButton</span><span class="o">(</span>
+            <span class="nl">icon:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">search</span><span class="o">),</span>
+            <span class="nl">tooltip:</span> <span class="s">'Search'</span><span class="o">,</span>
+            <span class="nl">onPressed:</span> <span class="kc">null</span><span class="o">,</span>
+          <span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+      <span class="c1">// body is the majority of the screen.</span>
+      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Hello, world!'</span><span class="o">),</span>
+      <span class="o">),</span>
+      <span class="nl">floatingActionButton:</span> <span class="k">new</span> <span class="n">FloatingActionButton</span><span class="o">(</span>
+        <span class="nl">tooltip:</span> <span class="s">'Add'</span><span class="o">,</span> <span class="c1">// used by assistive technologies</span>
+        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">add</span><span class="o">),</span>
+        <span class="nl">onPressed:</span> <span class="kc">null</span><span class="o">,</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Now that we’ve switched from <code class="highlighter-rouge">MyAppBar</code> and <code class="highlighter-rouge">MyScaffold</code> to the
+<a href="https://docs.flutter.io/flutter/material/AppBar-class.html"><code class="highlighter-rouge">AppBar</code></a> and
+<a href="https://docs.flutter.io/flutter/material/Scaffold-class.html"><code class="highlighter-rouge">Scaffold</code></a>
+widgets from <code class="highlighter-rouge">material.dart</code>, our app is starting to look at bit more
+Material. For example, the app bar has a shadow and the title text
+inherits the correct styling automatically. We’ve also added a floating action
+button for good measure.</p>
+
+<p>Notice that we’re again passing widgets as arguments to other widgets. The
+<a href="https://docs.flutter.io/flutter/material/Scaffold-class.html"><code class="highlighter-rouge">Scaffold</code></a>
+widget takes a number of different widgets as named arguments, each of which are
+placed in the Scaffold layout in the appropriate place. Similarly, the
+<a href="https://docs.flutter.io/flutter/material/AppBar-class.html"><code class="highlighter-rouge">AppBar</code></a>
+widget lets us pass in widgets for the
+<a href="https://docs.flutter.io/flutter/material/AppBar-class.html#leading"><code class="highlighter-rouge">leading</code></a>
+and the
+<a href="https://docs.flutter.io/flutter/material/AppBar-class.html#actions"><code class="highlighter-rouge">actions</code></a>
+of the
+<a href="https://docs.flutter.io/flutter/material/AppBar-class.html#title"><code class="highlighter-rouge">title</code></a>
+widget. This pattern recurs throughout the framework and is something you might
+consider when designing your own widgets.</p>
+
+<h2 id="handling-gestures">Handling gestures</h2>
+
+<p><em>Main article: <a href="https://flutter.io/gestures/">Gestures in Flutter</a></em></p>
+
+<p>Most applications include some form of user interaction with the system. The
+first step in building an interactive application is to detect
+input gestures. Let’s see how that works by creating a simple button:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyButton</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">GestureDetector</span><span class="o">(</span>
+      <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
+        <span class="n">print</span><span class="o">(</span><span class="s">'MyButton was tapped!'</span><span class="o">);</span>
+      <span class="o">},</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
+        <span class="nl">height:</span> <span class="mf">36.0</span><span class="o">,</span>
+        <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">8.0</span><span class="o">),</span>
+        <span class="nl">margin:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">symmetric</span><span class="o">(</span><span class="nl">horizontal:</span> <span class="mf">8.0</span><span class="o">),</span>
+        <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+          <span class="nl">borderRadius:</span> <span class="k">new</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">5.0</span><span class="o">),</span>
+          <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">lightGreen</span><span class="o">[</span><span class="mi">500</span><span class="o">],</span>
+        <span class="o">),</span>
+        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Engage'</span><span class="o">),</span>
+        <span class="o">),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>The
+<a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html"><code class="highlighter-rouge">GestureDetector</code></a>
+widget doesn’t have an visual representation but instead detects gestures made
+by the user. When the user taps the
+<a href="https://docs.flutter.io/flutter/widgets/Container-class.html"><code class="highlighter-rouge">Container</code></a>,
+the
+<a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html"><code class="highlighter-rouge">GestureDetector</code></a>
+will call its
+<a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html#onTap"><code class="highlighter-rouge">onTap</code></a>
+callback, in this case printing a message to the console. You can use
+<a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html"><code class="highlighter-rouge">GestureDetector</code></a>
+to detect a variety of input gestures, including taps, drags, and scales.</p>
+
+<p>Many widgets use a
+<a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html"><code class="highlighter-rouge">GestureDetector</code></a>
+to provide optional callbacks for other widgets. For example, the
+<a href="https://docs.flutter.io/flutter/material/IconButton-class.html"><code class="highlighter-rouge">IconButton</code></a>,
+<a href="https://docs.flutter.io/flutter/material/RaisedButton-class.html"><code class="highlighter-rouge">RaisedButton</code></a>,
+and
+<a href="https://docs.flutter.io/flutter/material/FloatingActionButton-class.html"><code class="highlighter-rouge">FloatingActionButton</code></a>
+widgets have
+<a href="https://docs.flutter.io/flutter/material/RaisedButton-class.html#onPressed"><code class="highlighter-rouge">onPressed</code></a>
+callbacks that are triggered when the user taps the widget.</p>
+
+<h2 id="changing-widgets-in-response-to-input">Changing widgets in response to input</h2>
+
+<p><em>Main articles: <a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html"><code class="highlighter-rouge">StatefulWidget</code></a>, <a href="https://docs.flutter.io/flutter/widgets/State/setState.html"><code class="highlighter-rouge">State.setState</code></a></em></p>
+
+<p>Thus far, we’ve used only stateless widgets. Stateless widgets receive
+arguments from their parent widget, which they store in
+<a href="https://www.dartlang.org/docs/dart-up-and-running/ch02.html#final-and-const"><code class="highlighter-rouge">final</code></a>
+member variables. When a widget is asked to
+<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html"><code class="highlighter-rouge">build</code></a>,
+it uses these stored values to derive new arguments for the widgets it creates.</p>
+
+<p>In order to build more complex experiences - for example, to react in more
+interesting ways to user input - applications will typically carry some state.
+Flutter uses StatefulWidgets to capture this idea. StatefulWidgets are
+special widgets that know how to generate State objects, which are then used to
+hold state. Consider this basic example, using the
+<a href="https://docs.flutter.io/flutter/material/RaisedButton-class.html"><code class="highlighter-rouge">RaisedButton</code></a>
+mentioned earlier:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Counter</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="c1">// This class is the configuration for the state. It holds the</span>
+  <span class="c1">// values (in this nothing) provided by the parent and used by the build</span>
+  <span class="c1">// method of the State. Fields in a Widget subclass are always marked "final".</span>
+
+  <span class="nd">@override</span>
+  <span class="n">_CounterState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_CounterState</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">_CounterState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">Counter</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">_counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="kt">void</span> <span class="n">_increment</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+      <span class="c1">// This call to setState tells the Flutter framework that</span>
+      <span class="c1">// something has changed in this State, which causes it to rerun</span>
+      <span class="c1">// the build method below so that the display can reflect the</span>
+      <span class="c1">// updated values. If we changed _counter without calling</span>
+      <span class="c1">// setState(), then the build method would not be called again,</span>
+      <span class="c1">// and so nothing would appear to happen.</span>
+      <span class="n">_counter</span><span class="o">++;</span>
+    <span class="o">});</span>
+  <span class="o">}</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// This method is rerun every time setState is called, for instance</span>
+    <span class="c1">// as done by the _increment method above.</span>
+    <span class="c1">// The Flutter framework has been optimized to make rerunning</span>
+    <span class="c1">// build methods fast, so that you can just rebuild anything that</span>
+    <span class="c1">// needs updating rather than having to individually change</span>
+    <span class="c1">// instances of widgets.</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Row</span><span class="o">(</span>
+      <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+        <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
+          <span class="nl">onPressed:</span> <span class="n">_increment</span><span class="o">,</span>
+          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Increment'</span><span class="o">),</span>
+        <span class="o">),</span>
+        <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Count: </span><span class="si">$_counter</span><span class="s">'</span><span class="o">),</span>
+      <span class="o">],</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>You might wonder why StatefulWidget and State are separate objects. In
+Flutter, these two types of objects have different life cycles. Widgets are
+temporary objects, used to construct a presentation of the application in its
+current state. State objects on the other hand are persistent between calls to
+<a href="https://docs.flutter.io/flutter/widgets/State/build.html"><code class="highlighter-rouge">build()</code></a>,
+allowing them to remember information.</p>
+
+<p>The example above accepts user input and directly uses the result in its
+build method.  In more complex applications, different parts of the widget
+hierarchy might be responsible for different concerns; for example, one
+widget might present a complex user interface with the goal of gathering
+specific information, such as a date or location, while another widget might
+use that information to change the overall presentation.</p>
+
+<p>In Flutter, change notifications flow “up” the widget hierarchy by way of
+callbacks, while current state flows “down” to the stateless widgets that do
+presentation. The common parent that redirects this flow is the State. Let’s
+see how that works in practice, with this slightly more complex example:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">CounterDisplay</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="n">CounterDisplay</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">count</span><span class="o">});</span>
+
+  <span class="kd">final</span> <span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Count: </span><span class="si">$count</span><span class="s">'</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">CounterIncrementor</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="n">CounterIncrementor</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">onPressed</span><span class="o">});</span>
+
+  <span class="kd">final</span> <span class="n">VoidCallback</span> <span class="n">onPressed</span><span class="o">;</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
+      <span class="nl">onPressed:</span> <span class="n">onPressed</span><span class="o">,</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Increment'</span><span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Counter</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">_CounterState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_CounterState</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">_CounterState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">Counter</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">_counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="kt">void</span> <span class="n">_increment</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+      <span class="o">++</span><span class="n">_counter</span><span class="o">;</span>
+    <span class="o">});</span>
+  <span class="o">}</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Row</span><span class="o">(</span><span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+      <span class="k">new</span> <span class="n">CounterIncrementor</span><span class="o">(</span><span class="nl">onPressed:</span> <span class="n">_increment</span><span class="o">),</span>
+      <span class="k">new</span> <span class="n">CounterDisplay</span><span class="o">(</span><span class="nl">count:</span> <span class="n">_counter</span><span class="o">),</span>
+    <span class="o">]);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Notice how we created two new stateless widgets, cleanly separating
+the concerns of <em>displaying</em> the counter (CounterDisplay) and <em>changing</em>
+the counter (CounterIncrementor).
+Although the net result is the same as the previous example, the separation of
+responsibility allows greater complexity to be encapsulated in the individual
+widgets, while maintaining simplicity in the parent.</p>
+
+<h2 id="bringing-it-all-together">Bringing it all together</h2>
+
+<p>Let’s consider a more complete example that brings together the concepts
+introduced above. We’ll work with a hypothetical shopping application, which
+displays various products offered for sale and maintains a shopping cart for
+intended purchases. Let’s start by defining our presentation class,
+<code class="highlighter-rouge">ShoppingListItem</code>:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Product</span> <span class="o">{</span>
+  <span class="kd">const</span> <span class="n">Product</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">});</span>
+  <span class="kd">final</span> <span class="kt">String</span> <span class="n">name</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">typedef</span> <span class="kt">void</span> <span class="nf">CartChangedCallback</span><span class="p">(</span><span class="n">Product</span> <span class="n">product</span><span class="o">,</span> <span class="kt">bool</span> <span class="n">inCart</span><span class="o">);</span>
+
+<span class="kd">class</span> <span class="nc">ShoppingListItem</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="n">ShoppingListItem</span><span class="o">({</span><span class="n">Product</span> <span class="n">product</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">inCart</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">onCartChanged</span><span class="o">})</span>
+      <span class="o">:</span> <span class="n">product</span> <span class="o">=</span> <span class="n">product</span><span class="o">,</span>
+        <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="k">new</span> <span class="n">ObjectKey</span><span class="o">(</span><span class="n">product</span><span class="o">));</span>
+
+  <span class="kd">final</span> <span class="n">Product</span> <span class="n">product</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="kt">bool</span> <span class="n">inCart</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="n">CartChangedCallback</span> <span class="n">onCartChanged</span><span class="o">;</span>
+
+  <span class="n">Color</span> <span class="n">_getColor</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// The theme depends on the BuildContext because different parts of the tree</span>
+    <span class="c1">// can have different themes.  The BuildContext indicates where the build is</span>
+    <span class="c1">// taking place and therefore which theme to use.</span>
+
+    <span class="k">return</span> <span class="n">inCart</span> <span class="o">?</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black54</span> <span class="o">:</span> <span class="n">Theme</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">primaryColor</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="n">TextStyle</span> <span class="n">_getTextStyle</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">inCart</span><span class="o">)</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="o">(</span>
+      <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black54</span><span class="o">,</span>
+      <span class="nl">decoration:</span> <span class="n">TextDecoration</span><span class="o">.</span><span class="na">lineThrough</span><span class="o">,</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
+      <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
+        <span class="n">onCartChanged</span><span class="o">(</span><span class="n">product</span><span class="o">,</span> <span class="o">!</span><span class="n">inCart</span><span class="o">);</span>
+      <span class="o">},</span>
+      <span class="nl">leading:</span> <span class="k">new</span> <span class="n">CircleAvatar</span><span class="o">(</span>
+        <span class="nl">backgroundColor:</span> <span class="n">_getColor</span><span class="o">(</span><span class="n">context</span><span class="o">),</span>
+        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">product</span><span class="o">.</span><span class="na">name</span><span class="o">[</span><span class="mi">0</span><span class="o">]),</span>
+      <span class="o">),</span>
+      <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">product</span><span class="o">.</span><span class="na">name</span><span class="o">,</span> <span class="nl">style:</span> <span class="n">_getTextStyle</span><span class="o">(</span><span class="n">context</span><span class="o">)),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">ShoppingListItem</code> widget follows a common pattern for stateless
+widgets. It stores the values it receives in its constructor in
+<a href="https://www.dartlang.org/docs/dart-up-and-running/ch02.html#final-and-const"><code class="highlighter-rouge">final</code></a>
+member variables, which it then uses during its
+<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html"><code class="highlighter-rouge">build</code></a>
+function. For example, the <code class="highlighter-rouge">inCart</code> boolean to toggle between two visual
+appearances: one that uses the primary color from the current theme and another
+that uses gray.</p>
+
+<p>When the user taps the list item, the widget doesn’t modify its <code class="highlighter-rouge">inCart</code>
+value directly. Instead, the widget calls the <code class="highlighter-rouge">onCartChanged</code> function it
+received from its parent widget. This pattern lets you store state higher in
+the widget hierarchy, which causes the state to persist for longer periods of
+time. In the extreme, the state stored on the widget passed to
+<a href="https://docs.flutter.io/flutter/widgets/runApp.html"><code class="highlighter-rouge">runApp</code></a> persists for
+the lifetime of the application.</p>
+
+<p>When the parent receives the <code class="highlighter-rouge">onCartChanged</code> callback, the parent will update
+its internal state, which will trigger the parent to rebuild and create a new
+instance of <code class="highlighter-rouge">ShoppingListItem</code> with the new <code class="highlighter-rouge">inCart</code> value. Although the parent
+creates a new instance of <code class="highlighter-rouge">ShoppingListItem</code> when it rebuilds, that operation is
+cheap because the framework compares the newly built widgets with the previously
+built widgets and applies only the differences to the underlying <a href="https://docs.flutter.io/flutter/rendering/RenderObject-class.html"><code class="highlighter-rouge">RenderObject</code></a>.</p>
+
+<p>Let’s look at an example parent widget that stores mutable state:</p>
+
+<!--
+class Product {
+  const Product({this.name});
+  final String name;
+}
+
+class ShoppingListItem extends StatelessWidget {
+  ShoppingListItem({Product product, bool inCart, Function onCartChanged});
+  @override
+  Widget build(BuildContext context) => null;
+}
+-->
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">ShoppingList</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="n">ShoppingList</span><span class="o">({</span><span class="n">Key</span> <span class="n">key</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">products</span><span class="o">})</span> <span class="o">:</span> <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
+
+  <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span> <span class="n">products</span><span class="o">;</span>
+
+  <span class="c1">// The framework calls createState the first time a widget appears at a given</span>
+  <span class="c1">// location in the tree. If the parent rebuilds and uses the same type of</span>
+  <span class="c1">// widget (with the same key), the framework will re-use the State object</span>
+  <span class="c1">// instead of creating a new State object.</span>
+
+  <span class="nd">@override</span>
+  <span class="n">_ShoppingListState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_ShoppingListState</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">_ShoppingListState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">ShoppingList</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kt">Set</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span> <span class="n">_shoppingCart</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;();</span>
+
+  <span class="kt">void</span> <span class="n">_handleCartChanged</span><span class="o">(</span><span class="n">Product</span> <span class="n">product</span><span class="o">,</span> <span class="kt">bool</span> <span class="n">inCart</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+      <span class="c1">// When user changes what is in the cart, we need to change _shoppingCart</span>
+      <span class="c1">// inside a setState call to trigger a rebuild. The framework then calls</span>
+      <span class="c1">// build, below, which updates the visual appearance of the app.</span>
+
+      <span class="k">if</span> <span class="o">(</span><span class="n">inCart</span><span class="o">)</span>
+        <span class="n">_shoppingCart</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">product</span><span class="o">);</span>
+      <span class="k">else</span>
+        <span class="n">_shoppingCart</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">product</span><span class="o">);</span>
+    <span class="o">});</span>
+  <span class="o">}</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Shopping List'</span><span class="o">),</span>
+      <span class="o">),</span>
+      <span class="nl">body:</span> <span class="k">new</span> <span class="n">ListView</span><span class="o">(</span>
+        <span class="nl">padding:</span> <span class="k">new</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">symmetric</span><span class="o">(</span><span class="nl">vertical:</span> <span class="mf">8.0</span><span class="o">),</span>
+        <span class="nl">children:</span> <span class="n">widget</span><span class="o">.</span><span class="na">products</span><span class="o">.</span><span class="na">map</span><span class="o">((</span><span class="n">Product</span> <span class="n">product</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">return</span> <span class="k">new</span> <span class="n">ShoppingListItem</span><span class="o">(</span>
+            <span class="nl">product:</span> <span class="n">product</span><span class="o">,</span>
+            <span class="nl">inCart:</span> <span class="n">_shoppingCart</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">product</span><span class="o">),</span>
+            <span class="nl">onCartChanged:</span> <span class="n">_handleCartChanged</span><span class="o">,</span>
+          <span class="o">);</span>
+        <span class="o">}).</span><span class="na">toList</span><span class="o">(),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="nl">title:</span> <span class="s">'Shopping App'</span><span class="o">,</span>
+    <span class="nl">home:</span> <span class="k">new</span> <span class="n">ShoppingList</span><span class="o">(</span>
+      <span class="nl">products:</span> <span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;[</span>
+        <span class="k">new</span> <span class="n">Product</span><span class="o">(</span><span class="nl">name:</span> <span class="s">'Eggs'</span><span class="o">),</span>
+        <span class="k">new</span> <span class="n">Product</span><span class="o">(</span><span class="nl">name:</span> <span class="s">'Flour'</span><span class="o">),</span>
+        <span class="k">new</span> <span class="n">Product</span><span class="o">(</span><span class="nl">name:</span> <span class="s">'Chocolate chips'</span><span class="o">),</span>
+      <span class="o">],</span>
+    <span class="o">),</span>
+  <span class="o">));</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">ShoppingList</code> class extends
+<a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html"><code class="highlighter-rouge">StatefulWidget</code></a>,
+which means this widget stores mutable state. When the <code class="highlighter-rouge">ShoppingList</code>
+widget is first inserted into the tree, the framework calls the
+<a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html#createState"><code class="highlighter-rouge">createState</code></a>
+function to create a fresh instance of <code class="highlighter-rouge">_ShoppingListState</code> to associate with
+that location in the tree. (Notice that we typically name subclasses of
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html"><code class="highlighter-rouge">State</code></a> with
+leading underscores to indicate that they are private implementation details.)
+When this widget’s parent rebuilds, the parent will create a new instance of
+<code class="highlighter-rouge">ShoppingList</code>, but the framework will reuse the <code class="highlighter-rouge">_ShoppingListState</code> instance
+that is already in the tree rather than calling
+<a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html#createState"><code class="highlighter-rouge">createState</code></a>
+again.</p>
+
+<p>To access properties of the current <code class="highlighter-rouge">ShoppingList</code>, the <code class="highlighter-rouge">_ShoppingListState</code> can
+use its
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#widget"><code class="highlighter-rouge">widget</code></a>
+property. If the parent rebuilds and creates a new <code class="highlighter-rouge">ShoppingList</code>, the
+<code class="highlighter-rouge">_ShoppingListState</code> will also rebuild with the new
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#widget"><code class="highlighter-rouge">widget</code></a>
+value. If you wish to be notified when the
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#widget"><code class="highlighter-rouge">widget</code></a>
+property changes, you can override the
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#didUpdateWidget"><code class="highlighter-rouge">didUpdateWidget</code></a>
+function, which is passed <code class="highlighter-rouge">oldWidget</code> to let you compare the old widget with
+the current
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#widget"><code class="highlighter-rouge">widget</code></a>.</p>
+
+<p>When handling the <code class="highlighter-rouge">onCartChanged</code> callback, the <code class="highlighter-rouge">_ShoppingListState</code> mutates its
+internal state by either adding or removing a product from <code class="highlighter-rouge">_shoppingCart</code>. To
+signal to the framework that it changes its internal state, it wraps those calls
+in a
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#setState"><code class="highlighter-rouge">setState</code></a>
+call. Calling
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#setState"><code class="highlighter-rouge">setState</code></a>
+marks this widget as dirty and schedules it to be rebuilt the next time your
+app needs to update the screen. If you forget to call
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#setState"><code class="highlighter-rouge">setState</code></a>
+when modifying the internal state of a widget, the framework won’t know your
+widget is dirty and might not call the widget’s
+<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html"><code class="highlighter-rouge">build</code></a>
+function, which means the user interface might not update to reflect the changed
+state.</p>
+
+<p>By managing state in this way, you don’t need to write separate code for
+creating and updating child widgets. Instead, you simply implement the build
+function, which handles both situations.</p>
+
+<h2 id="responding-to-widget-lifecycle-events">Responding to widget lifecycle events</h2>
+
+<p><em>Main article: <a href="https://docs.flutter.io/flutter/widgets/State-class.html"><code class="highlighter-rouge">State</code></a></em></p>
+
+<p>After calling
+<a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html#createState"><code class="highlighter-rouge">createState</code></a>
+on the StatefulWidget, the framework inserts the new state object into the
+tree and then calls
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#initState"><code class="highlighter-rouge">initState</code></a>
+on the state object. A subclass of
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html"><code class="highlighter-rouge">State</code></a> can
+override
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#initState"><code class="highlighter-rouge">initState</code></a>
+to do work that needs to happen just once. For example, you can override
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#initState"><code class="highlighter-rouge">initState</code></a>
+to configure animations or to subscribe to platform services. Implementations of
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#initState"><code class="highlighter-rouge">initState</code></a>
+are required to start by calling
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#initState"><code class="highlighter-rouge">super.initState</code></a>.</p>
+
+<p>When a state object is no longer needed, the framework calls
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#dispose"><code class="highlighter-rouge">dispose</code></a>
+on the state object. You can override the
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#dispose"><code class="highlighter-rouge">dispose</code></a>
+function to do cleanup work. For example, you can override
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#dispose"><code class="highlighter-rouge">dispose</code></a>
+to cancel timers or to unsubscribe from platform services. Implementations of
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#dispose"><code class="highlighter-rouge">dispose</code></a>
+typically end by calling
+<a href="https://docs.flutter.io/flutter/widgets/State-class.html#dispose"><code class="highlighter-rouge">super.dispose</code></a>.</p>
+
+<h2 id="keys">Keys</h2>
+
+<p><em>Main article: <a href="https://docs.flutter.io/flutter/foundation/Key-class.html"><code class="highlighter-rouge">Key</code></a></em></p>
+
+<p>You can use keys to control which widgets the framework will match up with which
+other widgets when a widget rebuilds. By default, the framework matches
+widgets in the current and previous build according to their
+<a href="https://docs.flutter.io/flutter/widgets/Widget-class.html#runtimeType"><code class="highlighter-rouge">runtimeType</code></a>
+and the order in which they appear. With keys, the framework requires that the
+two widgets have the same
+<a href="https://docs.flutter.io/flutter/widgets/Widget-class.html#key"><code class="highlighter-rouge">key</code></a> as
+well as the same
+<a href="https://docs.flutter.io/flutter/widgets/Widget-class.html#runtimeType"><code class="highlighter-rouge">runtimeType</code></a>.</p>
+
+<p>Keys are most useful in widgets that build many instances of the same type of
+widget. For example, the <code class="highlighter-rouge">ShoppingList</code> widget, which builds just enough
+<code class="highlighter-rouge">ShoppingListItem</code> instances to fill its visible region:</p>
+
+<ul>
+  <li>
+    <p>Without keys, the first entry in the current build would always sync with the
+first entry in the previous build, even if, semantically, the first entry in
+the list just scrolled off screen and is no longer visible in the viewport.</p>
+  </li>
+  <li>
+    <p>By assigning each entry in the list a “semantic” key, the infinite list can
+be more efficient because the framework will sync entries with matching
+semantic keys and therefore similar (or identical) visual appearances.
+Moreover, syncing the entries semantically means that state retained in
+stateful child widgets will remain attached to the same semantic entry rather
+than the entry in the same numerical position in the viewport.</p>
+  </li>
+</ul>
+
+<h2 id="global-keys">Global Keys</h2>
+
+<p><em>Main article: <a href="https://docs.flutter.io/flutter/widgets/GlobalKey-class.html"><code class="highlighter-rouge">GlobalKey</code></a></em></p>
+
+<p>You can use global keys to uniquely identify child widgets. Global keys must be
+globally unique across the entire widget hierarchy, unlike local keys which need
+only be unique among siblings. Because they are globally unique, a global key
+can be used to retrieve the state associated with a widget.</p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

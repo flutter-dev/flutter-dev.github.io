@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dealing with box constraints in Flutter  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/layout/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/layout.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Dealing with box constraints in Flutter&body=From URL: http://localhost:4000/layout.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Dealing with box constraints in Flutter </h1>
+   </div>
+
+  </header>
+  
+
+  <p>You may be directed to this page if the framework detects a problem
+involving box constraints.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#unbounded-constraints" id="markdown-toc-unbounded-constraints">Unbounded constraints</a></li>
+  <li><a href="#flex" id="markdown-toc-flex">Flex</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>In Flutter, widgets are rendered by their underlying <a href="https://docs.flutter.io/flutter/rendering/RenderBox-class.html"><code class="highlighter-rouge">RenderBox</code></a> objects. Render boxes are given
+constraints by their parent, and size themselves within those
+constraints. Constraints consist of minimum and maximum widths and
+heights; sizes consist of a specific width and height.</p>
+
+<p>Generally, there are three kinds of boxes, in terms of how they handle
+their constraints:</p>
+
+<ul>
+  <li>Those that try to be as big as possible.
+For example, the boxes used by <a href="https://docs.flutter.io/flutter/widgets/Center-class.html"><code class="highlighter-rouge">Center</code></a> and <a href="https://docs.flutter.io/flutter/widgets/ListView-class.html"><code class="highlighter-rouge">ListView</code></a>.</li>
+  <li>Those that try to be the same size as their children.
+For example, the boxes used by <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html"><code class="highlighter-rouge">Transform</code></a> and <a href="https://docs.flutter.io/flutter/widgets/Opacity-class.html"><code class="highlighter-rouge">Opacity</code></a>.</li>
+  <li>Those that try to be a particular size.
+For example, the boxes used by <a href="https://docs.flutter.io/flutter/dart-ui/Image-class.html"><code class="highlighter-rouge">Image</code></a> and <a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a>.</li>
+</ul>
+
+<p>Some widgets, for example <a href="https://docs.flutter.io/flutter/widgets/Container-class.html"><code class="highlighter-rouge">Container</code></a>, vary from type to type based on
+their constructor arguments. In the case of <a href="https://docs.flutter.io/flutter/widgets/Container-class.html"><code class="highlighter-rouge">Container</code></a>, it defaults
+to trying to be as big as possible, but if you give it a <code class="highlighter-rouge">width</code>, for
+instance, it tries to honor that and be that particular size.</p>
+
+<p>Others, for example <a href="https://docs.flutter.io/flutter/widgets/Row-class.html"><code class="highlighter-rouge">Row</code></a> and <a href="https://docs.flutter.io/flutter/widgets/Column-class.html"><code class="highlighter-rouge">Column</code></a> (flex boxes) vary based on the
+constraints they are given, as described below in the “Flex” section.</p>
+
+<p>The constraints are sometimes “tight”, meaning that they leave no room
+for the render box to decide on a size (e.g. if the minimum and
+maximum width are the same, it is said to have a tight width). The
+main example of this is the <code class="highlighter-rouge">App</code> widget, which is contained by the
+<a href="https://docs.flutter.io/flutter/rendering/RenderView-class.html"><code class="highlighter-rouge">RenderView</code></a> class: the box used by the child returned by the
+application’s <a href="https://docs.flutter.io/flutter/widgets/State/build.html"><code class="highlighter-rouge">build</code></a> function is given a constraint that forces it to
+exactly fill the application’s content area (typically, the entire
+screen). Many of the boxes in Flutter, especially those that just take a
+single child, will pass their constraint on to their children. This
+means that if you nest a bunch of boxes inside each other at the root
+of your application’s render tree, they’ll all exactly fit in each
+other, forced by these tight constraints.</p>
+
+<p>Some boxes <em>loosen</em> the constraints, meaning the maximum is maintained
+but the minimum is removed. For example, <a href="https://docs.flutter.io/flutter/widgets/Center-class.html"><code class="highlighter-rouge">Center</code></a>.</p>
+
+<h2 id="unbounded-constraints">Unbounded constraints</h2>
+
+<p>In certain situations, the constraint that is given to a box will be
+<em>unbounded</em>, or infinite. This means that either the maximum width or
+the maximum height is set to <code class="highlighter-rouge">double.INFINITY</code>.</p>
+
+<p>A box that tries to be as big as possible won’t function usefully when
+given an unbounded constraint, and in checked mode, such a combination
+will throw an exception that points to this file.</p>
+
+<p>The most common cases where a render box finds itself with unbounded
+constraints are within flex boxes (<a href="https://docs.flutter.io/flutter/widgets/Row-class.html"><code class="highlighter-rouge">Row</code></a>
+and <a href="https://docs.flutter.io/flutter/widgets/Column-class.html"><code class="highlighter-rouge">Column</code></a>), 
+and <strong>within scrollable regions</strong> 
+(<a href="https://docs.flutter.io/flutter/widgets/ListView-class.html"><code class="highlighter-rouge">ListView</code></a> 
+and other <a href="https://docs.flutter.io/flutter/widgets/ScrollView-class.html"><code class="highlighter-rouge">ScrollView</code></a> subclasses).</p>
+
+<p>In particular, <a href="https://docs.flutter.io/flutter/widgets/ListView-class.html"><code class="highlighter-rouge">ListView</code></a>
+tries to expand to fit the space available
+in its cross-direction (i.e. if it’s a vertically-scrolling block, it
+will try to be as wide as its parent). If you nest a vertically
+scrolling <a href="https://docs.flutter.io/flutter/widgets/ListView-class.html"><code class="highlighter-rouge">ListView</code></a>
+inside a horizontally scrolling <a href="https://docs.flutter.io/flutter/widgets/ListView-class.html"><code class="highlighter-rouge">ListView</code></a>,
+the inner one will try to be as wide as possible, which is infinitely
+wide, since the outer one is scrollable in that direction.</p>
+
+<h2 id="flex">Flex</h2>
+
+<p>Flex boxes themselves (<a href="https://docs.flutter.io/flutter/widgets/Row-class.html"><code class="highlighter-rouge">Row</code></a> 
+and <a href="https://docs.flutter.io/flutter/widgets/Column-class.html"><code class="highlighter-rouge">Column</code></a>) 
+behave differently based on
+whether they are in a bounded constraints or unbounded constraints in
+their given direction.</p>
+
+<p>In bounded constraints, they try to be as big as possible in that
+direction.</p>
+
+<p>In unbounded constraints, they try to fit their children in that
+direction. In this case, you cannot set <code class="highlighter-rouge">flex</code> on the children to
+anything other than 0 (the default). In the widget library, this
+means that you cannot use <a href="https://docs.flutter.io/flutter/widgets/Expanded-class.html"><code class="highlighter-rouge">Expanded</code></a>
+when the flex box is inside
+another flex box or inside a scrollable. If you do, you’ll get an
+exception message pointing you at this document.</p>
+
+<p>In the <em>cross</em> direction, i.e. in their width for <a href="https://docs.flutter.io/flutter/widgets/Column-class.html"><code class="highlighter-rouge">Column</code></a> (vertical flex) and in their height for <a href="https://docs.flutter.io/flutter/widgets/Row-class.html"><code class="highlighter-rouge">Row</code></a> (horizontal flex), they must never
+be unbounded, otherwise they would not be able to reasonably align
+their children.</p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

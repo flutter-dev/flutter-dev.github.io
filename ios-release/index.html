@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preparing an iOS App for Release  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/ios-release/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/ios-release-build.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Preparing an iOS App for Release&body=From URL: http://localhost:4000/ios-release-build.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Preparing an iOS App for Release </h1>
+   </div>
+
+  </header>
+  
+
+  <p>This guide provides a step-by-step walkthrough of releasing a Flutter app to
+the <a href="https://developer.apple.com/app-store/submissions/">App Store</a> and <a href="https://developer.apple.com/testflight/">TestFlight</a>.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#preliminaries" id="markdown-toc-preliminaries">Preliminaries</a></li>
+  <li><a href="#register-your-app-on-itunes-connect" id="markdown-toc-register-your-app-on-itunes-connect">Register your app on iTunes Connect</a>    <ul>
+      <li><a href="#register-a-bundle-id" id="markdown-toc-register-a-bundle-id">Register a Bundle ID</a></li>
+      <li><a href="#create-an-application-record-on-itunes-connect" id="markdown-toc-create-an-application-record-on-itunes-connect">Create an application record on iTunes Connect</a></li>
+    </ul>
+  </li>
+  <li><a href="#review-xcode-project-settings" id="markdown-toc-review-xcode-project-settings">Review Xcode project settings</a></li>
+  <li><a href="#add-an-app-icon" id="markdown-toc-add-an-app-icon">Add an App Icon</a></li>
+  <li><a href="#create-a-build-archive" id="markdown-toc-create-a-build-archive">Create a build archive</a></li>
+  <li><a href="#release-your-app-on-testflight" id="markdown-toc-release-your-app-on-testflight">Release your app on TestFlight</a></li>
+  <li><a href="#release-your-app-to-the-app-store" id="markdown-toc-release-your-app-to-the-app-store">Release your app to the App Store</a></li>
+  <li><a href="#troubleshooting" id="markdown-toc-troubleshooting">Troubleshooting</a></li>
+</ul>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<p>Before beginning the process of releasing your app, ensure that it meets
+Apple’s <a href="https://developer.apple.com/app-store/review/">App Review Guidelines</a>.</p>
+
+<p>In order to publish your app to the App Store, you’ll need to enroll in the
+<a href="https://developer.apple.com/programs/">Apple Developer Program</a>. You can read more about the various
+membership options in Apple’s <a href="https://developer.apple.com/support/compare-memberships/">Choosing a Membership</a>
+guide.</p>
+
+<h2 id="register-your-app-on-itunes-connect">Register your app on iTunes Connect</h2>
+
+<p><a href="https://developer.apple.com/support/itunes-connect/">iTunes Connect</a> is where you’ll manage your app’s life cycle.
+You will define your app name and description, add screenshots, set pricing,
+and manage releases to the App Store and TestFlight.</p>
+
+<p>Registering your app involves two steps: registering a unique Bundle ID, and
+creating an application record on iTunes Connect.</p>
+
+<p>For a detailed overview of iTunes Connect, see the <a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/About.html">iTunes Connect Developer
+Guide</a>.</p>
+
+<h3 id="register-a-bundle-id">Register a Bundle ID</h3>
+
+<p>Every iOS application is associated with a Bundle ID, a unique identifier
+registered with Apple. To register a Bundle ID for your app, follow these
+steps:</p>
+
+<ol>
+  <li>Open the <a href="https://developer.apple.com/account/ios/identifier/bundle">App IDs</a> page of your developer account.</li>
+  <li>Click <strong>+</strong> to create a new Bundle ID.</li>
+  <li>Enter an app name, select <strong>Explicit App ID</strong>, and enter an ID.</li>
+  <li>Select the services your app will use, then click <strong>Continue</strong>.</li>
+  <li>On the next page, confirm the details and click <strong>Register</strong> to register
+your Bundle ID.</li>
+</ol>
+
+<h3 id="create-an-application-record-on-itunes-connect">Create an application record on iTunes Connect</h3>
+
+<p>Next, you’ll register your app on iTunes Connect:</p>
+
+<ol>
+  <li>Open <a href="https://itunesconnect.apple.com/">iTunes Connect</a> in your browser.</li>
+  <li>On the iTunes Connect landing page, click <strong>My Apps</strong>.</li>
+  <li>Click <strong>+</strong> in the top-left corner of the My Apps page, then select
+<strong>New App</strong>.</li>
+  <li>Fill in your app details in the form that appears. In the Platforms section,
+ensure that iOS is checked. Since Flutter does not currently support tvOS,
+leave that checkbox unchecked. Click <strong>Create</strong>.</li>
+  <li>Navigate to the application details for your app and select <strong>App
+Information</strong> from the sidebar.</li>
+  <li>In the General Information section, select the Bundle ID you registered in
+the preceding step.</li>
+</ol>
+
+<p>For a detailed overview, see <a href="https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html">Creating an iTunes Connect Record for an
+App</a>.</p>
+
+<h2 id="review-xcode-project-settings">Review Xcode project settings</h2>
+
+<p>In this step, you’ll review the most important settings in the Xcode workspace.
+For detailed procedures and descriptions, see <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html">Configuring Your Xcode Project
+for Distribution</a>.</p>
+
+<p>Navigate to your target’s settings in Xcode:</p>
+
+<ol>
+  <li>In Xcode, open <code class="highlighter-rouge">Runner.xcworkspace</code> in your app’s <code class="highlighter-rouge">ios</code> folder.</li>
+  <li>To view your app’s settings, select the <strong>Runner</strong> project in the Xcode
+project navigator. Then, in the main view sidebar, select the <strong>Runner</strong>
+target.</li>
+  <li>Select the <strong>General</strong> tab.</li>
+</ol>
+
+<p>Next, you’ll verify the most important settings:</p>
+
+<p>In the Identity section:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Display Name:</code> the name of the app to be displayed on the home screen and
+elsewhere.</li>
+  <li><code class="highlighter-rouge">Bundle Identifier:</code> the App ID you registered on iTunes Connect.</li>
+</ul>
+
+<p>In the Signing section:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Automatically manage signing:</code> whether Xcode should automatically manage
+app signing and provisioning. This is set <code class="highlighter-rouge">true</code> by default, which should
+be sufficient for most apps. For more complex scenarios, see the <a href="https://developer.apple.com/library/content/documentation/Security/Conceptual/CodeSigningGuide/Introduction/Introduction.html">Code
+Signing Guide</a>.</li>
+  <li><code class="highlighter-rouge">Team:</code> select the team associated with your registered Apple Developer
+account. If required, select <strong>Add Account…</strong>, then update this setting.</li>
+</ul>
+
+<p>In the Deployment Info section:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Deployment Target:</code> the minimum iOS version your app will support.
+Flutter supports iOS 8.0 and later. If your app includes Objective-C or
+Swift code that makes use of APIs that were unavailable in iOS 8, update
+this setting appropriately.</li>
+</ul>
+
+<p>The General tab of your project settings should resemble the following:</p>
+
+<p><img src="/images/releaseguide/xcode_settings.png" alt="Xcode Project Settings" /></p>
+
+<p>For a detailed overview of app signing, see <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingCertificates/MaintainingCertificates.html">Maintaining Your Signing
+Identities and Certificates</a>.</p>
+
+<h2 id="add-an-app-icon">Add an App Icon</h2>
+
+<p>When a new Flutter app is created, a placeholder icon set is created. In this
+step, you’ll replace these placeholder icons with your app’s icons:</p>
+
+<ol>
+  <li>Review the <a href="https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon/">iOS App Icon</a> guidelines.</li>
+  <li>In the Xcode project navigator, select <code class="highlighter-rouge">Assets.xcassets</code> in the <code class="highlighter-rouge">Runner</code>
+folder. Update the placeholder icons with your own app icons.</li>
+  <li>Verify the icon has been replaced by running your app using <code class="highlighter-rouge">flutter run</code>.</li>
+</ol>
+
+<h2 id="create-a-build-archive">Create a build archive</h2>
+
+<p>In this step, you’ll create a build archive and upload your build to iTunes
+Connect.</p>
+
+<p>During development, you’ve been building, debugging, and testing with <em>debug</em>
+builds. When you’re ready to ship your app to users on the App Store or
+TestFlight, you’ll need to prepare a <em>release</em> build.</p>
+
+<p>On the command line, follow these steps in your application directory:</p>
+
+<ol>
+  <li>Run <code class="highlighter-rouge">flutter build ios</code> to create a release build (<code class="highlighter-rouge">flutter build</code> defaults to <code class="highlighter-rouge">--release</code>).</li>
+  <li>To ensure that Xcode refreshes the release mode configuration, close and
+re-open your Xcode workspace. For Xcode 8.3 and later, this step is not
+required.</li>
+</ol>
+
+<p>In Xcode, configure the app version and build:</p>
+
+<ol>
+  <li>In Xcode, open <code class="highlighter-rouge">Runner.xcworkspace</code> in your app’s <code class="highlighter-rouge">ios</code> folder.</li>
+  <li>Select <strong>Product &gt; Scheme &gt; Runner</strong>.</li>
+  <li>Select <strong>Product &gt; Destination &gt; Generic iOS Device</strong>.</li>
+  <li>Select <strong>Runner</strong> in the Xcode project navigator, then select the <strong>Runner</strong>
+target in the settings view sidebar.</li>
+  <li>In the Identity section, update the <strong>Version</strong> to the user-facing
+version number you wish to publish.</li>
+  <li>In the Identity section, update the <strong>Build</strong> identifier to a unique
+build number used to track this build on iTunes Connect. Each upload requires a
+unique build number.</li>
+</ol>
+
+<p>Finally, create a build archive and upload it to iTunes Connect:</p>
+
+<ol>
+  <li>Select <strong>Product &gt; Archive</strong> to produce a build archive.</li>
+  <li>In the sidebar of the Xcode Organizer window, select your iOS app, then
+select the build archive you just produced.</li>
+  <li>Click the <strong>Validate…</strong> button. If any issues are reported, address them
+and produce another build. You can reuse the same build ID until you upload
+an archive.</li>
+  <li>After the archive has been successfully validated, click <strong>Upload to App
+Store…</strong>. You can follow the status of your build in the Activities
+tab of your app’s details page on <a href="https://itunesconnect.apple.com/">iTunes Connect</a>.</li>
+</ol>
+
+<p>You should receive an email within 30 minutes notifying you that your build has
+been validated and is available to release to testers on TestFlight. At this
+point you can choose whether to release on TestFlight, or go ahead and release
+your app to the App Store.</p>
+
+<p>For more details, see <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/UploadingYourApptoiTunesConnect/UploadingYourApptoiTunesConnect.html">Uploading Your App to iTunes
+Connect</a>.</p>
+
+<h2 id="release-your-app-on-testflight">Release your app on TestFlight</h2>
+
+<p><a href="https://developer.apple.com/testflight/">TestFlight</a> allows developers to push their apps to internal and
+external testers. In this optional step, you’ll release your build on
+TestFlight.</p>
+
+<ol>
+  <li>Navigate to the TestFlight tab of your app’s application details page on
+<a href="https://itunesconnect.apple.com/">iTunes Connect</a>.</li>
+  <li>Select <strong>Internal Testing</strong> in the sidebar.</li>
+  <li>Select the build to publish to testers, then click <strong>Save</strong>.</li>
+  <li>Add the email addresses of any internal testers. You can add additional
+internal users in the Users and Roles page of iTunes Connect, available from
+the dropdown menu at the top of the page.</li>
+</ol>
+
+<p>For more details, see <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/DistributingYourAppUsingTestFlight/DistributingYourAppUsingTestFlight.html">Distributing Your App Using
+TestFlight</a>.</p>
+
+<h2 id="release-your-app-to-the-app-store">Release your app to the App Store</h2>
+
+<p>When you’re ready to release your app to the world, follow these steps to
+submit your app for review and release to the App Store:</p>
+
+<ol>
+  <li>Select <strong>Pricing and Availability</strong> from the sidebar of your app’s
+application details page on <a href="https://itunesconnect.apple.com/">iTunes Connect</a> and
+complete the required information.</li>
+  <li>Select the status from the sidebar. If this is the first release of this
+app, its status will be <strong>1.0 Prepare for Submission</strong>. Complete all
+required fields.</li>
+  <li>Click <strong>Submit for Review</strong>.</li>
+</ol>
+
+<p>Apple will notify you when their app review process is complete. Your app will
+be released according to the instructions you specified in the <strong>Version
+Release</strong> section.</p>
+
+<p>For more details, see <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html">Submitting Your App to the
+Store</a>.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>The <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html">App Distribution Guide</a> provides a detailed overview of
+the process of releasing an app to the App Store. It includes a
+<a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/Troubleshooting/Troubleshooting.html">Troubleshooting guide</a> that includes
+solutions to commonly-encountered problems with app distribution.</p>
+
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

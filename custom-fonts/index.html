@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Using Fonts  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/custom-fonts/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/custom-fonts.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Using Fonts&body=From URL: http://localhost:4000/custom-fonts.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Using Fonts </h1>
+   </div>
+
+  </header>
+  
+
+  <h2 id="introduction">Introduction</h2>
+
+<p>You can use different fonts in your Flutter application.
+For example, you may have a custom font that your designer created,
+or you may have a font from <a href="https://fonts.google.com/">Google Fonts</a>.</p>
+
+<p>This page describes how to configure fonts for your Flutter app,
+and use them when rendering text.</p>
+
+<h2 id="using-fonts">Using fonts</h2>
+
+<p>Using fonts in your Flutter application is done in two steps. 
+First declare them in your <code class="highlighter-rouge">pubspec.yaml</code>, to ensure that they are included in the app. Second use the font with a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> property.</p>
+
+<h3 id="declaring-in-the-font-asset">Declaring in the font asset</h3>
+
+<p>To include your font in the app, declare it like in the <code class="highlighter-rouge">pubspec.yaml</code> example below.
+Then copy the font file to the location specified in your <code class="highlighter-rouge">pubspec.yaml</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
+  <span class="s">fonts</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">family</span><span class="pi">:</span> <span class="s">Raleway</span>
+      <span class="s">fonts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">assets/fonts/Raleway-Regular.ttf</span>
+        <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">assets/fonts/Raleway-Medium.ttf</span>
+          <span class="s">weight</span><span class="pi">:</span> <span class="s">500</span>
+        <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">assets/fonts/Raleway-SemiBold.ttf</span>
+          <span class="s">weight</span><span class="pi">:</span> <span class="s">600</span>
+    <span class="pi">-</span> <span class="s">family</span><span class="pi">:</span> <span class="s">AbrilFatface</span>
+      <span class="s">fonts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">assets/fonts/abrilfatface/AbrilFatface-Regular.ttf</span>
+</code></pre>
+</div>
+
+<h3 id="using-the-font">Using the font</h3>
+
+<p>Second use the font by creating a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>. 
+Then set the <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> <code class="highlighter-rouge">fontFamily</code> property 
+and use the font family specified in the <code class="highlighter-rouge">pubsec.yaml</code> declarations.</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// declare the text style</span>
+<span class="kd">const</span> <span class="n">textStyle</span> <span class="o">=</span> <span class="kd">const</span> <span class="n">TextStyle</span><span class="o">(</span>
+  <span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">,</span>
+<span class="o">);</span>
+
+<span class="c1">// use the text style</span>
+<span class="kd">var</span> <span class="n">buttonText</span> <span class="o">=</span> <span class="kd">const</span> <span class="n">Text</span><span class="o">(</span>
+  <span class="s">"Use the font for this text"</span><span class="o">,</span>
+  <span class="nl">style:</span> <span class="n">textStyle</span><span class="o">,</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+<h3 id="from-packages">Fonts in package dependencies</h3>
+
+<p>To use a font family defined in a package, the <code class="highlighter-rouge">package</code> argument must be provided. For instance, suppose the font
+declaration above is in the <code class="highlighter-rouge">pubspec.yaml</code> of a package named <code class="highlighter-rouge">my_package</code> which the app depends on. Then creating the
+TextStyle is done as follows:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">const</span> <span class="n">textStyle</span> <span class="o">=</span> <span class="kd">const</span> <span class="n">TextStyle</span><span class="o">(</span>
+  <span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">,</span>
+  <span class="nl">package:</span> <span class="s">'my_package'</span><span class="o">,</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<p>If the package internally uses the font it defines, it should still specify
+the <code class="highlighter-rouge">package</code> argument when creating the text style as in the example above.</p>
+
+<p>A package can also provide font files without declaring a font in its <code class="highlighter-rouge">pubspec.yaml</code>. These files
+should then be in the <code class="highlighter-rouge">lib/</code> folder of the package. The font files will not
+automatically be bundled in the app, instead the app can use these
+selectively when declaring a font. Suppose a package named <code class="highlighter-rouge">my_package</code> has:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lib/fonts/Raleway-Medium.ttf
+</code></pre>
+</div>
+
+<p>Then the app can declare a font like in the example below:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="s">flutter</span><span class="pi">:</span>
+   <span class="s">fonts</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">family</span><span class="pi">:</span> <span class="s">Raleway</span>
+       <span class="s">fonts</span><span class="pi">:</span>
+         <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">assets/fonts/Raleway-Regular.ttf</span>
+         <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">packages/my_package/fonts/Raleway-Medium.ttf</span>
+           <span class="s">weight</span><span class="pi">:</span> <span class="s">500</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">lib/</code> is implied, so it should not be included in the asset path.</p>
+
+<p>In this case, since the app locally defines the font, the TextStyle is created
+without the <code class="highlighter-rouge">package</code> argument:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">const</span> <span class="n">textStyle</span> <span class="o">=</span> <span class="kd">const</span> <span class="n">TextStyle</span><span class="o">(</span>
+  <span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">,</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<h2 id="using-the-material-design-icon-font">Using the Material Design icon font</h2>
+
+<p>When you want to use the Material Design icon font,
+it can be simply included by adding a property <code class="highlighter-rouge">uses-material-design: true</code> to the <code class="highlighter-rouge">pubspec.yaml</code> file.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
+  <span class="c1"># The following line ensures that the Material Icons font is</span>
+  <span class="c1"># included with your application, so that you can use the icons in</span>
+  <span class="c1"># the Icons class.</span>
+  <span class="s">uses-material-design</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<h2 id="pubspecyaml-option-definitions">pubspec.yaml option definitions</h2>
+
+<p>The <code class="highlighter-rouge">family</code> determines the name of the font, which you can use in the
+<a href="https://docs.flutter.io/flutter/painting/TextStyle/fontFamily.html"><code class="highlighter-rouge">fontFamily</code></a>
+property of a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>
+object to use the font with a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a>
+or a <a href="https://docs.flutter.io/flutter/widgets/RichText-class.html"><code class="highlighter-rouge">RichText</code></a>
+widget.</p>
+
+<p>The <code class="highlighter-rouge">asset</code> is a path to the font file, relative to the <code class="highlighter-rouge">pubspec.yaml</code> file.
+These files contain the outlines for the glyphs in the font. When building your app, 
+these files are included in your app’s asset bundle.</p>
+
+<p>A single font can reference many different files with different outline weights
+and styles:</p>
+
+<ul>
+  <li>
+    <p>The <code class="highlighter-rouge">weight</code> property specifies the weight of the outlines in the file as an
+integer multiple of 100 between 100 and 900. These values correspond to the
+<a href="https://docs.flutter.io/flutter/dart-ui/FontWeight-class.html"><code class="highlighter-rouge">FontWeight</code></a>
+and can be used in the <a href="https://docs.flutter.io/flutter/painting/TextStyle/fontWeight.html"><code class="highlighter-rouge">fontWeight</code></a>
+property of a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>
+object.</p>
+  </li>
+  <li>
+    <p>The <code class="highlighter-rouge">style</code> property specfies whether the outlines in the file are
+<code class="highlighter-rouge">italic</code> or <code class="highlighter-rouge">normal</code>. These values correspond to the
+<a href="https://docs.flutter.io/flutter/dart-ui/FontStyle-class.html"><code class="highlighter-rouge">FontStyle</code></a>
+and can be used in the <a href="https://docs.flutter.io/flutter/painting/TextStyle/fontStyle.html">fontStyle</a>
+property of a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>
+object.</p>
+  </li>
+</ul>
+
+<h2 id="textstyle">TextStyle</h2>
+
+<p>If a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>
+object specifies a weight or style for which is there is no exact font file, the
+engine uses one of the more generic files for the font and attempts to
+extrapolate outlines for the requested weight and style.</p>
+
+<h2 id="example">Example</h2>
+<p>Here is an example delcaring and using the fonts in a simple application.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>iOS</th>
+      <th>Android</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img style="width: 200px;" src="/images/fonts-example-ios.png" alt="Display of the fonts on ios." /></td>
+      <td><img style="width: 200px;" src="/images/fonts-example-android.png" alt="Display of the fonts on android." /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Declaring the fonts in the pubsec.yaml.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">name</span><span class="pi">:</span> <span class="s">my_application</span>
+<span class="s">description</span><span class="pi">:</span> <span class="s">A new Flutter project.</span>
+
+<span class="s">dependencies</span><span class="pi">:</span>
+  <span class="s">flutter</span><span class="pi">:</span>
+    <span class="s">sdk</span><span class="pi">:</span> <span class="s">flutter</span>
+    
+<span class="s">flutter</span><span class="pi">:</span>
+  <span class="c1"># Include the Material Design fonts.</span>
+  <span class="s">uses-material-design</span><span class="pi">:</span> <span class="s">true</span>
+
+  <span class="s">fonts</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">family</span><span class="pi">:</span> <span class="s">Rock Salt</span>
+      <span class="s">fonts</span><span class="pi">:</span>
+        <span class="c1"># https://fonts.google.com/specimen/Rock+Salt</span>
+        <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">fonts/RockSalt-Regular.ttf</span>
+    <span class="pi">-</span> <span class="s">family</span><span class="pi">:</span> <span class="s">VT323</span>
+      <span class="s">fonts</span><span class="pi">:</span>
+        <span class="c1"># https://fonts.google.com/specimen/VT323</span>
+        <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">fonts/VT323-Regular.ttf</span>
+    <span class="pi">-</span> <span class="s">family</span><span class="pi">:</span> <span class="s">Ewert</span>
+      <span class="s">fonts</span><span class="pi">:</span>
+        <span class="c1"># https://fonts.google.com/specimen/Ewert</span>
+        <span class="pi">-</span> <span class="s">asset</span><span class="pi">:</span> <span class="s">fonts/Ewert-Regular.ttf</span>
+</code></pre>
+</div>
+
+<p>Implementing the fonts in the application source code.</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+
+<span class="kd">const</span> <span class="kt">String</span> <span class="n">words1</span> <span class="o">=</span> <span class="s">"Almost before we knew it, we had left the ground."</span><span class="o">;</span>
+<span class="kd">const</span> <span class="kt">String</span> <span class="n">words2</span> <span class="o">=</span> <span class="s">"A shining crescent far beneath the flying vessel."</span><span class="o">;</span>
+<span class="kd">const</span> <span class="kt">String</span> <span class="n">words3</span> <span class="o">=</span> <span class="s">"A red flair silhouetted the jagged edge of a wing."</span><span class="o">;</span>
+<span class="kd">const</span> <span class="kt">String</span> <span class="n">words4</span> <span class="o">=</span> <span class="s">"Mist enveloped the ship three hours out from port."</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+      <span class="nl">title:</span> <span class="s">'Flutter Fonts'</span><span class="o">,</span>
+      <span class="nl">theme:</span> <span class="k">new</span> <span class="n">ThemeData</span><span class="o">(</span>
+        <span class="nl">primarySwatch:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">blue</span><span class="o">,</span>
+      <span class="o">),</span>
+      <span class="nl">home:</span> <span class="k">new</span> <span class="n">FontsPage</span><span class="o">(),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">FontsPage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">_FontsPageState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_FontsPageState</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">_FontsPageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">FontsPage</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Rock Salt - https://fonts.google.com/specimen/Rock+Salt</span>
+    <span class="kd">var</span> <span class="n">rockSaltContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+            <span class="s">"Rock Salt"</span><span class="o">,</span>
+          <span class="o">),</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+            <span class="n">words2</span><span class="o">,</span>
+            <span class="nl">textAlign:</span> <span class="n">TextAlign</span><span class="o">.</span><span class="na">center</span><span class="o">,</span>
+            <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="o">(</span>
+              <span class="nl">fontFamily:</span> <span class="s">"Rock Salt"</span><span class="o">,</span>
+              <span class="nl">fontSize:</span> <span class="mf">17.0</span><span class="o">,</span>
+            <span class="o">),</span>
+          <span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+      <span class="nl">margin:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">10.0</span><span class="o">),</span>
+      <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">10.0</span><span class="o">),</span>
+      <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">grey</span><span class="o">.</span><span class="na">shade200</span><span class="o">,</span>
+        <span class="nl">borderRadius:</span> <span class="k">new</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="k">new</span> <span class="n">Radius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">5.0</span><span class="o">)),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+
+    <span class="c1">// VT323 - https://fonts.google.com/specimen/VT323</span>
+    <span class="kd">var</span> <span class="n">v2t323Container</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+            <span class="s">"VT323"</span><span class="o">,</span>
+          <span class="o">),</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+            <span class="n">words3</span><span class="o">,</span>
+            <span class="nl">textAlign:</span> <span class="n">TextAlign</span><span class="o">.</span><span class="na">center</span><span class="o">,</span>
+            <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="o">(</span>
+              <span class="nl">fontFamily:</span> <span class="s">"VT323"</span><span class="o">,</span>
+              <span class="nl">fontSize:</span> <span class="mf">25.0</span><span class="o">,</span>
+            <span class="o">),</span>
+          <span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+      <span class="nl">margin:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">10.0</span><span class="o">),</span>
+      <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">10.0</span><span class="o">),</span>
+      <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">grey</span><span class="o">.</span><span class="na">shade200</span><span class="o">,</span>
+        <span class="nl">borderRadius:</span> <span class="k">new</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="k">new</span> <span class="n">Radius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">5.0</span><span class="o">)),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+
+    <span class="c1">// https://fonts.google.com/specimen/Ewert</span>
+    <span class="kd">var</span> <span class="n">ewertContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+            <span class="s">"Ewert"</span><span class="o">,</span>
+          <span class="o">),</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+            <span class="n">words4</span><span class="o">,</span>
+            <span class="nl">textAlign:</span> <span class="n">TextAlign</span><span class="o">.</span><span class="na">center</span><span class="o">,</span>
+            <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="o">(</span>
+              <span class="nl">fontFamily:</span> <span class="s">"Ewert"</span><span class="o">,</span>
+              <span class="nl">fontSize:</span> <span class="mf">25.0</span><span class="o">,</span>
+            <span class="o">),</span>
+          <span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+      <span class="nl">margin:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">10.0</span><span class="o">),</span>
+      <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">10.0</span><span class="o">),</span>
+      <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">grey</span><span class="o">.</span><span class="na">shade200</span><span class="o">,</span>
+        <span class="nl">borderRadius:</span> <span class="k">new</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="k">new</span> <span class="n">Radius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">5.0</span><span class="o">)),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+
+    <span class="c1">// Material Icons font - included with Material Design</span>
+    <span class="kt">String</span> <span class="n">icons</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_accessible</span>
+    <span class="c1">// accessible: &amp;#xE914; or 0xE914 or E914</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E914}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_error</span>
+    <span class="c1">// error: &amp;#xE000; or 0xE000 or E000</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E000}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_fingerprint</span>
+    <span class="c1">// fingerprint: &amp;#xE90D; or 0xE90D or E90D</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E90D}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_camera</span>
+    <span class="c1">// camera: &amp;#xE3AF; or 0xE3AF or E3AF</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E3AF}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_palette</span>
+    <span class="c1">// palette: &amp;#xE40A; or 0xE40A or E40A</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E40A}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_tag_faces</span>
+    <span class="c1">// tag faces: &amp;#xE420; or 0xE420 or E420</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E420}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_directions_bike</span>
+    <span class="c1">// directions bike: &amp;#xE52F; or 0xE52F or E52F</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E52F}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_airline_seat_recline_extra</span>
+    <span class="c1">// airline seat recline extra: &amp;#xE636; or 0xE636 or E636</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E636}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_beach_access</span>
+    <span class="c1">// beach access: &amp;#xEB3E; or 0xEB3E or EB3E</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{EB3E}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_public</span>
+    <span class="c1">// public: &amp;#xE80B; or 0xE80B or E80B</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E80B}"</span><span class="o">;</span>
+
+    <span class="c1">// https://material.io/icons/#ic_star</span>
+    <span class="c1">// star: &amp;#xE838; or 0xE838 or E838</span>
+    <span class="n">icons</span> <span class="o">+=</span> <span class="s">"</span><span class="err">\</span><span class="s">u{E838}"</span><span class="o">;</span>
+
+    <span class="kd">var</span> <span class="n">materialIconsContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+            <span class="s">"Material Icons"</span><span class="o">,</span>
+          <span class="o">),</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+            <span class="n">icons</span><span class="o">,</span>
+            <span class="nl">textAlign:</span> <span class="n">TextAlign</span><span class="o">.</span><span class="na">center</span><span class="o">,</span>
+            <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="o">(</span>
+              <span class="nl">inherit:</span> <span class="kc">false</span><span class="o">,</span>
+              <span class="nl">fontFamily:</span> <span class="s">"MaterialIcons"</span><span class="o">,</span>
+              <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">black</span><span class="o">,</span>
+              <span class="nl">fontStyle:</span> <span class="n">FontStyle</span><span class="o">.</span><span class="na">normal</span><span class="o">,</span>
+              <span class="nl">fontSize:</span> <span class="mf">25.0</span><span class="o">,</span>
+            <span class="o">),</span>
+          <span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+      <span class="nl">margin:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">10.0</span><span class="o">),</span>
+      <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">10.0</span><span class="o">),</span>
+      <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+        <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">grey</span><span class="o">.</span><span class="na">shade200</span><span class="o">,</span>
+        <span class="nl">borderRadius:</span> <span class="k">new</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="k">new</span> <span class="n">Radius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">5.0</span><span class="o">)),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Fonts"</span><span class="o">),</span>
+      <span class="o">),</span>
+      <span class="nl">body:</span> <span class="k">new</span> <span class="n">ListView</span><span class="o">(</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="n">rockSaltContainer</span><span class="o">,</span>
+          <span class="n">v2t323Container</span><span class="o">,</span>
+          <span class="n">ewertContainer</span><span class="o">,</span>
+          <span class="n">materialIconsContainer</span><span class="o">,</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

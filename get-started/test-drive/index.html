@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get Started: Test Drive  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/get-started/test-drive/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/get-started/test-drive.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Get Started: Test Drive&body=From URL: http://localhost:4000/get-started/test-drive.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Get Started: Test Drive </h1>
+   </div>
+
+  </header>
+  
+
+  <p>This page describes how to “test drive” Flutter: create a new Flutter app from
+our templates, run it, and learn how to make changes with Hot Reload.</p>
+
+<p>Flutter is a flexible toolkit, so please start by selecting your development
+tool of choice for writing, building, and running your Flutter app.</p>
+
+<ul class="tabs__top-bar">
+    <li class="tab-link current" data-tab="tab-install-androidsstudio">Android Studio</li>
+    <li class="tab-link" data-tab="tab-install-vscode">VS Code</li>
+    <li class="tab-link" data-tab="tab-install-terminal">Terminal + editor</li>
+</ul>
+
+<div id="tab-install-androidsstudio" class="tabs__content current">
+
+  <p><em>Android Studio:</em> A complete, integrated IDE experience for Flutter.</p>
+
+  <h2 id="create-app">Create new app</h2>
+
+  <ol>
+    <li>Select <strong>File&gt;New Flutter Project</strong></li>
+    <li>Select <strong>Flutter application</strong> as the project type, and press Next</li>
+    <li>Enter a project name (e.g. <code class="highlighter-rouge">myapp</code>), and press Next</li>
+    <li>Click <strong>Finish</strong></li>
+    <li>Wait for Android Studio to install the SDK, and create the project.</li>
+  </ol>
+
+  <p>The above command creates a Flutter project directory called <code class="highlighter-rouge">myapp</code> that contains a simple demo
+app that uses <a href="https://material.io/guidelines/">Material Components</a>.</p>
+
+  <p>In the project directory, the code for your app is in <code class="highlighter-rouge">lib/main.dart</code>.</p>
+
+  <h2 id="run-the-app">Run the app</h2>
+
+  <ol>
+    <li>Locate the main Android Studio toolbar:<br />
+<img src="/images/intellij/main-toolbar.png" alt="Main IntelliJ toolbar" /></li>
+    <li>In the <strong>target selector</strong>, select an Android device for running the app.
+If none are listed as available, select <strong>Tools&gt;Android&gt;AVD Manager</strong> and
+create one there. For details, see <a href="https://developer.android.com/studio/run/managing-avds.html">Managing
+AVDs</a>.</li>
+    <li>Click the <strong>Run icon</strong> in the toolbar, or invoke the menu item <strong>Run &gt;
+Run</strong>.</li>
+    <li>If everything works, you should see your starter app on your device or
+simulator:<br />
+<img src="/images/flutter-starter-app-android.png" alt="Starter App on Android" /></li>
+  </ol>
+
+  <h2 id="try-a-hot-reload">Try a hot reload</h2>
+
+  <p>Flutter offers a fast development cycle with <em>hot reload</em>, the ability to reload
+the code of a live running app without restarting or losing app state. Simply
+make a change to your source code, tell your IDE or command-line tool that you
+want to hot reload, and see the change in your simulator, emulator, or device.</p>
+
+  <ol>
+    <li>Change the string<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>
+to<br /><code class="highlighter-rouge">'You have clicked the button this many times:'</code></li>
+    <li>Do not press the ‘Stop’ button; let your app continue to run.</li>
+    <li>To see your changes invoke <strong>Save All</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>), or click the
+<strong>Hot Reload button</strong> (the button with the lightning bolt icon).</li>
+  </ol>
+
+  <p>You should see the updated string in the running app almost immediately.</p>
+
+</div>
+
+<div id="tab-install-vscode" class="tabs__content">
+
+  <p><em>VS Code:</em> A light-weight editor with Flutter run and debug support.</p>
+
+  <h2 id="create-new-app">Create new app</h2>
+
+  <ol>
+    <li>Start VS Code</li>
+    <li>Invoke <strong>View&gt;Command Palette…</strong></li>
+    <li>Type ‘flutter’, and select the <strong>‘Flutter: New Project’</strong> action</li>
+    <li>Enter a project name (e.g. <code class="highlighter-rouge">myapp</code>), and press Enter</li>
+    <li>Specify a location to place the project, and press the blue OK button</li>
+    <li>Wait for the project creation to continue, and the <code class="highlighter-rouge">main.dart</code> file to appear</li>
+  </ol>
+
+  <p>The above command creates a Flutter project directory called <code class="highlighter-rouge">myapp</code> that contains a simple demo
+app that uses <a href="https://material.io/guidelines/">Material Components</a>.</p>
+
+  <p>In the project directory, the code for your app is in <code class="highlighter-rouge">lib/main.dart</code>.</p>
+
+  <h2 id="run-the-app-1">Run the app</h2>
+
+  <ol>
+    <li>Make sure a target device is selected in the lower, right-hand corner of VS Code</li>
+    <li>Press the F5 button on the keyboard, or invoke <strong>Debug&gt;Start Debugging</strong></li>
+    <li>Wait for the app to launch</li>
+    <li>If everything works, after the app has been built, you should see your
+ starter app on your device or simulator:<br />
+ <img src="/images/flutter-starter-app-android.png" alt="Starter App on Android" /></li>
+  </ol>
+
+  <h2 id="try-a-hot-reload-1">Try a hot reload</h2>
+
+  <p>Flutter offers a fast development cycle with <em>hot reload</em>, the ability to reload
+the code of a live running app without restarting or losing app state. Simply
+make a change to your source code, tell your IDE or command-line tool that you
+want to hot reload, and see the change in your simulator, emulator, or device.</p>
+
+  <ol>
+    <li>Open the file <code class="highlighter-rouge">lib/main.dart</code> in your favorite Dart code editor</li>
+    <li>Change the string<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>
+to<br /><code class="highlighter-rouge">'You have clicked the button this many times:'</code></li>
+    <li>Do not press the ‘Stop’ button; let your app continue to run.</li>
+    <li>To see your changes invoke <strong>Save</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>), or click the
+<strong>Hot Reload button</strong> (the green circular arrow button).</li>
+  </ol>
+
+  <p>You should see the updated string in the running app almost immediately.</p>
+
+</div>
+
+<div id="tab-install-terminal" class="tabs__content">
+
+  <p><em>Terminal + editor:</em> Your editor-of-choice combined with Flutter’s terminal tool
+for running and building.</p>
+
+  <h2 id="create-new-app-1">Create new app</h2>
+
+  <ol>
+    <li>Use the <code class="highlighter-rouge">flutter create</code> command to create a new project:</li>
+  </ol>
+  <pre><code><span class="noselect">$ </span>flutter create myapp
+<span class="noselect">$ </span>cd myapp</code></pre>
+
+  <p>The above command creates a Flutter project directory called <code class="highlighter-rouge">myapp</code> that contains a simple demo
+app that uses <a href="https://material.io/guidelines/">Material Components</a>.</p>
+
+  <p>In the project directory, the code for your app is in <code class="highlighter-rouge">lib/main.dart</code>.</p>
+
+  <h2 id="run-the-app-2">Run the app</h2>
+
+  <ul>
+    <li>Check that an Android device is running. If none are shown, see <a href="/get-started/install/">setup</a>.</li>
+  </ul>
+  <pre><code><span class="noselect">$ </span>flutter devices</code></pre>
+  <ul>
+    <li>Run the app with the <code class="highlighter-rouge">flutter run</code> command:</li>
+  </ul>
+  <pre><code><span class="noselect">$ </span>flutter run</code></pre>
+  <ul>
+    <li>If everything works, after the app has been built, you should see your
+ starter app on your device or simulator:<br />
+ <img src="/images/flutter-starter-app-android.png" alt="Starter App on Android" /></li>
+  </ul>
+
+  <h2 id="try-a-hot-reload-2">Try a hot reload</h2>
+
+  <p>Flutter offers a fast development cycle with <em>hot reload</em>, the ability to reload
+the code of a live running app without restarting or losing app state. Simply
+make a change to your source code, tell your IDE or command-line tool that you
+want to hot reload, and see the change in your simulator, emulator, or device.</p>
+
+  <ol>
+    <li>Open the file <code class="highlighter-rouge">lib/main.dart</code></li>
+    <li>Change the string<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>
+to<br /><code class="highlighter-rouge">'You have clicked the button this many times:'</code></li>
+    <li>Do not press the ‘Stop’ button; let your app continue to run.</li>
+    <li>To see your changes invoke <strong>Save All</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>), or click the
+<strong>Hot Reload button</strong> (the button with the lightning bolt icon).</li>
+  </ol>
+
+  <p>You should see the updated string in the running app almost immediately.</p>
+
+</div>
+
+<h2 id="next-step">Next step</h2>
+
+<p>Let’s learn some core Flutter concepts, by creating a small app.</p>
+
+<p><a href="/get-started/codelab/">Next step: Write your first app</a></p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

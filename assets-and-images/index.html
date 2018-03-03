@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adding Assets and Images in Flutter  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/assets-and-images/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/assets-and-images.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Adding Assets and Images in Flutter&body=From URL: http://localhost:4000/assets-and-images.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Adding Assets and Images in Flutter </h1>
+   </div>
+
+  </header>
+  
+
+  <ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#specifying-assets" id="markdown-toc-specifying-assets">Specifying assets</a>    <ul>
+      <li><a href="#asset-variants" id="markdown-toc-asset-variants">Asset variants</a></li>
+    </ul>
+  </li>
+  <li><a href="#loading-assets" id="markdown-toc-loading-assets">Loading assets</a>    <ul>
+      <li><a href="#loading-text-assets" id="markdown-toc-loading-text-assets">Loading text assets</a></li>
+      <li><a href="#loading-images" id="markdown-toc-loading-images">Loading images</a>        <ul>
+          <li><a href="#resolution-aware" id="markdown-toc-resolution-aware">Declaring resolution-aware image assets</a></li>
+          <li><a href="#loading-images-1" id="markdown-toc-loading-images-1">Loading images</a></li>
+        </ul>
+      </li>
+      <li><a href="#from-packages" id="markdown-toc-from-packages">Asset images in package dependencies</a>        <ul>
+          <li><a href="#bundling-of-package-assets" id="markdown-toc-bundling-of-package-assets">Bundling of package assets</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#platform-assets" id="markdown-toc-platform-assets">Platform assets</a>    <ul>
+      <li><a href="#updating-the-app-icon" id="markdown-toc-updating-the-app-icon">Updating the app icon</a>        <ul>
+          <li><a href="#android" id="markdown-toc-android">Android</a></li>
+          <li><a href="#ios" id="markdown-toc-ios">iOS</a></li>
+        </ul>
+      </li>
+      <li><a href="#updating-the-launch-screen" id="markdown-toc-updating-the-launch-screen">Updating the launch screen</a>        <ul>
+          <li><a href="#android-1" id="markdown-toc-android-1">Android</a></li>
+          <li><a href="#ios-1" id="markdown-toc-ios-1">iOS</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Flutter apps can include both code and <em>assets</em> (sometimes called
+resources). An asset is a file that is bundled and deployed with your
+app, and is accessible at runtime. Common types of assets include
+static data (for example, JSON files), configuration files, icons, and
+images (JPEG, WebP, GIF, animated WebP/GIF, PNG, BMP, and WBMP).</p>
+
+<h2 id="specifying-assets">Specifying assets</h2>
+
+<p>Flutter uses
+the <a href="https://www.dartlang.org/tools/pub/pubspec"><code class="highlighter-rouge">pubspec.yaml</code></a> file,
+located at the root of your project, to identify assets required by an
+app.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
+  <span class="s">assets</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">assets/my_icon.png</span>
+    <span class="pi">-</span> <span class="s">assets/background.png</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">assets</code> subsection of the <code class="highlighter-rouge">flutter</code> section specifies files that
+should be included with the app. Each asset is identified by an
+explicit path (relative to the <code class="highlighter-rouge">pubspec.yaml</code> file) where the asset
+file is located. The order in which the assets are declared does not
+matter. The actual directory used (<code class="highlighter-rouge">assets</code> in this case) does not
+matter.</p>
+
+<p>During a build, Flutter places assets into a special archive called
+the <em>asset bundle</em>, which apps can read from at runtime.</p>
+
+<h3 id="asset-variants">Asset variants</h3>
+
+<p>The build process supports the notion of asset variants: different
+versions of an asset that might be displayed in different contexts.
+When an asset’s path is specified in the <code class="highlighter-rouge">assets</code> section of
+<code class="highlighter-rouge">pubspec.yaml</code>, the build process looks for any files with the same
+name in adjacent subdirectories. Such files are then included in the
+asset bundle along with the specified asset.</p>
+
+<p>For example, if you have the following files in your application
+directory:</p>
+
+<ul>
+  <li>…/pubspec.yaml</li>
+  <li>…/graphics/my_icon.png</li>
+  <li>…/graphics/background.png</li>
+  <li>…/graphics/dark/background.png</li>
+  <li>…etc.</li>
+</ul>
+
+<p>…and your <code class="highlighter-rouge">pubspec.yaml</code> file contains:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
+  <span class="s">assets</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">graphics/background.png</span>
+</code></pre>
+</div>
+
+<p>…then both <code class="highlighter-rouge">graphics/background.png</code> and <code class="highlighter-rouge">graphics/dark/background.png</code>
+will be included in your asset bundle. The former is considered the
+<em>main asset</em>, while the latter is considered a <em>variant</em>.</p>
+
+<p>Flutter uses asset variants when choosing resolution appropriate
+images; see below. In the future, this mechanism may be extended to
+include variants for different locales or regions, reading directions,
+etc.</p>
+
+<h2 id="loading-assets">Loading assets</h2>
+
+<p>Your app can access its assets through an
+<a href="https://docs.flutter.io/flutter/services/AssetBundle-class.html"><code class="highlighter-rouge">AssetBundle</code></a>
+object.</p>
+
+<p>The two main methods on an asset bundle allow you to load a
+string/text asset (<code class="highlighter-rouge">loadString</code>) or an image/binary asset (<code class="highlighter-rouge">load</code>) out
+of the bundle, given a logical key. The logical key maps to the path
+to the asset specified in the <code class="highlighter-rouge">pubspec.yaml</code> file at build time.</p>
+
+<h3 id="loading-text-assets">Loading text assets</h3>
+
+<p>Each Flutter app has a
+<a href="https://docs.flutter.io/flutter/services/rootBundle.html"><code class="highlighter-rouge">rootBundle</code></a>
+object for easy access to the main asset bundle. It is possible to
+load assets directly using the <code class="highlighter-rouge">rootBundle</code> global static from
+<code class="highlighter-rouge">package:flutter/services.dart</code>.</p>
+
+<p>However, it’s recommended to obtain the AssetBundle for the current
+BuildContext using
+<a href="https://docs.flutter.io/flutter/widgets/DefaultAssetBundle-class.html"><code class="highlighter-rouge">DefaultAssetBundle</code></a>.
+Rather than the default asset bundle that was built with the app, this
+approach enables a parent widget to substitute a different AssetBundle
+at run time, which can be useful for localization or testing
+scenarios.</p>
+
+<p>Typically, you’ll use <code class="highlighter-rouge">DefaultAssetBundle.of()</code> to indirectly load an
+asset, for example a JSON file, from the app’s runtime <code class="highlighter-rouge">rootBundle</code>.</p>
+
+<p>Outside of a Widget context, or when a handle to an AssetBundle is not
+available, you can use <code class="highlighter-rouge">rootBundle</code> to directly load such assets,
+for example:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span> <span class="kd">show</span> <span class="n">Future</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:flutter/services.dart'</span> <span class="kd">show</span> <span class="n">rootBundle</span><span class="o">;</span>
+
+<span class="n">Future</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">loadAsset</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">await</span> <span class="n">rootBundle</span><span class="o">.</span><span class="na">loadString</span><span class="o">(</span><span class="s">'assets/config.json'</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h3 id="loading-images">Loading images</h3>
+
+<p>Flutter can load resolution-appropriate images for the current device
+pixel ratio.</p>
+
+<h4 id="resolution-aware">Declaring resolution-aware image assets</h4>
+
+<p><a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a>
+understands how to map a logical requested asset onto one that most
+closely matches the current <a href="https://docs.flutter.io/flutter/dart-ui/Window/devicePixelRatio.html">device pixel ratio</a>.
+In order for this mapping to
+work, assets should be arranged according to a particular directory structure:</p>
+
+<ul>
+  <li>…/image.png</li>
+  <li>…/Mx/image.png</li>
+  <li>…/Nx/image.png</li>
+  <li>…etc.</li>
+</ul>
+
+<p>…where <em>M</em> and <em>N</em> are numeric identifiers that correspond to the nominal resolution
+of the images contained within, in other words, they specify the device pixel ratio that
+the images are intended for.</p>
+
+<p>The main asset is assumed to correspond to a
+resolution of 1.0. For example, consider the following asset layout for an
+image named <code class="highlighter-rouge">my_icon.png</code>:</p>
+
+<ul>
+  <li>…/my_icon.png</li>
+  <li>…/2.0x/my_icon.png</li>
+  <li>…/3.0x/my_icon.png</li>
+</ul>
+
+<p>On devices with a device pixel ratio of 1.8, the asset <code class="highlighter-rouge">.../2.0x/my_icon.png</code>
+would be chosen. For a device pixel ratio of 2.7, the asset
+<code class="highlighter-rouge">.../3.0x/my_icon.png</code> would be chosen.</p>
+
+<p>If the width and height of the rendered image are not specified on the <code class="highlighter-rouge">Image</code> widget, the nominal
+resolution is used to scale the asset so that it will occupy the same amount
+of screen space as the main asset would have, just with a higher resolution.
+That is, if <code class="highlighter-rouge">.../my_icon.png</code> is 72px by 72px, then <code class="highlighter-rouge">.../3.0x/my_icon.png</code>
+should be 216px by 216px; but they both will render into 72px by 72px
+(in logical pixels) if width and height are not specified.</p>
+
+<p>Each entry in the asset section of the <code class="highlighter-rouge">pubspec.yaml</code> should correspond to a real file, with the
+exception of the main asset entry. If the main asset entry does not correspond
+to a real file, then the asset with the lowest resolution will be used as the fallback
+for devices with device pixel ratios below that resolution. The entry should still
+be included in the <code class="highlighter-rouge">pubspec.yaml</code> manifest, however.</p>
+
+<h4 id="loading-images-1">Loading images</h4>
+
+<p>To load an image, use the
+<a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a>
+class in a widget’s <code class="highlighter-rouge">build</code> method.</p>
+
+<p>For example, your app can load the background image from the asset
+declarations above:</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Widget</span> <span class="nf">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="n">DecoratedBox</span><span class="o">(</span>
+    <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+      <span class="nl">image:</span> <span class="k">new</span> <span class="n">DecorationImage</span><span class="o">(</span>
+        <span class="nl">image:</span> <span class="k">new</span> <span class="n">AssetImage</span><span class="o">(</span><span class="s">'graphics/background.png'</span><span class="o">),</span>
+        <span class="c1">// ...</span>
+      <span class="o">),</span>
+      <span class="c1">// ...</span>
+    <span class="o">),</span>
+  <span class="o">);</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Anything using the default asset bundle will inherit resolution
+awareness when loading images. (If you work with some of the lower
+level classes, like
+<a href="https://docs.flutter.io/flutter/painting/ImageStream-class.html"><code class="highlighter-rouge">ImageStream</code></a>
+or
+<a href="https://docs.flutter.io/flutter/painting/ImageCache-class.html"><code class="highlighter-rouge">ImageCache</code></a>,
+you’ll also notice parameters related to scale.)</p>
+
+<h3 id="from-packages">Asset images in package dependencies</h3>
+
+<p>To load an image from a <a href="https://flutter.io/using-packages/">package</a> dependency, the <code class="highlighter-rouge">package</code> argument must be provided to <a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a>.</p>
+
+<p>For instance, suppose your application depends on a package called <code class="highlighter-rouge">my_icons</code>, which has the following directory structure:</p>
+
+<ul>
+  <li>…/pubspec.yaml</li>
+  <li>…/icons/heart.png</li>
+  <li>…/icons/1.5x/heart.png</li>
+  <li>…/icons/2.0x/heart.png</li>
+  <li>…etc.</li>
+</ul>
+
+<p>Then to load the image, use:</p>
+
+<!-- skip -->
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code> <span class="k">new</span> <span class="nf">AssetImage</span><span class="p">(</span><span class="s">'icons/heart.png'</span><span class="o">,</span> <span class="nl">package:</span> <span class="s">'my_icons'</span><span class="o">)</span>
+</code></pre>
+</div>
+
+<p>Assets used by the package itself should also be fetched using the <code class="highlighter-rouge">package</code> argument as above.</p>
+
+<h4 id="bundling-of-package-assets">Bundling of package assets</h4>
+
+<p>If the desired asset is specified in the <code class="highlighter-rouge">pubspec.yaml</code> file of the package, it is bundled automatically with the application. In particular, assets used by the package itself must be specified in its <code class="highlighter-rouge">pubspec.yaml</code>.</p>
+
+<p>A package can also choose to have assets in its <code class="highlighter-rouge">lib/</code> folder that are not specified in its <code class="highlighter-rouge">pubspec.yaml</code> file. In this case, for those images to be bundled, the application has to specify which ones to include in its <code class="highlighter-rouge">pubspec.yaml</code>. For instance, a package named <code class="highlighter-rouge">fancy_backgrounds</code> could have the following files:</p>
+
+<ul>
+  <li>…/lib/backgrounds/background1.png</li>
+  <li>…/lib/backgrounds/background2.png</li>
+  <li>…/lib/backgrounds/background3.png</li>
+</ul>
+
+<p>To include, say, the first image, the <code class="highlighter-rouge">pubspec.yaml</code> of the application should specify it in the <code class="highlighter-rouge">assets</code> section:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
+  <span class="s">assets</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">packages/fancy_backgrounds/backgrounds/background1.png</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">lib/</code> is implied, so it should not be included in the asset path.</p>
+
+<h2 id="platform-assets">Platform assets</h2>
+
+<p>There will also be occasions to work with assets in the platform projects directly. Below are two common cases where assets are used before the Flutter framework is loaded and running.</p>
+
+<h3 id="updating-the-app-icon">Updating the app icon</h3>
+<p>Updating your Flutter application’s launch icon works the same way as updating launch icons in native Android or iOS applications.</p>
+
+<p><img src="/images/assets-and-images/icon.png" alt="Launch icon" /></p>
+
+<h4 id="android">Android</h4>
+
+<p>In your Flutter project’s root directory, navigate to <code class="highlighter-rouge">.../android/app/src/main/res</code>. The various bitmap resource folders such as <code class="highlighter-rouge">mipmap-hdpi</code> already contain placeholder images named <code class="highlighter-rouge">ic_launcher.png</code>. Simply replace them with your desired assets respecting the recommended icon size per screen density as indicated by the <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size">Android Developer Guide</a>.</p>
+
+<p><img src="/images/assets-and-images/android-icon-path.png" alt="Android icon location" /></p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong> if you rename the .png files, you must also match the new name in your <code class="highlighter-rouge">AndroidManifest.xml</code>’s <code class="highlighter-rouge">&lt;application&gt;</code> tag’s <code class="highlighter-rouge">android:icon</code> attribute.</p>
+</aside>
+
+<h4 id="ios">iOS</h4>
+
+<p>In your Flutter project’s root directory, navigate to <code class="highlighter-rouge">.../ios/Runner</code>. The directory <code class="highlighter-rouge">Assets.xcassets/AppIcon.appiconset</code> already contains placeholder images. Simply replace them with the appropriately sized images as indicated by their filename as dictated by the Apple <a href="https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon">Human Interface Guidelines</a>. Keep the original file names.</p>
+
+<p><img src="/images/assets-and-images/ios-icon-path.png" alt="iOS icon location" /></p>
+
+<h3 id="updating-the-launch-screen">Updating the launch screen</h3>
+
+<p align="center">
+  <img src="/images/assets-and-images/launch-screen.png" alt="Launch screen" />
+</p>
+
+<p>Flutter also uses native platform mechanisms to draw transitional launch screens to your Flutter app while the Flutter framework loads. This launch screen will persist until Flutter renders the first frame of your application.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong> this implies that if you don’t call <a href="https://docs.flutter.io/flutter/widgets/runApp.html">runApp</a> in the <code class="highlighter-rouge">void main()</code> function of your app (or more specifically, if you don’t call <a href="https://docs.flutter.io/flutter/dart-ui/Window/render.html"><code class="highlighter-rouge">window.render</code></a> in response to <a href="https://docs.flutter.io/flutter/dart-ui/Window/onDrawFrame.html"><code class="highlighter-rouge">window.onDrawFrame</code></a>), the launch screen will persist forever.</p>
+</aside>
+
+<h4 id="android-1">Android</h4>
+
+<p>To add a “splash screen” to your Flutter application, navigate to <code class="highlighter-rouge">.../android/app/src/main</code>. In <code class="highlighter-rouge">res/drawable/launch_background.xml</code>, You can use this <a href="https://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList">layer list drawable</a> XML to customize the look of your launch screen. The existing template provides an example for adding a image to to the middle of a white splash screen in commented code. You can uncomment it or use other <a href="https://developer.android.com/guide/topics/resources/drawable-resource.html">drawables</a> to achieve the intended effect.</p>
+
+<h4 id="ios-1">iOS</h4>
+
+<p>To add an image to the center of your “splash screen”, navigate to <code class="highlighter-rouge">.../ios/Runner</code>. In, <code class="highlighter-rouge">Assets.xcassets/LaunchImage.imageset</code>, drop in images named <code class="highlighter-rouge">LaunchImage.png</code>, <code class="highlighter-rouge">LaunchImage@2x.png</code>, <code class="highlighter-rouge">LaunchImage@3x.png</code>. If you use different filenames, you’ll also have to update the <code class="highlighter-rouge">Contents.json</code> file in the same directory.</p>
+
+<p>You can also fully customize your launch screen storyboard in Xcode by opening <code class="highlighter-rouge">.../ios/Runner.xcworkspace</code>. Navigate to <code class="highlighter-rouge">Runner/Runner</code> in the Project Navigator and drop in images by opening <code class="highlighter-rouge">Assets.xcassets</code> or do any customization using the Interface Builder in <code class="highlighter-rouge">LaunchScreen.storyboard</code>.</p>
+
+<p><img src="/images/assets-and-images/ios-launchscreen-xcode.png" alt="Adding launch icons in Xcode" /></p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

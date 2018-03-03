@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developing Packages & Plugins  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/developing-packages/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/developing-packages.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Developing Packages & Plugins&body=From URL: http://localhost:4000/developing-packages.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Developing Packages & Plugins </h1>
+   </div>
+
+  </header>
+  
+
+  <ul id="markdown-toc">
+  <li><a href="#package-introduction" id="markdown-toc-package-introduction">Package introduction</a>    <ul>
+      <li><a href="#types" id="markdown-toc-types">Package types</a></li>
+    </ul>
+  </li>
+  <li><a href="#dart" id="markdown-toc-dart">Developing Dart packages</a>    <ul>
+      <li><a href="#step-1-create-the-package" id="markdown-toc-step-1-create-the-package">Step 1: Create the package</a></li>
+      <li><a href="#step-2-implement-the-package" id="markdown-toc-step-2-implement-the-package">Step 2: Implement the package</a></li>
+    </ul>
+  </li>
+  <li><a href="#plugin" id="markdown-toc-plugin">Developing plugin packages</a>    <ul>
+      <li><a href="#step-1-create-the-package-1" id="markdown-toc-step-1-create-the-package-1">Step 1: Create the package</a></li>
+      <li><a href="#edit-plugin-package" id="markdown-toc-edit-plugin-package">Step 2: Implement the package</a>        <ul>
+          <li><a href="#step-2a-define-the-package-api-dart" id="markdown-toc-step-2a-define-the-package-api-dart">Step 2a: Define the package API (.dart)</a></li>
+          <li><a href="#step-2b-add-android-platform-code-javakt" id="markdown-toc-step-2b-add-android-platform-code-javakt">Step 2b: Add Android platform code (.java/.kt)</a></li>
+          <li><a href="#step-2c-add-ios-platform-code-hmswift" id="markdown-toc-step-2c-add-ios-platform-code-hmswift">Step 2c: Add iOS platform code (.h+.m/.swift)</a></li>
+          <li><a href="#step-2d-connect-the-api-and-the-platform-code" id="markdown-toc-step-2d-connect-the-api-and-the-platform-code">Step 2d: Connect the API and the platform code</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#adding-documentation" id="markdown-toc-adding-documentation">Adding documentation</a>    <ul>
+      <li><a href="#api-documentation" id="markdown-toc-api-documentation">API documentation</a></li>
+    </ul>
+  </li>
+  <li><a href="#publish" id="markdown-toc-publish">Publishing packages</a></li>
+  <li><a href="#dependencies" id="markdown-toc-dependencies">Handling package interdependencies</a>    <ul>
+      <li><a href="#android" id="markdown-toc-android">Android</a></li>
+      <li><a href="#ios" id="markdown-toc-ios">iOS</a></li>
+      <li><a href="#conflict-resolution" id="markdown-toc-conflict-resolution">Conflict resolution</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="package-introduction">Package introduction</h2>
+
+<p>Packages enable the creation of modular code that can be shared easily. A
+minimal package consists of:</p>
+
+<ul>
+  <li>
+    <p>A <code class="highlighter-rouge">pubspec.yaml</code> file: A metadata file that declares the package name,
+version, author, etc.</p>
+  </li>
+  <li>
+    <p>A <code class="highlighter-rouge">lib</code> directory containing the public code in the package, minimally a
+single <code class="highlighter-rouge">&lt;package-name&gt;.dart</code> file.</p>
+  </li>
+</ul>
+
+<h3 id="types">Package types</h3>
+
+<p>Packages can contain several kinds of content:</p>
+
+<ul>
+  <li>
+    <p><em>Dart packages</em>: General packages written in Dart, for example the
+<a href="https://pub.dartlang.org/packages/path"><code class="highlighter-rouge">path</code></a> package. Some of these may
+contain Flutter specific functionality and thus have a dependency on the
+Flutter framework, restricting their use to Flutter only, for example the
+<a href="https://pub.dartlang.org/packages/fluro"><code class="highlighter-rouge">fluro</code></a> package.</p>
+  </li>
+  <li>
+    <p><em>Plugin packages</em>: A specialized Dart package which contain an API written in
+Dart code combined with a platform-specific implementation for Android (using
+Java or Kotlin), and/or for iOS (using ObjC or Swift). A concrete example is
+the <a href="https://pub.dartlang.org/packages/battery"><code class="highlighter-rouge">battery</code></a> plugin package.</p>
+  </li>
+</ul>
+
+<h2 id="dart">Developing Dart packages</h2>
+
+<h3 id="step-1-create-the-package">Step 1: Create the package</h3>
+
+<p>To create a Dart package, use the <code class="highlighter-rouge">--template=package</code> flag with <code class="highlighter-rouge">flutter create</code>:</p>
+
+<pre><code><span class="noselect">$ </span>flutter create --template=package hello</code></pre>
+
+<p>This creates a package project in the <code class="highlighter-rouge">hello/</code> folder with the following
+specialized content:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">lib/hello.dart</code>:
+    <ul>
+      <li>The Dart code for the package.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">test/hello_test.dart</code>:
+    <ul>
+      <li>The <a href="https://flutter.io/testing/#unit-testing">unit tests</a> for the package.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="step-2-implement-the-package">Step 2: Implement the package</h3>
+
+<p>For pure Dart packages, simply add the functionality inside the main
+<code class="highlighter-rouge">lib/&lt;package name&gt;.dart</code> file, or in several files in the <code class="highlighter-rouge">lib</code> directory.</p>
+
+<p>To test the package, add <a href="https://flutter.io/testing/#unit-testing">unit tests</a>
+in a <code class="highlighter-rouge">test</code> directory.</p>
+
+<p>For additional details on how to organize the package contents, see the <a href="https://www.dartlang.org/guides/libraries/create-library-packages">Dart
+library
+package</a>
+documentation.</p>
+
+<h2 id="plugin">Developing plugin packages</h2>
+
+<p>If you want to develop a package that calls into platform-specific APIs, you
+need to develop a plugin package. A plugin package is a specialized version of a
+Dart package, that in addition to the content described above also contains
+platform-specific implementations written for Android (Java or Kotlin code), for
+iOS (Objective-C or Swift code), or for both. The API is connected to the
+platform-specific implementation(s) using <a href="/platform-channels/">platform channels</a>.</p>
+
+<h3 id="step-1-create-the-package-1">Step 1: Create the package</h3>
+
+<p>To create a plugin package, use the <code class="highlighter-rouge">--template=plugin</code> flag with <code class="highlighter-rouge">flutter create</code>.</p>
+
+<p>Use the <code class="highlighter-rouge">--org</code> option to specify your organization, using reverse domain name
+notation. This value is used in various package and bundle identifiers in the
+generated Android and iOS code.</p>
+
+<pre><code><span class="noselect">$ </span>flutter create --org com.example --template=plugin hello</code></pre>
+
+<p>This creates a plugin project in the <code class="highlighter-rouge">hello/</code> folder with the following
+specialized content:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">lib/hello.dart</code>:
+    <ul>
+      <li>The Dart API for the plugin.</li>
+    </ul>
+  </li>
+  <li><code>android/src/main/java/com/yourcompany/&#8203;hello/HelloPlugin.java</code>:
+    <ul>
+      <li>The Android platform specific implementation of the plugin API.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">ios/Classes/HelloPlugin.m</code>:
+    <ul>
+      <li>The iOS platform specific implementation of the plugin API.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">example/</code>:
+    <ul>
+      <li>A Flutter app that depends on the plugin, and illustrates how to use it.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>By default, the plugin project uses Objective-C for iOS code and
+Java for Android code. If you prefer Swift or Kotlin, you can specify the
+iOS language using <code class="highlighter-rouge">-i</code> and/or the Android language using <code class="highlighter-rouge">-a</code>. For example:</p>
+
+<pre><code><span class="noselect">$ </span>flutter create --template=plugin -i swift -a kotlin hello</code></pre>
+
+<h3 id="edit-plugin-package">Step 2: Implement the package</h3>
+
+<p>As a plugin package contains code for several platforms written in several
+programming languages, some specific steps are needed to ensure a smooth
+experience.</p>
+
+<h4 id="step-2a-define-the-package-api-dart">Step 2a: Define the package API (.dart)</h4>
+
+<p>The API of the plugin package is defined in Dart code. Open the main <code class="highlighter-rouge">hello/</code>
+folder in IntelliJ IDEA (or your favorite Dart editor). Locate the file
+<code class="highlighter-rouge">lib/hello.dart</code>.</p>
+
+<h4 id="step-2b-add-android-platform-code-javakt">Step 2b: Add Android platform code (.java/.kt)</h4>
+
+<p>We recommend you edit the Android code using Android Studio.</p>
+
+<p>Before editing the Android platform code in Android Studio, first make sure that
+the code has been built at least once (i.e., run the example app from IntelliJ,
+or in a terminal execute <code class="highlighter-rouge">cd hello/example; flutter build apk</code>).</p>
+
+<p>Next,</p>
+
+<ol>
+  <li>Launch Android Studio</li>
+  <li>Select ‘Import project’ in ‘Welcome to Android Studio’ dialog, or select
+‘File &gt; New &gt; Import Project…’’ in the menu, and select the
+<code class="highlighter-rouge">hello/example/android/build.gradle</code> file.</li>
+  <li>In the ‘Gradle Sync’ dialog, select ‘OK’.</li>
+  <li>In the ‘Android Gradle Plugin Update’ dialog, select ‘Don’t remind me again
+for this project’.</li>
+</ol>
+
+<p>The Android platform code of your plugin is located in
+<code>hello/java/com.yourcompany.hello/&#8203;HelloPlugin</code>.</p>
+
+<p>You can run the example app from Android Studio by pressing the ▶ button.</p>
+
+<h4 id="step-2c-add-ios-platform-code-hmswift">Step 2c: Add iOS platform code (.h+.m/.swift)</h4>
+
+<p>We recommend you edit the iOS code usign Xcode.</p>
+
+<p>Before editing the iOS platform code in Xcode, first make sure that
+the code has been built at least once (i.e., run the example app from IntelliJ,
+or in a terminal execute <code class="highlighter-rouge">cd hello/example; flutter build ios --no-codesign</code>).</p>
+
+<p>Next,</p>
+
+<ol>
+  <li>Launch Xcode</li>
+  <li>Select ‘File &gt; Open’, and select the <code class="highlighter-rouge">hello/example/ios/Runner.xcworkspace</code> file.</li>
+</ol>
+
+<p>The iOS platform code of your plugin is located in <code class="highlighter-rouge">Pods/Development
+Pods/hello/Classes/</code> in the Project Navigator.</p>
+
+<p>You can run the example app by pressing the ▶ button.</p>
+
+<h4 id="step-2d-connect-the-api-and-the-platform-code">Step 2d: Connect the API and the platform code</h4>
+
+<p>Finally, you need to connect the API written in Dart code with the platform-specific
+implementations. This is done using <a href="/platform-channels/">platform channels</a>.</p>
+
+<h2 id="adding-documentation">Adding documentation</h2>
+
+<p>It is recommended practice to add the following documentation to all packages:</p>
+
+<ol>
+  <li>A <code class="highlighter-rouge">README.md</code> file that introduces the package</li>
+  <li>A <code class="highlighter-rouge">CHANGELOG.md</code> file that documents changes in each version</li>
+  <li>A <code class="highlighter-rouge">LICENSE</code> file containing the terms under which the package is licensed</li>
+  <li>API documentation for all public APIs (see below for details)</li>
+</ol>
+
+<h3 id="api-documentation">API documentation</h3>
+
+<p>When you publish a package, API documentation is automatically generated and
+published to dartdocs.org, see for example the
+<a href="https://www.dartdocs.org/documentation/device_info/0.0.4/index.html">device_info docs</a>.</p>
+
+<p>If you wish to generate API documentation locally on your developement machine, use the following commands:</p>
+
+<ol>
+  <li>
+    <p>Change directory to the location of your package:</p>
+
+    <p><code class="highlighter-rouge">cd ~/dev/mypackage</code></p>
+  </li>
+  <li>
+    <p>Tell the documentation tool where the Flutter SDK is (change to reflect where you placed it):</p>
+
+    <p><code class="highlighter-rouge">export FLUTTER_ROOT=~/dev/flutter</code> (on macOS or Linux)</p>
+
+    <p><code class="highlighter-rouge">set FLUTTER_ROOT=~/dev/flutter</code> (on Windows)</p>
+  </li>
+  <li>
+    <p>Run the <code class="highlighter-rouge">dartdoc</code> tool (comes as part of the Flutter SDK):</p>
+
+    <p><code class="highlighter-rouge">$FLUTTER_ROOT/bin/cache/dart-sdk/bin/dartdoc</code> (on macOS or Linux)</p>
+
+    <p><code class="highlighter-rouge">%FLUTTER_ROOT%\bin\cache\dart-sdk\bin\dartdoc</code> (on Windows)</p>
+  </li>
+</ol>
+
+<p>For tips on how to write API documentation, see <a href="https://www.dartlang.org/guides/language/effective-dart/documentation">Effective Dart: Documentation</a>.</p>
+
+<h2 id="publish">Publishing packages</h2>
+
+<p>Once you have implemented a package, you can publish it on
+<a href="https://pub.dartlang.org/">Pub</a>, so that other developers can easily use it.</p>
+
+<p>Prior to publishing, make sure to review the <code class="highlighter-rouge">pubspec.yaml</code>, <code class="highlighter-rouge">README.md</code>, and
+<code class="highlighter-rouge">CHANGELOG.md</code> files to make sure their content is complete and correct.</p>
+
+<p>Next, run the dry-run command to see if everything passes analysis:</p>
+
+<pre><code><span class="noselect">$ </span>flutter packages pub publish --dry-run</code></pre>
+
+<p>Finally, run the actual publish command:</p>
+<pre><code><span class="noselect">$ </span>flutter packages pub publish</code></pre>
+
+<p>For details on publishing, see the <a href="https://www.dartlang.org/tools/pub/publishing">Pub publishing docs</a>.</p>
+
+<h2 id="dependencies">Handling package interdependencies</h2>
+
+<p>If you are developing a package <code class="highlighter-rouge">hello</code> that depends on the Dart API exposed by another package,
+you need to add that package to the <code class="highlighter-rouge">dependencies</code> section of your <code class="highlighter-rouge">pubspec.yaml</code> file.
+The code below makes the Dart API of the <code class="highlighter-rouge">url_launcher</code> plugin available to <code class="highlighter-rouge">hello</code>:</p>
+
+<p>In <code class="highlighter-rouge">hello/pubspec.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dependencies</span><span class="pi">:</span>
+  <span class="s">url_launcher</span><span class="pi">:</span> <span class="s">^0.4.2</span>
+</code></pre>
+</div>
+
+<p>You can now <code class="highlighter-rouge">import 'package:url_launcher/url_launcher.dart'</code> and <code class="highlighter-rouge">launch(someUrl)</code> in
+the Dart code of <code class="highlighter-rouge">hello</code>.</p>
+
+<p>This is no different from how you include packages in Flutter apps or any other Dart project.</p>
+
+<p>But if <code class="highlighter-rouge">hello</code> happens to be a <em>plugin</em> package whose platform-specific code needs access
+to the platform-specific APIs exposed by <code class="highlighter-rouge">url_launcher</code>, you also need to add
+suitable dependency declarations to your platform-specific build files, as shown below.</p>
+
+<h3 id="android">Android</h3>
+
+<p>In <code class="highlighter-rouge">hello/android/build.gradle</code>:</p>
+<div class="language-groovy highlighter-rouge"><pre class="highlight"><code><span class="n">android</span> <span class="o">{</span>
+    <span class="c1">// lines skipped</span>
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">provided</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">findProject</span><span class="o">(</span><span class="s2">":url_launcher"</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>You can now <code class="highlighter-rouge">import io.flutter.plugins.urllauncher.UrlLauncherPlugin</code> and access the <code class="highlighter-rouge">UrlLauncherPlugin</code>
+class in the source code at <code class="highlighter-rouge">hello/android/src</code>.</p>
+
+<h3 id="ios">iOS</h3>
+
+<p>In <code class="highlighter-rouge">hello/ios/hello.podspec</code>:</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="no">Pod</span><span class="o">::</span><span class="no">Spec</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+  <span class="c1"># lines skipped</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">dependency</span> <span class="s1">'url_launcher'</span>
+</code></pre>
+</div>
+<p>You can now <code class="highlighter-rouge">#import "UrlLauncherPlugin.h"</code> and access the <code class="highlighter-rouge">UrlLauncherPlugin</code> class in the source code
+at <code class="highlighter-rouge">hello/ios/Classes</code>.</p>
+
+<h3 id="conflict-resolution">Conflict resolution</h3>
+
+<p>Suppose you want to use <code class="highlighter-rouge">some_package</code> and <code class="highlighter-rouge">other_package</code> in your package <code class="highlighter-rouge">hello</code>, and both of these depend
+on <code class="highlighter-rouge">url_launcher</code>, but in different versions. Then we have a potential conflict. The best way to avoid this
+is for package authors to use <a href="https://www.dartlang.org/tools/pub/dependencies#version-constraints">version ranges</a>
+rather than specific versions when specifying dependencies.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dependencies</span><span class="pi">:</span>
+  <span class="s">url_launcher</span><span class="pi">:</span> <span class="s">^0.4.2</span>    <span class="c1"># Good, any 0.4.x with x &gt;= 2 will do.</span>
+  <span class="s">image_picker</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0.1.1'</span>   <span class="c1"># Not so good, only 0.1.1 will do.</span>
+</code></pre>
+</div>
+
+<p>If <code class="highlighter-rouge">some_package</code> declares the dependencies above and <code class="highlighter-rouge">other_package</code> declares a compatible  <code class="highlighter-rouge">url_launcher</code>
+dependency like <code class="highlighter-rouge">'0.4.5'</code> or <code class="highlighter-rouge">^0.4.0</code>, <code class="highlighter-rouge">pub</code> will be able to resolve the issue automatically. Similar
+remarks apply to plugin packages’ platform-specific dependencies on <a href="https://docs.gradle.org/current/userguide/dependency_management.html#sub:dynamic_versions_and_changing_modules">Gradle modules</a>
+and/or <a href="https://guides.cocoapods.org/syntax/podspec.html#dependency">Cocoa pods</a>.</p>
+
+<p>Even if <code class="highlighter-rouge">some_package</code> and <code class="highlighter-rouge">other_package</code> declare incompatible versions for <code class="highlighter-rouge">url_launcher</code>, it may still
+be that they actually use <code class="highlighter-rouge">url_launcher</code> in compatible ways. Then the conflict can be dealt with by adding
+a dependency override declaration to the <code class="highlighter-rouge">pubspec.yaml</code> file in <code class="highlighter-rouge">hello</code>, forcing the use of a particular
+version:</p>
+
+<p>Forcing the use of <code class="highlighter-rouge">url_launcher</code> version <code class="highlighter-rouge">0.4.3</code> in <code class="highlighter-rouge">hello/pubspec.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dependencies</span><span class="pi">:</span>
+  <span class="s">some_package</span><span class="pi">:</span>
+  <span class="s">other_package</span><span class="pi">:</span>
+<span class="s">dependency_overrides</span><span class="pi">:</span>
+  <span class="s">url_launcher</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0.4.3'</span>
+</code></pre>
+</div>
+
+<p>If the conflicting dependency is not itself a package, but an Android-specific library like <code class="highlighter-rouge">guava</code>,
+the dependency override declaration must be added to Gradle build logic instead.</p>
+
+<p>Forcing the use of <code class="highlighter-rouge">guava</code> version <code class="highlighter-rouge">23.0</code> in <code class="highlighter-rouge">hello/android/build.gradle</code>:</p>
+<div class="language-groovy highlighter-rouge"><pre class="highlight"><code><span class="n">configurations</span><span class="o">.</span><span class="na">all</span> <span class="o">{</span>
+    <span class="n">resolutionStrategy</span> <span class="o">{</span>
+        <span class="n">force</span> <span class="s1">'com.google.guava:guava:23.0-android'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Cocoapods does not currently offer dependency override functionality.</p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

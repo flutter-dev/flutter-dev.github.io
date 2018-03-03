@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get Started: Install on Windows  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/setup-windows/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/get-started/setup_windows.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Get Started: Install on Windows&body=From URL: http://localhost:4000/get-started/setup_windows.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Get Started: Install on Windows </h1>
+   </div>
+
+  </header>
+  
+
+  <ul id="markdown-toc">
+  <li><a href="#system-requirements" id="markdown-toc-system-requirements">System requirements</a></li>
+  <li><a href="#get-the-flutter-sdk" id="markdown-toc-get-the-flutter-sdk">Get the Flutter SDK</a>    <ul>
+      <li><a href="#clone-the-repo" id="markdown-toc-clone-the-repo">Clone the repo</a></li>
+      <li><a href="#update-your-path" id="markdown-toc-update-your-path">Update your path</a></li>
+      <li><a href="#run-flutter-doctor" id="markdown-toc-run-flutter-doctor">Run flutter doctor</a></li>
+    </ul>
+  </li>
+  <li><a href="#editor-setup" id="markdown-toc-editor-setup">Editor setup</a></li>
+  <li><a href="#android-setup" id="markdown-toc-android-setup">Android setup</a>    <ul>
+      <li><a href="#install-android-studio" id="markdown-toc-install-android-studio">Install Android Studio</a></li>
+      <li><a href="#set-up-your-android-device" id="markdown-toc-set-up-your-android-device">Set up your Android device</a></li>
+      <li><a href="#set-up-the-android-emulator" id="markdown-toc-set-up-the-android-emulator">Set up the Android emulator</a></li>
+    </ul>
+  </li>
+  <li><a href="#next-step" id="markdown-toc-next-step">Next step</a></li>
+</ul>
+
+<h2 id="system-requirements">System requirements</h2>
+
+<p>To install and run Flutter, your development environment must meet these minimum requirements:</p>
+
+<ul>
+  <li><strong>Operating Systems</strong>: Windows 7 or later (64-bit)</li>
+  <li><strong>Disk Space</strong>: 400 MB (does not include disk space for Android Studio).</li>
+  <li><strong>Tools</strong>: Flutter depends on these command-line tools being available in your environment.
+    <ul>
+      <li>
+        <p><a href="https://git-scm.com/download/win">Git for Windows</a> (with the Use Git from the Windows Command Prompt option)</p>
+
+        <p>If Git for Windows is already installed, make sure you can run <code class="highlighter-rouge">git</code> commands from the
+ Command Prompt or PowerShell.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="get-the-flutter-sdk">Get the Flutter SDK</h2>
+
+<p>To get Flutter, use <code class="highlighter-rouge">git</code> to clone the repository and then add the <code class="highlighter-rouge">flutter</code> tool to your path.
+Running <code class="highlighter-rouge">flutter doctor</code> shows any remaining dependencies you may need to install.</p>
+
+<h3 id="clone-the-repo">Clone the repo</h3>
+
+<p>If this is the first time you’re installing Flutter on this machine, clone the
+repository:</p>
+
+<pre><code><span class="noselect">$ </span>git clone -b beta https://github.com/flutter/flutter.git</code></pre>
+
+<p>To update an existing version of Flutter, see <a href="/upgrading/">Upgrading Flutter</a></p>
+
+<h3 id="update-your-path">Update your path</h3>
+
+<p>To run the <code class="highlighter-rouge">flutter</code> command in any terminal session, you need to add it to your PATH environment variable:</p>
+
+<ul>
+  <li>Go to “Control Panel &gt; User Accounts &gt; User Accounts &gt; Change my environment variables”</li>
+  <li>Under “User variables” check if there is an entry called “Path”:
+    <ul>
+      <li>If the entry does exist, append the full path to <code class="highlighter-rouge">flutter\bin</code> using <code class="highlighter-rouge">;</code> as a separator from existing values.</li>
+      <li>If the entry does not exist, create a new user variable named <code class="highlighter-rouge">Path</code> with the full path to <code class="highlighter-rouge">flutter\bin</code> as its value.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Reboot Windows to fully apply this change.</p>
+
+<h3 id="run-flutter-doctor">Run flutter doctor</h3>
+
+<p>Open a new Command Prompt or PowerShell window and run the following command to
+see if there  are any dependencies you need to install to complete the setup:</p>
+
+<pre><code><span class="noselect">$ </span>flutter doctor</code></pre>
+
+<p class="alert-warning">Run this command in either a Command Prompt or PowerShell window. Currently, Flutter does
+not support third-party shells like Git Bash.</p>
+
+<p>This command checks your environment and displays a report to the terminal window.
+The Dart SDK is bundled with Flutter; it is not necessary to install Dart separately.
+Check the output carefully for other software you may need to install or further 
+tasks to perform (shown in <strong>bold</strong> text).</p>
+
+<p>For example:</p>
+<pre>
+[-] Android toolchain - develop for Android devices
+    • Android SDK at D:\Android\sdk
+    <strong>✗ Android SDK is missing command line tools; download from https://goo.gl/XxQghQ</strong>
+    • Try re-installing or updating your Android SDK,
+      visit https://flutter.io/setup/#android-setup for detailed instructions.
+</pre>
+
+<p>The first time you run a flutter command (such as <code class="highlighter-rouge">flutter doctor</code>), it downloads its own dependencies and compiles
+itself. Subsequent runs should be much faster.</p>
+
+<p>The following sections describe how to perform these tasks and finish the setup process.
+You’ll see in <code class="highlighter-rouge">flutter doctor</code> output that if you choose to use an IDE, plugins
+are available for IntelliJ IDEA, Android Studio, and VS Code. See <a href="/get-started/editor/">Editor Setup</a>
+for the steps to install the Flutter and Dart plugins.</p>
+
+<p>Once you have installed any missing dependencies, run the <code class="highlighter-rouge">flutter doctor</code> command again to
+verify that you’ve set everything up correctly.</p>
+
+<p class="alert-warning">The <code class="highlighter-rouge">flutter</code> tool uses Google Analytics to anonymously report feature usage statistics
+and basic crash reports. This data is used to help improve Flutter tools over time.
+Analytics is not sent on the very first run or for any runs involving <code class="highlighter-rouge">flutter config</code>,
+so you can opt out of analytics before any data is sent. To disable reporting, 
+type <code class="highlighter-rouge">flutter config --no-analytics</code> and to display the current setting, type 
+<code class="highlighter-rouge">flutter config</code>. See Google’s privacy policy:<a href="https://www.google.com/intl/en/policies/privacy/">www.google.com/intl/en/policies/privacy</a>.</p>
+
+<h2 id="editor-setup">Editor setup</h2>
+
+<p>Using the <code class="highlighter-rouge">flutter</code> command-line tools, you can use any editor to develop Flutter applications.
+Type <code class="highlighter-rouge">flutter help</code> at a prompt to view the available tools.</p>
+
+<p>We recommend using our plug-ins for a <a href="/using-ide/">rich IDE experience</a> 
+supporting editing, running, and debugging Flutter apps. See <a href="/get-started/editor/">Editor Setup</a>
+for detailed steps.</p>
+
+<h2 id="android-setup">Android setup</h2>
+
+<h3 id="install-android-studio">Install Android Studio</h3>
+
+<p>To develop Flutter apps for Android, you can use a Mac, Windows, or Linux
+(64-bit) machine.</p>
+
+<p>Flutter requires Android Studio to be installed and configured:</p>
+
+<ol>
+  <li>
+    <p>Download and install <a href="https://developer.android.com/studio/index.html">Android Studio</a>.</p>
+  </li>
+  <li>
+    <p>Start Android Studio, and go through the ‘Android Studio Setup Wizard’. This
+will install the latest Android SDK, Android SDK Platform-Tools, and Android SDK
+Build-Tools, which are required by Flutter when developing for Android.</p>
+  </li>
+</ol>
+
+<h3 id="set-up-your-android-device">Set up your Android device</h3>
+
+<p>To prepare to run and test your Flutter app on an Android device, you’ll need an
+Android device running Android 4.1 (API level 16) or higher.</p>
+
+<ol>
+  <li>Enable <strong>Developer options</strong> and <strong>USB debugging</strong> on your device. Detailed instructions
+are available in the <a href="https://developer.android.com/studio/debug/dev-options.html">Android documentation</a>.</li>
+  <li>Using a USB cable, plug your phone into your computer. If prompted on your
+device, authorize your computer to access your device.</li>
+  <li>In the terminal, run the <code class="highlighter-rouge">flutter devices</code> command to verify that Flutter recognizes your
+connected Android device.</li>
+  <li>Start your app by running <code class="highlighter-rouge">flutter run</code>.</li>
+</ol>
+
+<p>By default, Flutter uses the version of the Android SDK where your <code class="highlighter-rouge">adb</code> tool is based. If
+you want Flutter to use a different installation of the Android SDK, you must set the
+<code class="highlighter-rouge">ANDROID_HOME</code> environment variable to that installation directory.</p>
+
+<h3 id="set-up-the-android-emulator">Set up the Android emulator</h3>
+
+<p>To prepare to run and test your Flutter app on the Android emulator, follow these steps:</p>
+
+<ol>
+  <li>Enable <a href="https://developer.android.com/studio/run/emulator-acceleration.html">VM acceleration</a> on your machine.</li>
+  <li>Launch <strong>Android Studio&gt;Tools&gt;Android&gt;AVD Manager</strong> and select <strong>Create Virtual Device</strong>.</li>
+  <li>Choose a device definition and select <strong>Next</strong>.</li>
+  <li>Select one or more system images for the Android versions you want to emulate, 
+and select <strong>Next</strong>. An <em>x86</em> or <em>x86_64</em> image is recommended.</li>
+  <li>Under Emulated Performance, select <strong>Hardware - GLES 2.0</strong> to enable 
+<a href="https://developer.android.com/studio/run/emulator-acceleration.html">hardware acceleration</a>.</li>
+  <li>
+    <p>Verify the AVD configuration is correct, and select <strong>Finish</strong>.</p>
+
+    <p>For details on the above steps, see <a href="https://developer.android.com/studio/run/managing-avds.html">Managing AVDs</a>.</p>
+  </li>
+  <li>In Android Virtual Device Manager, click <strong>Run</strong> in the toolbar.
+The emulator starts up and displays the default canvas for your selected OS version
+and device.</li>
+  <li>Start your app by running <code class="highlighter-rouge">flutter run</code>. The connected device name is
+<code class="highlighter-rouge">Android SDK built for &lt;platform&gt;</code>, where <em>platform</em> is the chip family, such as x86.</li>
+</ol>
+
+<h2 id="next-step">Next step</h2>
+
+<p><a href="/get-started/editor/">Next step: Configure Editor</a></p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

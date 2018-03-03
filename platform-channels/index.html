@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Writing custom platform-specific code with platform channels  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/platform-channels/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/platform-channels.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Writing custom platform-specific code with platform channels&body=From URL: http://localhost:4000/platform-channels.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Writing custom platform-specific code with platform channels </h1>
+   </div>
+
+  </header>
+  
+
+  <p>This guide describes how to write custom platform-specific code. Some
+platform-specific functionality is available through existing packages;
+please see <a href="/using-packages/">using packages</a>.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#architecture" id="markdown-toc-architecture">Architectural overview: platform channels</a>    <ul>
+      <li><a href="#codec" id="markdown-toc-codec">Platform channel data types support and codecs</a></li>
+    </ul>
+  </li>
+  <li><a href="#example" id="markdown-toc-example">Example: Calling platform-specific iOS and Android code using platform channels</a>    <ul>
+      <li><a href="#example-project" id="markdown-toc-example-project">Step 1: Create a new app project</a></li>
+      <li><a href="#example-client" id="markdown-toc-example-client">Step 2: Create the Flutter platform client</a></li>
+      <li><a href="#example-java" id="markdown-toc-example-java">Step 3a: Add an Android platform-specific implementation using Java</a></li>
+      <li><a href="#example-kotlin" id="markdown-toc-example-kotlin">Step 3b: Add an Android platform-specific implementation using Kotlin</a></li>
+      <li><a href="#example-objc" id="markdown-toc-example-objc">Step 4a: Add an iOS platform-specific implementation using Objective-C</a></li>
+      <li><a href="#example-swift" id="markdown-toc-example-swift">Step 4b: Add an iOS platform-specific implementation using Swift</a></li>
+    </ul>
+  </li>
+  <li><a href="#separate" id="markdown-toc-separate">Separate platform-specific code from UI code</a></li>
+  <li><a href="#publish" id="markdown-toc-publish">Publish platform-specific code as a package</a></li>
+  <li><a href="#custom-channels-and-codecs" id="markdown-toc-custom-channels-and-codecs">Custom channels and codecs</a></li>
+</ul>
+
+<p>Flutter uses a flexible system that allows you to call platform-specific APIs
+whether available in Java or Kotlin code on Android, or in ObjectiveC or Swift
+code on iOS.</p>
+
+<p>Flutter’s platform-specific API support does not rely on code generation, but
+rather on a flexible message passing style:</p>
+
+<ul>
+  <li>
+    <p>The Flutter portion of your app sends messages to its <em>host</em>, the iOS or
+ Android portion of your app, over a platform channel.</p>
+  </li>
+  <li>
+    <p>The <em>host</em> listens on the platform channel, and receives the message. It then
+ calls into any number of platform-specific APIs – using the native
+ programming language – and sends back a response to the <em>client</em>, the Flutter
+ portion of your app.</p>
+  </li>
+</ul>
+
+<h2 id="architecture">Architectural overview: platform channels</h2>
+
+<p>Messages are passed between the client (UI) and host (platform) using platform
+channels as illustrated in this diagram:</p>
+
+<p><img src="/images/PlatformChannels.png" alt="Platform channels architecture" /></p>
+
+<p>Messages and responses are passed asynchronously, to ensure the user interface
+remains responsive.</p>
+
+<p>On the client side, <code class="highlighter-rouge">MethodChannel</code> (<a href="https://docs.flutter.io/flutter/services/MethodChannel-class.html">API</a>) enables sending
+messages that correspond to method calls. On the platform side, <code class="highlighter-rouge">MethodChannel</code>
+on Android (<a href="https://docs.flutter.io/javadoc/io/flutter/plugin/common/MethodChannel.html">API</a>) and <code class="highlighter-rouge">FlutterMethodChannel</code> on iOS
+(<a href="https://docs.flutter.io/objcdoc/Classes/FlutterMethodChannel.html">API</a>) enable receiving method calls and sending back a
+result. These classes allow you to develop a platform plugin with very little
+‘boilerplate’ code.</p>
+
+<p><em>Note</em>: If desired, method calls can also be sent in the reverse direction, with
+the platform acting as client to methods implemented in Dart. A concrete example
+of this is the <a href="https://pub.dartlang.org/packages/quick_actions"><code class="highlighter-rouge">quick_actions</code></a> plugin.</p>
+
+<h3 id="codec">Platform channel data types support and codecs</h3>
+
+<p>The standard platform channels use a standard message codec that supports
+efficient binary serialization of simple JSON-like values, such as booleans,
+numbers, Strings, byte buffers, and List and Maps of these (see
+<a href="https://docs.flutter.io/flutter/services/StandardMessageCodec-class.html"><code class="highlighter-rouge">StandardMessageCodec</code></a>)
+for details). The serialization and deserialization of these values to and from
+messages happens automatically when you send and receive values.</p>
+
+<p>The following table shows how Dart values are received on the platform side and vice versa:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dart</th>
+      <th>Android</th>
+      <th>iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>null</td>
+      <td>null</td>
+      <td>nil (NSNull when nested)</td>
+    </tr>
+    <tr>
+      <td>bool</td>
+      <td>java.lang.Boolean</td>
+      <td>NSNumber numberWithBool:</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td>java.lang.Integer</td>
+      <td>NSNumber numberWithInt:</td>
+    </tr>
+    <tr>
+      <td>int, if 32 bits not enough</td>
+      <td>java.lang.Long</td>
+      <td>NSNumber numberWithLong:</td>
+    </tr>
+    <tr>
+      <td>int, if 64 bits not enough</td>
+      <td>java.math.BigInteger</td>
+      <td>FlutterStandardBigInteger</td>
+    </tr>
+    <tr>
+      <td>double</td>
+      <td>java.lang.Double</td>
+      <td>NSNumber numberWithDouble:</td>
+    </tr>
+    <tr>
+      <td>String</td>
+      <td>java.lang.String</td>
+      <td>NSString</td>
+    </tr>
+    <tr>
+      <td>Uint8List</td>
+      <td>byte[]</td>
+      <td>FlutterStandardTypedData typedDataWithBytes:</td>
+    </tr>
+    <tr>
+      <td>Int32List</td>
+      <td>int[]</td>
+      <td>FlutterStandardTypedData typedDataWithInt32:</td>
+    </tr>
+    <tr>
+      <td>Int64List</td>
+      <td>long[]</td>
+      <td>FlutterStandardTypedData typedDataWithInt64:</td>
+    </tr>
+    <tr>
+      <td>Float64List</td>
+      <td>double[]</td>
+      <td>FlutterStandardTypedData typedDataWithFloat64:</td>
+    </tr>
+    <tr>
+      <td>List</td>
+      <td>java.util.ArrayList</td>
+      <td>NSArray</td>
+    </tr>
+    <tr>
+      <td>Map</td>
+      <td>java.util.HashMap</td>
+      <td>NSDictionary</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+<h2 id="example">Example: Calling platform-specific iOS and Android code using platform channels</h2>
+
+<p>The following demonstrates how to call a platform-specific API to retrieve and
+display the current battery level. It uses the Android <code class="highlighter-rouge">BatteryManager</code> API, and
+the iOS <code class="highlighter-rouge">device.batteryLevel</code> API, via a single platform message,
+<code class="highlighter-rouge">getBatteryLevel</code>.</p>
+
+<p>The example adds the platform-specific code inside the main app itself. If you
+want to reuse the platform-specific code for multiple apps, the project creation
+step is slightly different (see <a href="/developing-packages/#plugin">developing
+packages</a>), but the platform channel code is still
+written in the same way.</p>
+
+<p><em>Note</em>: The full, runnable source-code for this example is available in
+<a href="https://github.com/flutter/flutter/tree/master/examples/platform_channel"><code class="highlighter-rouge">/examples/platform_channel/</code></a>
+for Android with Java and iOS with Objective-C. For iOS with Swift, see
+<a href="https://github.com/flutter/flutter/tree/master/examples/platform_channel_swift"><code class="highlighter-rouge">/examples/platform_channel_swift/</code></a>.</p>
+
+<h3 id="example-project">Step 1: Create a new app project</h3>
+
+<p>Start by creating a new app:</p>
+
+<ul>
+  <li>In a terminal run: <code class="highlighter-rouge">flutter create batterylevel</code></li>
+</ul>
+
+<p>By default our template supports writing Android code using Java, or iOS code
+using Objective-C. To use Kotlin or Swift, use the <code class="highlighter-rouge">-i</code> and/or <code class="highlighter-rouge">-a</code> flags:</p>
+
+<ul>
+  <li>In a terminal run: <code class="highlighter-rouge">flutter create -i swift -a kotlin batterylevel</code></li>
+</ul>
+
+<h3 id="example-client">Step 2: Create the Flutter platform client</h3>
+
+<p>The app’s <code class="highlighter-rouge">State</code> class holds the current app state. We need to extend that to
+hold the current battery state.</p>
+
+<p>First, we construct the channel. We use a <code class="highlighter-rouge">MethodChannel</code> with a single
+platform method that returns the battery level.</p>
+
+<p>The client and host sides of a channel are connected through a channel name
+passed in the channel constructor. All channel names used in a single app must
+be unique; we recommend prefixing the channel name with a unique ‘domain
+prefix’, e.g. <code class="highlighter-rouge">samples.flutter.io/battery</code>.</p>
+
+<!-- skip -->
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:flutter/services.dart'</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="kd">class</span> <span class="nc">_MyHomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyHomePage</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">static</span> <span class="kd">const</span> <span class="n">platform</span> <span class="o">=</span> <span class="kd">const</span> <span class="n">MethodChannel</span><span class="o">(</span><span class="s">'samples.flutter.io/battery'</span><span class="o">);</span>
+
+  <span class="c1">// Get battery level.</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Next, we invoke a method on the method channel, specifying the concrete method
+to call via the String identifier <code class="highlighter-rouge">getBatteryLevel</code>. The call may fail – for
+example if the platform does not support the platform API (such as when running
+in a simulator), so we wrap the <code class="highlighter-rouge">invokeMethod</code> call in a try-catch statement.</p>
+
+<p>We use the returned result to update our user interface state in <code class="highlighter-rouge">_batteryLevel</code>
+inside <code class="highlighter-rouge">setState</code>.</p>
+
+<!-- skip -->
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code>  <span class="c1">// Get battery level.</span>
+  <span class="kt">String</span> <span class="n">_batteryLevel</span> <span class="o">=</span> <span class="s">'Unknown battery level.'</span><span class="o">;</span>
+
+  <span class="n">Future</span><span class="o">&lt;</span><span class="n">Null</span><span class="o">&gt;</span> <span class="n">_getBatteryLevel</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
+    <span class="kt">String</span> <span class="n">batteryLevel</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="kd">final</span> <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">await</span> <span class="n">platform</span><span class="o">.</span><span class="na">invokeMethod</span><span class="o">(</span><span class="s">'getBatteryLevel'</span><span class="o">);</span>
+      <span class="n">batteryLevel</span> <span class="o">=</span> <span class="s">'Battery level at </span><span class="si">$result</span><span class="s"> % .'</span><span class="o">;</span>
+    <span class="o">}</span> <span class="n">on</span> <span class="n">PlatformException</span> <span class="k">catch</span> <span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">batteryLevel</span> <span class="o">=</span> <span class="s">"Failed to get battery level: '</span><span class="si">${e.message}</span><span class="s">'."</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+      <span class="n">_batteryLevel</span> <span class="o">=</span> <span class="n">batteryLevel</span><span class="o">;</span>
+    <span class="o">});</span>
+  <span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Finally, we replace the <code class="highlighter-rouge">build</code> method from the template to contain a small user
+interface that displays the battery state in a string, and a button for
+refreshing the valuer.</p>
+
+<!-- skip -->
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="nd">@override</span>
+<span class="n">Widget</span> <span class="nf">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="n">Material</span><span class="o">(</span>
+    <span class="nl">child:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">mainAxisAlignment:</span> <span class="n">MainAxisAlignment</span><span class="o">.</span><span class="na">spaceEvenly</span><span class="o">,</span>
+        <span class="nl">children:</span> <span class="o">[</span>
+          <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
+            <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Get Battery Level'</span><span class="o">),</span>
+            <span class="nl">onPressed:</span> <span class="n">_getBatteryLevel</span><span class="o">,</span>
+          <span class="o">),</span>
+          <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">_batteryLevel</span><span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+    <span class="o">),</span>
+  <span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h3 id="example-java">Step 3a: Add an Android platform-specific implementation using Java</h3>
+
+<p><em>Note</em>: The following steps use Java. If you prefer Kotlin, skip to step
+3b.</p>
+
+<p>Start by opening the Android host portion of your Flutter app in Android Studio:</p>
+
+<ol>
+  <li>
+    <p>Start Android Studio</p>
+  </li>
+  <li>
+    <p>Select the menu item ‘File &gt; Open…’</p>
+  </li>
+  <li>
+    <p>Navigate to the directory holding your Flutter app, and select the <code class="highlighter-rouge">android</code>
+folder inside it. Click OK.</p>
+  </li>
+  <li>
+    <p>Open the file <code class="highlighter-rouge">MainActivity.java</code> located in the <code class="highlighter-rouge">java</code> folder in the Project
+view.</p>
+  </li>
+</ol>
+
+<p>Next, create a <code class="highlighter-rouge">MethodChannel</code> and set a <code class="highlighter-rouge">MethodCallHandler</code> inside the
+<code class="highlighter-rouge">onCreate</code> method. Make sure to use the same channel name as was used on the
+Flutter client side.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">io.flutter.app.FlutterActivity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.flutter.plugin.common.MethodCall</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.flutter.plugin.common.MethodChannel</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.flutter.plugin.common.MethodChannel.MethodCallHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.flutter.plugin.common.MethodChannel.Result</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">FlutterActivity</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CHANNEL</span> <span class="o">=</span> <span class="s">"samples.flutter.io/battery"</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+
+        <span class="k">new</span> <span class="nf">MethodChannel</span><span class="o">(</span><span class="n">getFlutterView</span><span class="o">(),</span> <span class="n">CHANNEL</span><span class="o">).</span><span class="na">setMethodCallHandler</span><span class="o">(</span>
+                <span class="k">new</span> <span class="nf">MethodCallHandler</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMethodCall</span><span class="o">(</span><span class="n">MethodCall</span> <span class="n">call</span><span class="o">,</span> <span class="n">Result</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="c1">// TODO</span>
+                    <span class="o">}</span>
+                <span class="o">});</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Next, we add the actual Android Java code that uses the Android battery APIs to
+retrieve the battery level. This code is exactly the same as you would have
+written in a native Android app.</p>
+
+<p>First, add the needed imports at the top of the file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import android.content.ContextWrapper;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
+import android.os.Bundle;
+</code></pre>
+</div>
+
+<p>Then add the following as a new method in the activity class, below the <code class="highlighter-rouge">onCreate</code>
+method:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">int</span> <span class="nf">getBatteryLevel</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">batteryLevel</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">VERSION_CODES</span><span class="o">.</span><span class="na">LOLLIPOP</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">BatteryManager</span> <span class="n">batteryManager</span> <span class="o">=</span> <span class="o">(</span><span class="n">BatteryManager</span><span class="o">)</span> <span class="n">getSystemService</span><span class="o">(</span><span class="n">BATTERY_SERVICE</span><span class="o">);</span>
+    <span class="n">batteryLevel</span> <span class="o">=</span> <span class="n">batteryManager</span><span class="o">.</span><span class="na">getIntProperty</span><span class="o">(</span><span class="n">BatteryManager</span><span class="o">.</span><span class="na">BATTERY_PROPERTY_CAPACITY</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContextWrapper</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">()).</span>
+        <span class="n">registerReceiver</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">IntentFilter</span><span class="o">(</span><span class="n">Intent</span><span class="o">.</span><span class="na">ACTION_BATTERY_CHANGED</span><span class="o">));</span>
+    <span class="n">batteryLevel</span> <span class="o">=</span> <span class="o">(</span><span class="n">intent</span><span class="o">.</span><span class="na">getIntExtra</span><span class="o">(</span><span class="n">BatteryManager</span><span class="o">.</span><span class="na">EXTRA_LEVEL</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="mi">100</span><span class="o">)</span> <span class="o">/</span>
+        <span class="n">intent</span><span class="o">.</span><span class="na">getIntExtra</span><span class="o">(</span><span class="n">BatteryManager</span><span class="o">.</span><span class="na">EXTRA_SCALE</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="k">return</span> <span class="n">batteryLevel</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Finally, we complete the <code class="highlighter-rouge">onMethodCall</code> method we added earlier. We need to
+handle a single platform method, <code class="highlighter-rouge">getBatteryLevel</code>, so we test for that in the
+<code class="highlighter-rouge">call</code> argument. The implementation of this platform method simply calls the
+Android code we wrote in the previous step, and passes back a response for both
+the success and error cases using the <code class="highlighter-rouge">response</code> argument. If an unknown method
+is called, we report that instead. Replace:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMethodCall</span><span class="o">(</span><span class="n">MethodCall</span> <span class="n">call</span><span class="o">,</span> <span class="n">Result</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// TODO</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>with:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMethodCall</span><span class="o">(</span><span class="n">MethodCall</span> <span class="n">call</span><span class="o">,</span> <span class="n">Result</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">call</span><span class="o">.</span><span class="na">method</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"getBatteryLevel"</span><span class="o">))</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">batteryLevel</span> <span class="o">=</span> <span class="n">getBatteryLevel</span><span class="o">();</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">batteryLevel</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">success</span><span class="o">(</span><span class="n">batteryLevel</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"UNAVAILABLE"</span><span class="o">,</span> <span class="s">"Battery level not available."</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">result</span><span class="o">.</span><span class="na">notImplemented</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>               
+</code></pre>
+</div>
+
+<p>You should now be able to run the app on Android. If you are using the Android
+Emulator, you can set the battery level in the Extended Controls panel
+accessible from the <code class="highlighter-rouge">...</code> button in the toolbar.</p>
+
+<h3 id="example-kotlin">Step 3b: Add an Android platform-specific implementation using Kotlin</h3>
+
+<p><em>Note</em>: The following steps are similar to step 3a, only using Kotlin rather than
+Java.</p>
+
+<p>This step assumes that you created your project in <a href="#example-project">step 1.</a>
+using the <code class="highlighter-rouge">-a kotlin</code> option.</p>
+
+<p>Start by opening the Android host portion of your Flutter app in Android Studio:</p>
+
+<ol>
+  <li>
+    <p>Start Android Studio</p>
+  </li>
+  <li>
+    <p>Select the menu item ‘File &gt; Open…’</p>
+  </li>
+  <li>
+    <p>Navigate to the directory holding your Flutter app, and select the <code class="highlighter-rouge">android</code>
+folder inside it. Click OK.</p>
+  </li>
+  <li>
+    <p>Open the file <code class="highlighter-rouge">MainActivity.kt</code> located in the <code class="highlighter-rouge">kotlin</code> folder in the Project
+view. (Note: If you are editing using Android Studio 2.3, note that the
+‘kotlin’ folder will be shown as-if named ‘java’.)</p>
+  </li>
+</ol>
+
+<p>Next, inside the <code class="highlighter-rouge">onCreate</code> method, create a <code class="highlighter-rouge">MethodChannel</code> and call
+<code class="highlighter-rouge">setMethodCallHandler</code>. Make sure to use the same channel name as was used on
+the Flutter client side.</p>
+
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="nn">android.os.Bundle</span>
+<span class="k">import</span> <span class="nn">io.flutter.app.FlutterActivity</span>
+<span class="k">import</span> <span class="nn">io.flutter.plugin.common.MethodChannel</span>
+<span class="k">import</span> <span class="nn">io.flutter.plugins.GeneratedPluginRegistrant</span>
+
+<span class="kd">class</span> <span class="nc">MainActivity</span><span class="p">()</span> <span class="p">:</span> <span class="n">FlutterActivity</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="kd">val</span> <span class="py">CHANNEL</span> <span class="p">=</span> <span class="s">"samples.flutter.io/battery"</span>
+
+  <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">.</span><span class="n">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+    <span class="n">GeneratedPluginRegistrant</span><span class="p">.</span><span class="n">registerWith</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+    <span class="n">MethodChannel</span><span class="p">(</span><span class="n">flutterView</span><span class="p">,</span> <span class="n">CHANNEL</span><span class="p">).</span><span class="n">setMethodCallHandler</span> <span class="p">{</span> <span class="n">call</span><span class="p">,</span> <span class="n">result</span> <span class="p">-&gt;</span>
+      <span class="c1">// TODO
+</span>    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Next, we add the actual Android Kotlin code that uses the Android battery APIs to
+retrieve the battery level. This code is exactly the same as you would have
+written in a native Android app.</p>
+
+<p>First, add the needed imports at the top of the file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import android.content.Context
+import android.content.ContextWrapper
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.BatteryManager
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
+</code></pre>
+</div>
+
+<p>Next, add the following as a new method in the <code class="highlighter-rouge">MainActivity</code> class, below the <code class="highlighter-rouge">onCreate</code>
+method:</p>
+
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code>  <span class="k">private</span> <span class="k">fun</span> <span class="nf">getBatteryLevel</span><span class="p">():</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">batteryLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">VERSION</span><span class="p">.</span><span class="n">SDK_INT</span> <span class="p">&gt;=</span> <span class="n">VERSION_CODES</span><span class="p">.</span><span class="n">LOLLIPOP</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">val</span> <span class="py">batteryManager</span> <span class="p">=</span> <span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="n">BATTERY_SERVICE</span><span class="p">)</span> <span class="k">as</span> <span class="n">BatteryManager</span>
+      <span class="n">batteryLevel</span> <span class="p">=</span> <span class="n">batteryManager</span><span class="p">.</span><span class="n">getIntProperty</span><span class="p">(</span><span class="n">BatteryManager</span><span class="p">.</span><span class="n">BATTERY_PROPERTY_CAPACITY</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="kd">val</span> <span class="py">intent</span> <span class="p">=</span> <span class="n">ContextWrapper</span><span class="p">(</span><span class="n">applicationContext</span><span class="p">).</span><span class="n">registerReceiver</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="n">IntentFilter</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">ACTION_BATTERY_CHANGED</span><span class="p">))</span>
+      <span class="n">batteryLevel</span> <span class="p">=</span> <span class="n">intent</span><span class="o">!!</span><span class="p">.</span><span class="n">getIntExtra</span><span class="p">(</span><span class="n">BatteryManager</span><span class="p">.</span><span class="n">EXTRA_LEVEL</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">)</span> <span class="p">*</span> <span class="m">100</span> <span class="p">/</span> <span class="n">intent</span><span class="p">.</span><span class="n">getIntExtra</span><span class="p">(</span><span class="n">BatteryManager</span><span class="p">.</span><span class="n">EXTRA_SCALE</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">batteryLevel</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Finally, we complete the <code class="highlighter-rouge">onMethodCall</code> method we added earlier. We need to
+handle a single platform method, <code class="highlighter-rouge">getBatteryLevel</code>, so we test for that in the
+<code class="highlighter-rouge">call</code> argument. The implementation of this platform method simply calls the
+Android code we wrote in the previous step, and passes back a response for both
+the success and error cases using the <code class="highlighter-rouge">response</code> argument. If an unknown method
+is called, we report that instead. Replace:</p>
+
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code>    <span class="n">MethodChannel</span><span class="p">(</span><span class="n">flutterView</span><span class="p">,</span> <span class="n">CHANNEL</span><span class="p">).</span><span class="n">setMethodCallHandler</span> <span class="p">{</span> <span class="n">call</span><span class="p">,</span> <span class="n">result</span> <span class="p">-&gt;</span>
+      <span class="c1">// TODO
+</span>    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>with:</p>
+
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code>    <span class="n">MethodChannel</span><span class="p">(</span><span class="n">flutterView</span><span class="p">,</span> <span class="n">CHANNEL</span><span class="p">).</span><span class="n">setMethodCallHandler</span> <span class="p">{</span> <span class="n">call</span><span class="p">,</span> <span class="n">result</span> <span class="p">-&gt;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">call</span><span class="p">.</span><span class="n">method</span> <span class="p">==</span> <span class="s">"getBatteryLevel"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">batteryLevel</span> <span class="p">=</span> <span class="n">getBatteryLevel</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">batteryLevel</span> <span class="p">!=</span> <span class="p">-</span><span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">result</span><span class="p">.</span><span class="n">success</span><span class="p">(</span><span class="n">batteryLevel</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s">"UNAVAILABLE"</span><span class="p">,</span> <span class="s">"Battery level not available."</span><span class="p">,</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">notImplemented</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>You should now be able to run the app on Android. If you are using the Android
+Emulator, you can set the battery level in the Extended Controls panel
+accessible from the <code class="highlighter-rouge">...</code> button in the toolbar.</p>
+
+<h3 id="example-objc">Step 4a: Add an iOS platform-specific implementation using Objective-C</h3>
+
+<p><em>Note</em>: The following steps use Objective-C. If you prefer Swift, skip to step
+4b.</p>
+
+<p>Start by opening the iOS host portion of your Flutter app in Xcode:</p>
+
+<ol>
+  <li>
+    <p>Start Xcode</p>
+  </li>
+  <li>
+    <p>Select the menu item ‘File &gt; Open…’</p>
+  </li>
+  <li>
+    <p>Navigate to the directory holding your Flutter app, and select the <code class="highlighter-rouge">ios</code>
+folder inside it. Click OK.</p>
+  </li>
+  <li>
+    <p>Make sure the Xcode projects builds without errors.</p>
+  </li>
+  <li>
+    <p>Open the file <code class="highlighter-rouge">AppDelegate.m</code> located under Runner &gt; Runner in the Project
+navigator.</p>
+  </li>
+</ol>
+
+<p>Next, create a <code class="highlighter-rouge">FlutterMethodChannel</code> and add a handler inside the <code class="highlighter-rouge">application
+didFinishLaunchingWithOptions:</code> method. Make sure to use the same channel name
+as was used on the Flutter client side.</p>
+
+<pre><code class="language-objectivec">#import &lt;Flutter/Flutter.h&gt;
+
+@implementation AppDelegate
+- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
+  FlutterViewController* controller = (FlutterViewController*)self.window.rootViewController;
+
+  FlutterMethodChannel* batteryChannel = [FlutterMethodChannel
+                                          methodChannelWithName:@"samples.flutter.io/battery"
+                                          binaryMessenger:controller];
+
+  [batteryChannel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
+    // TODO
+  }];
+
+  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+</code></pre>
+
+<p>Next, we add the actual iOS ObjectiveC code that uses the iOS battery APIs to
+retrieve the battery level. This code is exactly the same as you would have
+written in a native iOS app.</p>
+
+<p>Add the following as a new method in the <code class="highlighter-rouge">AppDelegate</code> class, just before <code class="highlighter-rouge"><span class="k">@end</span></code>:</p>
+
+<pre><code class="language-objectivec">- (int)getBatteryLevel {
+  UIDevice* device = UIDevice.currentDevice;
+  device.batteryMonitoringEnabled = YES;
+  if (device.batteryState == UIDeviceBatteryStateUnknown) {
+    return -1;
+  } else {
+    return (int)(device.batteryLevel * 100);
+  }
+}
+</code></pre>
+
+<p>Finally, we complete the <code class="highlighter-rouge">setMethodCallHandler</code> method we added earlier. We need
+to handle a single platform method, <code class="highlighter-rouge">getBatteryLevel</code>, so we test for that in
+the <code class="highlighter-rouge">call</code> argument. The implementation of this platform method simply calls the
+iOS code we wrote in the previous step, and passes back a response for both
+the success and error cases using the <code class="highlighter-rouge">result</code> argument. If an unknown method
+is called, we report that instead.</p>
+
+<pre><code class="language-objectivec">[batteryChannel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
+  if ([@"getBatteryLevel" isEqualToString:call.method]) {
+    int batteryLevel = [self getBatteryLevel];
+
+    if (batteryLevel == -1) {
+      result([FlutterError errorWithCode:@"UNAVAILABLE"
+                                 message:@"Battery info unavailable"
+                                 details:nil]);
+    } else {
+      result(@(batteryLevel));
+    }
+  } else {
+    result(FlutterMethodNotImplemented);
+  }
+}];
+</code></pre>
+
+<p>You should now be able to run the app on iOS. If you are using the iOS
+Simulator, note that it does not support battery APIs, and the app will thus
+display ‘battery info unavailable’.</p>
+
+<h3 id="example-swift">Step 4b: Add an iOS platform-specific implementation using Swift</h3>
+
+<p><em>Note</em>: The following steps are similar to step 4a, only using Swift rather than
+Objective-C.</p>
+
+<p>This step assumes that you created your project in <a href="#example-project">step 1.</a>
+using the <code class="highlighter-rouge">-i swift</code> option.</p>
+
+<p>Start by opening the iOS host portion of your Flutter app in Xcode:</p>
+
+<ol>
+  <li>
+    <p>Start Xcode</p>
+  </li>
+  <li>
+    <p>Select the menu item ‘File &gt; Open…’</p>
+  </li>
+  <li>
+    <p>Navigate to the directory holding your Flutter app, and select the <code class="highlighter-rouge">ios</code>
+folder inside it. Click OK.</p>
+  </li>
+</ol>
+
+<p>Next, we add support for Swift in the standard template setup that uses
+Objective-C:</p>
+
+<ol>
+  <li>
+    <p>Expand Runner &gt; Runner in the Project navigator.</p>
+  </li>
+  <li>
+    <p>Open the file <code class="highlighter-rouge">AppDelegate.swift</code> located under Runner &gt; Runner in the Project
+navigator.</p>
+  </li>
+</ol>
+
+<p>Next, override the <code class="highlighter-rouge">application</code> function and create a <code class="highlighter-rouge">FlutterMethodChannel</code>
+tied to the channel name <code class="highlighter-rouge">samples.flutter.io/battery</code>:</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">@UIApplicationMain</span>
+<span class="kd">@objc</span> <span class="kd">class</span> <span class="kt">AppDelegate</span><span class="p">:</span> <span class="kt">FlutterAppDelegate</span> <span class="p">{</span>
+  <span class="k">override</span> <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span>
+    <span class="n">didFinishLaunchingWithOptions</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="kt">GeneratedPluginRegistrant</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="k">self</span><span class="p">);</span>
+
+    <span class="k">let</span> <span class="nv">controller</span> <span class="p">:</span> <span class="kt">FlutterViewController</span> <span class="o">=</span> <span class="n">window</span><span class="p">?</span><span class="o">.</span><span class="n">rootViewController</span> <span class="k">as!</span> <span class="kt">FlutterViewController</span><span class="p">;</span>
+    <span class="k">let</span> <span class="nv">batteryChannel</span> <span class="o">=</span> <span class="kt">FlutterMethodChannel</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"samples.flutter.io/battery"</span><span class="p">,</span>
+                                                   <span class="nv">binaryMessenger</span><span class="p">:</span> <span class="n">controller</span><span class="p">);</span>
+    <span class="n">batteryChannel</span><span class="o">.</span><span class="nf">setMethodCallHandler</span><span class="p">({</span>
+      <span class="p">(</span><span class="nv">call</span><span class="p">:</span> <span class="kt">FlutterMethodCall</span><span class="p">,</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">FlutterResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+      <span class="c1">// Handle battery messages.</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="k">super</span><span class="o">.</span><span class="nf">application</span><span class="p">(</span><span class="n">application</span><span class="p">,</span> <span class="nv">didFinishLaunchingWithOptions</span><span class="p">:</span> <span class="n">launchOptions</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Next, add the actual iOS Swift code that uses the iOS battery APIs to retrieve
+the battery level. This code is exactly the same as you would have written in a
+native iOS app.</p>
+
+<p>Add the following as a new method at the bottom of <code class="highlighter-rouge">AppDelegate.swift</code>:</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">receiveBatteryLevel</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="kt">FlutterResult</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">device</span> <span class="o">=</span> <span class="kt">UIDevice</span><span class="o">.</span><span class="n">current</span><span class="p">;</span>
+  <span class="n">device</span><span class="o">.</span><span class="n">isBatteryMonitoringEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">batteryState</span> <span class="o">==</span> <span class="kt">UIDeviceBatteryState</span><span class="o">.</span><span class="n">unknown</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">result</span><span class="p">(</span><span class="kt">FlutterError</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">code</span><span class="p">:</span> <span class="s">"UNAVAILABLE"</span><span class="p">,</span>
+                             <span class="nv">message</span><span class="p">:</span> <span class="s">"Battery info unavailable"</span><span class="p">,</span>
+                             <span class="nv">details</span><span class="p">:</span> <span class="kc">nil</span><span class="p">));</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">result</span><span class="p">(</span><span class="kt">Int</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">batteryLevel</span> <span class="o">*</span> <span class="mi">100</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Finally, complete the <code class="highlighter-rouge">setMethodCallHandler</code> method we added earlier. We need
+to handle a single platform method, <code class="highlighter-rouge">getBatteryLevel</code>, so we test for that in
+the <code class="highlighter-rouge">call</code> argument. The implementation of this platform method simply calls the
+iOS code we wrote in the previous step. If an unknown method
+is called, we report that instead.</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">batteryChannel</span><span class="o">.</span><span class="nf">setMethodCallHandler</span><span class="p">({</span>
+  <span class="p">(</span><span class="nv">call</span><span class="p">:</span> <span class="kt">FlutterMethodCall</span><span class="p">,</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">FlutterResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
+  <span class="k">if</span> <span class="p">(</span><span class="s">"getBatteryLevel"</span> <span class="o">==</span> <span class="n">call</span><span class="o">.</span><span class="n">method</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">receiveBatteryLevel</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="n">result</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">result</span><span class="p">(</span><span class="kt">FlutterMethodNotImplemented</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>You should now be able to run the app on iOS. If you are using the iOS
+Simulator, note that it does not support battery APIs, and the app will thus
+display ‘Battery info unavailable.’.</p>
+
+<h2 id="separate">Separate platform-specific code from UI code</h2>
+
+<p>If you expect to use your platform-specific code in multiple Flutter apps, it
+can be useful to separate the code into a platform plugin located in a directory
+outside your main application. See <a href="/developing-packages/">developing packages</a>
+for details.</p>
+
+<h2 id="publish">Publish platform-specific code as a package</h2>
+
+<p>If you wish to share your platform-specific with other developers in the Flutter
+ecosystem, please see <a href="/developing-packages/#publish">publishing packages</a>
+for details.</p>
+
+<h2 id="custom-channels-and-codecs">Custom channels and codecs</h2>
+
+<p>Besides the above mentioned <code class="highlighter-rouge">MethodChannel</code>, you can also use the more plain
+<a href="https://docs.flutter.io/flutter/services/BasicMessageChannel-class.html"><code class="highlighter-rouge">BasicMessageChannel</code></a>, which supports basic, asynchronous
+message passing using a custom message codec. Further, you can use the
+specialized <a href="https://docs.flutter.io/flutter/services/BinaryCodec-class.html"><code class="highlighter-rouge">BinaryCodec</code></a>, <a href="https://docs.flutter.io/flutter/services/StringCodec-class.html"><code class="highlighter-rouge">StringCodec</code></a>, and
+<a href="https://docs.flutter.io/flutter/services/JSONMessageCodec-class.html"><code class="highlighter-rouge">JSONMessageCodec</code></a> classes, or create your own codec.</p>
+
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

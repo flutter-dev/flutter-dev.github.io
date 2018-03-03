@@ -1,0 +1,2656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flutter for React Native Developers  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/flutter-for-react-native/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/flutter-for-react-native.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Flutter for React Native Developers&body=From URL: http://localhost:4000/flutter-for-react-native.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Flutter for React Native Developers </h1>
+   </div>
+
+  </header>
+  
+
+  <p>This document is for React Native developers looking to apply their existing React Native knowledge to build mobile apps with Flutter. If you understand the fundamentals of the React Native framework, then you can use this document as a jump start to your Flutter development.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#a-brief-introduction-to-dart-for-javascript-developers" id="markdown-toc-a-brief-introduction-to-dart-for-javascript-developers">A Brief Introduction to Dart for JavaScript Developers</a>    <ul>
+      <li><a href="#entry-point" id="markdown-toc-entry-point">Entry Point</a></li>
+      <li><a href="#printing-to-the-console" id="markdown-toc-printing-to-the-console">Printing to the console</a></li>
+      <li><a href="#variables" id="markdown-toc-variables">Variables</a>        <ul>
+          <li><a href="#creating-and-assigning-variables" id="markdown-toc-creating-and-assigning-variables">Creating and Assigning Variables</a></li>
+          <li><a href="#default-value" id="markdown-toc-default-value">Default value</a></li>
+        </ul>
+      </li>
+      <li><a href="#checking-for-nullzero" id="markdown-toc-checking-for-nullzero">Checking for null/zero</a></li>
+      <li><a href="#functions" id="markdown-toc-functions">Functions</a></li>
+      <li><a href="#asynchronous-programming" id="markdown-toc-asynchronous-programming">Asynchronous Programming</a>        <ul>
+          <li><a href="#futures" id="markdown-toc-futures">Futures</a></li>
+          <li><a href="#async--await" id="markdown-toc-async--await">async / await</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#learn-the-basics-of-flutter" id="markdown-toc-learn-the-basics-of-flutter">Learn The Basics of Flutter</a>    <ul>
+      <li><a href="#how-do-i-create-a-flutter-app" id="markdown-toc-how-do-i-create-a-flutter-app">How do I create a Flutter app?</a></li>
+      <li><a href="#how-do-i-run-my-app" id="markdown-toc-how-do-i-run-my-app">How do I run my app?</a></li>
+      <li><a href="#how-do-i-use-import-statements" id="markdown-toc-how-do-i-use-import-statements">How do I use import statements?</a></li>
+      <li><a href="#what-is-the-equivalent-of-the-react-native-hello-world-app-in-flutter" id="markdown-toc-what-is-the-equivalent-of-the-react-native-hello-world-app-in-flutter">What is the equivalent of the React Native <code class="highlighter-rouge">Hello World</code> app in Flutter?</a>        <ul>
+          <li><a href="#preview" id="markdown-toc-preview">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#how-do-i-use-widgets-and-nest-them-to-form-a-widget-tree" id="markdown-toc-how-do-i-use-widgets-and-nest-them-to-form-a-widget-tree">How do I use Widgets and nest them to form a Widget tree?</a></li>
+      <li><a href="#how-do-i-create-reusable-components-and-use-them" id="markdown-toc-how-do-i-create-reusable-components-and-use-them">How do I create reusable components and use them?</a>        <ul>
+          <li><a href="#preview-1" id="markdown-toc-preview-1">Preview</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#project-structure--resources" id="markdown-toc-project-structure--resources">Project Structure &amp; Resources</a>    <ul>
+      <li><a href="#where-do-i-start-writing-the-code" id="markdown-toc-where-do-i-start-writing-the-code">Where do I start writing the code?</a></li>
+      <li><a href="#how-are-files-structured-in-a-flutter-app" id="markdown-toc-how-are-files-structured-in-a-flutter-app">How are files structured in a Flutter app?</a></li>
+      <li><a href="#where-do-i-put-my-resources-assets-and-how-do-i-use-them" id="markdown-toc-where-do-i-put-my-resources-assets-and-how-do-i-use-them">Where do I put my resources (assets) and how do I use them?</a></li>
+      <li><a href="#how-do-i-load-images-over-a-network" id="markdown-toc-how-do-i-load-images-over-a-network">How do I load images over a network?</a></li>
+      <li><a href="#how-do-i-install-pluginspackages" id="markdown-toc-how-do-i-install-pluginspackages">How do I install plugins/packages?</a></li>
+    </ul>
+  </li>
+  <li><a href="#built-in-widgets" id="markdown-toc-built-in-widgets">Built-In Widgets</a>    <ul>
+      <li><a href="#views" id="markdown-toc-views">Views</a></li>
+      <li><a href="#what-is-the-equivalent-of-a-view-in-flutter" id="markdown-toc-what-is-the-equivalent-of-a-view-in-flutter">What is the equivalent of a <code class="highlighter-rouge">View</code> in Flutter?</a></li>
+      <li><a href="#what-is-the-equivalent-of-flatlist--listview" id="markdown-toc-what-is-the-equivalent-of-flatlist--listview">What is the equivalent of <code class="highlighter-rouge">FlatList</code> / <code class="highlighter-rouge">ListView</code>?</a>        <ul>
+          <li><a href="#preview-2" id="markdown-toc-preview-2">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#how-do-i-use-a-canvas-to-drawpaint" id="markdown-toc-how-do-i-use-a-canvas-to-drawpaint">How do I use a Canvas to draw/paint?</a>        <ul>
+          <li><a href="#preview-3" id="markdown-toc-preview-3">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#layouts" id="markdown-toc-layouts">Layouts</a></li>
+      <li><a href="#how-do-i-lay-out-my-widgets" id="markdown-toc-how-do-i-lay-out-my-widgets">How do I lay out my Widgets?</a>        <ul>
+          <li><a href="#preview-4" id="markdown-toc-preview-4">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#how-do-i-overlap-several-widgets-on-top-of-one-another" id="markdown-toc-how-do-i-overlap-several-widgets-on-top-of-one-another">How do I overlap several widgets on top of one another?</a>        <ul>
+          <li><a href="#preview-5" id="markdown-toc-preview-5">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#styling" id="markdown-toc-styling">Styling</a></li>
+      <li><a href="#how-to-custom-style-my-components-in-flutter" id="markdown-toc-how-to-custom-style-my-components-in-flutter">How to custom style my components in Flutter?</a>        <ul>
+          <li><a href="#preview-6" id="markdown-toc-preview-6">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#how-to-use-icons-and-colors-in-flutter" id="markdown-toc-how-to-use-icons-and-colors-in-flutter">How to use <code class="highlighter-rouge">Icons</code> and <code class="highlighter-rouge">Colors</code> in Flutter?</a></li>
+      <li><a href="#how-to-add-style-themes-in-flutter" id="markdown-toc-how-to-add-style-themes-in-flutter">How to add style themes in Flutter?</a></li>
+    </ul>
+  </li>
+  <li><a href="#state-management" id="markdown-toc-state-management">State Management</a>    <ul>
+      <li><a href="#what-are-stateful-and-stateless-widgets-and-how-do-i-use-them" id="markdown-toc-what-are-stateful-and-stateless-widgets-and-how-do-i-use-them">What are Stateful and Stateless widgets and how do I use them?</a>        <ul>
+          <li><a href="#stateless-widget" id="markdown-toc-stateless-widget">Stateless Widget</a></li>
+          <li><a href="#stateful-widget" id="markdown-toc-stateful-widget">Stateful Widget</a></li>
+        </ul>
+      </li>
+      <li><a href="#what-are-some-of-the-best-practices-while-using-stateful-and-stateless-widgets" id="markdown-toc-what-are-some-of-the-best-practices-while-using-stateful-and-stateless-widgets">What are some of the best practices while using Stateful and Stateless widgets?</a>        <ul>
+          <li><a href="#1-figure-out-which-widgets-must-be-stateful-and-stateless" id="markdown-toc-1-figure-out-which-widgets-must-be-stateful-and-stateless">1. Figure out which widgets must be Stateful and Stateless</a></li>
+          <li><a href="#2-if-using-stateful-widget-decide-which-object-manages-the-widgets-state" id="markdown-toc-2-if-using-stateful-widget-decide-which-object-manages-the-widgets-state">2. If using Stateful widget, decide which object manages the widget’s state.</a></li>
+          <li><a href="#3-subclass-statefulwidget-and-state" id="markdown-toc-3-subclass-statefulwidget-and-state">3. Subclass StatefulWidget and State.</a></li>
+          <li><a href="#4-plug-the-stateful-widget-into-the-widget-tree" id="markdown-toc-4-plug-the-stateful-widget-into-the-widget-tree">4. Plug the stateful widget into the widget tree.</a></li>
+          <li><a href="#preview-7" id="markdown-toc-preview-7">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#props" id="markdown-toc-props">Props</a>        <ul>
+          <li><a href="#preview-8" id="markdown-toc-preview-8">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#local-storage" id="markdown-toc-local-storage">Local Storage</a>        <ul>
+          <li><a href="#how-do-i-store-persistent-key-value-pairs-that-are-global-to-the-app-in-flutter" id="markdown-toc-how-do-i-store-persistent-key-value-pairs-that-are-global-to-the-app-in-flutter">How do I store persistent key-value pairs that are global to the app in Flutter?</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#routing" id="markdown-toc-routing">Routing</a>    <ul>
+      <li><a href="#how-do-i-navigate-between-screens-in-flutter" id="markdown-toc-how-do-i-navigate-between-screens-in-flutter">How do I navigate between screens in Flutter?</a></li>
+      <li><a href="#how-do-i-use-tab-navigation-and-drawer-navigation-in-flutter" id="markdown-toc-how-do-i-use-tab-navigation-and-drawer-navigation-in-flutter">How do I use Tab Navigation and Drawer Navigation in Flutter?</a>        <ul>
+          <li><a href="#tab-navigation" id="markdown-toc-tab-navigation">Tab Navigation</a></li>
+          <li><a href="#drawer-navigation" id="markdown-toc-drawer-navigation">Drawer navigation</a></li>
+          <li><a href="#preview-9" id="markdown-toc-preview-9">Preview</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#gesture-detection-and-touch-event-handling" id="markdown-toc-gesture-detection-and-touch-event-handling">Gesture Detection and Touch Event Handling</a>    <ul>
+      <li><a href="#how-do-i-add-a-clickpress-listeners-to-a-widget-in-flutter" id="markdown-toc-how-do-i-add-a-clickpress-listeners-to-a-widget-in-flutter">How do I add a click/press listeners to a widget in Flutter?</a>        <ul>
+          <li><a href="#preview-10" id="markdown-toc-preview-10">Preview</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#making-http-networking-requests" id="markdown-toc-making-http-networking-requests">Making HTTP Networking Requests</a>    <ul>
+      <li><a href="#how-do-i-fetch-data-from-api-calls" id="markdown-toc-how-do-i-fetch-data-from-api-calls">How do I fetch data from API calls?</a>        <ul>
+          <li><a href="#preview-11" id="markdown-toc-preview-11">Preview</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#form-input" id="markdown-toc-form-input">Form Input</a>    <ul>
+      <li><a href="#how-do-i-use-textinput-field-in-flutter" id="markdown-toc-how-do-i-use-textinput-field-in-flutter">How do I use <code class="highlighter-rouge">TextInput</code> field in Flutter?</a></li>
+      <li><a href="#how-do-i-use-forms-in-flutter" id="markdown-toc-how-do-i-use-forms-in-flutter">How do I use <code class="highlighter-rouge">Forms</code> in Flutter?</a>        <ul>
+          <li><a href="#preview-12" id="markdown-toc-preview-12">Preview</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#platform-specific-code" id="markdown-toc-platform-specific-code">Platform-specific code</a></li>
+  <li><a href="#debugging" id="markdown-toc-debugging">Debugging</a>    <ul>
+      <li><a href="#how-do-i-access-the-in-app-developer-menu" id="markdown-toc-how-do-i-access-the-in-app-developer-menu">How do I access the In-App Developer Menu?</a></li>
+      <li><a href="#how-do-i-perform-hot-reload" id="markdown-toc-how-do-i-perform-hot-reload">How do I perform hot reload?</a></li>
+      <li><a href="#is-there-anything-like-chrome-developer-tools-in-flutter" id="markdown-toc-is-there-anything-like-chrome-developer-tools-in-flutter">Is there anything like Chrome Developer Tools in Flutter?</a></li>
+    </ul>
+  </li>
+  <li><a href="#animations" id="markdown-toc-animations">Animations</a>    <ul>
+      <li><a href="#how-do-i-add-a-simple-fade-in-animation" id="markdown-toc-how-do-i-add-a-simple-fade-in-animation">How do I add a simple fade-in animation?</a>        <ul>
+          <li><a href="#preview-13" id="markdown-toc-preview-13">Preview</a></li>
+        </ul>
+      </li>
+      <li><a href="#how-do-i-add-swipe-animation-to-cards" id="markdown-toc-how-do-i-add-swipe-animation-to-cards">How do I add swipe animation to Cards?</a>        <ul>
+          <li><a href="#preview-14" id="markdown-toc-preview-14">Preview</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#cheatsheet" id="markdown-toc-cheatsheet">CheatSheet</a></li>
+</ul>
+
+<h2 id="a-brief-introduction-to-dart-for-javascript-developers">A Brief Introduction to Dart for JavaScript Developers</h2>
+
+<p>While React Native uses JavaScript, Flutter uses a language called Dart. <a href="https://www.dartlang.org/">Dart</a> is an open-source, scalable programming language for building web, server, and mobile apps. It is an object-oriented, single inheritance language that uses a C-style syntax that is AOT-compiled into native and also transcompiles optionally into JavaScript. It supports interfaces, abstract classes and strong types.</p>
+
+<h3 id="entry-point">Entry Point</h3>
+
+<p>While JavaScript does not have any specific entry function, Dart (like C) does have an entry function called <code class="highlighter-rouge">main()</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// JavaScript
+function main() {
+  // Can be used as entry point
+}
+// but it has to be called manually.
+main();</code></pre>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Dart
+main() {
+}</code></pre>
+
+<p>Try it out in <a href="https://dartpad.dartlang.org/0df636e00f348bdec2bc1c8ebc7daeb1">DartPad</a>.</p>
+
+<h3 id="printing-to-the-console">Printing to the console</h3>
+
+<p>Printing data to the console can be done in the following way.
+<!-- skip --></p>
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// JavaScript
+console.log(&quot;Level completed.&quot;);</code></pre>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Dart
+print(&#39;Hello World&#39;);</code></pre>
+
+<p>Try it out in <a href="https://dartpad.dartlang.org/cf9e652f77636224d3e37d96dcf238e5">DartPad</a>.</p>
+
+<h3 id="variables">Variables</h3>
+<h4 id="creating-and-assigning-variables">Creating and Assigning Variables</h4>
+
+<p>While JavaScript variables cannot be typed, Dart variables are optionally typed but it is a good practice to use typed variables.</p>
+
+<p>In <a href="https://www.dartlang.org/dart-2">Dart 2</a>, variables must either be explicitly typed or it must be possible for the type system to infer the proper type automatically. Dart 2 performs both static and runtime type checks, using a sound type system. This type system enables better tooling, as well as earlier feedback when you write code.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// JavaScript
+var name = &quot;JavaScript&quot;;</code></pre>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Dart
+String name = &#39;dart&#39;;
+var otherName = &#39;Dart&#39;; // Also inferred to be a String in Strong mode.
+// Both are acceptable in Dart.</code></pre>
+
+<p>Try it out in <a href="https://dartpad.dartlang.org/3f4625c16e05eec396d6046883739612">DartPad</a>.</p>
+
+<h4 id="default-value">Default value</h4>
+
+<p>In Dart, uninitialized variables have an initial value of <code class="highlighter-rouge">null</code>. Even variables with numeric types are initially null because numbers are objects in Dart. But in JavaScript, uninitialized variables are “undefined”.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// JavaScript
+var name; // == undefined</code></pre>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Dart
+var name; // == null
+int x; // == null</code></pre>
+
+<p>Try it out in the <a href="https://dartpad.dartlang.org/57ec21faa8b6fe2326ffd74e9781a2c7">DartPad</a>.</p>
+
+<p><strong>Note:</strong> For more information, see the documentation on <a href="https://www.dartlang.org/resources/dart-tips/dart-tips-ep-3">variables</a>.</p>
+
+<h3 id="checking-for-nullzero">Checking for null/zero</h3>
+
+<p>In Dart, only the boolean value <code class="highlighter-rouge">true</code> is treated as true. But in JavaScript, values like 1 or any non-null objects are treated as true.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// JavaScript
+var myNull = null;
+if (!myNull) {
+  console.log(&quot;null is treated as false&quot;);
+}
+var zero = 0;
+if (!zero) {
+  console.log(&quot;0 is treated as false&quot;);
+}</code></pre>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Dart
+var myNull = null;
+if (myNull == null) {
+  print(&#39;use &quot;== null&quot; to check null&#39;);
+}
+var zero = 0;
+if (zero == 0) {
+  print(&#39;use &quot;== 0&quot; to check zero&#39;);
+}</code></pre>
+
+<p>Try it out in <a href="https://dartpad.dartlang.org/c85038ad677963cb6dc943eb1a0b72e6">DartPad</a>.</p>
+
+<h3 id="functions">Functions</h3>
+
+<p>For the most part, Dart and JavaScript functions are similar. The only thing that’s different in Dart and JavaScript functions is the declaration.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// JavaScript
+function fn() {
+  return true;
+}</code></pre>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Dart
+fn() {
+  return true;
+}
+// can also be written as
+bool fn() {
+  return true;
+}</code></pre>
+
+<p>Try it out in <a href="https://dartpad.dartlang.org/5454e8bfadf3000179d19b9bc6be9918">DartPad</a>.</p>
+
+<p><strong>Note:</strong> For more information, see the documentation on <a href="https://www.dartlang.org/resources/dart-tips/dart-tips-ep-6">functions</a>.</p>
+
+<h3 id="asynchronous-programming">Asynchronous Programming</h3>
+<h4 id="futures">Futures</h4>
+
+<p>Like JavaScript, Dart supports single-threaded execution. In JavaScript, the <code class="highlighter-rouge">Promise</code> object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// JavaScript
+_getIPAddress = () =&gt; {
+  const url=&quot;https://httpbin.org/ip&quot;;
+  return fetch(url)
+    .then(response =&gt; response.json())
+    .then(responseJson =&gt; {
+      console.log(responseJson.origin);
+    })
+    .catch(error =&gt; {
+      console.error(error);
+    });
+};</code></pre>
+
+<p>Whereas Dart uses <a href="https://www.dartlang.org/tutorials/language/futures"><code class="highlighter-rouge">Future</code></a> objects to handle this.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Dart
+_getIPAddress() {
+  final url = &#39;https://httpbin.org/ip&#39;;
+  HttpRequest.request(url).then((value) {
+      print(JSON.decode(value.responseText)[&#39;origin&#39;]);
+  }).catchError((error) =&gt; print(error));
+}</code></pre>
+
+<p>Try it out in <a href="https://dartpad.dartlang.org/b68eb981456c5eec03daa3c05ee59486">DartPad</a>.</p>
+
+<p><strong>Note:</strong> For more information, see the documentation on <a href="https://www.dartlang.org/tutorials/language/futures">Futures</a>.</p>
+
+<h4 id="async--await">async / await</h4>
+
+<p>The async function declaration defines an asynchronous function. In JavaScript, when an async function is called, it returns a <code class="highlighter-rouge">Promise</code>. The <code class="highlighter-rouge">await</code> operator is used to wait for a <code class="highlighter-rouge">Promise</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// JavaScript
+async _getIPAddress() {
+  const url=&quot;https://httpbin.org/ip&quot;;
+  const response = await fetch(url);
+  const json = await response.json();
+  const data = await json.origin;
+  console.log(data);
+}</code></pre>
+
+<p>Whereas in Dart, an <code class="highlighter-rouge">async</code> function returns a <code class="highlighter-rouge">Future</code>, and the body of the function is scheduled for execution later. The <code class="highlighter-rouge">await</code> operator is used to wait for a <code class="highlighter-rouge">Future</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Dart
+_getIPAddress() async {
+  final url = &#39;https://httpbin.org/ip&#39;;
+  var request = await HttpRequest.request(url);
+  String ip = JSON.decode(request.responseText)[&#39;origin&#39;];
+  print(ip);
+}</code></pre>
+
+<p>Try it out in <a href="https://dartpad.dartlang.org/96e845a844d8f8d91c6f5b826ef38951">DartPad</a>.</p>
+
+<p><strong>Note:</strong> For more information, see the documentation on <a href="https://www.dartlang.org/articles/language/await-async">async/await</a>.</p>
+
+<h2 id="learn-the-basics-of-flutter">Learn The Basics of Flutter</h2>
+<h3 id="how-do-i-create-a-flutter-app">How do I create a Flutter app?</h3>
+
+<p>In React Native, you would start off your development process by creating the project using the below command line tool.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-shell language-shell"><code>$ create-react-native-app {projectname}</code></pre>
+
+<p>In <a href="https://flutter.io/get-started/">Flutter</a>, you can use this command line tool to do the same.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-shell language-shell"><code>$ flutter create {projectname}</code></pre>
+
+<h3 id="how-do-i-run-my-app">How do I run my app?</h3>
+
+<p>In React Native, you would go to the project directory and use 
+<code class="highlighter-rouge">npm run ios/android</code> or <code class="highlighter-rouge">yarn run ios/android</code>.
+In <a href="https://flutter.io/get-started/">Flutter</a>, if you are using the terminal, then you use the <code class="highlighter-rouge">flutter run</code> command in the project root directory to run your app on a connected device or simulator. 
+If you are using an IDE like IntelliJ, Android Studio, or VS Code with the Flutter plugin installed then you can use the in-built tools to run the app.</p>
+
+<p>For more information, see the documentation on <a href="https://flutter.io/get-started/">getting started</a>.</p>
+
+<h3 id="how-do-i-use-import-statements">How do I use import statements?</h3>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>//React Native
+import React from &quot;react&quot;;
+import { StyleSheet, Text, View } from &quot;react-native&quot;;</code></pre>
+
+<p>Contrary to React Native’s way of importing each component needed, in Flutter, you import <code class="highlighter-rouge">material.dart</code> from the flutter package, which allows you to use any material design widget without explicitly importing it. Dart automatically imports only the widgets that are actually used.</p>
+
+<p>Alternatively, you could import the <code class="highlighter-rouge">cupertino</code> widgets, the basic <code class="highlighter-rouge">widgets</code>, or your own custom widget library.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutter/cupertino.dart&#39;;
+import &#39;package:flutter/widgets.dart&#39;;
+import &#39;package:flutter/my_widgets.dart&#39;;</code></pre>
+
+<h3 id="what-is-the-equivalent-of-the-react-native-hello-world-app-in-flutter">What is the equivalent of the React Native <code class="highlighter-rouge">Hello World</code> app in Flutter?</h3>
+
+<p>Let’s take a look at how we can define the app in their respective frameworks:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+import React from &quot;react&quot;;
+import { StyleSheet, Text, View } from &quot;react-native&quot;;
+
+export default class HelloWorldApp extends React.Component {
+  render() {
+    return (
+      &lt;View&gt;
+        &lt;Text&gt;Hello World&lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}</code></pre>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+import &#39;package:flutter/widgets.dart&#39;;
+
+void main() { 
+  runApp(
+    new Center(
+      child: new Text(
+        &#39;Hello, world!&#39;,
+        textDirection: TextDirection.ltr,
+      ),
+    ), 
+  );
+}</code></pre>
+
+<p>The <code class="highlighter-rouge">HelloWorldApp</code> class in React Native extends <code class="highlighter-rouge">React.Component</code> and implements the render method by returning a view component as shown.</p>
+
+<p>In Flutter, the execution starts off with the <code class="highlighter-rouge">main()</code> function inside which a <a href="https://docs.flutter.io/flutter/widgets/runApp.html"><code class="highlighter-rouge">runApp()</code></a> function is used to take the given Widget and make it the root of the widget tree. In the Flutter example above, the widget tree consists of two widgets, the <a href="https://docs.flutter.io/flutter/widgets/Center-class.html"><code class="highlighter-rouge">Center</code></a> widget and its child, the <a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a> widget.</p>
+
+<p>The text direction needs to be specified in this instance; when a MaterialApp widget is used, this is taken care of for you.
+When developing a more complex app you would create another class that is either a Stateless or Stateful widget and also use a <a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html"><code class="highlighter-rouge">MaterialApp</code></a> widget as the root and pass several other widgets to it.</p>
+
+<h5 id="preview">Preview</h5>
+
+<p>|Android |iOS |
+|:—:|:—:|
+|<img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/hello-world/flutterhelloworld/screenshots/android.png?raw=true" style="width:300px;" alt="Loading" />|<img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/hello-world/flutterhelloworld/screenshots/iOS.png?raw=true" style="width:300px;" alt="Loading" />|
+<br /></p>
+
+<h3 id="how-do-i-use-widgets-and-nest-them-to-form-a-widget-tree">How do I use Widgets and nest them to form a Widget tree?</h3>
+
+<p>When writing an app, you will commonly author new widgets that are subclasses of either <a href="https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a> or <a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a>, depending on whether your widget manages any state. In the above Hello World example, HelloWorldApp class extends a StatelessWidget and overrides a build function that describes the widget in terms of other, lower-level widgets.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+import &#39;package:flutter/material.dart&#39;;
+
+void main() =&gt; runApp(new MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text(&quot;Flutter&quot;),
+        ),
+        body: new Center(
+          child: new Text(&#39;Hello World&#39;),
+        ),
+      )
+    );
+  }
+}</code></pre>
+
+<p>In the above example, the widget tree consists of five widgets, the <a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html">MaterialApp</a>, <a href="https://docs.flutter.io/flutter/material/Scaffold-class.html">Scaffold</a>, <a href="https://docs.flutter.io/flutter/material/AppBar-class.html">AppBar</a>, <a href="https://docs.flutter.io/flutter/widgets/Center-class.html">Center</a>, and <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> widgets. The <code class="highlighter-rouge">MaterialApp</code> wraps a number of widgets that are commonly required for material design applications and the <code class="highlighter-rouge">Scaffold</code> implements the basic material design visual layout structure. In simple apps it is easy to nest widgets, but as the code base gets larger and the app becomes complex it is advisable to break deeply nested widgets into functions that return the widget or smaller classes.</p>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/hello-world/flutterhelloworld/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/hello-world/rnhelloworld/App.js">React Native</a> code.</p>
+
+<h3 id="how-do-i-create-reusable-components-and-use-them">How do I create reusable components and use them?</h3>
+
+<p>In React Native, you create a separate class for a reusable component and use that class as a component. You would then use props to access the passed variables and functions. In the below React Native example, we have created a custom card class and used it inside a parent class.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+class CustomCard extends React.Component {
+  render() {
+    return (
+      &lt;View&gt;
+        &lt;Text &gt; Card {this.props.index} &lt;/Text&gt;
+        &lt;Button
+          title=&quot;Press&quot;
+          onPress={() =&gt; this.props.onPress(this.props.index)}
+        /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+// Usage
+&lt;CustomCard onPress={this.onPress} index={item.key} /&gt;</code></pre>
+
+<p>Similarly, in Flutter you just create a class for a custom widget and use that class as you would use a normal widget.
+Alternatively, you can also create and call a function that returns the widget.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+class CustomCard extends StatelessWidget {
+  CustomCard({@required this.index, @required this.onPress});
+  
+  final index;
+  final Function onPress;
+  
+  @override
+  Widget build(BuildContext context) {
+    return new Card(
+      child: new Column(
+        children: &lt;Widget&gt;[
+          new Text(&#39;Card $index&#39;),
+          new FlatButton(
+            child: const Text(&#39;Press&#39;),
+            onPressed: this.onPress,
+          ),
+        ],
+      )
+    );
+  }
+}
+    ...
+// Usage
+new CustomCard(
+  index: index,
+  onPress: () {
+    print(&#39;Card $index&#39;);
+  },
+)
+    ...</code></pre>
+
+<p>The constructor for the <code class="highlighter-rouge">CustomCard</code> class shows a Dart feature. The curly braces inside the constructor indicates that the parameters are optional when initialising. In order to make these fields required, we have two options- first one is to remove the curly braces from the constructor and the second is to add the <code class="highlighter-rouge">@required</code> to the constructor. The latter approach enables the developer to provide parameter names when using the <code class="highlighter-rouge">CustomCard</code> class in the app code as show in the (Usage section) example above.</p>
+
+<h4 id="preview-1">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/modular/fluttermodular/screenshots/android.png?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/modular/fluttermodular/screenshots/iOS.png?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code in <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/modular/fluttermodular/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/modular/rnmodular/App.js">React Native</a> code.</p>
+
+<h2 id="project-structure--resources">Project Structure &amp; Resources</h2>
+<h3 id="where-do-i-start-writing-the-code">Where do I start writing the code?</h3>
+
+<p>If you have used CRNA (create-react-native-app), then you have written your code inside <code class="highlighter-rouge">App.js</code>. 
+In Flutter, the entry file is <code class="highlighter-rouge">’projectname’/lib/main.dart</code> and execution starts from the main function.</p>
+
+<p>The minimal Flutter app simply calls the <code class="highlighter-rouge">runApp()</code> function with a widget. The <code class="highlighter-rouge">runApp()</code> function takes the given Widget and makes it the root of the widget tree. Any widget can be passed to it. But, if you are creating an app that uses material design, you can use <a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html">MaterialApp</a> class as root and define a theme that can be accessed across the app. If you are creating a screen, then you can use <a href="https://docs.flutter.io/flutter/material/Scaffold-class.html"><code class="highlighter-rouge">Scaffold</code></a> which implements the basic material design visual layout structure. But that is not mandatory.</p>
+
+<h3 id="how-are-files-structured-in-a-flutter-app">How are files structured in a Flutter app?</h3>
+
+<pre>
+┬
+└ projectname
+  ┬
+  ├ android
+  ├ build
+  ├ ios
+  ├ lib
+    ┬
+    └ main.dart
+  ├ test
+  └ pubspec.yaml
+</pre>
+
+<p><b><code class="highlighter-rouge">projectname/android</code></b> - directory containing android-specific files.</p>
+
+<p><b><code class="highlighter-rouge">projectname/build</code></b> - stores iOS apk and Android app installation packages.</p>
+
+<p><b> <code class="highlighter-rouge">projectname/ios</code> </b> - directory containing iOS-specific files.</p>
+
+<p><b> <code class="highlighter-rouge">projectname/lib</code> </b> - externally accessible Dart source files go here. Other source files can be put into <code class="highlighter-rouge">/lib/src</code></p>
+
+<p><b> <code class="highlighter-rouge">projectname/lib/main.dart</code> </b> - the main function, which is start of execution. Also this is where you start writing your dart code.</p>
+
+<p><b><code class="highlighter-rouge">projectname/test</code></b> - automated test files.</p>
+
+<p><b><code class="highlighter-rouge">projectname/pubspec.yaml</code></b> - metadata for the app. Equivalent of <code class="highlighter-rouge">package.json</code> in React Native.</p>
+
+<h3 id="where-do-i-put-my-resources-assets-and-how-do-i-use-them">Where do I put my resources (assets) and how do I use them?</h3>
+
+<p>In React Native, to add a static image to your app, place it somewhere in your source code tree and reference it like this :</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>&lt;Image source={require(&quot;./my-icon.png&quot;)} /&gt;</code></pre>
+
+<p>Flutter apps can include both code and assets (a.k.a. resources). An asset is a file that is bundled and deployed with your app and is accessible at runtime. Common types of assets include static data (such as JSON files), configuration files, icons, and images (JPEG, GIF, PNG, and BMP).
+All the assets can live under any folder under the root directory.</p>
+
+<p>For best practice, you can put them in an <code class="highlighter-rouge">assets</code> folder.</p>
+
+<p>Flutter uses the pubspec.yaml file, located at the root of your project, to identify assets required by an app.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
+  <span class="s">assets</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">assets/my_icon.png</span>
+    <span class="pi">-</span> <span class="s">assets/background.png</span>
+</code></pre>
+</div>
+
+<p>When an asset’s path is specified in the assets section of pubspec.yaml, the build process looks for any files with the same name in adjacent subdirectories. Such files are then included in the asset bundle along with the specified asset.</p>
+
+<p>It is used like this in the app code:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>image: new AssetImage(&#39;assets/background.png&#39;),</code></pre>
+
+<h3 id="how-do-i-load-images-over-a-network">How do I load images over a network?</h3>
+
+<p>In React Native, you specify the <code class="highlighter-rouge">uri</code> in the <code class="highlighter-rouge">source</code> prop of the <code class="highlighter-rouge">Image</code> component and also provide the size if needed.</p>
+
+<p>In Flutter, using <code class="highlighter-rouge">NetworkImage</code> creates an object that fetches the image from the given URL.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+new NetworkImage(&quot;https://example.com/images/background.png&quot;),</code></pre>
+
+<h3 id="how-do-i-install-pluginspackages">How do I install plugins/packages?</h3>
+
+<p>In Flutter, you cannot install packages from the command-line like in React Native where you use:</p>
+
+<p><code class="highlighter-rouge">yarn add {package-name}</code> / <code class="highlighter-rouge">npm install --save {package-name}</code>.</p>
+
+<p>To install a package in flutter follow these steps:</p>
+
+<ul>
+  <li>Add package name and version to your package’s <code class="highlighter-rouge">pubspec.yaml</code> dependencies. The below example shows how to include <code class="highlighter-rouge">google_sign_in</code> dart package:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dependencies</span><span class="pi">:</span>
+  <span class="s">flutter</span><span class="pi">:</span>
+    <span class="s">sdk</span><span class="pi">:</span> <span class="s">flutter</span>
+  <span class="s">google_sign_in</span><span class="pi">:</span> <span class="s2">"</span><span class="s">^2.0.1"</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Install package from the command line by running <code class="highlighter-rouge">flutter packages get</code>.</li>
+  <li>Import the package into your code as shown below:</li>
+</ul>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:google_sign_in/google_sign_in.dart&#39;;</code></pre>
+
+<p>For more information, see the descriptions of the <a href="https://pub.dartlang.org/flutter/packages">Flutter packages</a>, including scores to help you compare them.</p>
+
+<h2 id="built-in-widgets">Built-In Widgets</h2>
+
+<p>Flutter widgets are built using a modern reactive-style framework which takes inspiration from React Native. The central idea is that you build your UI out of widgets. Widgets describe what their view should look like given their current configuration and state.</p>
+
+<p>Widgets are the basic building blocks of a Flutter app’s user interface. Each widget is an immutable declaration of part of the user interface. Unlike other frameworks that separate views, view controllers, layouts, and other properties, Flutter has a consistent, unified object model: the widget.</p>
+
+<p>A widget can define:</p>
+
+<ul>
+  <li>a structural element (like a button or menu)</li>
+  <li>a stylistic element (like a font or color scheme)</li>
+  <li>an aspect of layout (like padding)</li>
+</ul>
+
+<p>Widgets are themselves often composed of many small, single-purpose widgets that combine to produce powerful effects. They form a hierarchy based on composition. Each widget nests inside, and inherits properties from, its parent. There is no separate “application” object. Instead, the root widget serves this role.</p>
+
+<h3 id="views">Views</h3>
+<h3 id="what-is-the-equivalent-of-a-view-in-flutter">What is the equivalent of a <code class="highlighter-rouge">View</code> in Flutter?</h3>
+
+<p>In React Native, View is a container that supports layout with <b><code class="highlighter-rouge">Flexbox</code></b>, style, touch handling, and accessibility controls.</p>
+
+<p>In Flutter, we have layout specific widgets like <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a>, <a href="https://docs.flutter.io/flutter/widgets/Column-class.html">Column</a>, <a href="https://docs.flutter.io/flutter/widgets/Row-class.html">Row</a>, <a href="https://docs.flutter.io/flutter/widgets/Center-class.html">Center</a> etc. You can also use higher-level widgets like the <a href="https://docs.flutter.io/flutter/material/Scaffold-class.html">Scaffold</a> widget, which provides options for showing drawers, snack bars, and bottom sheets. Higher-level widgets are built from lower-level widgets using composition (instead of inheritance).</p>
+
+<p><strong>Note:</strong> For more information on widgets, see the <a href="https://flutter.io/widgets/layout/">layout widget catalog</a>.</p>
+
+<h3 id="what-is-the-equivalent-of-flatlist--listview">What is the equivalent of <code class="highlighter-rouge">FlatList</code> / <code class="highlighter-rouge">ListView</code>?</h3>
+
+<p>A <code class="highlighter-rouge">List</code> is a scrollable list of components arranged linearly. In React Native we use <code class="highlighter-rouge">FlatList</code> or <code class="highlighter-rouge">ListView</code> for a performant interface for rendering simple, flat lists.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+&lt;FlatList
+  data={[ ... ]}
+  renderItem={({ item }) =&gt; &lt;Text&gt;{item.key}&lt;/Text&gt;}
+/&gt;</code></pre>
+
+<p>In Flutter, <a href="https://docs.flutter.io/flutter/widgets/ListView-class.html"><code class="highlighter-rouge">ListView</code></a> is Flutter’s most commonly used scrolling widget. The default constructor takes an explicit list of children. It is appropriate to use <a href="https://docs.flutter.io/flutter/widgets/ListView-class.html"><code class="highlighter-rouge">ListView</code></a> for a small number of widgets. The <code class="highlighter-rouge">ListView.builder</code> constructor takes an <code class="highlighter-rouge">IndexedWidgetBuilder</code>, which builds the children on demand. This constructor is appropriate for list views with a large (or infinite) number of children because the builder is called only for those children that are actually visible.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+var data = [ ... ];
+new ListView.builder(
+  itemCount: data.length,
+  itemBuilder: (context, int index) {
+    return new Text(
+      data[index],
+    );
+  },
+)</code></pre>
+
+<h4 id="preview-2">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/scrollable/flutterscrollable/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/scrollable/flutterscrollable/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/scrollable/flutterscrollable/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/scrollable/rnscrollable/App.js">React Native</a> code.</p>
+
+<h3 id="how-do-i-use-a-canvas-to-drawpaint">How do I use a Canvas to draw/paint?</h3>
+
+<p>In React Native, no in-built canvas component is present, so we use third party libraries like <code class="highlighter-rouge">react-native-canvas</code> to use canvas.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+handleCanvas = canvas =&gt; {
+  const ctx = canvas.getContext(&quot;2d&quot;);
+  ctx.fillStyle = &quot;skyblue&quot;;
+  ctx.beginPath();
+  ctx.arc(75, 75, 50, 0, 2 * Math.PI);
+  ctx.fillRect(150, 100, 300, 300);
+  ctx.stroke();
+};
+
+render() {
+  return (
+    &lt;View&gt;
+      &lt;Canvas ref={this.handleCanvas} /&gt;
+    &lt;/View&gt;
+  );
+}</code></pre>
+
+<p>In Flutter, we use <a href="https://docs.flutter.io/flutter/widgets/CustomPaint-class.html"><code class="highlighter-rouge">CustomPaint</code></a> widget to draw during the paint phase. We implement abstract class <a href="https://docs.flutter.io/flutter/rendering/CustomPainter-class.html"><code class="highlighter-rouge">CustomPainter</code></a> and pass it to <code class="highlighter-rouge">painter</code> property in <code class="highlighter-rouge">CustomPaint</code> widget.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+class MyCanvasPainter extends CustomPainter {
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = new Paint();
+    paint.color = Colors.amber;
+    canvas.drawCircle(new Offset(100.0, 200.0), 40.0, paint);
+    Paint paintRect = new Paint();
+    paintRect.color = Colors.lightBlue;
+    Rect rect = new Rect.fromPoints(new Offset(150.0, 300.0), new Offset(300.0, 400.0));
+    canvas.drawRect(rect, paintRect);
+  }
+  
+  bool shouldRepaint(MyCanvasPainter oldDelegate) =&gt; false;
+  bool shouldRebuildSemantics(MyCanvasPainter oldDelegate) =&gt; false;
+}
+class _MyCanvasState extends State&lt;MyCanvas&gt; {
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new CustomPaint(
+        painter: new MyCanvasPainter(),
+      ),
+    );
+  }
+}</code></pre>
+
+<h4 id="preview-3">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/canvas/fluttercanvas/screenshots/android.png?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/canvas/fluttercanvas/screenshots/iOS.png?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/canvas/fluttercanvas/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/canvas/rncanvas/App.js">React Native</a> code.</p>
+
+<h3 id="layouts">Layouts</h3>
+<h3 id="how-do-i-lay-out-my-widgets">How do I lay out my Widgets?</h3>
+
+<p>In React Native, you would normally use the style prop on the view component to specify the flexbox properties to layout the underlying components like this:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+&lt;View
+  style={{
+    flex: 1,
+    flexDirection: &quot;column&quot;,
+    justifyContent: &quot;space-between&quot;,
+    alignItems: &quot;center&quot;
+  }}
+&gt;</code></pre>
+
+<p>In Flutter, layout is determined by a combination of the type of Widget that you choose and its layout and style properties. Contrary to how it is done in React Native, where most of the layout can be done with the props that are passed to a specific component, in Flutter most of the layout is done by the use of widgets that are specifically designed to provide layout.
+The Flutter widgets <a href="https://docs.flutter.io/flutter/widgets/Column-class.html">Column</a> and <a href="https://docs.flutter.io/flutter/widgets/Row-class.html">Row</a> take an array of children and not styling properties (although there are layout properties such as <code class="highlighter-rouge">CrossAxisAlignment</code> and <code class="highlighter-rouge">direction</code>) and aligns them vertically and horizontally respectively. A <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> takes a combination of layout and styling properties. A <a href="https://docs.flutter.io/flutter/widgets/Center-class.html"><code class="highlighter-rouge">Center</code></a> widget centers its child widget tree.</p>
+
+<p>For example, if you want to arrange your components in a <a href="https://docs.flutter.io/flutter/widgets/Row-class.html">Row</a>.
+In React Native, you would specify it as a prop: <code class="highlighter-rouge">flexDirection: “column”</code>. But in Flutter, you would use a <a href="https://docs.flutter.io/flutter/widgets/Column-class.html"><code class="highlighter-rouge">Column</code></a> widget and provide the required children widgets.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+new Center(
+  child: new Column(
+    children: &lt;Widget&gt;[
+      new Container(
+        color: Colors.red,
+        width: 100.0,
+        height: 100.0,
+      ),
+      new Container(
+        color: Colors.blue,
+        width: 100.0,
+        height: 100.0,
+      ),
+      new Container(
+        color: Colors.green,
+        width: 100.0,
+        height: 100.0,
+      ),
+    ],
+  ),
+)</code></pre>
+
+<p>Other layout widgets available are <a href="https://docs.flutter.io/flutter/widgets/Padding-class.html"><code class="highlighter-rouge">Padding</code></a>, <a href="https://docs.flutter.io/flutter/widgets/Align-class.html"><code class="highlighter-rouge">Align</code></a>, <a href="https://docs.flutter.io/flutter/widgets/Stack-class.html"><code class="highlighter-rouge">Stack</code></a>.</p>
+
+<p>For more information, see the documentation for the <a href="https://flutter.io/widgets/layout/">layout widgets</a>.</p>
+
+<h4 id="preview-4">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/Layout_sample/basiclayout_sample/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/Layout_sample/basiclayout_sample/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/Layout_sample/basiclayout_sample/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/Layout_sample/rnlayout/App.js">React Native</a> code.</p>
+
+<h3 id="how-do-i-overlap-several-widgets-on-top-of-one-another">How do I overlap several widgets on top of one another?</h3>
+
+<p>In React Native, we can overlap several components by using <code class="highlighter-rouge">absolute</code> positioning.</p>
+
+<p>Flutter uses the <a href="https://docs.flutter.io/flutter/widgets/Stack-class.html"><code class="highlighter-rouge">Stack</code></a> widget to arrange children widgets on top of each other. The widgets can entirely or partially overlap the base widget.</p>
+
+<p>The <code class="highlighter-rouge">Stack</code> widget positions its children relative to the edges of its box. This class is useful if you simply want to overlap several children.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+new Stack(
+  alignment: const Alignment(0.6, 0.6),
+  children: &lt;Widget&gt;[
+    new CircleAvatar(
+      backgroundImage: new NetworkImage(
+        &quot;https://avatars3.githubusercontent.com/u/14101776?v=4&quot;),
+    ),
+    new Container(
+      decoration: new BoxDecoration(
+          color: Colors.black45,
+      ),
+      child: new Text(&#39;Flutter&#39;),
+    ),
+  ],
+)</code></pre>
+
+<p>The above example uses <code class="highlighter-rouge">Stack</code> to overlay a Container (that displays its <code class="highlighter-rouge">Text</code> on a translucent black background) on top of a <code class="highlighter-rouge">CircleAvatar</code>. The Stack offsets the text using the alignment property and Alignments.</p>
+
+<h4 id="preview-5">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/stack_example/flutter_stack/screenshots/android.png?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/stack_example/flutter_stack/screenshots/iOS.png?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="styling">Styling</h3>
+<h3 id="how-to-custom-style-my-components-in-flutter">How to custom style my components in Flutter?</h3>
+
+<p>In React Native, we can use inline styling as well as <code class="highlighter-rouge">stylesheets.create</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+&lt;View style={styles.container}&gt;
+  &lt;Text style={{ fontSize: 32, color: &quot;cyan&quot;, fontWeight: &quot;600&quot; }}&gt;
+    This is a sample text
+  &lt;/Text&gt;
+&lt;/View&gt;</code></pre>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: &quot;#fff&quot;,
+    alignItems: &quot;center&quot;,
+    justifyContent: &quot;center&quot;
+  }
+});</code></pre>
+
+<p>Similarly in Flutter, widgets are highly customizable and layout specific components like <a href="https://docs.flutter.io/flutter/widgets/Padding-class.html"><code class="highlighter-rouge">Padding</code></a>, <a href="https://docs.flutter.io/flutter/widgets/Center-class.html"><code class="highlighter-rouge">Center</code></a>, <a href="https://docs.flutter.io/flutter/material/Card-class.html"><code class="highlighter-rouge">Card</code></a>, <a href="https://docs.flutter.io/flutter/widgets/Stack-class.html"><code class="highlighter-rouge">Stack</code></a> etc. can be used. A <code class="highlighter-rouge">Text</code> widget can take a <code class="highlighter-rouge">TextStyle</code> class for its style property. If you want to use same text style at multiple places, you can create a <a href="https://docs.flutter.io/flutter/dart-ui/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> class and use it for multiple <code class="highlighter-rouge">Text</code> widgets.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+var textStyle = new TextStyle(fontSize: 32.0, color: Colors.cyan, fontWeight: FontWeight.w600);
+	...
+new Center(
+  child: new Column(
+    children: &lt;Widget&gt;[
+      new Text(
+        &#39;Sample text&#39;,
+        style: textStyle,
+      ),
+      new Padding(
+        padding: new EdgeInsets.all(20.0),
+        child: new Icon(Icons.lightbulb_outline,
+          size: 48.0, color: Colors.redAccent)
+      ),
+    ],
+  ),
+)</code></pre>
+
+<h4 id="preview-6">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/styling/flutterstyling/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/styling/flutterstyling/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/styling/flutterstyling/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/styling/rnstyling/App.js">React Native</a> code.</p>
+
+<h3 id="how-to-use-icons-and-colors-in-flutter">How to use <code class="highlighter-rouge">Icons</code> and <code class="highlighter-rouge">Colors</code> in Flutter?</h3>
+
+<p>There is no inbuilt support for icons in React Native, so third party libraries have to be used. Flutter has inbuilt support for Material icons as well as Cupertino (iOS-like) icons. To use Material icons, <a href="https://docs.flutter.io/flutter/material/Icons-class.html"><code class="highlighter-rouge">Icons</code></a> class is used. To use <a href="https://docs.flutter.io/flutter/cupertino/CupertinoIcons-class.html"><code class="highlighter-rouge">Cupertino icons</code></a>, make sure you add a dependency on cupertino_icons in your project’s pubspec.yaml file.</p>
+
+<p>Here is the list of all <a href="https://docs.flutter.io/flutter/material/Icons-class.html#constants">Material icons</a>.</p>
+
+<p>For Colors, <a href="https://docs.flutter.io/flutter/material/Colors-class.html"><code class="highlighter-rouge">Colors</code></a> class is used which uses Material design’s <a href="https://material.io/guidelines/style/color.html">color palette</a>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>new Icon(Icons.lightbulb_outline, color: Colors.redAccent)</code></pre>
+
+<h3 id="how-to-add-style-themes-in-flutter">How to add style themes in Flutter?</h3>
+
+<p>In React Native, we define common themes for components in stylesheets and use it in components.
+Similarly, in Flutter we can add uniform styling for almost everything by defining it in the <a href="https://docs.flutter.io/flutter/material/ThemeData-class.html"><code class="highlighter-rouge">ThemeData</code></a> class and passing it to the theme property in <a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html"><code class="highlighter-rouge">MaterialApp</code></a> that wraps all the widgets and acts as the root widget of the app.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>@override
+Widget build(BuildContext context) {
+  return new MaterialApp(
+    theme: new ThemeData(
+      primaryColor: Colors.cyan,
+      brightness: Brightness.dark,
+    ),
+    home: new StylingPage(),
+  );
+}</code></pre>
+
+<p>A <code class="highlighter-rouge">Theme</code> can be applied even without using the <code class="highlighter-rouge">MaterialApp</code> widget. The <a href="https://docs.flutter.io/flutter/material/Theme-class.html"><code class="highlighter-rouge">Theme</code></a> widget takes a <code class="highlighter-rouge">ThemeData</code> in it’s <code class="highlighter-rouge">data</code> parameter and applies the <code class="highlighter-rouge">ThemeData</code> to all of it’s children widgets. The usage is as shown below:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>@override
+ Widget build(BuildContext context) {
+   return new Theme(
+     data: new ThemeData(
+       primaryColor: Colors.cyan,
+       brightness: brightness,
+     ),
+     child: new Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+             ...
+             ...
+     ),
+   );
+ }</code></pre>
+
+<h2 id="state-management">State Management</h2>
+<h3 id="what-are-stateful-and-stateless-widgets-and-how-do-i-use-them">What are Stateful and Stateless widgets and how do I use them?</h3>
+
+<p>In React Native, we do not have state-specific components, you can call <code class="highlighter-rouge">setState</code> in any component provided it manages that state.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+export default class BlinkApp extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttonText: &quot;blink&quot;,
+      showText: true,
+      text: &quot;I love blinking&quot;
+    };
+    this.toggleBlinkState = this.toggleBlinkState.bind(this);
+    var handle;
+  }
+  
+  toggleBlinkState() {
+    if (this.state.buttonText == &quot;blink&quot;) {
+      handle = setInterval(() =&gt; {
+        this.setState(previousState =&gt; {
+          return { showText: !previousState.showText };
+        });
+      }, 1000);
+      this.setState({
+        buttonText: &quot;Stop blinking&quot;
+      });
+    } else {
+      clearInterval(handle);
+      this.setState({ buttonText: &quot;blink&quot;, showText: true });
+    }
+  }
+
+  render() {
+    let display = this.state.showText ? this.state.text : &quot; &quot;;
+    return (
+      &lt;View style={{ flex: 1, justifyContent: &quot;center&quot;, alignItems: &quot;center&quot; }}&gt;
+        &lt;StatusBar hidden={true} /&gt;
+        &lt;Text&gt;{display} &lt;/Text&gt;
+        &lt;Button onPress={this.toggleBlinkState} title={this.state.buttonText} /&gt;
+      &lt;/View&gt;
+    );
+  }
+}</code></pre>
+
+<p>In Flutter, we have Stateful and Stateless widgets and you can use <code class="highlighter-rouge">setState</code> only in a <a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a>.</p>
+
+<h4 id="stateless-widget">Stateless Widget</h4>
+
+<p>A widget which has no internal state to manage is a Stateless widget. <a href="https://docs.flutter.io/flutter/material/Icons-class.html">Icons</a>, <a href="https://docs.flutter.io/flutter/material/IconButton-class.html">IconButton</a>, and <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> are examples of stateless widgets, which subclass <a href="https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>.
+Stateless widgets are useful when the part of the user interface you are describing does not depend on anything other than the configuration information in the object itself and the <a href="https://docs.flutter.io/flutter/widgets/BuildContext-class.html"><code class="highlighter-rouge">BuildContext</code></a> in which the widget is inflated.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+import &#39;package:flutter/material.dart&#39;;
+
+void main() =&gt; runApp(new MyStatelessWidget(text: &quot;StatelessWidget Example to show immutable data&quot;));
+
+class MyStatelessWidget extends StatelessWidget {
+  final String text;
+  MyStatelessWidget({Key key, this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Center(
+      child: new Text(
+        text,
+        textDirection: TextDirection.ltr,
+      ),
+    );
+  }
+}</code></pre>
+
+<p>In the above example, you will use the constructor of the MyStatelessWidget class to pass the <code class="highlighter-rouge">text</code>, which is marked as final. Because this class extends <code class="highlighter-rouge">StatelessWidget</code> it can have immutable data.</p>
+
+<p>The build method of a stateless widget is typically only called in three situations:</p>
+<ul>
+  <li>When the widget is inserted into the tree</li>
+  <li>When the widget’s parent changes its configuration</li>
+  <li>When an <a href="https://docs.flutter.io/flutter/widgets/InheritedWidget-class.html"><code class="highlighter-rouge">InheritedWidget</code></a> it depends on changes.</li>
+</ul>
+
+<h4 id="stateful-widget">Stateful Widget</h4>
+
+<p>A Stateful widget is a widget that has mutable state. A State is information that can be read synchronously when the widget is built and might change during the lifetime of the widget. It is the responsibility of the widget implementer to ensure that the State is promptly notified when such state changes, <code class="highlighter-rouge">StatefulWidget</code> is useful when the part of the user interface you are describing can change dynamically. The state of the widget changes when a user interacts with a Stateful widget (by typing into a form, or moving a slider, for example), or  when it changes over time (perhaps a data feed causes the UI to update). <a href="https://docs.flutter.io/flutter/material/Checkbox-class.html">Checkbox</a>, <a href="https://docs.flutter.io/flutter/material/Radio-class.html">Radio</a>, <a href="https://docs.flutter.io/flutter/material/Slider-class.html">Slider</a>, <a href="https://docs.flutter.io/flutter/material/InkWell-class.html">InkWell</a>, <a href="https://docs.flutter.io/flutter/widgets/Form-class.html">Form</a>, and <a href="https://docs.flutter.io/flutter/material/TextField-class.html">TextField</a> are examples of stateful widgets, which subclass <a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a>.</p>
+
+<p>The code snippet below shows how to define a stateful widget and use <code class="highlighter-rouge">createState</code> to create a state of the <code class="highlighter-rouge">MyStatefulWidget</code> widget.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key, this.title}) : super(key: key);
+  final String title;
+  
+  @override
+  _MyStatefulWidgetState createState() =&gt; new _MyStatefulWidgetState();
+}</code></pre>
+
+<p>The following code snippet shows how the state implements the build function and also how the <code class="highlighter-rouge">setState</code> function is used to rebuild (call the build function of the stateful <code class="highlighter-rouge">_MyStatefulWidgetState</code> widget). A <code class="highlighter-rouge">Timer</code> is used to periodically call <code class="highlighter-rouge">toggleShowText()</code> that uses a <code class="highlighter-rouge">setState()</code> to set <code class="highlighter-rouge">showText</code> and rebuild.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class _MyStatefulWidgetState extends State&lt;MyStatefulWidget&gt; {
+  bool showtext=true;
+  bool toggleState=true;
+  Timer t2;
+  
+  void toggleBlinkState(){
+    setState((){ 
+      toggleState=!toggleState;
+    });
+    var twenty = const Duration(milliseconds: 1000);
+    if(toggleState==false) {
+      t2 = new Timer.periodic(twenty, (Timer t) {
+        toggleShowText();
+      });
+    } else {
+      t2.cancel();
+    }
+  }
+  
+  void toggleShowText(){
+    setState((){
+      showtext=!showtext;
+    });
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Center(
+        child: new Column(
+          children: &lt;Widget&gt;[
+            (showtext
+              ?(new Text(&#39;This execution will be done before you can blink.&#39;))
+              :(new Container())
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(top: 70.0),
+              child: new RaisedButton(
+                onPressed: toggleBlinkState,
+                child: (toggleState
+                  ?( new Text(&quot;Blink&quot;)) 
+                  :(new Text(&quot;Stop Blinking&quot;))
+                )
+              )
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+<h3 id="what-are-some-of-the-best-practices-while-using-stateful-and-stateless-widgets">What are some of the best practices while using Stateful and Stateless widgets?</h3>
+<h4 id="1-figure-out-which-widgets-must-be-stateful-and-stateless">1. Figure out which widgets must be Stateful and Stateless</h4>
+
+<p>Widgets in Flutter can be Stateful or Stateless, depending on whether they depend on some state.
+If a widget changes—the user interacts with it, it’s Stateful; otherwise it can be Stateless.
+Stateful widgets are useful when the part of the user interface you are describing can change dynamically.</p>
+
+<h4 id="2-if-using-stateful-widget-decide-which-object-manages-the-widgets-state">2. If using Stateful widget, decide which object manages the widget’s state.</h4>
+
+<p>There are three main ways to manage state:</p>
+<ul>
+  <li>The widget manages its own state.</li>
+  <li>The parent manages the widget’s state.</li>
+  <li>A mix-and-match approach</li>
+</ul>
+
+<p>How do you decide which approach to use? The following principles should help you decide:</p>
+<ul>
+  <li>If the state in question is user data, for example the checked or unchecked mode of a checkbox, or the position of a slider, then the state is best managed by the parent widget.</li>
+  <li>If the state in question is aesthetic, for example an animation, then the widget itself best manages the state.</li>
+  <li>When in doubt, let the parent widget manage the child widget’s state.</li>
+</ul>
+
+<h4 id="3-subclass-statefulwidget-and-state">3. Subclass StatefulWidget and State.</h4>
+
+<p>The <code class="highlighter-rouge">MyStatefulWidget</code> class manages its own state, so it overrides <code class="highlighter-rouge">createState()</code> to create the State object. The framework calls <code class="highlighter-rouge">createState()</code> when it wants to build the widget. In this example, <code class="highlighter-rouge">createState()</code> creates an instance of <code class="highlighter-rouge">_MyStatefulWidgetState</code> , which is implemented in the next step.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class MyStatefulWidget extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
+  
+  @override
+  _MyStatefulWidgetState createState() =&gt; new _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State&lt;MyStatefulWidget&gt; {
+  
+  @override
+  Widget build(BuildContext context) {
+    ...
+  }
+}</code></pre>
+
+<h4 id="4-plug-the-stateful-widget-into-the-widget-tree">4. Plug the stateful widget into the widget tree.</h4>
+
+<p>Add your custom stateful widget to the widget tree in the app’s build method.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class MyStatelessWidget extends StatelessWidget {
+  // This widget is the root of your application.
+  
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Flutter Demo&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new MyStatefulWidget(title: &#39;State Change Demo&#39;),
+    );
+  }
+}</code></pre>
+
+<h4 id="preview-7">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/State_sample/flutter_basic_statesample/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/State_sample/flutter_basic_statesample/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/State_sample/flutter_basic_statesample/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/State_sample/reactnative-state-sample/App.js">React Native</a> code.</p>
+
+<h3 id="props">Props</h3>
+
+<p>In React Native, most components can be customized when they are created with different parameters. These creation parameters are called props. These parameters can be used in child component using <code class="highlighter-rouge">this.props</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+class CustomCard extends React.Component {
+  render() {
+    return (
+      &lt;View&gt;
+        &lt;Text&gt; Card {this.props.index} &lt;/Text&gt;
+        &lt;Button
+          title=&quot;Press&quot;
+          onPress={() =&gt; this.props.onPress(this.props.index)}
+        /&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+class App extends React.Component {
+  
+  onPress = index =&gt; {
+    console.log(&quot;Card &quot;, index);
+  };
+  
+  render() {
+    return (
+      &lt;View&gt;
+        &lt;FlatList
+          data={[ ... ]}
+          renderItem={({ item }) =&gt; (
+            &lt;CustomCard onPress={this.onPress} index={item.key} /&gt;
+          )}
+        /&gt;
+      &lt;/View&gt;
+    );
+  }
+}</code></pre>
+
+<p>In Flutter, you would just assign a local variable or function marked <code class="highlighter-rouge">final</code> with the prop received in the parameterised constructor and use it in the subsequent code.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+class CustomCard extends StatelessWidget {
+
+  CustomCard({@required this.index, @required this.onPress});
+  final index;
+  final Function onPress;
+  
+  @override
+  Widget build(BuildContext context) {
+  return new Card(
+    child: new Column(
+      children: &lt;Widget&gt;[
+        new Text(&#39;Card $index&#39;),
+        new FlatButton(
+          child: const Text(&#39;Press&#39;),
+          onPressed: this.onPress,
+        ),
+      ],
+    ));
+  }
+}
+    ...
+//Usage
+new CustomCard(
+  index: index,
+  onPress: () {
+    print(&#39;Card $index&#39;);
+  },
+)</code></pre>
+
+<h4 id="preview-8">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/modular/fluttermodular/screenshots/android.png?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/modular/fluttermodular/screenshots/iOS.png?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code in <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/modular/fluttermodular/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/modular/rnmodular/App.js">React Native</a> code.</p>
+
+<h3 id="local-storage">Local Storage</h3>
+<h4 id="how-do-i-store-persistent-key-value-pairs-that-are-global-to-the-app-in-flutter">How do I store persistent key-value pairs that are global to the app in Flutter?</h4>
+
+<p>In React Native, you would use the <code class="highlighter-rouge">setItem</code> and <code class="highlighter-rouge">getItem</code> functions of the <code class="highlighter-rouge">AsyncStorage</code> component to store and retrieve data that is persistent and global to the whole app.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+await AsyncStorage.setItem( &quot;counterkey&quot;, JSON.stringify(++this.state.counter));
+AsyncStorage.getItem(&quot;counterkey&quot;).then(value =&gt; {
+  if (value != null) {
+    this.setState({ counter: value });
+  }
+});</code></pre>
+
+<p>In Flutter, we use <a href="https://github.com/flutter/plugins/tree/master/packages/shared_preferences"><code class="highlighter-rouge">shared_preferences</code></a>. It is first given as a dependency in the <code class="highlighter-rouge">pubspec.yaml</code> as shown:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dependencies</span><span class="pi">:</span>
+  <span class="s">flutter</span><span class="pi">:</span>
+    <span class="s">sdk</span><span class="pi">:</span> <span class="s">flutter</span>
+  <span class="s">shared_preferences</span><span class="pi">:</span> <span class="s2">"</span><span class="s">^0.3.0"</span>
+</code></pre>
+</div>
+<p>It is then imported in the file where the instance of the <code class="highlighter-rouge">shared_preference</code> resides.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:shared_preferences/shared_preferences.dart&#39;;</code></pre>
+
+<p>An instance is obtained and used to perform operations such as storing and retrieving data.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>SharedPreferences prefs = await SharedPreferences.getInstance();
+_counter=prefs.getInt(&#39;counter&#39;);
+prefs.setInt(&#39;counter&#39;,++_counter);
+setState(() {
+  _counter=_counter;
+});</code></pre>
+
+<h2 id="routing">Routing</h2>
+<h3 id="how-do-i-navigate-between-screens-in-flutter">How do I navigate between screens in Flutter?</h3>
+
+<p>In React Native, there are three main built-in navigators, if you are using react-navigation– StackNavigator, TabNavigator, and DrawerNavigator. Each of these provides a way to configure and define the screens. From the example, this code snippet shows the definition of each of the navigators :</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+const MyApp = TabNavigator(
+  { Home: { screen: HomeScreen }, Notifications: { screen: tabNavScreen } },
+  { tabBarOptions: { activeTintColor: &quot;#e91e63&quot; } }
+);
+const SimpleApp = StackNavigator({
+  Home: { screen: MyApp },
+  stackScreen: { screen: StackScreen }
+});
+export default (MyApp1 = DrawerNavigator({
+  Home: {
+    screen: SimpleApp
+  },
+  Screen2: {
+    screen: drawerScreen
+  }
+}));</code></pre>
+
+<p>In Flutter, there are two main concepts to understand– A <a href="https://docs.flutter.io/flutter/widgets/Route-class.html">Route</a> is an abstraction for a “screen” or “page” of an app and a <a href="https://docs.flutter.io/flutter/widgets/Navigator-class.html">Navigator</a> is a widget that manages routes.
+A <code class="highlighter-rouge">Navigator</code> is defined as a widget that manages a set of child widgets with a stack discipline. The navigator manages a stack of <code class="highlighter-rouge">Route</code> objects and provides methods for managing the stack, like <a href="https://docs.flutter.io/flutter/widgets/Navigator/push.html"><code class="highlighter-rouge">Navigator.push</code></a> and <a href="https://docs.flutter.io/flutter/widgets/Navigator/pop.html"><code class="highlighter-rouge">Navigator.pop</code></a>.
+Initially, the definition of the routes is provided as a parameter(routes) to the <a href="https://docs.flutter.io/flutter/material/MaterialApp-class.html"><code class="highlighter-rouge">MaterialApp</code></a> widget. A code snippet from our example is as follows :</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+class NavigationApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+            ...
+      routes: &lt;String, WidgetBuilder&gt;{
+        &#39;/a&#39;: (BuildContext context) =&gt; new usualNavscreen(),
+        &#39;/b&#39;: (BuildContext context) =&gt; new drawerNavscreen(),
+      }
+            ...
+  );
+  }
+}</code></pre>
+
+<p>To navigate to a named route, the <code class="highlighter-rouge">of</code> method of the <code class="highlighter-rouge">Navigator</code> widget is used to specify the BuildContext (a handle to the location of a widget in the widget tree) and the name of the route is passed to <code class="highlighter-rouge">pushNamed</code> function to navigate to the specifed route as shown below:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>Navigator.of(context).pushNamed(&#39;/a&#39;);</code></pre>
+
+<p>One can also use the push method of <code class="highlighter-rouge">Navigator</code> which adds the given <a href="https://docs.flutter.io/flutter/widgets/Route-class.html"><code class="highlighter-rouge">route</code></a> to the history of the navigator that most tightly encloses the given <a href="https://docs.flutter.io/flutter/widgets/BuildContext-class.html"><code class="highlighter-rouge">context</code></a>, and transitions to it. In the following example we are using the <a href="https://docs.flutter.io/flutter/material/MaterialPageRoute-class.html"><code class="highlighter-rouge">MaterialPageRoute</code></a> widget, which is a modal route that replaces the entire screen with a platform-adaptive transition. It takes a <a href="https://docs.flutter.io/flutter/widgets/WidgetBuilder.html"><code class="highlighter-rouge">WidgetBuilder</code></a> as a required parameter.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context) =&gt; new UsualNavscreen()));</code></pre>
+
+<h3 id="how-do-i-use-tab-navigation-and-drawer-navigation-in-flutter">How do I use Tab Navigation and Drawer Navigation in Flutter?</h3>
+
+<p>In React Native, we define Tab and Drawer navigators and use them to show tabs and drawers, and navigate.</p>
+
+<p>In Flutter, we make use of several lower-level widgets such as <a href="https://docs.flutter.io/flutter/material/Drawer-class.html"><code class="highlighter-rouge">Drawer</code></a> which is basically a material design panel that slides in horizontally and <a href="https://docs.flutter.io/flutter/material/TabBar-class.html"><code class="highlighter-rouge">TabBar</code></a>, <a href="https://docs.flutter.io/flutter/material/TabBarView-class.html"><code class="highlighter-rouge">TabBarView</code></a> to show and navigate among Tabs. These lower-level widgets are used in combination with higher-level widget <a href="https://docs.flutter.io/flutter/material/Scaffold-class.html"><code class="highlighter-rouge">Scaffold</code></a> which implements them internally. The <a href="https://docs.flutter.io/flutter/material/Drawer-class.html"><code class="highlighter-rouge">drawer</code></a> and <a href="https://docs.flutter.io/flutter/material/TabBar-class.html"><code class="highlighter-rouge">bottomNavigationBar</code></a> parameters of the <a href="https://docs.flutter.io/flutter/material/Scaffold-class.html"><code class="highlighter-rouge">Scaffold</code></a> are provided with the above mentioned lower-level widgets.</p>
+
+<h4 id="tab-navigation">Tab Navigation</h4>
+
+<p>In React Native, we can use <code class="highlighter-rouge">TabNavigation</code>. A code snippet from our example is as follows:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+const MyApp = TabNavigator(
+  { Home: { screen: HomeScreen }, Notifications: { screen: tabNavScreen } },
+  { tabBarOptions: { activeTintColor: &quot;#e91e63&quot; } }
+);</code></pre>
+
+<p>In Flutter, we need to use two main widgets - <a href="https://docs.flutter.io/flutter/material/TabBar-class.html">TabBar</a> and <a href="https://docs.flutter.io/flutter/material/TabBarView-class.html">TabBarView</a>.
+A TabBar Widget is used to create a TabBar and <a href="https://docs.flutter.io/flutter/material/Tab-class.html"><code class="highlighter-rouge">Tab</code></a> widgets are passed as children to the TabBar widget as shown below:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+TabController controller=new TabController(length: 2, vsync: this);
+
+new TabBar(
+  tabs: &lt;Tab&gt;[
+    new Tab(icon: new Icon(Icons.person),),
+    new Tab(icon: new Icon(Icons.email),),
+  ],
+  controller: controller,
+),</code></pre>
+
+<p>Also, a <a href="https://docs.flutter.io/flutter/material/TabController-class.html"><code class="highlighter-rouge">TabController</code></a> must be passed. A TabController coordinates tab selection between a <a href="https://docs.flutter.io/flutter/material/TabBar-class.html"><code class="highlighter-rouge">TabBar</code></a> and a <a href="https://docs.flutter.io/flutter/material/TabBarView-class.html"><code class="highlighter-rouge">TabBarView</code></a>.
+The <code class="highlighter-rouge">length</code> argument of the <code class="highlighter-rouge">TabController</code>’s constructor is the total number of tabs. Typically greater than one.
+<code class="highlighter-rouge">vsync</code> is the <a href="https://docs.flutter.io/flutter/scheduler/TickerProvider-class.html"><code class="highlighter-rouge">TickerProvider</code></a> that can be used. <code class="highlighter-rouge">TickerProvider</code> is an interface implemented by classes that can vend <a href="https://docs.flutter.io/flutter/scheduler/Ticker-class.html"><code class="highlighter-rouge">Ticker</code></a> objects. Tickers can be used by any object that wants to be notified whenever a frame triggers, but are most commonly used indirectly via an <a href="https://docs.flutter.io/flutter/animation/AnimationController-class.html"><code class="highlighter-rouge">AnimationController</code></a>. <code class="highlighter-rouge">AnimationControllers</code> need a <code class="highlighter-rouge">TickerProvider</code> to obtain their <code class="highlighter-rouge">Ticker</code>. If you are creating an AnimationController from a State, then you can use the <a href="https://docs.flutter.io/flutter/widgets/TickerProviderStateMixin-class.html"><code class="highlighter-rouge">TickerProviderStateMixin</code></a> or <a href="https://docs.flutter.io/flutter/widgets/SingleTickerProviderStateMixin-class.html"><code class="highlighter-rouge">SingleTickerProviderStateMixin</code></a> classes to obtain a suitable <code class="highlighter-rouge">TickerProvider</code>.</p>
+
+<p><code class="highlighter-rouge">TabBarView</code> widget is passed as the <code class="highlighter-rouge">body</code> parameter of the <a href="https://docs.flutter.io/flutter/material/Scaffold-class.html"><code class="highlighter-rouge">Scaffold</code></a> widget. All the screens corresponding to the <code class="highlighter-rouge">TabBar</code> widget’s tabs are given as children to <code class="highlighter-rouge">TabBarView</code> widget along with the same <code class="highlighter-rouge">TabController</code> as shown:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+
+class _NavigationHomePageState extends State&lt;NavigationHomePage&gt; with SingleTickerProviderStateMixin {
+  TabController controller=new TabController(length: 2, vsync: this);
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      bottomNavigationBar: new Material (
+        child: new TabBar(
+          tabs: &lt;Tab&gt; [
+            new Tab(icon: new Icon(Icons.person),)
+            new Tab(icon: new Icon(Icons.email),),
+          ],
+          controller: controller,
+        ),
+        color: Colors.blue,
+      ),
+      body: new TabBarView(
+        children: &lt;Widget&gt; [
+          new home.homeScreen(),
+          new tabScreen.tabScreen()
+        ],
+        controller: controller,
+      )
+    );
+  }
+}</code></pre>
+
+<h4 id="drawer-navigation">Drawer navigation</h4>
+
+<p>In React Native, we can use <code class="highlighter-rouge">DrawerNavigation</code> like this:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+export default (MyApp1 = DrawerNavigator({
+  Home: {
+    screen: SimpleApp
+  },
+  Screen2: {
+    screen: drawerScreen
+  }
+}));</code></pre>
+
+<p>In Flutter, we make use of a <a href=""><code class="highlighter-rouge">Drawer</code></a> widget which is a material design panel that slides in horizontally from the edge of a <code class="highlighter-rouge">Scaffold</code> to show navigation links in an application. You can provide a <a href="https://docs.flutter.io/flutter/material/RaisedButton-class.html"><code class="highlighter-rouge">Button</code></a>, a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a> widget or a List of items to display as the child to the Drawer widget. In our example here, we have used a <a href="https://docs.flutter.io/flutter/material/ListTile-class.html"><code class="highlighter-rouge">ListTile</code></a> widget and provided navigation on tap.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+new Drawer(
+  child:new ListTile(
+    leading: new Icon(Icons.change_history),
+    title: new Text(&#39;Screen2&#39;),
+    onTap: () {
+      Navigator.of(context).pushNamed(&quot;/b&quot;);
+    },
+  ),
+  elevation: 20.0,
+),</code></pre>
+
+<p>Drawers are typically used with the Scaffold.drawer property. The AppBar automatically displays an appropriate IconButton to show the Drawer when a Drawer is available in the Scaffold. The Scaffold automatically handles the edge-swipe gesture to show the drawer.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+@override
+Widget build(BuildContext context) {
+  return new Scaffold(
+    drawer: new Drawer(
+      child: new ListTile(
+        leading: new Icon(Icons.change_history),
+        title: new Text(&#39;Screen2&#39;),
+        onTap: () {
+          Navigator.of(context).pushNamed(&quot;/b&quot;);
+        },
+      ),
+      elevation: 20.0,
+    ),
+    appBar: new AppBar(
+      title: new Text(&quot;Home&quot;),
+    ),
+    body: new Container(),
+  );
+}</code></pre>
+
+<h4 id="preview-9">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/Navigation_example/flutternavigation/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/Navigation_example/flutternavigation/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/Navigation_example/flutternavigation/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/Navigation_example/reactnative-navigation-example/App.js">React Native</a> code.</p>
+
+<h2 id="gesture-detection-and-touch-event-handling">Gesture Detection and Touch Event Handling</h2>
+<h3 id="how-do-i-add-a-clickpress-listeners-to-a-widget-in-flutter">How do I add a click/press listeners to a widget in Flutter?</h3>
+
+<p>In React Native, we can add various listeners to components using <code class="highlighter-rouge">Touchables</code> component or use <code class="highlighter-rouge">PanResponder</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+&lt;TouchableOpacity
+  onPress={() =&gt; {
+    console.log(&quot;Press&quot;);
+  }}
+  onLongPress={() =&gt; {
+    console.log(&quot;Long Press&quot;);
+  }}
+&gt;
+  &lt;Text&gt;Tap or Long Press&lt;/Text&gt;
+&lt;/TouchableOpacity&gt;</code></pre>
+
+<p>For more complex gestures and combining several touches into a single gesture, we use <a href="https://facebook.github.io/react-native/docs/panresponder.html"><code class="highlighter-rouge">PanResponders</code></a> in React Native.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+class App extends Component {
+
+  componentWillMount() {
+    this._panResponder = PanResponder.create({
+      onMoveShouldSetPanResponder: (event, gestureState) =&gt;
+        !!getDirection(gestureState),
+      onPanResponderMove: (event, gestureState) =&gt; true,
+      onPanResponderRelease: (event, gestureState) =&gt; {
+        const drag = getDirection(gestureState);
+      },
+      onPanResponderTerminationRequest: (event, gestureState) =&gt; true
+    });
+  }
+  
+  render() {
+    return (
+      &lt;View style={styles.container} {...this._panResponder.panHandlers}&gt;
+        &lt;View style={styles.center}&gt;
+          &lt;Text&gt;Swipe Horizontally or Vertically&lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/View&gt;
+    );
+  }
+}</code></pre>
+
+<p>In Flutter, one way to achieve this is using buttons or touchable widgets which have <code class="highlighter-rouge">onPress</code> parameters. Another way is by wrapping widgets in a <a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html"><code class="highlighter-rouge">GestureDetector</code></a> widget which can add event detection to any widget by just passing the function in the respective callback.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+new GestureDetector(
+  child: new Scaffold(
+    appBar: new AppBar(
+      title: new Text(&quot;Gestures&quot;),
+    ),
+    body: new Center(
+      child: new Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: &lt;Widget&gt;[
+          new Text(&#39;Tap, Long Press, Swipe Horizontally or Vertically &#39;),
+        ],
+      )
+    ),
+  ),
+  onTap: () {
+    print(&#39;Tapped&#39;);
+  },
+  onLongPress: () {
+    print(&#39;Long Pressed&#39;);
+  },
+  onVerticalDragEnd: (DragEndDetails value) {
+    print(&#39;Swiped Vertically&#39;);
+  },
+  onHorizontalDragEnd: (DragEndDetails value) {
+    print(&#39;Swiped Horizontally&#39;);
+  },
+);</code></pre>
+
+<p>Here is the list of all <a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html#Properties">Flutter <code class="highlighter-rouge">GestureDetector</code> callbacks</a>.</p>
+
+<h4 id="preview-10">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/gestures/fluttergestures/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/gestures/fluttergestures/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/gestures/fluttergestures/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/gestures/rngestures/App.js">React Native</a> code.</p>
+
+<h2 id="making-http-networking-requests">Making HTTP Networking Requests</h2>
+<h3 id="how-do-i-fetch-data-from-api-calls">How do I fetch data from API calls?</h3>
+
+<p>React Native provides the Fetch API for networking. You just have to make a fetch request and then handle the response to get the data.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+_getIPAddress = () =&gt; {
+  fetch(&quot;https://httpbin.org/ip&quot;)
+    .then(response =&gt; response.json())
+    .then(responseJson =&gt; {
+      this.setState({ _ipAddress: responseJson.origin });
+    })
+    .catch(error =&gt; {
+      console.error(error);
+    });
+};</code></pre>
+
+<p>Similar flow is followed in Flutter but it uses the <a href="https://docs.flutter.io/flutter/dart-io/dart-io-library.html"><code class="highlighter-rouge">dart:io</code></a> core HTTP support, so to create an HTTP Client we need to add an import.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/services.dart&#39;;</code></pre>
+
+<p>The client supports HTTP operations, such as GET, POST, PUT, DELETE.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+final url = &#39;https://httpbin.org/ip&#39;;
+final httpClient = createHttpClient();
+_getIPAddress() async {
+  var response = await httpClient.get(url);
+  String ip = JSON.decode(response.body)[&#39;origin&#39;];
+  setState(() {
+    _ipAddress = ip;
+  });
+}</code></pre>
+
+<h4 id="preview-11">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/api-calls/flutterapicalls/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/api-calls/flutterapicalls/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/api-calls/flutterapicalls/lib/main.dart">Flutter</a> and its equivalent <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/api-calls/rnapicalls/App.js">React Native</a> code.</p>
+
+<h2 id="form-input">Form Input</h2>
+<h3 id="how-do-i-use-textinput-field-in-flutter">How do I use <code class="highlighter-rouge">TextInput</code> field in Flutter?</h3>
+
+<p>In React Native, typically you would use a <code class="highlighter-rouge">TextInput</code> component to show a text input box and use the callback to store the value in a variable.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+&lt;TextInput
+  placeholder=&quot;Enter your Password&quot;
+  onChangeText={password =&gt; this.setState({ password })}
+ /&gt;
+&lt;Button title=&quot;Submit&quot; onPress={this.validate} /&gt;</code></pre>
+
+<p>In Flutter, we use a <a href="https://docs.flutter.io/flutter/widgets/TextEditingController-class.html"><code class="highlighter-rouge">TextEditingController</code></a> to manage a <a href="https://docs.flutter.io/flutter/material/TextField-class.html">TextField</a>. Whenever the text field is modified, the controller notifies its listeners. Listeners can then read the text and selection properties to learn what the user has typed. You can access the text in <code class="highlighter-rouge">TextField</code> by the <code class="highlighter-rouge">text</code> property of the controller.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+final TextEditingController _controller = new TextEditingController();
+      ...
+new TextField(
+  controller: _controller,
+  decoration: new InputDecoration(
+    hintText: &#39;Type something&#39;, labelText: &quot;Text Field &quot;
+  ),
+),
+new RaisedButton(
+  child: new Text(&#39;Submit&#39;),
+  onPressed: () {
+    showDialog(
+      context: context,
+        child: new AlertDialog(
+          title: new Text(&#39;Alert&#39;),
+          content: new Text(&#39;You typed ${_controller.text}&#39;),
+        ),
+     );
+   },
+ ),
+)</code></pre>
+
+<p>In this example, when the user clicks on the submit button an alert dialog opens up and displays the current text entered in the text field. This is achieved by the use of an <a href="https://docs.flutter.io/flutter/material/AlertDialog-class.html"><code class="highlighter-rouge">alertDialog</code></a> widget that displays the alert message and the text from the <code class="highlighter-rouge">TextField</code> is accessed by the <code class="highlighter-rouge">text</code> property of the <a href="https://docs.flutter.io/flutter/widgets/TextEditingController-class.html">TextEditingController</a>.</p>
+
+<h3 id="how-do-i-use-forms-in-flutter">How do I use <code class="highlighter-rouge">Forms</code> in Flutter?</h3>
+
+<p>In Flutter, we use a <a href="https://docs.flutter.io/flutter/widgets/Form-class.html"><code class="highlighter-rouge">Form</code></a> widget, where <a href="https://docs.flutter.io/flutter/material/TextFormField-class.html"><code class="highlighter-rouge">TextFormField</code></a> widgets along with the submit button are passed as children. The <code class="highlighter-rouge">TextFormField</code> widget has a parameter called <a href="https://docs.flutter.io/flutter/widgets/FormField/onSaved.html"><code class="highlighter-rouge">onSaved</code></a> which takes a callback and executes when the form is saved.
+A <code class="highlighter-rouge">FormState</code> object is used to save, reset, or validate each <code class="highlighter-rouge">FormField</code> that is a descendant of this <code class="highlighter-rouge">Form</code>. To obtain the <code class="highlighter-rouge">FormState</code>, you may use <code class="highlighter-rouge">Form.of</code> with a context whose ancestor is the Form, or pass a <code class="highlighter-rouge">GlobalKey</code> to the Form constructor and call <code class="highlighter-rouge">GlobalKey.currentState</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>final formKey = new GlobalKey&lt;FormState&gt;();
+
+...
+
+new Form(
+  key:formKey,
+  child: new Column(
+    children: &lt;Widget&gt;[
+      new TextFormField(
+        validator: (value) =&gt; !value.contains(&#39;@&#39;) ? &#39;Not a valid email.&#39; : null,
+        onSaved: (val) =&gt; _email = val,
+        decoration: const InputDecoration(
+          hintText: &#39;Enter your email&#39;,
+          labelText: &#39;Email&#39;,
+        ),
+      ),
+      new RaisedButton(
+        onPressed: _submit,
+        child: new Text(&#39;Login&#39;),
+      ),
+    ],
+  ),
+)</code></pre>
+
+<p>The following code snippet shows how <code class="highlighter-rouge">Form.save()</code> and <code class="highlighter-rouge">formKey</code> which is a <code class="highlighter-rouge">GlobalKey</code> is used to save the form on submit.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>void _submit() {
+  final form = formKey.currentState;
+  if (form.validate()) {
+    form.save();
+    showDialog(
+      context: context,
+      child: new AlertDialog(
+        title: new Text(&#39;Alert&#39;),
+        content: new Text(&#39;Email: $_email, password: $_password&#39;),
+      )
+    );
+  }
+}</code></pre>
+
+<h4 id="preview-12">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/input-fields/flutterinputfields/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/input-fields/flutterinputfields/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check out the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/input-fields/flutterinputfields/lib/main.dart">Flutter</a> and <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/input-fields/rninputfields/App.js">React Native</a></p>
+
+<h2 id="platform-specific-code">Platform-specific code</h2>
+
+<p>When building a cross-platform app, you’ll want to re-use as much code as possible across platforms. Scenarios may arise where it makes sense for the code to be different. In React Native, separate implementation can be given at almost anywhere in the app code by recognizing the platform the app will run on. To get the target platform, you need to use this component :</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+if (Platform.OS === &quot;ios&quot;) {
+  return &quot;iOS&quot;;
+} else if (Platform.OS === &quot;android&quot;) {
+  return &quot;android&quot;;
+} else {
+  return &quot;not recognised&quot;;
+}</code></pre>
+<p>The same goes in Flutter,</p>
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+if (Theme.of(context).platform == TargetPlatform.iOS) {
+  return &quot;iOS&quot;;
+} else if (Theme.of(context).platform == TargetPlatform.android) {
+  return &quot;android&quot;;
+} else if (Theme.of(context).platform == TargetPlatform.fuchsia) {
+  return &quot;fuchsia&quot;;
+} else {
+  return &quot;not recognised &quot;;
+}</code></pre>
+
+<h2 id="debugging">Debugging</h2>
+<h3 id="how-do-i-access-the-in-app-developer-menu">How do I access the In-App Developer Menu?</h3>
+
+<p>In React Native, the developer menu can be accessed by shaking your device: ⌘D for the iOS Simulator or ⌘M for Android emulator.</p>
+
+<p>In Flutter, if you are using an IDE, you can use its built-in tools. If you start your application using <code class="highlighter-rouge">flutter run</code> you can also access the menu by typing <code class="highlighter-rouge">h</code> in the terminal window, or type the following shortcuts:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Action</th>
+      <th style="text-align: left">Terminal Shortcut</th>
+      <th>Debug functions/ properties</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Widget hierarchy of the app</td>
+      <td style="text-align: left"><code class="highlighter-rouge">w</code></td>
+      <td>debugDumpApp()</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Rendering tree of the app</td>
+      <td style="text-align: left"><code class="highlighter-rouge">t</code></td>
+      <td>debugDumpRenderTree()</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Layers</td>
+      <td style="text-align: left"><code class="highlighter-rouge">L</code></td>
+      <td>debugDumpLayerTree()</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Accessibility</td>
+      <td style="text-align: left"><code class="highlighter-rouge">S</code> (traversal order) or “U” (inverse hit test order)</td>
+      <td>debugDumpSemantics()</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">To toggle the widget inspector</td>
+      <td style="text-align: left">“i”</td>
+      <td>WidgetsApp.showWidgetInspectorOverride</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">To toggle the display of construction lines</td>
+      <td style="text-align: left">“p”</td>
+      <td>debugPaintSizeEnabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">To simulate different operating systems</td>
+      <td style="text-align: left">“o”</td>
+      <td>defaultTargetPlatform</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">To display the performance overlay</td>
+      <td style="text-align: left">“P”</td>
+      <td>WidgetsApp.showPerformanceOverlay</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">To save a screenshot to flutter.png</td>
+      <td style="text-align: left">”s”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">To quit</td>
+      <td style="text-align: left">“q”</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="how-do-i-perform-hot-reload">How do I perform hot reload?</h3>
+
+<p>Instead of recompiling your app every time you make a change, you can reload your app instantly. The app is updated to reflect your change, and the current state of the app is preserved.
+In React Native, the shortcut is ⌘R for the iOS Simulator and tapping R twice on Android emulators.
+In Flutter, If you are using IntelliJ IDE or Android Studio, you can select Save All (⌘s/ctrl-s), or click the Hot Reload button on the toolbar.
+If you are running the app at the command line using flutter run, type <code class="highlighter-rouge">r</code> in the terminal window.
+You can also perform full restart by typing <code class="highlighter-rouge">R</code> in the terminal window.</p>
+
+<h3 id="is-there-anything-like-chrome-developer-tools-in-flutter">Is there anything like Chrome Developer Tools in Flutter?</h3>
+
+<p>In Flutter, the <a href="https://dart-lang.github.io/observatory/"><code class="highlighter-rouge">Dart Observatory</code></a> is used for debugging. If you have started your application using <code class="highlighter-rouge">flutter run</code>, you can open the Web page at the Observatory URL printed to the console (e.g., <code class="highlighter-rouge">http://127.0.0.1:8100/</code>). If you are using an IDE, you can also debug your application using its built-in debugger.
+The Observatory also supports profiling, examining the heap, observing executed lines of code, debugging memory leaks and memory fragmentation, etc. For more information, see the <a href="https://dart-lang.github.io/observatory/">Observatory’s documentation</a>.</p>
+
+<p>The Flutter plugin v21 announced a new feature called “Flutter Inspector” for IntelliJ and Android Studio. The inspector makes it much easier to understand why your application is rendering the way it does. It allows you to:</p>
+<ul>
+  <li>View the UI structure of your app as a tree of widgets.</li>
+  <li>Select a point on your device or simulator and find the corresponding Widget that rendered those pixels.</li>
+  <li>View properties for individual widgets.</li>
+  <li>Generally, better understand layout issues.</li>
+</ul>
+
+<p>The inspector view can be opened via View &gt; Tool Windows &gt; Flutter Inspector (it shows content only when an app is running). To inspect a specific widget, select the ‘Toggle inspect mode’ action in the toolbar, then click on the desired widget on the phone or simulator. The widget will be highlighted in your app’s UI, you’ll see the widget in the widget hierarchy in IntelliJ, and will be able to view the individual properties for that widget.</p>
+
+<p><strong>Note:</strong> For more details, see the documentation on <a href="https://flutter.io/debugging/">debugging in Flutter</a>.</p>
+
+<h2 id="animations">Animations</h2>
+
+<p>For a great user experience, animations are essential. In React Native, we use Animated API to create animations.
+In Flutter, we use the <a href="https://docs.flutter.io/flutter/animation/Animation-class.html"><code class="highlighter-rouge">Animation</code></a> class and <a href="https://docs.flutter.io/flutter/animation/AnimationController-class.html"><code class="highlighter-rouge">AnimationController</code></a> class. <code class="highlighter-rouge">Animation</code> is an abstract class that understands its current value and its state (completed or dismissed). The <code class="highlighter-rouge">AnimationController</code> class lets you play an animation forward or in reverse, or stop animation and set the animation to a specific value.</p>
+
+<h3 id="how-do-i-add-a-simple-fade-in-animation">How do I add a simple fade-in animation?</h3>
+
+<p>In the React Native example, we use an animated component <code class="highlighter-rouge">FadeInView</code> using Animated API. We define initial opacity state, final state, the duration over which transition happens. We add animation component inside <code class="highlighter-rouge">Animated</code> component, then we map the opacity state <code class="highlighter-rouge">fadeAnim</code> to the opacity of the Text component we want to animate. Then, finally, we <code class="highlighter-rouge">start()</code> the animation.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
+class FadeInView extends React.Component {
+  state = {
+    fadeAnim: new Animated.Value(0) // Initial value for opacity: 0
+  };
+  componentDidMount() {
+    Animated.timing(this.state.fadeAnim, {
+      toValue: 1,
+      duration: 10000
+    }).start();
+  }
+  render() {
+    return (
+      &lt;Animated.View style={{...this.props.style, opacity: this.state.fadeAnim }} &gt;
+        {this.props.children}
+      &lt;/Animated.View&gt;
+    );
+  }
+}
+    ...
+&lt;FadeInView&gt;
+  &lt;Text&gt; Fading in &lt;/Text&gt;
+&lt;/FadeInView&gt;
+    ...</code></pre>
+
+<p>In the equivalent Flutter example, we use an <a href="https://docs.flutter.io/flutter/animation/AnimationController-class.html"><code class="highlighter-rouge">AnimationController</code></a> object <code class="highlighter-rouge">controller</code> and specify the duration inside it. We animation is defined as a <a href="https://docs.flutter.io/flutter/animation/Tween-class.html"><code class="highlighter-rouge">Tween</code></a> which basically describes some interpolation between a beginning and ending value. We are using a <a href="https://docs.flutter.io/flutter/widgets/FadeTransition-class.html"><code class="highlighter-rouge">FadeTransition</code></a> widget where we have <code class="highlighter-rouge">opacity</code> property which is mapped to the <code class="highlighter-rouge">animation</code> object. The sole job of a Tween is to define a mapping from an input range to an output range. Then we start the animation using <code class="highlighter-rouge">controller.forward()</code>. We can perform other operations too using the controller. In the example, We are using the <a href="https://docs.flutter.io/flutter/material/FlutterLogo-class.html"><code class="highlighter-rouge">FlutterLogo</code></a> inside the <code class="highlighter-rouge">FadeTransition</code> widget.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
+void main() {
+  runApp(new Center(child: new LogoFade()));
+}
+
+class LogoFade extends StatefulWidget {
+  _LogoFadeState createState() =&gt; new _LogoFadeState();
+}
+
+class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin {
+  Animation animation;
+  AnimationController controller;
+
+  initState() {
+    super.initState();
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 3000), vsync: this);
+    final CurvedAnimation curve =
+        new CurvedAnimation(parent: controller, curve: Curves.easeIn);
+    animation = new Tween(begin: 0.0, end: 1.0).animate(curve);
+    controller.forward();
+  }
+
+  Widget build(BuildContext context) {
+    return new FadeTransition(
+      opacity: animation,
+      child: new Container(
+        height: 300.0,
+        width: 300.0,
+        child: new FlutterLogo(),
+      ),
+    );
+  }
+
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}</code></pre>
+
+<h4 id="preview-13">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/animations/flutterfade/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/animations/flutterfade/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> You can check the working code for <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/animations/flutterfade/lib/main.dart">Flutter</a> and <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/animations/rnfade/App.js">React Native</a>.</p>
+
+<h3 id="how-do-i-add-swipe-animation-to-cards">How do I add swipe animation to Cards?</h3>
+
+<p>In React Native, you either use PanResponder or third-party libraries for swipe animation. In Flutter, we can achieve this animation by using the <a href="https://docs.flutter.io/flutter/widgets/Dismissible-class.html"><code class="highlighter-rouge">Dismissible</code></a> widget and nest the child widgets.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>child: new Dismissible(
+  key: key,
+  onDismissed: (DismissDirection dir) {
+    cards.removeLast();
+  },
+  child: new Container(
+    ...
+  ),
+),</code></pre>
+
+<h4 id="preview-14">Preview</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/animations/fluttercardswipe/screenshots/android.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/animations/fluttercardswipe/screenshots/iOS.gif?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> Here is the <a href="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/animations/fluttercardswipe/lib/main.dart">working code</a>.</p>
+
+<h2 id="cheatsheet">CheatSheet</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>React Native Component</th>
+      <th>Flutter Widget</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/button.html">Button</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/RaisedButton-class.html">RaisedButton</a></td>
+      <td>A basic button that should render nicely on any platform.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>onPress [required]</td>
+      <td>The callback that is called when the button is tapped or otherwise activated.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Child  (A Text widget is used)</td>
+      <td>Text to display inside the button</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/button.html">Button</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/FlatButton-class.html">FlatButton</a></td>
+      <td>A basic material design button</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>onPress [required]</td>
+      <td>A callback that is called when the button is tapped or otherwise activated.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Child  (A Text widget is used)</td>
+      <td>Text to display inside the button</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/scrollview.html">ScrollView</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/ListView-class.html">ListView</a></td>
+      <td>A scrollable list of widgets arranged linearly.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>children</td>
+      <td>( &lt;Widget&gt; []) List of child widgets to display.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>controller</td>
+      <td>[ <a href="https://docs.flutter.io/flutter/widgets/ScrollController-class.html">ScrollController</a> ] An object that can be used to control the position to which this scroll view is scrolled.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>itemExtent</td>
+      <td>[ double ] If non-null, forces the children to have the given extent in the scroll direction.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>scrollDirection</td>
+      <td>[ <a href="https://docs.flutter.io/flutter/painting/Axis-class.html">Axis</a> ] The axis along which the scroll view scrolls.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/flatlist.html">FlatList</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/ListView/ListView.builder.html">ListView.builder()</a></td>
+      <td>Constructor for linear array of widgets that are created on demand.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>itemBuilder [required]</td>
+      <td>[<a href="https://docs.flutter.io/flutter/widgets/IndexedWidgetBuilder.html"> IndexedWidgetBuilder</a>] helps in building the children on demand. This callback will be called only with indices greater than or equal to zero and less than itemCount.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>itemCount</td>
+      <td>[ int ] It improves the ability of the ListView to estimate the maximum scroll extent.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.flutter.io/flutter/widgets/Image-class.html">Image</a></td>
+      <td><a href="https://facebook.github.io/react-native/docs/image.html">Image</a></td>
+      <td>A widget that displays an image.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>image [required]</td>
+      <td>The image to display.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Image.asset</td>
+      <td>Several constructors are provided for the various ways that an image can be specified.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>width, height, color, alignment</td>
+      <td>Style and Layout for the Image</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>fit</td>
+      <td>Inscribing the image into the space allocated during layout.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/modal.html">Modal</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/ModalRoute-class.html">ModalRoute</a></td>
+      <td>A route that blocks interaction with previous routes.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>animation</td>
+      <td>The animation that drives the route’s transition and the previous route’s forward transition.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/activityindicator.html">ActivityIndicator</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/CircularProgressIndicator-class.html">CircularProgressIndicator</a></td>
+      <td>A widget that shows progress along a circle.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>strokeWidth</td>
+      <td>The width of the line used to draw the circle.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>backgroundColor</td>
+      <td>The progress indicator’s background color. The current theme’s ThemeData.backgroundColor by default.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/activityindicator.html">ActivityIndicator</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/LinearProgressIndicator-class.html">LinearProgressIndicator</a></td>
+      <td>A widget that shows progress along a circle.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>value</td>
+      <td>the value of this progress indicator</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/refreshcontrol.html">RefreshControl</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/RefreshIndicator-class.html">RefreshIndicator</a></td>
+      <td>A widget that supports the Material “swipe to refresh” idiom.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>color</td>
+      <td>The progress indicator’s foreground color.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>onRefresh</td>
+      <td>A function that’s called when the user has dragged the refresh indicator far enough to demonstrate that they want the app to refresh.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/view.html">View</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a></td>
+      <td>Surrounds child widget.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/view.html">View</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/Column-class.html">Column</a></td>
+      <td>displays its children in a vertical array</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/view.html">View</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/Row-class.html">Row</a></td>
+      <td>displays its children in a horizontal array</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/view.html">View</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/Center-class.html">Center</a></td>
+      <td>centers its child within itself.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/view.html">View</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/Padding-class.html">Padding</a></td>
+      <td>insets its child by the given padding.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>padding [required]</td>
+      <td>[ EdgeInsets ] amount of space by which to inset the child.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/touchableopacity.html">TouchableOpacity</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html">GestureDetector</a></td>
+      <td>detects gestures</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>onTap</td>
+      <td>callback when tap occurs</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>onDoubleTap</td>
+      <td>callback when tap occurs</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.flutter.io/flutter/services/TextInput-class.html">TextInput</a></td>
+      <td><a href="https://facebook.github.io/react-native/docs/textinput.html">TextInput</a></td>
+      <td>interface to the system’s text input control</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>controller</td>
+      <td>[ <a href="https://docs.flutter.io/flutter/widgets/TextEditingController-class.html">TextEditingController</a> ] to access and modify text.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/text.html">Text</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a></td>
+      <td>A run of text with a single style.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>data</td>
+      <td>[ String ] The text to display.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>textDirection</td>
+      <td>[ <a href="https://docs.flutter.io/flutter/dart-ui/TextAlign-class.html">TextAlign</a> ] How the text should be aligned horizontally.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/switch.html">Switch</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/Switch-class.html">Switch</a></td>
+      <td>A material design switch.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>value [required]</td>
+      <td>[ boolean ] Whether this switch is on or off</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>onChanged [required]</td>
+      <td>[ callback ] Called when the user toggles the switch on or off</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="https://facebook.github.io/react-native/docs/slider.html">Slider</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/Slider-class.html">Slider</a></td>
+      <td>Used to select from a range of values.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>value [required]</td>
+      <td>[ double ] current value of slider</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>onChanged [required]</td>
+      <td>Called when the user selects a new value for the slider</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

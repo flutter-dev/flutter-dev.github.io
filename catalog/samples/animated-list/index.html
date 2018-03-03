@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AnimatedList  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/catalog/samples/animated-list/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/catalog/samples/animated_list.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page AnimatedList&body=From URL: http://localhost:4000/catalog/samples/animated_list.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">AnimatedList </h1>
+   </div>
+
+  </header>
+  
+
+  <p>An AnimatedList that displays a list of cards which stay
+in sync with an app-specific ListModel. When an item is added to or removed
+from the model, the corresponding card animates in or out of view.</p>
+
+<p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body" style="padding: 16px 32px;">
+            <img style="border:1px solid #000000" src="https://storage.googleapis.com/flutter-catalog/cb4a54db8fb3726bf4293b9cc5cb12ce16883803/animated_list_small.png" alt="Android screenshot" class="img-responsive" />
+          </div>
+          <div class="panel-footer">
+            Android screenshot
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p>
+
+<p>Tap an item to select it, tap it again to unselect. Tap ‘+’ to insert at the
+selected item, ‘-‘ to remove the selected item. The tap handlers add or
+remove items from a <code class="highlighter-rouge">ListModel&lt;E&gt;</code>, a simple encapsulation of <code class="highlighter-rouge">List&lt;E&gt;</code>
+that keeps the AnimatedList in sync. The list model has a GlobalKey for
+its animated list. It uses the key to call the insertItem and removeItem
+methods defined by AnimatedListState.</p>
+
+<p>Try this app out by creating a new project with <code class="highlighter-rouge">flutter create</code> and replacing the contents of <code class="highlighter-rouge">lib/main.dart</code> with the code that follows.</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// Copyright 2017 The Chromium Authors. All rights reserved.</span>
+<span class="c1">// Use of this source code is governed by a BSD-style license that can be</span>
+<span class="c1">// found in the LICENSE file.</span>
+
+<span class="kn">import</span> <span class="s">'package:flutter/foundation.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">AnimatedListSample</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">_AnimatedListSampleState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_AnimatedListSampleState</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">_AnimatedListSampleState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">AnimatedListSample</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">final</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">AnimatedListState</span><span class="o">&gt;</span> <span class="n">_listKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">AnimatedListState</span><span class="o">&gt;();</span>
+  <span class="n">ListModel</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">_list</span><span class="o">;</span>
+  <span class="kt">int</span> <span class="n">_selectedItem</span><span class="o">;</span>
+  <span class="kt">int</span> <span class="n">_nextItem</span><span class="o">;</span> <span class="c1">// The next item inserted when the user presses the '+' button.</span>
+
+  <span class="nd">@override</span>
+  <span class="kt">void</span> <span class="n">initState</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="na">initState</span><span class="o">();</span>
+    <span class="n">_list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListModel</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;(</span>
+      <span class="nl">listKey:</span> <span class="n">_listKey</span><span class="o">,</span>
+      <span class="nl">initialItems:</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;[</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">],</span>
+      <span class="nl">removedItemBuilder:</span> <span class="n">_buildRemovedItem</span><span class="o">,</span>
+    <span class="o">);</span>
+    <span class="n">_nextItem</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="c1">// Used to build list items that haven't been removed.</span>
+  <span class="n">Widget</span> <span class="n">_buildItem</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">Animation</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">animation</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">CardItem</span><span class="o">(</span>
+      <span class="nl">animation:</span> <span class="n">animation</span><span class="o">,</span>
+      <span class="nl">item:</span> <span class="n">_list</span><span class="o">[</span><span class="n">index</span><span class="o">],</span>
+      <span class="nl">selected:</span> <span class="n">_selectedItem</span> <span class="o">==</span> <span class="n">_list</span><span class="o">[</span><span class="n">index</span><span class="o">],</span>
+      <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
+        <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+          <span class="n">_selectedItem</span> <span class="o">=</span> <span class="n">_selectedItem</span> <span class="o">==</span> <span class="n">_list</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="n">_list</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+        <span class="o">});</span>
+      <span class="o">},</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="c1">// Used to build an item after it has been removed from the list. This method is</span>
+  <span class="c1">// needed because a removed item remains  visible until its animation has</span>
+  <span class="c1">// completed (even though it's gone as far this ListModel is concerned).</span>
+  <span class="c1">// The widget will be used by the [AnimatedListState.removeItem] method's</span>
+  <span class="c1">// [AnimatedListRemovedItemBuilder] parameter.</span>
+  <span class="n">Widget</span> <span class="n">_buildRemovedItem</span><span class="o">(</span><span class="kt">int</span> <span class="n">item</span><span class="o">,</span> <span class="n">BuildContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Animation</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">animation</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">CardItem</span><span class="o">(</span>
+      <span class="nl">animation:</span> <span class="n">animation</span><span class="o">,</span>
+      <span class="nl">item:</span> <span class="n">item</span><span class="o">,</span>
+      <span class="nl">selected:</span> <span class="kc">false</span><span class="o">,</span>
+      <span class="c1">// No gesture detector here: we don't want removed items to be interactive.</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="c1">// Insert the "next item" into the list model.</span>
+  <span class="kt">void</span> <span class="n">_insert</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">_selectedItem</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">_list</span><span class="o">.</span><span class="na">length</span> <span class="o">:</span> <span class="n">_list</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">_selectedItem</span><span class="o">);</span>
+    <span class="n">_list</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">_nextItem</span><span class="o">++);</span>
+  <span class="o">}</span>
+
+  <span class="c1">// Remove the selected item from the list model.</span>
+  <span class="kt">void</span> <span class="n">_remove</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">_selectedItem</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">_list</span><span class="o">.</span><span class="na">removeAt</span><span class="o">(</span><span class="n">_list</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">_selectedItem</span><span class="o">));</span>
+      <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+        <span class="n">_selectedItem</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+      <span class="o">});</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+      <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+        <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
+          <span class="nl">title:</span> <span class="kd">const</span> <span class="n">Text</span><span class="o">(</span><span class="s">'AnimatedList'</span><span class="o">),</span>
+          <span class="nl">actions:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+            <span class="k">new</span> <span class="n">IconButton</span><span class="o">(</span>
+              <span class="nl">icon:</span> <span class="kd">const</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">add_circle</span><span class="o">),</span>
+              <span class="nl">onPressed:</span> <span class="n">_insert</span><span class="o">,</span>
+              <span class="nl">tooltip:</span> <span class="s">'insert a new item'</span><span class="o">,</span>
+            <span class="o">),</span>
+            <span class="k">new</span> <span class="n">IconButton</span><span class="o">(</span>
+              <span class="nl">icon:</span> <span class="kd">const</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">remove_circle</span><span class="o">),</span>
+              <span class="nl">onPressed:</span> <span class="n">_remove</span><span class="o">,</span>
+              <span class="nl">tooltip:</span> <span class="s">'remove the selected item'</span><span class="o">,</span>
+            <span class="o">),</span>
+          <span class="o">],</span>
+        <span class="o">),</span>
+        <span class="nl">body:</span> <span class="k">new</span> <span class="n">Padding</span><span class="o">(</span>
+          <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">16.0</span><span class="o">),</span>
+          <span class="nl">child:</span> <span class="k">new</span> <span class="n">AnimatedList</span><span class="o">(</span>
+            <span class="nl">key:</span> <span class="n">_listKey</span><span class="o">,</span>
+            <span class="nl">initialItemCount:</span> <span class="n">_list</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
+            <span class="nl">itemBuilder:</span> <span class="n">_buildItem</span><span class="o">,</span>
+          <span class="o">),</span>
+        <span class="o">),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">/// Keeps a Dart List in sync with an AnimatedList.</span>
+<span class="c1">///</span>
+<span class="c1">/// The [insert] and [removeAt] methods apply to both the internal list and the</span>
+<span class="c1">/// animated list that belongs to [listKey].</span>
+<span class="c1">///</span>
+<span class="c1">/// This class only exposes as much of the Dart List API as is needed by the</span>
+<span class="c1">/// sample app. More list methods are easily added, however methods that mutate the</span>
+<span class="c1">/// list must make the same changes to the animated list in terms of</span>
+<span class="c1">/// [AnimatedListState.insertItem] and [AnimatedList.removeItem].</span>
+<span class="kd">class</span> <span class="nc">ListModel</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="n">ListModel</span><span class="o">({</span>
+    <span class="nd">@required</span> <span class="k">this</span><span class="o">.</span><span class="na">listKey</span><span class="o">,</span>
+    <span class="nd">@required</span> <span class="k">this</span><span class="o">.</span><span class="na">removedItemBuilder</span><span class="o">,</span>
+    <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">initialItems</span><span class="o">,</span>
+  <span class="o">})</span> <span class="o">:</span> <span class="k">assert</span><span class="o">(</span><span class="n">listKey</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">),</span>
+       <span class="k">assert</span><span class="o">(</span><span class="n">removedItemBuilder</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">),</span>
+       <span class="n">_items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;.</span><span class="na">from</span><span class="o">(</span><span class="n">initialItems</span> <span class="o">??</span> <span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;[]);</span>
+
+  <span class="kd">final</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">AnimatedListState</span><span class="o">&gt;</span> <span class="n">listKey</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="kd">dynamic</span> <span class="n">removedItemBuilder</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">_items</span><span class="o">;</span>
+
+  <span class="n">AnimatedListState</span> <span class="kd">get</span> <span class="n">_animatedList</span> <span class="o">=&gt;</span> <span class="n">listKey</span><span class="o">.</span><span class="na">currentState</span><span class="o">;</span>
+
+  <span class="kt">void</span> <span class="n">insert</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="n">E</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">_items</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">item</span><span class="o">);</span>
+    <span class="n">_animatedList</span><span class="o">.</span><span class="na">insertItem</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="n">E</span> <span class="n">removeAt</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="n">E</span> <span class="n">removedItem</span> <span class="o">=</span> <span class="n">_items</span><span class="o">.</span><span class="na">removeAt</span><span class="o">(</span><span class="n">index</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">removedItem</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">_animatedList</span><span class="o">.</span><span class="na">removeItem</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Animation</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">animation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">removedItemBuilder</span><span class="o">(</span><span class="n">removedItem</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">animation</span><span class="o">);</span>
+      <span class="o">});</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">removedItem</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kt">int</span> <span class="kd">get</span> <span class="n">length</span> <span class="o">=&gt;</span> <span class="n">_items</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+  <span class="n">E</span> <span class="kd">operator</span> <span class="o">[](</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">_items</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+  <span class="kt">int</span> <span class="n">indexOf</span><span class="o">(</span><span class="n">E</span> <span class="n">item</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">_items</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">/// Displays its integer item as 'item N' on a Card whose color is based on</span>
+<span class="c1">/// the item's value. The text is displayed in bright green if selected is true.</span>
+<span class="c1">/// This widget's height is based on the animation parameter, it varies</span>
+<span class="c1">/// from 0 to 128 as the animation varies from 0.0 to 1.0.</span>
+<span class="kd">class</span> <span class="nc">CardItem</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="kd">const</span> <span class="n">CardItem</span><span class="o">({</span>
+    <span class="n">Key</span> <span class="n">key</span><span class="o">,</span>
+    <span class="nd">@required</span> <span class="k">this</span><span class="o">.</span><span class="na">animation</span><span class="o">,</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">onTap</span><span class="o">,</span>
+    <span class="nd">@required</span> <span class="k">this</span><span class="o">.</span><span class="na">item</span><span class="o">,</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">selected</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="o">})</span> <span class="o">:</span> <span class="k">assert</span><span class="o">(</span><span class="n">animation</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">),</span>
+       <span class="k">assert</span><span class="o">(</span><span class="n">item</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">item</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">),</span>
+       <span class="k">assert</span><span class="o">(</span><span class="n">selected</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">),</span>
+       <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
+
+  <span class="kd">final</span> <span class="n">Animation</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">animation</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="n">VoidCallback</span> <span class="n">onTap</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="kt">int</span> <span class="n">item</span><span class="o">;</span>
+  <span class="kd">final</span> <span class="kt">bool</span> <span class="n">selected</span><span class="o">;</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">TextStyle</span> <span class="n">textStyle</span> <span class="o">=</span> <span class="n">Theme</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">textTheme</span><span class="o">.</span><span class="na">display1</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">selected</span><span class="o">)</span>
+      <span class="n">textStyle</span> <span class="o">=</span> <span class="n">textStyle</span><span class="o">.</span><span class="na">copyWith</span><span class="o">(</span><span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">lightGreenAccent</span><span class="o">[</span><span class="mi">400</span><span class="o">]);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Padding</span><span class="o">(</span>
+      <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">2.0</span><span class="o">),</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">SizeTransition</span><span class="o">(</span>
+        <span class="nl">axis:</span> <span class="n">Axis</span><span class="o">.</span><span class="na">vertical</span><span class="o">,</span>
+        <span class="nl">sizeFactor:</span> <span class="n">animation</span><span class="o">,</span>
+        <span class="nl">child:</span> <span class="k">new</span> <span class="n">GestureDetector</span><span class="o">(</span>
+          <span class="nl">behavior:</span> <span class="n">HitTestBehavior</span><span class="o">.</span><span class="na">opaque</span><span class="o">,</span>
+          <span class="nl">onTap:</span> <span class="n">onTap</span><span class="o">,</span>
+          <span class="nl">child:</span> <span class="k">new</span> <span class="n">SizedBox</span><span class="o">(</span>
+            <span class="nl">height:</span> <span class="mf">128.0</span><span class="o">,</span>
+            <span class="nl">child:</span> <span class="k">new</span> <span class="n">Card</span><span class="o">(</span>
+              <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">primaries</span><span class="o">[</span><span class="n">item</span> <span class="o">%</span> <span class="n">Colors</span><span class="o">.</span><span class="na">primaries</span><span class="o">.</span><span class="na">length</span><span class="o">],</span>
+              <span class="nl">child:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+                <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item </span><span class="si">$item</span><span class="s">'</span><span class="o">,</span> <span class="nl">style:</span> <span class="n">textStyle</span><span class="o">),</span>
+              <span class="o">),</span>
+            <span class="o">),</span>
+          <span class="o">),</span>
+        <span class="o">),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">AnimatedListSample</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2>See also:</h2>
+<ul>
+  <li>The “Components-Lists: Controls” section of the Material Design specification:
+  <a href="https://material.io/guidelines/components/lists-controls.html#">https://material.io/guidelines/components/lists-controls.html#</a></li>
+  <li>The source code in <a href="https://github.com/flutter/flutter/blob/master/examples/catalog/lib/animated_list.dart">examples/catalog/lib/animated_list.dart</a>.</li>
+</ul>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Using Packages  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/using-packages/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/using-packages.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Using Packages&body=From URL: http://localhost:4000/using-packages.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Using Packages </h1>
+   </div>
+
+  </header>
+  
+
+  <p>Flutter supports using shared packages contributed by other developers to the
+Flutter and Dart ecosystems. This allows you to quickly build your app without
+having to develop everything from scratch.</p>
+
+<p>Existing packages enable many use cases, for example, making network requests
+(<a href="/networking/"><code class="highlighter-rouge">http</code></a>), custom navigation/route handling
+(<a href="https://pub.dartlang.org/packages/fluro"><code class="highlighter-rouge">fluro</code></a>), integration with device
+APIs (like <a href="https://pub.dartlang.org/packages/url_launcher"><code class="highlighter-rouge">url_launcher</code></a> &amp;
+<a href="https://pub.dartlang.org/packages/battery"><code class="highlighter-rouge">battery</code></a>), and using third-party
+platform SDKs (like
+<a href="https://github.com/flutter/plugins/blob/master/FlutterFire.md">Firebase</a>).</p>
+
+<p>If you are looking to develop a new package, please see <a href="/developing-packages/">developing packages</a>.</p>
+
+<p>If you are looking to add assets, images, or fonts, whether stored in files or
+packages, please see <a href="https://flutter.io/assets-and-images/">Assets &amp; Images</a>.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#using-packages" id="markdown-toc-using-packages">Using packages</a>    <ul>
+      <li><a href="#searching-for-packages" id="markdown-toc-searching-for-packages">Searching for packages</a></li>
+      <li><a href="#adding-a-package-dependency-to-an-app" id="markdown-toc-adding-a-package-dependency-to-an-app">Adding a package dependency to an app</a></li>
+    </ul>
+  </li>
+  <li><a href="#developing-new-packages" id="markdown-toc-developing-new-packages">Developing new packages</a></li>
+  <li><a href="#managing-package-dependencies--versions" id="markdown-toc-managing-package-dependencies--versions">Managing package dependencies &amp; versions</a>    <ul>
+      <li><a href="#package-versions" id="markdown-toc-package-versions">Package versions</a></li>
+      <li><a href="#updating-package-dependencies" id="markdown-toc-updating-package-dependencies">Updating package dependencies</a></li>
+      <li><a href="#dependencies-on-unpublished-packages" id="markdown-toc-dependencies-on-unpublished-packages">Dependencies on unpublished packages</a></li>
+    </ul>
+  </li>
+  <li><a href="#examples" id="markdown-toc-examples">Examples</a>    <ul>
+      <li><a href="#css-example" id="markdown-toc-css-example">Example: Using the CSS Colors package</a></li>
+      <li><a href="#url-example" id="markdown-toc-url-example">Example: Using the URL Launcher package to launch the browser</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="using-packages">Using packages</h2>
+
+<h3 id="searching-for-packages">Searching for packages</h3>
+
+<p>Packages are published to the <em><a href="https://pub.dartlang.org">Pub</a></em> package repository.</p>
+
+<p>The <a href="https://pub.dartlang.org/flutter/">Flutter landing page</a> displays
+top packages that are compatible with Flutter (i.e., that declare dependencies
+generally compatible with Flutter), and supports searching among all published packages.</p>
+
+<h3 id="adding-a-package-dependency-to-an-app">Adding a package dependency to an app</h3>
+
+<p>To add a package ‘css_colors’ to an app:</p>
+
+<ol>
+  <li>Depend on it
+    <ul>
+      <li>Open the <code class="highlighter-rouge">pubspec.yaml</code> file located inside your app folder, and add
+<code class="highlighter-rouge">css_colors:</code> under <code class="highlighter-rouge">dependencies</code>.</li>
+    </ul>
+  </li>
+  <li>Install it
+    <ul>
+      <li>From the terminal: Run <code class="highlighter-rouge">flutter packages get</code></li>
+      <li>From IntelliJ: Click ‘Packages Get’ in the action ribbon at the top of <code class="highlighter-rouge">pubspec.yaml</code></li>
+    </ul>
+  </li>
+  <li>Import it
+    <ul>
+      <li>Add a corresponding <code class="highlighter-rouge">import</code> statement in your Dart code.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>The
+<a href="https://pub.dartlang.org/packages/css_colors#-installing-tab-">‘Installing’</a>
+tab available on any package page on Pub is a handy reference for these steps.</p>
+
+<p>For a complete example, see <a href="#css-example">CSS Colors example</a> below.</p>
+
+<h2 id="developing-new-packages">Developing new packages</h2>
+
+<p>Should a package not be available for your specific use case, you can <a href="https://flutter.io/developing-packages/">develop new
+custom packages</a>.</p>
+
+<h2 id="managing-package-dependencies--versions">Managing package dependencies &amp; versions</h2>
+
+<h3 id="package-versions">Package versions</h3>
+
+<p>All packages have a version number, specified in their <code class="highlighter-rouge">pubspec.yaml</code> file. Pub
+displays the current version of a package next to it’s name (for example, see
+the <a href="https://pub.dartlang.org/packages/url_launcher">url_launcher</a> package), as
+well as a list of all prior versions (<a href="https://pub.dartlang.org/packages/url_launcher#-versions-tab-">url_launcher
+versions</a>).</p>
+
+<p>When a package is added to <code class="highlighter-rouge">pubspec.yaml</code> using the shorthand form <code class="highlighter-rouge">plugin1:</code>
+this is interpreted as <code class="highlighter-rouge">plugin1: any</code>, i.e. any version of the package may be
+used. To ensure your app does not break when a package is updated, we recommend
+specifying a version range using one of the following formats:</p>
+
+<ul>
+  <li>Range constraints: Specify a minimum and maximim version, e.g.:
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  url_launcher: '&gt;=0.1.2 &lt;0.2.0'
+</code></pre>
+    </div>
+  </li>
+  <li>Range constraint with <a href="https://www.dartlang.org/tools/pub/dependencies#caret-syntax"><em>caret syntax</em></a>: 
+Similar to a regular range constraints
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  collection: '^0.1.2'
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<p>For additional details, see the <a href="https://www.dartlang.org/tools/pub/versioning">Pub versioning guide</a>.</p>
+
+<h3 id="updating-package-dependencies">Updating package dependencies</h3>
+
+<p>When you run <code class="highlighter-rouge">flutter packages get</code> (‘Packages Get’ in IntelliJ) for the first
+time after adding a package, Flutter saves the concrete package version found in
+the <code class="highlighter-rouge">pubspec.lock</code>
+<a href="https://www.dartlang.org/tools/pub/glossary#lockfile">lockfile</a>. This ensures
+that you get the same version again if you, or another developer on your team,
+run <code class="highlighter-rouge">flutter packages get</code>.</p>
+
+<p>If you want to upgrade to a new version of the package, for example to use new
+features in that package, run <code class="highlighter-rouge">flutter packages upgrade</code> (‘Upgrade dependencies’
+in IntelliJ). This will retrieve the highest available version of the package,
+which is allowed by the version constraint you have specified in <code class="highlighter-rouge">pubspec.yaml</code>.</p>
+
+<h3 id="dependencies-on-unpublished-packages">Dependencies on unpublished packages</h3>
+
+<p>Packages can be used even when not published on Pub. For private plugins not
+intended for public publishing, or for packages not yet ready for publishing,
+additional dependency options are avaialble:</p>
+
+<ul>
+  <li><strong>Path</strong> dependency: A Flutter app can depend on a plugin via a file system
+<code class="highlighter-rouge">path:</code> dependency. The path can be either relative, or absolute. For example, to
+depend on a plugin ‘plugin1’ located in a directory next to the app, use this
+syntax:
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  plugin1:
+    path: ../plugin1/
+</code></pre>
+    </div>
+  </li>
+  <li><strong>Git</strong> dependency: You can also depend on a package stored in a Git
+repository. If the package is located in the root of the repo, use this
+syntax:
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  plugin1:
+    git:
+      url: git://github.com/flutter/plugin1.git
+</code></pre>
+    </div>
+  </li>
+  <li><strong>Git</strong> dependency on a package in a folder: By default Pub assumes the 
+package is located in the root of the Git repository. If that is not the case, 
+you can specify the location with the <code class="highlighter-rouge">path</code> argument, e.g.:
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  package1:
+    git:
+      url: git://github.com/flutter/packages.git
+      path: packages/package1        
+</code></pre>
+    </div>
+
+    <p>Finally, you can use the <code class="highlighter-rouge">ref</code> argument to pin the dependency to a specific git commit,
+branch, or tag. For more details, see the
+<a href="https://www.dartlang.org/tools/pub/dependencies">Pub Dependencies article</a>.</p>
+  </li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="css-example">Example: Using the CSS Colors package</h3>
+
+<p>The <a href="https://pub.dartlang.org/packages/css_colors"><code class="highlighter-rouge">css_colors</code></a> package defines
+color constants for the CSS colors, allowing you to use them wherever the
+Flutter framework expects the <code class="highlighter-rouge">Color</code> type.</p>
+
+<p>To use this package:</p>
+
+<ol>
+  <li>
+    <p>Create a new project called ‘cssdemo’</p>
+  </li>
+  <li>Open <code class="highlighter-rouge">pubspec.yaml</code>, and replace:
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  flutter:
+    sdk: flutter
+</code></pre>
+    </div>
+    <p>with:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  flutter:
+    sdk: flutter
+  css_colors: ^1.0.0
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Run <code class="highlighter-rouge">flutter packages get</code> in the terminal, or click ‘Packages get’ in IntelliJ</p>
+  </li>
+  <li>Open <code class="highlighter-rouge">lib/main.dart</code> and replace its full contents with:
+    <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:css_colors/css_colors.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+      <span class="nl">home:</span> <span class="k">new</span> <span class="n">DemoPage</span><span class="o">(),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">DemoPage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span><span class="nl">color:</span> <span class="n">CSSColors</span><span class="o">.</span><span class="na">orange</span><span class="o">)</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Run the app. When you click the ‘Show Flutter homepage’ you should see the
+phone’s default browser open, and the Flutter homepage appear.</li>
+</ol>
+
+<h3 id="url-example">Example: Using the URL Launcher package to launch the browser</h3>
+
+<p>The <a href="https://pub.dartlang.org/packages/url_launcher">URL Launcher</a> plugin package
+enables you to open the default browser on the mobile platform to display a
+given URL. It demonstrates how packages may also contain platform-specific code
+(we call these packages ‘plugins’). It is supported on both Android and iOS.</p>
+
+<p>To use this plugin:</p>
+
+<ol>
+  <li>
+    <p>Create a new project called ‘launchdemo’</p>
+  </li>
+  <li>Open <code class="highlighter-rouge">pubspec.yaml</code>, and replace:
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  flutter:
+    sdk: flutter
+</code></pre>
+    </div>
+    <p>with:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>dependencies:
+  flutter:
+    sdk: flutter
+  url_launcher: ^0.4.1
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Run <code class="highlighter-rouge">flutter packages get</code> in the terminal, or click ‘Packages get’ in IntelliJ</p>
+  </li>
+  <li>Open <code class="highlighter-rouge">lib/main.dart</code> and replace its full contents with:
+    <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:url_launcher/url_launcher.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+      <span class="nl">home:</span> <span class="k">new</span> <span class="n">DemoPage</span><span class="o">(),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">DemoPage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="n">launchURL</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">launch</span><span class="o">(</span><span class="s">'https://flutter.io'</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
+          <span class="nl">onPressed:</span> <span class="n">launchURL</span><span class="o">,</span>
+          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Show Flutter homepage'</span><span class="o">),</span>
+        <span class="o">),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Run the app. When you click the ‘Show Flutter homepage’ you should see the
+phone’s default browser open, and the Flutter homepage appear.</li>
+</ol>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

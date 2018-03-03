@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Layout Widgets  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/widgets/layout/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/widgets/layout.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Layout Widgets&body=From URL: http://localhost:4000/widgets/layout.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Layout Widgets </h1>
+   </div>
+
+  </header>
+  
+
+  <div class="catalog">
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="category-description"><p>Arrange other widgets columns, rows, grids, and many other layouts.</p></div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <ul>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li><a href="#Single-child layout widgets">Single-child layout widgets</a></li>
+        
+        <li><a href="#Multi-child layout widgets">Multi-child layout widgets</a></li>
+        
+        <li><a href="#Layout helpers">Layout helpers</a></li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </ul>
+
+    <p>See more widgets in the <a href="/widgets">Flutter widget catalog</a>.</p>
+
+    <ul class="cards">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </ul>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <h1 id="Single-child layout widgets">Single-child layout widgets</h1>
+    <ul class="cards">
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><defs><marker id="arrow-container-1" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#f50057" /></marker><marker id="arrow-container-2" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#ffffff" /></marker><filter id="shadow-container" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" /></filter><linearGradient id="gradient-container" x1="0" y1="0.2" x2="0.4" y2="0.9"><stop offset="55%" stop-color="#ffffff" /><stop offset="100%" stop-color="#fdccdd" /></linearGradient></defs><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="15" y="25" width="70" height="47.5" rx="10" ry="10" fill="#000000" filter="url(#shadow-container)" /><rect x="15" y="25" width="70" height="47.5" rx="10" ry="10" fill="url(#gradient-container)" stroke-width="5" stroke="#3b75ad" /><rect x="30" y="40" width="40" height="30" fill="#4dd0e1" /><line x1="20" y1="55" x2="27" y2="55" stroke="#f50057" stroke-width="2" marker-start="url(#arrow-container-1)" marker-end="url(#arrow-container-1)" /><line x1="73" y1="55" x2="80" y2="55" stroke="#f50057" stroke-width="2" marker-start="url(#arrow-container-1)" marker-end="url(#arrow-container-1)" /><line x1="50" y1="30" x2="50" y2="37" stroke="#f50057" stroke-width="2" marker-start="url(#arrow-container-1)" marker-end="url(#arrow-container-1)" /><line x1="50" y1="78" x2="50" y2="82" stroke="#f50057" stroke-width="2" marker-start="url(#arrow-container-1)" marker-end="url(#arrow-container-1)" /><line x1="16" y1="17.5" x2="85" y2="17.5" stroke="#ffffff" stroke-width="2" marker-start="url(#arrow-container-2)" marker-end="url(#arrow-container-2)" /><line x1="7.5" y1="26" x2="7.5" y2="72" stroke="#ffffff" stroke-width="2" marker-start="url(#arrow-container-2)" marker-end="url(#arrow-container-2)" /></svg></div>
+                <h3>Container</h3>
+                <p class="scrollable-description"> A convenience widget that combines common painting, positioning, and sizing widgets. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><defs><marker id="arrow-padding" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#f50057" /></marker></defs><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="10" y="20" width="80" height="60" fill="#ffffff" /><rect x="25" y="30" width="50" height="30" fill="#4dd0e1" /><line x1="13" y1="45" x2="22" y2="45" stroke="#f50057" stroke-width="2" marker-start="url(#arrow-padding)" marker-end="url(#arrow-padding)" /><line x1="78" y1="45" x2="87" y2="45" stroke="#f50057" stroke-width="2" marker-start="url(#arrow-padding)" marker-end="url(#arrow-padding)" /><line x1="50" y1="23" x2="50" y2="27" stroke="#f50057" stroke-width="2" marker-start="url(#arrow-padding)" marker-end="url(#arrow-padding)" /><line x1="50" y1="63" x2="50" y2="77" stroke="#f50057" stroke-width="2" marker-start="url(#arrow-padding)" marker-end="url(#arrow-padding)" /></svg></div>
+                <h3>Padding</h3>
+                <p class="scrollable-description"> A widget that insets its child by the given padding. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Padding-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><defs><marker id="arrow-center" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#f50057" /></marker></defs><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="10" y="20" width="80" height="60" fill="#ffffff" /><rect x="25" y="35" width="50" height="30" fill="#4dd0e1" /><line x1="10" y1="50" x2="22" y2="50" stroke="#f50057" stroke-width="2" marker-end="url(#arrow-center)" /><line x1="90" y1="50" x2="78" y2="50" stroke="#f50057" stroke-width="2" marker-end="url(#arrow-center)" /><line x1="50" y1="20" x2="50" y2="32" stroke="#f50057" stroke-width="2" marker-end="url(#arrow-center)" /><line x1="50" y1="80" x2="50" y2="68" stroke="#f50057" stroke-width="2" marker-end="url(#arrow-center)" /></svg></div>
+                <h3>Center</h3>
+                <p class="scrollable-description"> A widget that centers its child within itself. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Center-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><defs><marker id="arrow-align" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#f50057" /></marker></defs><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="10" y="20" width="80" height="60" fill="#ffffff" /><rect x="15" y="50" width="50" height="30" fill="#4dd0e1" /><line x1="10" y1="65" x2="12" y2="65" stroke="#f50057" stroke-width="2" marker-end="url(#arrow-align)" /><line x1="90" y1="65" x2="68" y2="65" stroke="#f50057" stroke-width="2" marker-end="url(#arrow-align)" /><line x1="40" y1="20" x2="40" y2="47" stroke="#f50057" stroke-width="2" marker-end="url(#arrow-align)" /></svg></div>
+                <h3>Align</h3>
+                <p class="scrollable-description"> A widget that aligns its child within itself and optionally sizes itself based on the child's size. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Align-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>FittedBox</h3>
+                <p class="scrollable-description"> Scales and positions its child within itself according to fit. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/FittedBox-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><defs><marker id="arrow-aspect-ratio" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#ffffff" /></marker></defs><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="25" y="35" width="50" height="30" fill="#ffffff" /><rect x="27.5" y="37.5" width="45" height="25" fill="#4dd0e1" /><line x1="31" y1="41" x2="69" y2="59" stroke="#ffffff" stroke-width="2" marker-start="url(#arrow-aspect-ratio)" marker-end="url(#arrow-aspect-ratio)" /></svg></div>
+                <h3>AspectRatio</h3>
+                <p class="scrollable-description"> A widget that attempts to size the child to a specific aspect ratio. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/AspectRatio-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><defs><marker id="arrow-constrained-box" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#ffffff" /></marker></defs><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="20" y="30" width="50" height="40" fill="#ffffff" /><rect x="22.5" y="32.5" width="45" height="35" fill="#4dd0e1" /><path d="M63 23 v 40" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-dasharray="0.5 3.1" fill="transparent" /><path d="M77 23 v 54" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-dasharray="0.5 3.1" fill="transparent" /><path d="M13 63 h 50" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-dasharray="0.5 3.1" fill="transparent" /><path d="M13 77 h 64" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-dasharray="0.5 3.1" fill="transparent" /><path d="M50 25 L60 25" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow-constrained-box)" /><path d="M90 25 L80 25" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow-constrained-box)" /><path d="M15 50 L15 60" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow-constrained-box)" /><path d="M15 90 L15 80" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow-constrained-box)" /></svg></div>
+                <h3>ConstrainedBox</h3>
+                <p class="scrollable-description"> A widget that imposes additional constraints on its child. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/ConstrainedBox-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><defs><marker id="arrow-baseline" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#ffffff" /></marker></defs><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="20" y="20" width="60" height="50" fill="#ffffff" /><rect x="20" y="45" width="60" height="30" fill="#4dd0e1" /><line x1="85" y1="20" x2="85" y2="66" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow-baseline)" /><line x1="15" y1="20" x2="15" y2="66" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow-baseline)" /><line x1="10" y1="70" x2="90" y2="70" stroke="#ffffff" stroke-width="2" /><text x="50" y="69" text-anchor="middle" font-family="Roboto" font-size="25" fill="#3b75ad">Abc </text></svg></div>
+                <h3>Baseline</h3>
+                <p class="scrollable-description"> A widget that positions its child according to the child's baseline. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Baseline-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>FractionallySizedBox</h3>
+                <p class="scrollable-description"> A widget that sizes its child to a fraction of the total available space. For more details about the layout algorithm, see RenderFractionallySizedOverflowBox. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/FractionallySizedBox-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>IntrinsicHeight</h3>
+                <p class="scrollable-description"> A widget that sizes its child to the child's intrinsic height. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/IntrinsicHeight-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>IntrinsicWidth</h3>
+                <p class="scrollable-description"> A widget that sizes its child to the child's intrinsic width. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/IntrinsicWidth-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>LimitedBox</h3>
+                <p class="scrollable-description"> A box that limits its size only when it's unconstrained. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/LimitedBox-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>Offstage</h3>
+                <p class="scrollable-description"> A widget that lays the child out as if it was in the tree, but without painting anything, without making the child available for hit testing, and without taking any room in the parent. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Offstage-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>OverflowBox</h3>
+                <p class="scrollable-description"> A widget that imposes different constraints on its child than it gets from its parent, possibly allowing the child to overflow the parent. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/OverflowBox-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><defs><marker id="arrow-sized-box" orient="auto-start-reverse" viewBox="0 0 1 1" markerWidth="3" markerHeight="3" refX="0.5" refY="0.5"><path d="M 1 0.5 L 0.5 0 L 0.5 1 z" fill="#ffffff" /></marker></defs><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="25" y="35" width="50" height="30" fill="#ffffff" /><rect x="27.5" y="37.5" width="45" height="25" fill="#4dd0e1" /><line x1="28" y1="30" x2="72" y2="30" stroke="#ffffff" stroke-width="2" marker-start="url(#arrow-sized-box)" marker-end="url(#arrow-sized-box)" /><line x1="20" y1="38" x2="20" y2="62" stroke="#ffffff" stroke-width="2" marker-start="url(#arrow-sized-box)" marker-end="url(#arrow-sized-box)" /></svg></div>
+                <h3>SizedBox</h3>
+                <p class="scrollable-description"> A box with a specified size. If given a child, this widget forces its child to have a specific width and/or height (assuming values are permitted by this widget's parent). If either the width or height is null, this widget will size itself to match the child's size in that dimension. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/SizedBox-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>SizedOverflowBox</h3>
+                <p class="scrollable-description"> A widget that is a specific size but passes its original constraints through to its child, which will probably overflow. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/SizedOverflowBox-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="17.5" y="42.5" width="50" height="30" fill="#ffffff" /><rect x="20" y="45" width="45" height="25" fill="#3b75ad" /><rect x="20" y="45" width="45" height="25" fill="#4dd0e1" transform="translate(15 -5) rotate(-23) skewX(-10)" /></svg></div>
+                <h3>Transform</h3>
+                <p class="scrollable-description"> A widget that applies a transformation before painting its child. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>CustomSingleChildLayout</h3>
+                <p class="scrollable-description"> A widget that defers the layout of its single child to a delegate. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/CustomSingleChildLayout-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </ul>
+    
+    <h1 id="Multi-child layout widgets">Multi-child layout widgets</h1>
+    <ul class="cards">
+        
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="10" y="30" width="80" height="40" fill="#ffffff" /><rect x="15" y="40" width="20" height="20" fill="#4dd0e1" /><rect x="40" y="35" width="30" height="30" fill="#4dd0e1" /></svg></div>
+                <h3>Row</h3>
+                <p class="scrollable-description"> Layout a list of child widgets in the horizontal direction. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Row-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="30" y="10" width="40" height="80" fill="#ffffff" /><rect x="40" y="15" width="20" height="20" fill="#4dd0e1" /><rect x="35" y="40" width="30" height="30" fill="#4dd0e1" /></svg></div>
+                <h3>Column</h3>
+                <p class="scrollable-description"> Layout a list of child widgets in the vertical direction. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Column-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="10" y="10" width="80" height="80" fill="#ffffff" /><rect x="25" y="25" width="40" height="30" fill="#3b75ad" /><rect x="45" y="35" width="30" height="30" fill="#4dd0e1" /><rect x="40" y="50" width="10" height="10" fill="#f50057" /></svg></div>
+                <h3>Stack</h3>
+                <p class="scrollable-description"> This class is useful if you want to overlap several children in a simple way, for example having some text and an image, overlaid with a gradient and a button attached to the bottom. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Stack-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>IndexedStack</h3>
+                <p class="scrollable-description"> A Stack that shows a single child from a list of children. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/IndexedStack-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>GridView</h3>
+                <p class="scrollable-description"> A scrollable, 2D array of widgets. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/GridView-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>Flow</h3>
+                <p class="scrollable-description"> A widget that implements the flow layout algorithm. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Flow-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>Table</h3>
+                <p class="scrollable-description"> A widget that uses the table layout algorithm for its children. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Table-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>Wrap</h3>
+                <p class="scrollable-description"> A widget that displays its children in multiple horizontal or vertical runs. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/Wrap-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>ListBody</h3>
+                <p class="scrollable-description"> A widget that arranges its children sequentially along a given axis, forcing them to the dimension of the parent in the other axis. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/ListBody-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><svg viewBox="0 0 100 100"><filter id="inset-shadow-block" x="-50%" y="-50%" width="200%" height="200%"><feComponentTransfer in="SourceAlpha"><feFuncA type="table" tableValues="1 0" /></feComponentTransfer><feGaussianBlur stdDeviation="2" result="Blur" /><feFlood flood-color="#666666" result="color" /><feComposite in2="Blur" operator="in" /><feComposite in2="SourceAlpha" operator="in" /><feMerge><feMergeNode /></feMerge></filter><rect x="0" y="0" width="100" height="100" fill="#3949ab" /><rect x="30" y="10" width="40" height="80" fill="#ffffff" /><rect x="35" y="10" width="30" height="15" fill="#4dd0e1" /><rect x="35" y="30" width="30" height="20" fill="#4dd0e1" /><rect x="35" y="55" width="30" height="5" fill="#4dd0e1" /><rect x="35" y="65" width="30" height="15" fill="#4dd0e1" /><rect x="35" y="85" width="30" height="5" fill="#4dd0e1" /><rect x="30" y="10" width="40" height="80" fill="#ffffff" filter="url(#inset-shadow-block)" /></svg></div>
+                <h3>ListView</h3>
+                <p class="scrollable-description"> A scrollable, linear list of widgets. ListView is the most commonly used scrolling widget. It displays its children one after another in the scroll direction. In the cross axis, the children are required to fill the ListView. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/ListView-class.html">Documentation</a>
+                    , <a href="/catalog/samples/ListView_index/">Samples</a>
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>CustomMultiChildLayout</h3>
+                <p class="scrollable-description"> A widget that uses a delegate to size and position multiple children. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/CustomMultiChildLayout-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </ul>
+    
+    <h1 id="Layout helpers">Layout helpers</h1>
+    <ul class="cards">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="cards__item">
+            <div class="catalog-entry">
+                <div class="catalog-image-holder"><img alt="" src="/images/catalog-widget-placeholder.png" /></div>
+                <h3>LayoutBuilder</h3>
+                <p class="scrollable-description"> Builds a widget tree that can depend on the parent widget's size. </p>
+                <p>
+                    <a href="https://docs.flutter.io/flutter/widgets/LayoutBuilder-class.html">Documentation</a>
+                    
+                </p>
+                <div class="clear"></div>
+            </div>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <p>See more widgets in the <a href="/widgets">Flutter widget catalog</a>.</p>
+</div>
+
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technical Overview  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/technical-overview/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/technical-overview.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Technical Overview&body=From URL: http://localhost:4000/technical-overview.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Technical Overview </h1>
+   </div>
+
+  </header>
+  
+
+  <h2 id="what-is-flutter">What is Flutter?</h2>
+
+<p>Flutter is a mobile app SDK for building high-performance, high-fidelity,
+apps for iOS and Android, from a single codebase.</p>
+
+<p>The goal is to enable developers to deliver high-performance apps that feel natural
+on different platforms. We embrace differences in scrolling behaviors,
+typography, icons, and more.</p>
+
+<object type="image/svg+xml" data="/images/whatisflutter/hero-shrine.svg" style="width: 100%; height: 100%;"></object>
+
+<p>This is a demo app from the <a href="https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo">Gallery</a>,
+a collection of Flutter sample apps you can run after installing Flutter and setting
+up your environment. Shrine has high-quality scrolling images, interactive cards,
+buttons, dropdown lists, and a shopping cart page. To look at the single codebase
+for this and more examples, <a href="https://github.com/flutter/flutter/tree/master/examples">visit our GitHub repository</a>.</p>
+
+<p>No mobile development experience is required to get started. Apps are written
+in <a href="https://dartlang.org/">Dart</a>, which will look familiar if you’ve used a
+language like Java or JavaScript. Experience with object-oriented languages
+is definitely helpful, but even non-programmers have made Flutter apps!</p>
+
+<h2 id="why-use-flutter">Why use Flutter?</h2>
+
+<p>What are some advantages of Flutter? It helps you:</p>
+
+<ul>
+  <li>Be highly productive
+    <ul>
+      <li>Develop for iOS and Android from a single codebase</li>
+      <li>Do more with less code, even on a single OS, with a modern, expressive
+language and a declarative approach</li>
+      <li>Prototype and iterate easily
+        <ul>
+          <li>Experiment by changing code and reloading as your app runs (with
+hot reload)</li>
+          <li>Fix crashes and continue debugging from where the app left off</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Create beautiful, highly-customized user experiences
+    <ul>
+      <li>Benefit from a rich set of Material Design and Cupertino (iOS-flavor)
+widgets built using Flutter’s own framework</li>
+      <li>Realize custom, beautiful, brand-driven designs, without the
+limitations of OEM widget sets</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="core-principles">Core principles</h2>
+
+<p>Flutter includes a modern react-style framework, a 2D rendering engine,
+ready-made widgets, and development tools. These components work together to help
+you design, build, test, and debug apps. Everything is organized around a few core
+principles.</p>
+
+<h3 id="everythings-a-widget">Everything’s a Widget</h3>
+
+<p>Widgets are the basic building blocks of a Flutter app’s user interface. Each widget is an
+immutable declaration of part of the user interface.  Unlike other frameworks that
+separate views, view controllers, layouts, and other properties, Flutter has a
+consistent, unified object model: the widget.</p>
+
+<p>A widget can define:</p>
+
+<ul>
+  <li>a structural element (like a button or menu)</li>
+  <li>a stylistic element (like a font or color scheme)</li>
+  <li>an aspect of layout (like padding)</li>
+  <li>and so on…</li>
+</ul>
+
+<p>Widgets form a hierarchy based on composition.  Each widget nests inside, and
+inherits properties from, its parent.  There is no separate “application” object.
+Instead, the root widget serves this role.</p>
+
+<p>You can respond to events, like user interaction, by telling the framework to
+replace a widget in the hierarchy with another widget.  The framework then
+compares the new and old widgets and efficiently updates the user interface.</p>
+
+<h4 id="composition--inheritance">Composition &gt; inheritance</h4>
+
+<p>Widgets are themselves often composed of many small, single-purpose widgets that
+combine to produce powerful effects.  For example, <a href="https://github.com/flutter/flutter/blob/master/packages/flutter/lib/src/widgets/container.dart">Container</a>,
+a commonly-used widget, is made up of several widgets responsible for layout,
+painting, positioning, and sizing. Specifically, Container is made up of
+<a href="https://docs.flutter.io/flutter/widgets/LimitedBox-class.html">LimitedBox</a>,
+<a href="https://docs.flutter.io/flutter/widgets/ConstrainedBox-class.html">ConstrainedBox</a>,
+<a href="https://docs.flutter.io/flutter/widgets/Align-class.html">Align</a>,
+<a href="https://docs.flutter.io/flutter/widgets/Padding-class.html">Padding</a>,
+<a href="https://docs.flutter.io/flutter/widgets/DecoratedBox-class.html">DecoratedBox</a>,
+and <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html">Transform</a>
+widgets.  Rather than subclassing Container to produce a customized effect, you
+can compose these, and other, simple widgets in novel ways.</p>
+
+<p>The class hierarchy is shallow and broad to maximize the possible number of
+combinations.</p>
+
+<object type="image/svg+xml" data="/images/whatisflutter/diagram-widgetclass.svg" style="width: 100%; height: 100%;"></object>
+
+<p>You can also control the <em>layout</em> of a widget by composing it with other widgets.
+For example, to center a widget, you wrap it in a Center widget. There are
+widgets for padding, alignment, row, columns, and grids. These layout widgets
+do not have a visual representation of their own. Instead, their sole purpose is to
+control some aspect of another widget’s layout. To understand why a widget
+renders in a certain way, it’s often helpful to inspect the neighboring widgets.</p>
+
+<h4 id="layer-cakes-are-delicious">Layer cakes are delicious</h4>
+
+<p>The Flutter framework is organized into a series of layers, with each layer
+building upon the previous layer.</p>
+
+<object type="image/svg+xml" data="/images/whatisflutter/diagram-layercake.svg" style="width: 85%; height: 85%"></object>
+
+<p>The diagram shows the upper layers of the framework, which are used more
+frequently than the lower layers. For the complete set of libraries that make up
+the Flutter’s layered framework, see our <a href="https://docs.flutter.io">API documentation</a>.</p>
+
+<p>The goal of this design is to help you do more with less code.  For example,
+the Material layer is built by composing basic widgets from the widgets layer,
+and the widgets layer itself is built by orchestrating lower-level objects from
+the rendering layer.</p>
+
+<p>The layers offer many options for building apps. Choose a customized approach to
+unlock the full expressive power of the framework, or use building blocks from
+the widgets layer, or mix and match. You can compose the ready-made widgets
+Flutter provides, or create your own custom widgets using the same tools and
+techniques that the Flutter team used to build the framework.</p>
+
+<p>Nothing is hidden from you.  You reap the productivity benefits of a high-level,
+unified widget concept, without sacrificing the ability to dive as deeply as you
+wish into the lower layers.</p>
+
+<h3 id="building-widgets">Building widgets</h3>
+
+<p>You define the unique characteristics of a widget by implementing a
+<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html">build</a>
+function that returns a tree (or hierarchy) of widgets. This tree represents the widget’s part
+of the user interface in more concrete terms.  For example, a toolbar widget might
+have a build function that returns a <a href="https://docs.flutter.io/flutter/widgets/Row-class.html">horizontal layout</a>
+of some <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">text</a> and
+<a href="https://docs.flutter.io/flutter/material/IconButton-class.html">various</a>
+<a href="https://docs.flutter.io/flutter/material/PopupMenuButton-class.html">buttons</a>.
+The framework then recursively asks each of these widgets to build until the
+process bottoms out in <a href="https://docs.flutter.io/flutter/widgets/RenderObjectWidget-class.html">fully concrete widgets</a>,
+which the framework then stitches together into a tree.</p>
+
+<p>A widget’s build function should be free of side effects.  Whenever it is asked
+to build, the widget should return a new tree of widgets regardless of what the
+widget previously returned. The framework does the heavily lifting of comparing
+the previous build with the current build and determining what modifications
+need to be made to the user interface.</p>
+
+<p>This automated comparison is quite effective, enabling high-performance,
+interactive apps. And the design of the build function simplifies your code by
+focusing on declaring what a widget is made of, rather than the complexities of
+updating the user interface from one state to another.</p>
+
+<h3 id="handling-user-interaction">Handling user interaction</h3>
+
+<p>If the unique characteristics of a widget need to change based on user
+interaction or other factors, that widget is <em>stateful</em>. For example, if a
+widget has a counter that increments whenever the user taps a button, the value
+of the counter is the state for that widget. When that value changes, the widget
+needs to be rebuilt to update the UI.</p>
+
+<p>These widgets subclass <a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a>
+(rather than <a href="https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>)
+and store their mutable state in a subclass of <a href="https://docs.flutter.io/flutter/widgets/State-class.html">State</a>.</p>
+
+<object type="image/svg+xml" data="/images/whatisflutter/diagram-state.svg" style="width: 85%; height: 85%"></object>
+
+<p>Whenever you mutate a State object (e.g., increment the counter), you must call
+<a href="https://docs.flutter.io/flutter/widgets/State/setState.html">setState</a>() to
+signal the framework to update the user interface by calling the State’s build
+method again. For an example of managing state, see the <a href="https://github.com/flutter/flutter/blob/master/packages/flutter_tools/templates/create/lib/main.dart.tmpl">MyApp template</a> that’s created with each new Flutter project.</p>
+
+<p>Having separate state and widget objects lets other widgets treat stateless and
+stateful widgets in the same way, without being concerned about losing state.
+Rather than needing to hold on to a child to preserve its state, the parent is
+free to create a new instance of the child without losing the child’s persistent
+state. The framework does all the work of finding and reusing existing state
+objects when appropriate.</p>
+
+<h2 id="try-it">Try it!</h2>
+
+<p>Now that you’re familiar with the basic structure and principles of the Flutter
+framework, along with how to build apps and make them interactive, you’re ready
+to start developing and iterating.</p>
+
+<p>Next steps:</p>
+
+<ol>
+  <li><a href="/get-started/">Follow the Flutter Getting Started guide</a>.</li>
+  <li>Try <a href="/tutorials/layout/">Building Layouts in Flutter</a> and
+<a href="/tutorials/interactive/">Adding Interactivity to Your Flutter App</a>.</li>
+  <li>Follow a detailed example in <a href="/widgets-intro/">Tour of the Widget Framework</a>.</li>
+</ol>
+
+<h2 id="get-support">Get support</h2>
+
+<p>Track the Flutter project and join the conversation in a variety of ways.
+We’re open source and would love to hear from you.</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/tags/flutter">Ask HOWTO questions that can be answered with specific solutions</a></li>
+  <li><a href="https://gitter.im/flutter/flutter">Live chat with Flutter engineers and users</a></li>
+  <li><a href="https://groups.google.com/d/forum/flutter-dev">Discuss Flutter, best practices, app design, and more on our mailing list</a></li>
+  <li><a href="https://github.com/flutter/flutter/issues">Report bugs, request features and docs</a></li>
+  <li><a href="https://twitter.com/flutterio/">Follow us on Twitter: @flutterio</a></li>
+</ul>
+
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preparing an Android App for Release  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/android-release/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">Docs</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">Packages</a>
+            <a class="page-link" href="/support/">Support</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">Get started</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: Install</a></li>
+      <li><a href="/get-started/editor/">2: Configure editor</a></li>
+      <li><a href="/get-started/test-drive/">3: Test drive</a></li>
+      <li><a href="/get-started/codelab/">4: Write your first app</a></li>
+      <li><a href="/get-started/learn-more/">5: Learn more</a></li>
+    </ul>
+
+  <li class="sidebar-title">Build UIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">Tour the framework</a></li>
+      <li><a href="/widgets/">Widget catalog</a></li>
+      <li><a href="/cookbook/">Cookbook</a></li>
+      <li><a href="/catalog/samples/">Sample catalog</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">Building beautiful UIs - Codelab</a></li>
+      <li><a href="/tutorials/layout/">Build layouts - Tutorial</a></li>
+      <li><a href="/tutorials/interactive/">Add interactivity - Tutorial</a></li>
+      <li><a href="/web-analogs/">HTML/CSS patterns</a></li>
+      <li><a href="/flutter-for-android/">Flutter for Android Developers</a></li>
+      <li><a href="/flutter-for-react-native/">Flutter for React Native Developers</a></li>
+      <li><a href="/gestures/">Gestures</a></li>
+      <li><a href="/animations/">Animations</a></li>
+      <li><a href="/custom-fonts/">Custom fonts</a></li>
+      <li><a href="/layout/">Box constraints</a></li>
+      <li><a href="/assets-and-images/">Assets and images</a></li>
+      <li><a href="/text-input/">Text input</a></li>
+      <li><a href="/routing-and-navigation/">Routing and navigation</a></li>
+      <li><a href="/tutorials/internationalization">Internationalization</a></li>
+    </ul>
+
+  <li class="sidebar-title">Use device and SDK APIs</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">Using packages</a></li>
+      <li><a href="/developing-packages/">Developing packages</a></li>
+      <li><a href="/platform-channels/">Platform-specific code</a></li>
+      <li><a href="/reading-writing-files/">Read and write files</a></li>
+      <li><a href="/networking/">Network and HTTP</a></li>
+      <li><a href="/json/">JSON and serialization</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">Development and tools</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Using Flutter IDEs</a></li>
+      <li><a href="/hot-reload/">Using hot reload</a></li>
+      <li><a href="/testing/">Test your app</a></li>
+      <li><a href="/debugging/">Debug your app</a></li>
+      <li><a href="/inspector/">Inspect your UI</a></li>
+      <li><a href="/android-release/">Build and release for Android</a></li>
+      <li><a href="/ios-release/">Build and release for iOS</a></li>
+      <li><a href="/upgrading/">Upgrade your Flutter install</a></li>
+      <li><a href="/formatting/">Format your source code</a></li>
+    </ul>
+
+  <li class="sidebar-title">More details</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">Technical overview</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">Magic of Flutter slides</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">Architecture diagrams</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0">Framework's layered design <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.youtube.com/watch?v=UUfXWzp0-DU">Flutter's rendering pipeline <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/android-release-build.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Preparing an Android App for Release&body=From URL: http://localhost:4000/android-release-build.md&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Preparing an Android App for Release </h1>
+   </div>
+
+  </header>
+  
+
+  <p>During the typical development cycle, you’ll test an app using <code class="highlighter-rouge">flutter run</code> at the
+command line, the Run and Debug toolbar buttons in IntelliJ, or both. By default,
+Flutter builds a <em>debug</em> version of your app.</p>
+
+<p>When you’re ready to prepare a <em>release</em> version for Android, for example to
+<a href="https://developer.android.com/distribute/googleplay/start.html">publish to the Google Play Store</a>, follow the steps on this page.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#review-the-app-manifest" id="markdown-toc-review-the-app-manifest">Review the App Manifest</a></li>
+  <li><a href="#review-the-build-configuration" id="markdown-toc-review-the-build-configuration">Review the build configuration</a></li>
+  <li><a href="#adding-a-launcher-icon" id="markdown-toc-adding-a-launcher-icon">Adding a Launcher icon</a></li>
+  <li><a href="#signing-the-app" id="markdown-toc-signing-the-app">Signing the app</a>    <ul>
+      <li><a href="#create-a-keystore" id="markdown-toc-create-a-keystore">Create a keystore</a></li>
+      <li><a href="#reference-the-keystore-from-the-app" id="markdown-toc-reference-the-keystore-from-the-app">Reference the keystore from the app</a></li>
+      <li><a href="#configure-signing-in-gradle" id="markdown-toc-configure-signing-in-gradle">Configure signing in gradle</a></li>
+    </ul>
+  </li>
+  <li><a href="#building-a-release-apk" id="markdown-toc-building-a-release-apk">Building a release APK</a></li>
+  <li><a href="#installing-a-release-apk-on-a-device" id="markdown-toc-installing-a-release-apk-on-a-device">Installing a release APK on a device</a></li>
+  <li><a href="#publishing-an-apk-to-the-google-play-store" id="markdown-toc-publishing-an-apk-to-the-google-play-store">Publishing an APK to the Google Play Store</a></li>
+</ul>
+
+<h2 id="review-the-app-manifest">Review the App Manifest</h2>
+
+<p>Review the default <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">App Manifest</a> file <code class="highlighter-rouge">AndroidManifest.xml</code> located
+in <code class="highlighter-rouge">&lt;app dir&gt;/android/app/src/main/</code> and verify the values are correct,
+especially:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">application</code>: Edit the <a href="https://developer.android.com/guide/topics/manifest/application-element.html"><code class="highlighter-rouge">application</code></a> tag to reflect the
+final name of the app.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">uses-permission</code>: Remove the <code class="highlighter-rouge">android.permission.INTERNET</code>
+<a href="https://developer.android.com/guide/topics/manifest/uses-permission-element.html">permission</a> if your application code does not need Internet
+access. The standard template includes this tag to enable communication between
+Flutter tools and a running app.</p>
+  </li>
+</ul>
+
+<h2 id="review-the-build-configuration">Review the build configuration</h2>
+
+<p>Review the default [Gradle build file][gradlebuild] file <code class="highlighter-rouge">build.gradle</code>
+located in <code class="highlighter-rouge">&lt;app dir&gt;/android/app/</code> and verify the values are correct, especially:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">defaultConfig</code>:</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">applicationId</code>: Specify the final, unique (Application Id)<a href="https://developer.android.com/studio/build/application-id.html">appid</a></p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">versionCode</code> &amp; <code class="highlighter-rouge">versionName</code>: Specify the interall app version number, and
+the version number display string. Consult the version information guidance in
+the <a href="https://developer.android.com/studio/publish/versioning.html">versions documenation</a> for details.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">minSdkVersion</code> &amp; <code class="highlighter-rouge">targetSdkVersion</code>: Specify the minimum API level, and the
+API level on which the app is designed to run. Consult the API level section
+in the <a href="https://developer.android.com/studio/publish/versioning.html">versions documetation</a> for details.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="adding-a-launcher-icon">Adding a Launcher icon</h2>
+
+<p>When a new Flutter app is created, it has a default Launcher icon. To
+customize this icon:</p>
+
+<ol>
+  <li>
+    <p>Review the <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html">Android Launcher Icons</a> guidelines for icon
+design.</p>
+  </li>
+  <li>
+    <p>In the <code class="highlighter-rouge">&lt;app dir&gt;/android/app/src/main/res/</code> directory, place your icon files
+in folders named using <a href="https://developer.android.com/guide/practices/screens_support.html#qualifiers">Configuration Qualifiers</a>.
+The default <code class="highlighter-rouge">mipmap-</code> folders demonstrate the correct naming convention.</p>
+  </li>
+  <li>
+    <p>In <code class="highlighter-rouge">AndroidManifest.xml</code>, update the <a href="https://developer.android.com/guide/topics/manifest/application-element.html"><code class="highlighter-rouge">application</code></a> tag’s
+<code class="highlighter-rouge">android:icon</code> attribute to reference icons from the previous step (e.g.
+<code class="highlighter-rouge">&lt;application android:icon="@mipmap/ic_launcher" ...</code>).</p>
+  </li>
+  <li>
+    <p>To verify the icon has been replaced, run your app using <code class="highlighter-rouge">flutter run</code>
+and inspect the app icon in the Launcher.</p>
+  </li>
+</ol>
+
+<h2 id="signing-the-app">Signing the app</h2>
+
+<h3 id="create-a-keystore">Create a keystore</h3>
+<p>If you have an existing keystore, skip to the next step. If not, create one
+by running the following at the command line:
+<code class="highlighter-rouge">keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key</code></p>
+
+<p><em>Note</em>: Keep this file private; do not check it into public source control.</p>
+
+<p><em>Note</em>: <code class="highlighter-rouge">keytool</code> may not be in your path. It is part of the Java JDK, which is installed as 
+part of Android Studio. For the concrete path, run <code class="highlighter-rouge">flutter doctor</code> and see the path printed 
+after ‘Java binary at:’, and then use that fully qualified path replacing <code class="highlighter-rouge">java</code> with <code class="highlighter-rouge">keytool</code>.</p>
+
+<h3 id="reference-the-keystore-from-the-app">Reference the keystore from the app</h3>
+
+<p>Create a file named <code class="highlighter-rouge">&lt;app dir&gt;/android/key.properties</code> that contains a
+reference to your keystore:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>storePassword=&lt;password from previous step&gt;
+keyPassword=&lt;password from previous step&gt;
+keyAlias=key
+storeFile=&lt;location of the key store file, e.g. /Users/&lt;user name&gt;/key.jks&gt;
+</code></pre>
+</div>
+
+<p><em>Note</em>: Keep this file private; do not check it into public source control.</p>
+
+<h3 id="configure-signing-in-gradle">Configure signing in gradle</h3>
+
+<p>Configure signing for your app by editing the <code class="highlighter-rouge">&lt;app dir&gt;/android/app/build.gradle</code>
+file.</p>
+
+<ol>
+  <li>Replace:
+    <div class="highlighter-rouge"><pre class="highlight"><code>android {
+</code></pre>
+    </div>
+    <p>with the keystore information from your properties file:</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>def keystorePropertiesFile = rootProject.file("key.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+</code></pre>
+    </div>
+  </li>
+  <li>Replace:
+    <div class="highlighter-rouge"><pre class="highlight"><code>buildTypes {
+    release {
+        // TODO: Add your own signing config for the release build.
+        // Signing with the debug keys for now, so `flutter run --release` works.
+        signingConfig signingConfigs.debug
+    }
+}
+</code></pre>
+    </div>
+    <p>with:</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>signingConfigs {
+    release {
+        keyAlias keystoreProperties['keyAlias']
+        keyPassword keystoreProperties['keyPassword']
+        storeFile file(keystoreProperties['storeFile'])
+        storePassword keystoreProperties['storePassword']
+    }
+}
+buildTypes {
+    release {
+        signingConfig signingConfigs.release
+    }
+}
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p>Release builds of your app will now automatically be signed.</p>
+
+<h2 id="building-a-release-apk">Building a release APK</h2>
+
+<p>This section describes how to build a release APK. If you completed the
+signing steps in the previous section, the release APK will be signed.</p>
+
+<p>Using the command line:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">cd &lt;app dir&gt;</code> (replace <code class="highlighter-rouge">&lt;app dir&gt;</code> with your application’s directory).</li>
+  <li>Run <code class="highlighter-rouge">flutter build apk</code> (<code class="highlighter-rouge">flutter build</code> defaults to <code class="highlighter-rouge">--release</code>).</li>
+</ol>
+
+<p>The release APK for your app is created at <code class="highlighter-rouge">&lt;app dir&gt;/build/app/outputs/apk/app-release.apk</code>.</p>
+
+<h2 id="installing-a-release-apk-on-a-device">Installing a release APK on a device</h2>
+
+<p>Follow these steps to install the APK built in the previous step on a
+connected Android device.</p>
+
+<p>Using the command line:</p>
+
+<ol>
+  <li>Connect your Android device to your computer with a USB cable.</li>
+  <li><code class="highlighter-rouge">cd &lt;app dir&gt;</code> where <code class="highlighter-rouge">&lt;app dir&gt;</code> is your application directory.</li>
+  <li>Run <code class="highlighter-rouge">flutter install</code> .</li>
+</ol>
+
+<h2 id="publishing-an-apk-to-the-google-play-store">Publishing an APK to the Google Play Store</h2>
+
+<p>For detailed instructions on publishing the release version of an app to the
+Google Play Store, see the <a href="https://developer.android.com/distribute/googleplay/start.html">Google Play publishing documentation</a>.</p>
+
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+          <p class="site-footer__link-list">
+            <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+            <a href="https://twitter.com/flutterio">twitter</a> &bull;
+            <a href="https://github.com/flutter/">github</a> &bull;
+            <a href="/tos">terms</a> &bull;
+            <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a>
+          </p>
+
+          <p class="licenses">
+            Except as otherwise noted,
+            this work is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative
+            Commons Attribution 4.0 International License</a>,
+            and code samples are licensed under the BSD License.
+          </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>
