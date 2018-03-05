@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Creating Useful Bug Reports  - Flutter </title>
+  <title>创建有效的 bug 反馈报告  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,38 +165,38 @@
          <a href="https://github.com/flutter/website/blob/master/bug_reports.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Creating Useful Bug Reports&body=From URL: http://localhost:4000/bug_reports.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 创建有效的 bug 反馈报告&body=From URL: http://localhost:4000/bug_reports.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Creating Useful Bug Reports </h1>
+    <h1 class="post-title">创建有效的 bug 反馈报告 </h1>
    </div>
 
   </header>
   
 
   <ul id="markdown-toc">
-  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
-  <li><a href="#create-an-issue-on-github" id="markdown-toc-create-an-issue-on-github">Create an Issue on Github</a></li>
-  <li><a href="#provide-some-flutter-diagnostics" id="markdown-toc-provide-some-flutter-diagnostics">Provide some Flutter Diagnostics</a></li>
-  <li><a href="#run-the-command-in-verbose-mode" id="markdown-toc-run-the-command-in-verbose-mode">Run the Command in Verbose Mode</a></li>
-  <li><a href="#provide-the-most-recent-logs" id="markdown-toc-provide-the-most-recent-logs">Provide the Most Recent Logs</a></li>
-  <li><a href="#provide-the-crash-report" id="markdown-toc-provide-the-crash-report">Provide the Crash Report</a></li>
+  <li><a href="#简介" id="markdown-toc-简介">简介</a></li>
+  <li><a href="#在-github-上创建-issue" id="markdown-toc-在-github-上创建-issue">在 Github 上创建 Issue</a></li>
+  <li><a href="#提供-flutter-的诊断信息" id="markdown-toc-提供-flutter-的诊断信息">提供 Flutter 的诊断信息</a></li>
+  <li><a href="#以详细模式运行命令" id="markdown-toc-以详细模式运行命令">以详细模式运行命令</a></li>
+  <li><a href="#提供最近的日志信息" id="markdown-toc-提供最近的日志信息">提供最近的日志信息</a></li>
+  <li><a href="#提供设备的崩溃日志" id="markdown-toc-提供设备的崩溃日志">提供设备的崩溃日志</a></li>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="简介">简介</h2>
 
-<p>The instructions in this document detail the current steps required to provide the most actionable bug reports for crashes and other bad behavior. Each step is optional but will greatly improve how quickly issues are diagnosed and addressed. We appreciate your effort in sending us as much feedback as possible.</p>
+<p>本文档中的说明详细介绍了当崩溃和其他异常现象发生时，创建一份最为有效的反馈报告的通用步骤。虽然每一个步骤都不是必须的，但会极大地提高问题确定和定位的速度，所以我们希望您能够尽可能多地提供反馈信息。</p>
 
-<h2 id="create-an-issue-on-github">Create an Issue on Github</h2>
+<h2 id="在-github-上创建-issue">在 Github 上创建 Issue</h2>
 <ul>
-  <li>A new Github issue may be created at <a href="https://github.com/flutter/flutter/issues/new">https://github.com/flutter/flutter/issues/new</a></li>
+  <li>您可以在如下位置创建一个新的 issue ： <a href="https://github.com/flutter/flutter/issues/new">https://github.com/flutter/flutter/issues/new</a></li>
 </ul>
 
-<h2 id="provide-some-flutter-diagnostics">Provide some Flutter Diagnostics</h2>
+<h2 id="提供-flutter-的诊断信息">提供 Flutter 的诊断信息</h2>
 <ul>
-  <li>Run <code class="highlighter-rouge">flutter doctor</code> in your project directory and paste the results into the Github Issue:</li>
+  <li>在您项目的根目录下打开终端运行命令 <code class="highlighter-rouge">flutter doctor</code> ，并将打印结果粘贴到 Github 的 Issue 中：</li>
 </ul>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[✓] Flutter (on Mac OS, channel master)
@@ -218,28 +218,28 @@
 </code></pre>
 </div>
 
-<h2 id="run-the-command-in-verbose-mode">Run the Command in Verbose Mode</h2>
-<p>Follow these steps only if your issue is related to the <code class="highlighter-rouge">flutter</code> tool.</p>
+<h2 id="以详细模式运行命令">以详细模式运行命令</h2>
+<p>如果您的问题与 <code class="highlighter-rouge">flutter</code> 工具本身相关，请参考如下步骤。</p>
 
 <ul>
-  <li>All Flutter commands accept the <code class="highlighter-rouge">--verbose</code> flag. If attached to the issue, the output from this command may aid in diagnosing the issue.</li>
-  <li>Attach the results of the command to the Github issue.
+  <li>所有的 Flutter 命令都可以接收 <code class="highlighter-rouge">--verbose</code> 参数。在 issue 中加入该命令的数据将可能有助于确定问题。</li>
+  <li>将命令的输出附于 Github 的 issue 中。
 <img src="/images/verbose_flag.png" alt="flutter verbose" /></li>
 </ul>
 
-<h2 id="provide-the-most-recent-logs">Provide the Most Recent Logs</h2>
+<h2 id="提供最近的日志信息">提供最近的日志信息</h2>
 <ul>
-  <li>Logs for the currently connected device may be accessed via <code class="highlighter-rouge">flutter logs</code></li>
-  <li>If the crash is reproducible, clear the logs (⌘ + k on Mac), reproduce the crash and copy the newly generated logs into a file attached to the bug report.</li>
-  <li>If you are getting exceptions thrown by the framework, include all the output between and including the dashed lines of the first such exception.
+  <li>通过执行 <code class="highlighter-rouge">flutter logs</code> 命令可以获取当前连接设备的日志信息</li>
+  <li>如果是可重现的崩溃, 请先清空日志 (⌘ + k on Mac), 然后重现崩溃后将最新生成的 log 日志输出到文件中附到 bug 反馈中。</li>
+  <li>如果您发现了由框架抛出的异常，请包含异常第一次出现位置虚线间的所有输出信息。
 <img src="/images/logs.png" alt="flutter logs" /></li>
 </ul>
 
-<h2 id="provide-the-crash-report">Provide the Crash Report</h2>
+<h2 id="提供设备的崩溃日志">提供设备的崩溃日志</h2>
 <ul>
-  <li>In case the iOS simulator crashes, a crash report is generated in <code class="highlighter-rouge">~/Library/Logs/DiagnosticReports/</code>.</li>
-  <li>In case the iOS device crashes, a crash report is generated in <code class="highlighter-rouge">~/Library/Logs/CrashReporter/MobileDevice</code>.</li>
-  <li>Find the report corresponding to the crash (usually the latest) and attach it to the Github issue.
+  <li>当崩溃发生于 iOS 模拟器时，崩溃日志将生成在： <code class="highlighter-rouge">~/Library/Logs/DiagnosticReports/</code>。</li>
+  <li>当崩溃发生于 iOS 真机上时, 崩溃日志将生成在： <code class="highlighter-rouge">~/Library/Logs/CrashReporter/MobileDevice</code>。</li>
+  <li>找到与崩溃相关的日志 (通常是最新的那一个日志) 并将其附到 Github issue 中。
 <img src="/images/crash_reports.png" alt="crash report" /></li>
 </ul>
 
