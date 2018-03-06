@@ -50,21 +50,21 @@
 ## 任务认领及进度
 | 任务文件 | url | 是否完成 | 译者 |
 | ---------- | --- | ----------- | ----- |
-| website/index.md |http://doc.flutter-dev.cn/  | ok | [_番茄沙司](https://github.com/ZhangQinglian) | 
-| website/_includes/sidebar.html | http://doc.flutter-dev.cn/docs/ | ok | [_番茄沙司](https://github.com/ZhangQinglian) | 
-| website/_includes/footer.html |http://doc.flutter-dev.cn/  |  ok | [\_番茄沙司](https://github.com/ZhangQinglian) | 
-| website/get-started/codelab/index.md | http://doc.flutter-dev.cn/get-started/codelab/  | no | [MelonRice](https://github.com/MelonRice) | 
-| website/get-started/setup_windows.md |  http://doc.flutter-dev.cn/setup-windows/  |  no  |  [gdmec07120731](https://github.com/gdmec07120731)  |
-| website/bug_reports.md |http://doc.flutter-dev.cn/bug-reports/ | true | [debuggerx01](https://github.com/debuggerx01)|
-| website/bootstrap-into-dart.md  |  http://doc.flutter-dev.cn/bootstrap-into-dart/ | yes | [debuggerx01](https://github.com/debuggerx01) |
-| website/android-release-build.md|  http://doc.flutter-dev.cn/android-release/ | no   |     |   
-| website/404.md  | http://doc.flutter-dev.cn/404 | no   |     |   
-| website/docs.md | http://doc.flutter-dev.cn/docs/ |  no  |     |   
-| website/custom-fonts.md  |  http://doc.flutter-dev.cn/custom-fonts/  |  no |     |   
-| website/debugging.md  | http://doc.flutter-dev.cn/debugging/   |  no |     |   
-|    |    |   |     |   
-|    |    |   |     |   
-|    |    |   |     |   
+| website/index.md |https://flutter-dev.github.io/  | ok | [_番茄沙司](https://github.com/ZhangQinglian) | 
+| website/_includes/sidebar.html | https://flutter-dev.github.io/docs/ | ok | [_番茄沙司](https://github.com/ZhangQinglian) | 
+| website/_includes/footer.html |https://flutter-dev.github.io/ |  ok | [\_番茄沙司](https://github.com/ZhangQinglian) | 
+| website/get-started/codelab/index.md | https://flutter-dev.github.io/get-started/codelab/  | no | [MelonRice](https://github.com/MelonRice) | 
+| website/get-started/setup_windows.md |  https://flutter-dev.github.io/setup-windows/  |  ok  |  [gdmec07120731](https://github.com/gdmec07120731)  |
+| website/bug_reports.md |https://flutter-dev.github.io/bug-reports/ | ok | [debuggerx01](https://github.com/debuggerx01)|
+| website/bootstrap-into-dart.md  |  https://flutter-dev.github.io/bootstrap-into-dart/ | ok | [debuggerx01](https://github.com/debuggerx01) |
+| website/android-release-build.md|  https://flutter-dev.github.io/android-release/ | ok   |     |   
+| website/404.md  | https://flutter-dev.github.io/404 | ok  |   [MuffinYu](https://github.com/MuffinYu)  |   
+| website/docs.md | https://flutter-dev.github.io/docs/ |  no  |     |   
+| website/custom-fonts.md  |  https://flutter-dev.github.io/custom-fonts/  |  no |     |   
+| website/debugging.md  | https://flutter-dev.github.io/debugging/   |  no |     |   
+| website/widgets-intro.md   |  https://flutter-dev.github.io/widgets-intro/  | no  |  [goldhan](https://github.com/goldhan)   |   
+| website/web-analogs.md   | 	https://flutter-dev.github.io/web-analogs/   | no  |  [tain335](https://github.com/tain335)   |   
+| website/animations/index.md   |  https://flutter-dev.github.io/animations/  |  no  |  [Zhevol](https://github.com/Zhevol)   |   
 |    |    |   |     |   
 |    |    |   |     |   
 |    |    |   |     |   
@@ -74,4 +74,5 @@
 [_番茄沙司](https://github.com/ZhangQinglian)、
 [MelonRice](https://github.com/MelonRice)、
 [gdmec07120731](https://github.com/gdmec07120731) 、
-[debuggerx01](https://github.com/debuggerx01)
+[debuggerx01](https://github.com/debuggerx01)、
+[goldhan](https://github.com/goldhan)
