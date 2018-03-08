@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Write Your First Flutter App  - Flutter </title>
+  <title>编写第一个Flutter应用  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,12 +165,12 @@
          <a href="https://github.com/flutter/website/blob/master/get-started/codelab/index.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Write Your First Flutter App&body=From URL: http://localhost:4000/get-started/codelab/index.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 编写第一个Flutter应用&body=From URL: http://localhost:4000/get-started/codelab/index.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Write Your First Flutter App </h1>
+    <h1 class="post-title">编写第一个Flutter应用 </h1>
    </div>
 
   </header>
@@ -181,112 +181,90 @@
 <figure class="right-figure" style="max-width: 260px; padding-right: 10px">
     <img src="images/startup-namer-app.gif" alt="Animated GIF of the app that you will be building." style="border: 10px solid #333; border-radius: 10px; margin-bottom: 10px" />
 </figure>
-
-<p>This is a guide to creating your first Flutter app. If you
-are familiar with object-oriented code and basic programming
-concepts such as variables, loops, and conditionals,
-you can complete this tutorial. You don’t need
-previous experience with Dart or mobile programming.</p>
+<p>这篇教程将指导你创建第一个Flutter应用程序。如果你熟悉面向对象程序设计和基本的编程概念（如变量，循环和条件），即可完成本教程。无需具有使用Dart语言或移动编程的相关经验。</p>
 
 <ul id="markdown-toc">
-  <li><a href="#step-1-create-the-starting-flutter-app" id="markdown-toc-step-1-create-the-starting-flutter-app">Step 1: Create the starting Flutter app</a></li>
-  <li><a href="#step-2-use-an-external-package" id="markdown-toc-step-2-use-an-external-package">Step 2: Use an external package</a></li>
-  <li><a href="#step-3-add-a-stateful-widget" id="markdown-toc-step-3-add-a-stateful-widget">Step 3: Add a Stateful widget</a></li>
-  <li><a href="#step-4-create-an-infinite-scrolling-listview" id="markdown-toc-step-4-create-an-infinite-scrolling-listview">Step 4: Create an infinite scrolling ListView</a></li>
-  <li><a href="#step-5-add-interactivity" id="markdown-toc-step-5-add-interactivity">Step 5: Add interactivity</a></li>
-  <li><a href="#step-6-navigate-to-a-new-screen" id="markdown-toc-step-6-navigate-to-a-new-screen">Step 6: Navigate to a new screen</a></li>
-  <li><a href="#step-7-change-the-ui-using-themes" id="markdown-toc-step-7-change-the-ui-using-themes">Step 7: Change the UI using Themes</a></li>
-  <li><a href="#well-done" id="markdown-toc-well-done">Well done!</a></li>
+  <li><a href="#第1步创建初始flutter应用" id="markdown-toc-第1步创建初始flutter应用">第1步：创建初始Flutter应用</a></li>
+  <li><a href="#第2步使用外部package" id="markdown-toc-第2步使用外部package">第2步：使用外部package</a></li>
+  <li><a href="#第3步添加有状态的widget" id="markdown-toc-第3步添加有状态的widget">第3步：添加有状态的widget</a></li>
+  <li><a href="#第4步创建一个无限滚动的listview" id="markdown-toc-第4步创建一个无限滚动的listview">第4步：创建一个无限滚动的ListView</a></li>
+  <li><a href="#第5步添加可交互性" id="markdown-toc-第5步添加可交互性">第5步：添加可交互性</a></li>
+  <li><a href="#第6步导航到新页面" id="markdown-toc-第6步导航到新页面">第6步：导航到新页面</a></li>
+  <li><a href="#第7步使用主题更改ui" id="markdown-toc-第7步使用主题更改ui">第7步：使用主题更改UI</a></li>
+  <li><a href="#干得漂亮" id="markdown-toc-干得漂亮">干得漂亮！</a></li>
 </ul>
 
-<p class="h2-like">What you'll build</p>
+<p class="h2-like">你需要做什么</p>
 
-<p>You’ll implement a simple mobile app that generates proposed names for a
-startup company. The user can select and unselect names,
-saving the best ones. The code generates ten names at a time.
-As the user scrolls, new batches of names are generated.
-The user can tap the list icon in the upper right of the app bar
-to move to a new route that lists only the favorited names.</p>
+<p>完成一个简单的移动应用程序，为一家创业公司进行命名推荐。用户可以选择和取消选择名称，并保存最好的一个。代码一次生成十个名称。当用户滚动时，会新生成一批名称。用户可以点击应用栏右上方的列表图标，跳转到仅显示已被收藏的名称的列表页面。</p>
 
-<p>The animated GIF shows how the finished app works.</p>
+<p>这个GIF动画可以显示出该应用是如何工作的。</p>
 
 <div class="whats-the-point">
 
-  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What you’ll learn:</b></p>
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>你将会学到:</b></p>
 
   <ul>
-    <li>Basic structure of a Flutter app.</li>
-    <li>Finding and using packages to extend functionality.</li>
-    <li>Using hot reload for a quicker development cycle.</li>
-    <li>How to implement a stateful widget.</li>
-    <li>How to create an infinite, lazily loaded list.</li>
-    <li>How to create and navigate to a second screen.</li>
-    <li>How to change the look of an app using Themes.</li>
+    <li>Flutter应用程序的基本结构。</li>
+    <li>查找和使用package来扩展功能。</li>
+    <li>使用热加载加快开发效率。</li>
+    <li>如何实现一个有状态的widget。</li>
+    <li>如何创建一个无限长度的延迟加载列表。</li>
+    <li>如何创建并导航到第二个页面。</li>
+    <li>如何使用主题更改应用程序的外观。</li>
   </ul>
 
 </div>
 
 <div class="whats-the-point">
 
-  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What you’ll use:</b></p>
+  <p><b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>你将会用到:</b></p>
 
-  <p>You’ll need to install the following:</p>
+  <p>需要安装以下工具:</p>
 
   <ul>
 <li>
       <p>Flutter SDK<br />
-    The Flutter SDK includes Flutter’s engine, framework, widgets, tools,
-    and a Dart SDK. This codelab requires v0.1.4 or later.</p>
+    Flutter SDK包括Flutter的引擎，框架，控件，工具和Dart SDK。这个codelab需要v0.1.4或更高版本。</p>
     </li>
 <li>
       <p>Android Studio IDE<br />
-    This codelab features the Android Studio IDE, but you can use
-    another IDE, or work from the command line.</p>
+    这个codelab基于the Android Studio IDE构建，但也可以使用其他IDE，或者从命令行运行。</p>
     </li>
 <li>
-      <p>Plugin for your IDE<br />
-    The Flutter and Dart plugins must be installed separately for your
-    IDE. Besides Android Studio, Flutter and Dart plugins are also available
-    for the <a href="https://code.visualstudio.com/download">VS Code</a> and
-    <a href="https://www.jetbrains.com/idea/download/#section=mac">IntelliJ</a> IDEs.</p>
+      <p>安装IDE插件<br />
+    插件必须为您的编译器单独安装Flutter和Dart插件。除了Android Studio，Flutter和Dart插件也可用于 <a href="https://code.visualstudio.com/download">VS Code</a> 和
+    <a href="https://www.jetbrains.com/idea/download/#section=mac">IntelliJ</a>IDE。</p>
     </li>
 </ul>
 
-  <p>See <a href="/get-started/install/">Flutter Installation and Setup</a> for information on
-how to set up your environment.</p>
+  <p>有关如何设置环境的信息，请参阅 <a href="/get-started/install/">Flutter安装和配置</a>。</p>
 
 </div>
 
-<h1 id="step-1-create-the-starting-flutter-app">Step 1: Create the starting Flutter app</h1>
+<h1 id="第1步创建初始flutter应用">第1步：创建初始Flutter应用</h1>
 
-<p>Create a simple, templated Flutter app, using the instructions in
-<a href="/get-started/test-drive/#create-app">Getting Started with your first Flutter app.</a>
-Name the project <strong>startup_namer</strong> (instead of <em>myapp</em>).
+<p>使用<a href="/get-started/test-drive/#create-app">第一个入门Flutter应用</a>中的说明创建一个简单的模板化Flutter应用。将项目命名为 <strong>startup_namer</strong>（而不是<em>myapp</em>）。
 You’ll be modifying this starter app to create the finished app.</p>
 
-<p>In this codelab, you’ll mostly be editing <strong>lib/main.dart</strong>,
-where the Dart code lives.</p>
+<p>在这个codelab中，将主要编辑Dart代码所在的 <strong>lib / main.dart</strong>。</p>
 
 <aside class="alert alert-success">
-  <p><i class="fa fa-lightbulb-o"> </i> <strong>Tip:</strong>
-When pasting code into your app, indentation can
-become skewed. You can fix this automatically with the Flutter tools:</p>
+  <p><i class="fa fa-lightbulb-o"> </i> <strong>小贴士：</strong>
+将代码粘贴到应用程序中时，缩进可能会错位。您可以使用Flutter工具自动修复此问题：</p>
 
   <ul>
-    <li>Android Studio / IntelliJ IDEA: Right-click the dart code and
-select <strong>Reformat Code with dartfmt</strong>.</li>
-    <li>VS Code: Right-click and select <strong>Format Document</strong>.</li>
-    <li>Terminal: Run <code class="highlighter-rouge">flutter format &lt;filename&gt;</code>.</li>
+    <li>Android Studio / IntelliJ IDEA: 右键单击dart代码，然后选择 <strong>Reformat Code with dartfmt</strong>。</li>
+    <li>VS Code: 单击右键，选择 <strong>Format Document</strong>.</li>
+    <li>命令行: 运行 <code class="highlighter-rouge">flutter format &lt;filename&gt;</code>.</li>
   </ul>
 </aside>
 
 <ol>
 
 <li>
-    <p>Replace lib/main.dart.<br />
-    Delete all of the code from <strong>lib/main.dart</strong>.
-    Replace with the following code, which displays “Hello World” in the center
-    of the screen.</p>
+    <p>替换lib / main.dart。<br />
+删除 <strong>lib / main.dart</strong> 中的所有代码。替换为下面的代码，它在屏幕中心显示“Hello World”。</p>
 
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
 
@@ -311,68 +289,49 @@ class MyApp extends StatelessWidget {
   </li>
 
 <li>
-    <p>Run the app. You should see the following screen.</p>
+    <p>运行应用程序。现在应该可以看到下面的页面。</p>
 
     <center><img src="images/hello-world-screenshot.png" alt="screenshot of hello world app" /></center>
   </li>
 </ol>
 
-<p class="h2-like">Observations</p>
+<p class="h2-like">小结</p>
 
 <ul>
   <li>
-    <p>This example creates a Material app.
-      <a href="https://material.io/guidelines/">Material</a> is a visual design language
-      that is standard on mobile and the web. Flutter offers a rich set
-      of Material widgets.</p>
+    <p>本示例创建了一个Material app。
+      <a href="https://material.io/guidelines/">Material</a>设计语言是一套移动设备和网页上的视觉设计标准。Flutter提供了一套丰富的Material Widgets。</p>
   </li>
   <li>
-    <p>The main method specifies fat arrow (<code class="highlighter-rouge">=&gt;</code>) notation,
-       which is short hand used for one-line functions or methods.</p>
+    <p>main方法采用了 fat arrow (<code class="highlighter-rouge">=&gt;</code>) 表示法，这是一种用于单行函数或方法的简写。</p>
   </li>
   <li>
-    <p>The app extends StatelessWidget which makes the app itself a
-       widget. In Flutter, most everything is a widget, including
-       alignment, padding, and layout.</p>
+    <p>该app继承了使它本身成为一个widget的StatelessWidget类。在Flutter中，大多数时候一切都可以看作widget, 包括alignment，padding和layout。</p>
   </li>
   <li>
-    <p>The Scaffold widget, from the Material library,
-       provides a default app bar, title, and a body property that
-       holds the widget tree for the home screen. The widget subtree
-       can be quite complex.</p>
+    <p>Material库中的Scaffold widget提供了默认的应用栏(app bar)，标题和构成主页面widget树结构的body属性。 widget的子树可以非常复杂。</p>
   </li>
   <li>
-    <p>A widget’s main job is to provide a <code class="highlighter-rouge">build()</code> method
-      that describes how to display the widget in terms of other,
-      lower level widgets.</p>
+    <p>widget的主要工作是提供一个<code class="highlighter-rouge">build()</code>方法，描述如何根据其他更低层级的widget，来对这个widget进行展示。</p>
   </li>
   <li>
-    <p>The widget tree for this example consists of a Center widget
-       containing a Text child widget. The Center widget aligns its
-       widget subtree to the center of the screen.</p>
+    <p>本示例的widget树由包含了Text child widget的Center widget组成。Center widget可将它的所有子树对齐到屏幕中心。</p>
   </li>
 </ul>
 
 <hr />
 
-<h1 id="step-2-use-an-external-package">Step 2: Use an external package</h1>
+<h1 id="第2步使用外部package">第2步：使用外部package</h1>
 
-<p>In this step, you’ll start using an open-source package named
-<strong>english_words</strong>, which contains a few thousand of the most used
-English words plus some utility functions.</p>
+<p>在这一步，将开始使用名为<strong>english_words</strong>的开源软件包 ，其中包含数千个最常用的英文单词以及一些实用功能。</p>
 
-<p>You can find the
-<a href="https://pub.dartlang.org/packages/english_words">english_words</a>
-package, as well as many other open source packages, on
-<a href="https://pub.dartlang.org/flutter/">pub.dartlang.org</a>.</p>
+<p>可以在<a href="https://pub.dartlang.org/flutter/">pub.dartlang.org</a>上找到<a href="https://pub.dartlang.org/packages/english_words">english_words</a>软件包以及其他许多开源软件包。</p>
 
 <ol>
 
 <li>
-    <p>The pubspec file manages the assets for a Flutter app.
-    In <strong>pubspec.yaml</strong>, add <strong>english_words</strong> (3.1.0 or higher)
-    to the dependencies list.
-    The new line is highlighted below:</p>
+    <p>pubspec文件管理着Flutter app的静态资源文件(assets)。
+    在 <strong>pubspec.yaml</strong>文件中， 将<strong>english_words</strong>（3.1.0或更高版本）添加到依赖列表。新的一行高亮如下：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>dependencies:
@@ -384,9 +343,8 @@ package, as well as many other open source packages, on
   </li>
 
 <li>
-    <p>While viewing the pubspec in Android Studio’s editor view,
-    click <strong>Packages get</strong> upper right. This pulls the package into
-    your project. You should see the following in the console:</p>
+    <p>在Android Studio的editor视图中查看pubspec时,
+    点击右上角的<strong>Packages get</strong>，将把package拉取到项目中。现在应该可以在控制台中看到以下内容：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>flutter packages get
@@ -395,31 +353,24 @@ Process finished with exit code 0</code></pre>
   </li>
 
 <li>
-    <p>In <strong>lib/main.dart</strong>, add the import for <code class="highlighter-rouge">english_words</code>,
-    as shown in the highlighted line:</p>
+    <p>在<strong>lib/main.dart</strong>中，为<code class="highlighter-rouge">english_words</code>添加导入，如高亮的行所示：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
 <span class="nocode highlight">import &#39;package:english_words/english_words.dart&#39;;</span></code></pre>
 
-    <p>As you type, Android Studio gives you suggestions for libraries to
-import. It then renders the import string in gray, letting you
-know that the imported library is unused (so far).</p>
+    <p>在键入该行时，Android Studio会提供有关库导入的建议。然后将导入字符串显示为灰色，让你知道导入的库尚未使用（到目前为止）。</p>
   </li>
 
 <li>
-    <p>Use the English words package to generate the text instead of
-    using the string “Hello World”.</p>
+    <p>改用英文单词的package来生成文本，而不是字符串“Hello World”。</p>
 
     <aside class="alert alert-success">
-      <p><i class="fa fa-lightbulb-o"> </i> <strong>Tip:</strong>
-“Pascal case” (also known as “upper camel case”),
-means that each word in the string, including the first one,
-begins with an uppercase letter. So, “uppercamelcase” becomes
-“UpperCamelCase”.</p>
+      <p><i class="fa fa-lightbulb-o"> </i> <strong>小贴士：</strong>
+“Pascal case”（也被称为“大骆驼拼写法”），意味着字符串中的每个单词（包括第一个单词）都以大写字母开头。所以，“uppercamelcase”变成“UpperCamelCase”。</p>
     </aside>
 
-    <p>Make the following changes, as highlighted below:</p>
+    <p>对代码进行以下更改，如高亮所示：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
@@ -448,55 +399,37 @@ class MyApp extends StatelessWidget {
   </li>
 
 <li>
-    <p>If the app is running, use the hot reload button
-    (<img src="images/hot-reload-button.png" alt="lightning bolt icon" />)
-    to update the running app. Each time you click hot reload,
-    or save the project, you should see a different word pair,
-    chosen at random, in the running app.
-    This is because the word pairing is generated inside the build
-    method, which is run each time the MaterialApp requires rendering,
-    or when toggling the Platform in Flutter Inspector.</p>
+    <p>如果app正在运行，请使用Flutter Hot Reload(热更新)按钮
+    (<img src="images/hot-reload-button.png" alt="lightning bolt icon" />)更新应用程序。每次单击按钮或保存项目时，都会看到随机的词组文本，这是因为配对的词是在build方法内部生成的，每次应用需要渲染时，或在Flutter Inspector中切换Platform时都会运行</p>
 
     <center><img src="images/step2-screenshot.png" alt="screenshot at completion of second step" /></center>
   </li>
 
 </ol>
 
-<p class="h2-like">Problems?</p>
+<p class="h2-like">有问题吗？</p>
 
-<p>If your app isn’t running correctly, look for typos. If needed,
-use the code at the following links to get back on track.</p>
+<p>如果应用程序运行不正常，请检查拼写错误。如有需要，可使用以下链接中的代码使项目恢复正常</p>
 
 <ul>
   <li><a href="https://gist.githubusercontent.com/Sfshaza/bb51e3b7df4ebbf3dfd02a4a38db2655/raw/57c25b976ec34d56591cb898a3df0b320e903b99/pubspec.yaml"><strong>pubspec.yaml</strong></a>
-(The <strong>pubspec.yaml</strong> file won’t change again.)</li>
+(<strong>pubspec.yaml</strong>文件不会再更改。)</li>
   <li><a href="https://gist.githubusercontent.com/Sfshaza/bb51e3b7df4ebbf3dfd02a4a38db2655/raw/57c25b976ec34d56591cb898a3df0b320e903b99/main.dart"><strong>lib/main.dart</strong></a></li>
 </ul>
 
 <hr />
 
-<h1 id="step-3-add-a-stateful-widget">Step 3: Add a Stateful widget</h1>
+<h1 id="第3步添加有状态的widget">第3步：添加有状态的widget</h1>
 
-<p>State<em>less</em> widgets are immutable, meaning that their
-properties can’t change—all values are final.</p>
+<p>State<em>less</em> widgets是不可改变的，这意味着它们的属性不能改变——所有的值都是final的。</p>
 
-<p>State<em>ful</em> widgets maintain state that might change
-during the lifetime of the widget. Implementing a stateful
-widget requires at least two classes: 1) a StatefulWidget class
-that creates an instance of 2) a State class. The StatefulWidget
-class is, itself, immutable, but the State class persists over the
-lifetime of the widget.</p>
+<p>State<em>ful</em>widget在其生命周期保持的状态可能会变化，实现一个有状态的widget至少需要两个类： 1)一个StatefulWidges类，这个类创建了一个 2)State类的实例。StatefulWidget类本身是不可变的，但State类可存在于widget的整个生命周期中。</p>
 
-<p>In this step, you’ll add a stateful widget, RandomWords, which creates
-its State class, RandomWordsState. The State class will eventually
-maintain the proposed and favorite word pairs for the widget.</p>
+<p>在这一步，将添加一个有状态的RandomWords widget，它可以创建其State类RandomWordsState。State类会为widget保存被推荐和被收藏的词组。</p>
 
 <ol>
 <li>
-    <p>Add the stateful RandomWords widget to main.dart.
-    It can go anywhere in the file, outside of MyApp, but the solution
-    places it at the bottom of the file. The RandomWords widget does little
-    else besides creating its State class:</p>
+    <p>将有状态的RandomWords widget添加到main.dart。它可以在MyApp类之外的任何位置使用，但当前将把它放在文件底部。RandomWords widget除了创建State类之外几乎没有任何其他代码：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWords extends StatefulWidget {
@@ -506,15 +439,9 @@ maintain the proposed and favorite word pairs for the widget.</p>
   </li>
 
 <li>
-    <p>Add the RandomWordsState class. Most of the
-    app’s code resides in this class, which maintains the state for the
-    RandomWords widget. This class will save the generated word pairs,
-    which grow infinitely as the user scrolls, and also favorite
-    word pairs, as the user adds or removes them from the list by
-    toggling the heart icon.</p>
+    <p>添加RandomWordsState类。这个类保存了RandomWords widget的状态，该应用程序的大部分代码都放在该类中。这个类将保存随着用户的滑动操作而生成的无限增长的词组，以及保存用户收藏的词组，用户通过触发心形图标来添加或删除收藏的词组列表。</p>
 
-    <p>You’ll build this class bit by bit. To begin, create a minimal
-class by adding the highlighted text:</p>
+    <p>你可以一点点建立这个类。首先，通过以下高亮代码，创建一个最简的类：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code><span class="nocode highlight">class RandomWordsState extends State&lt;RandomWords&gt; {</span>
@@ -522,13 +449,9 @@ class by adding the highlighted text:</p>
   </li>
 
 <li>
-    <p>After adding the state class, the IDE complains that
-    the class is missing a build method. Next, you’ll add a basic
-    build method that generates the word pairs by moving the
-    word generation code from MyApp to RandomWordsState.</p>
+    <p>添加这个state类之后，IDE会提示该类缺少build方法。接下来，需要添加一个基本的build方法，并将生成单词的代码行从MyApp类移动到RandomWordsState类的build方法中，生成词组。</p>
 
-    <p>Add the build method to RandomWordState, as shown
-by the highlighted text:</p>
+    <p>将build方法添加到RandomWordState中，如高亮代码所示：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWordsState extends State&lt;RandomWords&gt; {
@@ -541,8 +464,7 @@ by the highlighted text:</p>
   </li>
 
 <li>
-    <p>Remove the word generation code from MyApp by making
-    the highlighted changes below:</p>
+    <p>根据高亮部分的更改，从MyApp中删除生成单词的代码：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class MyApp extends StatelessWidget {
@@ -568,24 +490,21 @@ by the highlighted text:</p>
 
 </ol>
 
-<p>Restart the app. If you try to hot reload, you might see a warning:</p>
+<p>重启应用。如果尝试热更新，则可能会看到警告:</p>
 
 <pre class="prettyprint highlighter-rouge highlight lang-sh language-sh"><code>Reloading...
 Not all changed program elements ran during view reassembly; consider
 restarting.</code></pre>
 
-<p>It may be a false positive, but consider restarting in order to make sure
-that your changes are reflected in the app’s UI.</p>
+<p>这可能是一个误报，但可以考虑重启应用，以确保更改能正常反映在应用的UI界面中。</p>
 
-<p>The app should behave as before, displaying a word
-pairing each time you hot reload or save the app.</p>
+<p>应用程序应该像之前一样运行，每次热更新或保存应用程序时都会显示一个词组。</p>
 
 <center><img src="images/step3-screenshot.png" alt="screenshot at completion of third step" /></center>
 
-<p class="h2-like">Problems?</p>
+<p class="h2-like">有问题吗?</p>
 
-<p>If your app isn’t running correctly, you can use the code
-at the following link to get back on track.</p>
+<p>如果应用运行不正常，则可以使用以下链接中的代码使其恢复正常</p>
 
 <ul>
   <li><a href="https://gist.githubusercontent.com/Sfshaza/d7f13ddd8888556232476be8578efe40/raw/329c397b97309ce99f834bf70ebb90778baa5cfe/main.dart"><strong>lib/main.dart</strong></a></li>
@@ -593,23 +512,16 @@ at the following link to get back on track.</p>
 
 <hr />
 
-<h1 id="step-4-create-an-infinite-scrolling-listview">Step 4: Create an infinite scrolling ListView</h1>
+<h1 id="第4步创建一个无限滚动的listview">第4步：创建一个无限滚动的ListView</h1>
 
-<p>In this step, you’ll expand RandomWordsState to generate
-and display a list of word pairings. As the user scrolls, the list
-displayed in a ListView widget, grows infinitely. ListView’s
-<code class="highlighter-rouge">builder</code> factory constructor allows you to build a list view
-lazily, on demand.</p>
+<p>在这一步，可以扩展RandomWordsState类，生成并展示词组列表。当用户滑动列表，ListView widget中显示的列表将无限增长。ListView的<code class="highlighter-rouge">builder</code> 工厂构造函数允许按需建立一个延迟加载的列表view。</p>
 
 <ol>
 
 <li>
-    <p>Add a <code class="highlighter-rouge">_suggestions</code> list to the RandomWordsState
-class for saving suggested word pairings. The variable begins with
-an underscore (<code class="highlighter-rouge">_</code>)—prefixing an identifier with an underscore enforces
-privacy in the Dart language.</p>
+    <p><code class="highlighter-rouge">_suggestions</code>变量向RandomWordsState类中添加一个数组列表，用来保存推荐词组。 该变量以下划线(<code class="highlighter-rouge">_</code>)开头，在Dart语言中使用下划线前缀表示强制私有。</p>
 
-    <p>Also, add a <code class="highlighter-rouge">biggerFont</code> variable for making the font size larger.</p>
+    <p>此外，添加一个<code class="highlighter-rouge">biggerFont</code>变量来增大字体。</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWordsState extends State&lt;RandomWords&gt; {
@@ -621,18 +533,11 @@ privacy in the Dart language.</p>
   </li>
 
 <li>
-    <p>Add a <code class="highlighter-rouge">_buildSuggestions()</code> function to the RandomWordsState
-class. This method builds the ListView that displays the suggested word
-pairing.</p>
+    <p>向RandomWordsState类添加一个<code class="highlighter-rouge">_buildSuggestions()</code>函数，用于构建一个显示词组的ListView。</p>
 
-    <p>The ListView class provides a builder property, <code class="highlighter-rouge">itemBuilder</code>,
-a factory builder and callback function specified as an anonymous function.
-Two parameters are passed to the function—the BuildContext,
-and the row iterator, <code class="highlighter-rouge">i</code>. The iterator begins at 0 and increments
-each time the function is called, once for every suggested word pairing.
-This model allows the suggested list to grow infinitely as the user scrolls.</p>
+    <p>ListView类提供了一个<code class="highlighter-rouge">itemBuilder</code>属性，这是一个工厂builder并作为匿名函数进行回调。它有两个传入参数— BuildContext上下文和行迭代器<code class="highlighter-rouge">i</code>。对于每个推荐词组都会执行一次函数调用，迭代器从0开始，每调用一次函数就累加1。这个模块允许推荐列表在用户滑动时无限增长。</p>
 
-    <p>Add the highlighted lines below:</p>
+    <p>添加如下高亮代码行：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWordsState extends State&lt;RandomWords&gt; {
@@ -668,11 +573,9 @@ This model allows the suggested list to grow infinitely as the user scrolls.</p>
   </li>
 
 <li>
-    <p>The <code class="highlighter-rouge">_buildSuggestions</code> function calls <code class="highlighter-rouge">_buildRow</code> once per
-word pair. This function displays each new pair in a ListTile,
-which allows you to make the rows more attractive in the next step.</p>
+    <p>对于每个词组，<code class="highlighter-rouge">_buildSuggestions</code>函数都调用一次<code class="highlighter-rouge">_buildRow</code>函数。这个函数每次会在一个ListTile组件中展示一条新词组，这将在下一步操作中，使一行数据更有表现力。</p>
 
-    <p>Add a <code class="highlighter-rouge">_buildRow</code> function to RandomWordsState:</p>
+    <p>添加<code class="highlighter-rouge">_buildRow</code>函数到RandomWordsState类中：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWordsState extends State&lt;RandomWords&gt; {
@@ -690,9 +593,7 @@ which allows you to make the rows more attractive in the next step.</p>
   </li>
 
 <li>
-    <p>Update the build method for RandomWordsState to use
-<code class="highlighter-rouge">_buildSuggestions()</code>, rather than directly calling the word
-generation library. Make the highlighted changes:</p>
+    <p>更新RandomWordsState类的build方法来使用<code class="highlighter-rouge">_buildSuggestions()</code>函数，而不是直接调用单词生成库。对高亮部分进行修改：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWordsState extends State&lt;RandomWords&gt; {
@@ -713,13 +614,9 @@ generation library. Make the highlighted changes:</p>
   </li>
 
 <li>
-    <p>Update the build method for MyApp.
-    Remove the Scaffold and AppBar instances from MyApp.
-    These will be managed by RandomWordsState, which makes it easier to
-    change the name of the route in the app bar as the user
-    navigates from one screen to another in the next step.</p>
+    <p>更新MyApp类的build方法。从MyApp中删除Scaffold和AppBar实例。这些将由RandomWordsState类进行统一管理，这样在下一步操作中，可以使用户从一个页面导航到另一页面时，更方便的更改应用栏中的页面名称。</p>
 
-    <p>Replace the original method with the highlighted build method below:</p>
+    <p>用下面高亮的build方法替换原始代码：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class MyApp extends StatelessWidget {
@@ -735,15 +632,13 @@ generation library. Make the highlighted changes:</p>
 
 </ol>
 
-<p>Restart the app. You should see a list of word pairings. Scroll down
-as far as you want and you will continue to see new word pairings.</p>
+<p>重启应用程序，将可以看到一个词组清单。尽量向下滑动，将继续看到新的词组。</p>
 
 <center><img src="images/step4-screenshot.png" alt="screenshot at completion of fourth step" /></center>
 
-<p class="h2-like">Problems?</p>
+<p class="h2-like">有问题吗?</p>
 
-<p>If your app isn’t running correctly, you can use the code
-at the following link to get back on track.</p>
+<p>如果应用运行不正常，则可以使用以下链接中的代码使其恢复正常</p>
 
 <ul>
   <li><a href="https://gist.githubusercontent.com/Sfshaza/d6f9460a04d3a429eb6ac0b0f07da564/raw/34fe240f4122435c871bb737708ee0357741801c/main.dart"><strong>lib/main.dart</strong></a></li>
@@ -751,18 +646,13 @@ at the following link to get back on track.</p>
 
 <hr />
 
-<h1 id="step-5-add-interactivity">Step 5: Add interactivity</h1>
+<h1 id="第5步添加可交互性">第5步：添加可交互性</h1>
 
-<p>In this step, you’ll add tappable heart icons to each row.
-When the user taps an entry in the list, toggling its
-“favorited” state, that word pairing is added or removed from a
-set of saved favorites.</p>
+<p>在这一步，将为每一行添加可点击的心形图标。当用户点击列表中的条目，切换其“收藏”状态，词组就会添加到收藏栏，或从已保存词组的收藏栏中删除。</p>
 
 <ol>
 <li>
-    <p>Add a <code class="highlighter-rouge">_saved</code> Set to RandomWordsState. This Set stores
-    the word pairings that the user favorited. Set is preferred to List
-    because a properly implemented Set doesn’t allow duplicate entries.</p>
+    <p>添加一个Set集合<code class="highlighter-rouge">_saved</code>到RandomWordsState类。保存用户收藏的词组。Set集合比List更适用于此，因为它不允许重复元素。</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWordsState extends State&lt;RandomWords&gt; {
@@ -776,9 +666,7 @@ set of saved favorites.</p>
   </li>
 
 <li>
-    <p>In the <code class="highlighter-rouge">_buildRow</code> function, add an <code class="highlighter-rouge">alreadySaved</code>
-    check to ensure that a word pairing hasn’t already been added to
-    favorites.</p>
+    <p>在<code class="highlighter-rouge">_buildRow</code>函数中，添加<code class="highlighter-rouge">alreadySaved</code>标志检查来确保一个词组还没有被添加到收藏。</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>Widget _buildRow(WordPair pair) {
@@ -788,11 +676,9 @@ set of saved favorites.</p>
   </li>
 
 <li>
-    <p>Also in <code class="highlighter-rouge">_buildRow()</code>, add heart-shaped icons to the
-    ListTiles to enable favoriting. Later, you’ll add the ability to
-    interact with the heart icons.</p>
+    <p>在<code class="highlighter-rouge">_buildRow()</code>的ListTiles widget中，添加一个心形图标来使用收藏功能，随后将添加与心形图标进行交互的功能。</p>
 
-    <p>Add the highlighted lines below:</p>
+    <p>添加以下高亮代码行：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>Widget _buildRow(WordPair pair) {
@@ -811,18 +697,13 @@ set of saved favorites.</p>
   </li>
 
 <li>
-    <p>Restart the app. You should now see open hearts on
-    each row, but they aren’t yet interactive.</p>
+    <p>重启应用。现在应该可以在每一行看到心形图标，但还没有交互功能。</p>
   </li>
 
 <li>
-    <p>Make the hearts tappable in the <code class="highlighter-rouge">_buildRow</code>
-    function. If a word entry has already been added to favorites,
-    tapping it again removes it from favorites.
-    When the heart has been tapped, the function calls
-    <code class="highlighter-rouge">setState()</code> to notify the framework that state has changed.</p>
+    <p>在<code class="highlighter-rouge">_buildRow</code>函数中使心形可点击。如果词条已经被加入收藏，再次点击它将从收藏中删除。当心形图标被点击，函数将调用<code class="highlighter-rouge">setState()</code>通知应用框架state已经改变。</p>
 
-    <p>Add the highlighted lines:</p>
+    <p>添加高亮代码行：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>Widget _buildRow(WordPair pair) {
@@ -851,22 +732,17 @@ set of saved favorites.</p>
 </ol>
 
 <aside class="alert alert-success">
-  <p><i class="fa fa-lightbulb-o"> </i> <strong>Tip:</strong>
-In Flutter’s react style framework, calling <code class="highlighter-rouge">setState()</code> triggers
-a call to the <code class="highlighter-rouge">build()</code> method for the State object, resulting in
-an update to the UI.</p>
+  <p><i class="fa fa-lightbulb-o"> </i> <strong>小贴士：</strong>
+在Flutter的响应式风格框架中，调用<code class="highlighter-rouge">setState()</code>，将为State对象触发<code class="highlighter-rouge">build()</code>方法的调用，从而实现对UI的更新。</p>
 </aside>
 
-<p>Hot reload the app. You should be able to tap any row to favorite, or unfavorite,
-the entry. Note that tapping a row generates an implicit ink splash animation
-that emanates from the heart icon.</p>
+<p>热重启应用。可以点击任意一行来收藏或取消收藏条目。 请注意，点击一行可以产生从心形图标展开的泼墨动画效果。</p>
 
 <center><img src="images/step5-screenshot.png" alt="screenshot at completion of 5th step" /></center>
 
-<p class="h2-like">Problems?</p>
+<p class="h2-like">有问题吗?</p>
 
-<p>If your app isn’t running correctly, you can use the code
-at the following link to get back on track.</p>
+<p>如果应用运行不正常，则可以使用以下链接中的代码使其恢复正常。</p>
 
 <ul>
   <li><a href="https://gist.githubusercontent.com/Sfshaza/936ce0059029a8c6e88aaa826a3789cd/raw/a3065d5c681a81eff32f75a9cd5f4d9a5b24f9ff/main.dart"><strong>lib/main.dart</strong></a></li>
@@ -874,32 +750,22 @@ at the following link to get back on track.</p>
 
 <hr />
 
-<h1 id="step-6-navigate-to-a-new-screen">Step 6: Navigate to a new screen</h1>
+<h1 id="第6步导航到新页面">第6步：导航到新页面</h1>
 
-<p>In this step, you’ll add a new screen (called a <em>route</em> in Flutter) that
-displays the favorites. You’ll learn how to navigate between the home route
-and the new route.</p>
+<p>在这一步，将添加一个显示收藏夹的新页面(在Flutter中称为 <em>route(路由)</em>)。你将学习如何在主路由和新路由之间导航。</p>
 
-<p>In Flutter, the Navigator manages a stack containing the app’s routes.
-Pushing a route onto the Navigator’s stack, updates the display to that route.
-Popping a route from the Navigator’s stack, returns the display to the previous
-route.</p>
+<p>在Flutter中，Navigator管理着包含了应用程序所有路由的一个堆栈。将一个路由push到Navigator的堆栈，将显示更新为新页面路由。将一个路由pull出Navigator的堆栈，显示将返回到前一个页面路由。</p>
 
 <ol>
 <li>
-    <p>Add a list icon to the AppBar in the build method
-    for RandomWordsState.  When the user clicks the list icon, a new
-    route that contains the favorites items is pushed to the Navigator,
-    displaying the icon.</p>
+    <p>在RandomWordsState类的build方法中，向AppBar添加一个列表图标。当用户点击列表图标时，包含了已收藏条目的新路由将被push到Navigator堆栈并显示新页面。</p>
 
     <aside class="alert alert-success">
-      <p><i class="fa fa-lightbulb-o"> </i> <strong>Tip:</strong>
-Some widget properties take a single widget (<code class="highlighter-rouge">child</code>), and other properties,
-such as <code class="highlighter-rouge">action</code>, take an array of widgets (<code class="highlighter-rouge">children</code>),
-as indicated by the square brackets (<code class="highlighter-rouge">[]</code>).</p>
+      <p><i class="fa fa-lightbulb-o"> </i> <strong>小贴士：</strong>
+某些widget属性使用独立widget(<code class="highlighter-rouge">child</code>)和其他属性例如 <code class="highlighter-rouge">action</code>组成一个子widget数组(<code class="highlighter-rouge">children</code>)，用方括号(<code class="highlighter-rouge">[]</code>)表示。</p>
     </aside>
 
-    <p>Add the icon and its corresponding action to the build method:</p>
+    <p>将该图标及其相应的action操作添加到build方法中：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWordsState extends State&lt;RandomWords&gt; {
@@ -921,7 +787,7 @@ as indicated by the square brackets (<code class="highlighter-rouge">[]</code>).
   </li>
 
 <li>
-    <p>Add a <code class="highlighter-rouge">_pushSaved()</code> function to the RandomWordsState class.</p>
+    <p>向RandomWordsState类添加一个<code class="highlighter-rouge">_pushSaved()</code>函数。</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class RandomWordsState extends State&lt;RandomWords&gt; {
@@ -930,20 +796,15 @@ as indicated by the square brackets (<code class="highlighter-rouge">[]</code>).
   <span class="nocode highlight">}</span>
 }</code></pre>
 
-    <p>Hot reload the app. The list icon appears in the app bar.
-Tapping it does nothing yet, because the <code class="highlighter-rouge">_pushSaved</code> function is empty.</p>
+    <p>重新加载应用程序。列表图标将出现在应用栏中。点击它不会有任何响应，因为<code class="highlighter-rouge">_pushSaved</code>这个函数还未实现功能。</p>
   </li>
 
 <li>
-    <p>When the user taps the list icon in the app bar,
-    build a route and push it to the Navigator’s stack.
-    This action changes the screen to display the new route.</p>
+    <p>当用户点击应用栏中的列表图标时，将建立一个新路由并push到Navigator的路由堆栈中，这个操作将改变界面显示，展示新的路由页面。</p>
 
-    <p>The content for the new page is built in MaterialPageRoute’s <code class="highlighter-rouge">builder</code>
-property, in an anonymous function.</p>
+    <p>新页面的内容使用匿名函数在 MaterialPageRoute widget的<code class="highlighter-rouge">builder</code>属性中创建。</p>
 
-    <p>Add the call to Navigator.push, as shown by the highlighted code,
-which pushes the route to the Navigator’s stack.</p>
+    <p>将函数调用添加到Navigator.push中作为参数,如高亮代码所示，将路由push到Navigator的堆栈中。</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code><span class="nocode highlight">void _pushSaved() {</span>
@@ -953,11 +814,7 @@ which pushes the route to the Navigator’s stack.</p>
   </li>
 
 <li>
-    <p>Add the MaterialPageRoute and its builder. For now,
-    add the code that generates the ListTile rows. The <code class="highlighter-rouge">divideTiles()</code>
-    method of ListTile adds horizontal spacing between each ListTile.
-    The <code class="highlighter-rouge">divided</code> variable holds the final rows, converted to a list
-    by the convienice function, <code class="highlighter-rouge">toList()</code>.</p>
+    <p>添加MaterialPageRoute widget及其builder属性。先添加生成ListTile  widget的代码。其中ListTile的<code class="highlighter-rouge">divideTiles()</code>方法为每个ListTile widget之间添加水平间距。<code class="highlighter-rouge">divided</code>变量保存最终生成的所有行，并用<code class="highlighter-rouge">toList()</code>函数转换为列表。</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>void _pushSaved() {
@@ -987,13 +844,9 @@ which pushes the route to the Navigator’s stack.</p>
   </li>
 
 <li>
-    <p>The builder property returns a Scaffold,
-    containing the app bar for the new route, named
-    “Saved Suggestions.” The body of the new route
-    consists of a ListView containing the ListTiles rows;
-    each row is separated by a divider.</p>
+    <p>builder属性返回一个Scaffold widget，其中包含了应用栏标题名为“Saved Suggestions”的新路由页面。新页面的body属性由包含多个ListTile widget的ListView组成。</p>
 
-    <p>Add the highlisted code below:</p>
+    <p>添加如下高亮代码：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>void _pushSaved() {
@@ -1030,40 +883,30 @@ which pushes the route to the Navigator’s stack.</p>
   </li>
 
 <li>
-    <p>Hot reload the app. Favorite some of the selections and
-    tap the list icon in the app bar. The new route appears containing
-    the favorites. Note that the Navigator adds a “Back” button to the
-    app bar. You didn’t have to explicitly implement Navigator.pop.
-    Tap the back button to return to the home route.</p>
+    <p>热更新应用程序。对一些条目点击收藏，然后点击应用栏右侧的列表图标。显示出包含收藏夹列表的新页面。注意，Navigator会在应用栏左侧添加一个“返回”按钮。不必再显式实现Navigator.pop。点击返回按钮会返回到主页面。</p>
   </li>
 </ol>
 
 <center><img src="images/step6a-screenshot.png" alt="screenshot at completion of 6th step" /><img src="images/step6b-screenshot.png" alt="second route" /></center>
 
-<p class="h2-like">Problems?</p>
+<p class="h2-like">有问题吗?</p>
 
-<p>If your app isn’t running correctly, you can use the code
-at the following link to get back on track.</p>
+<p>如果应用运行不正常，则可以使用以下链接中的代码使其恢复正常。</p>
 
 <ul>
   <li><a href="https://gist.github.com/Sfshaza/bc5547e112e4dc3a1aa87afdf917caeb"><strong>lib/main.dart</strong></a></li>
 </ul>
 
 <hr />
-<h1 id="step-7-change-the-ui-using-themes">Step 7: Change the UI using Themes</h1>
+<h1 id="第7步使用主题更改ui">第7步：使用主题更改UI</h1>
 
-<p>In this final step, you’ll play with the app’s theme. The
-<em>theme</em> controls the look and feel of your app. You can use
-the default theme, which is dependent on the physical device
-or emulator, or you can customize the theme to reflect your branding.</p>
+<p>在最后一步中，将使用该应用的主题。 <em>theme</em> 控制的是应用程序的观感。可以使用默认主题，该主题取决于使用的模拟器或真机，也可以自定义主题以反映你的品牌。</p>
 
 <ol>
 <li>
-    <p>You can easily change an app’s theme by configuring
-    the ThemeData class.  Your app currently uses the default theme,
-    but you’ll be changing the primary color to be white.</p>
+    <p>可以通过配置ThemeData类轻松更改应用程序的主题。应用程序目前使用默认主题，现在将更改主要颜色为白色。</p>
 
-    <p>Change the app’s theme to white by adding the highlighted code to MyApp:</p>
+    <p>将高亮代码添加到MyApp类中，可以把应用程序的主题更改为白色：</p>
 
     <!-- skip -->
     <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class MyApp extends StatelessWidget {
@@ -1081,26 +924,19 @@ or emulator, or you can customize the theme to reflect your branding.</p>
   </li>
 
 <li>
-    <p>Hot reload the app. Notice that the entire background is white,
-even the app bar.</p>
+    <p>热更新应用程序。请注意，整个背景都是白色的，甚至包括应用栏。</p>
   </li>
 
 <li>
-    <p>As an exercise for the reader, use
-<a href="https://docs.flutter.io/flutter/material/ThemeData-class.html">ThemeData</a>
-to change other aspects of the  UI. The
-<a href="https://docs.flutter.io/flutter/material/Colors-class.html">Colors</a>
-class in the Material library provides many color constants you can play with,
-and hot reload makes experimenting with the UI quick and easy.</p>
+    <p>作为读者的练习，可使用<a href="https://docs.flutter.io/flutter/material/ThemeData-class.html">ThemeData</a>来改变用户界面的其他方面。Material库中的<a href="https://docs.flutter.io/flutter/material/Colors-class.html">Colors</a>类提供了多种可以使用的颜色常量，而热更新使用户界面的修改变得简单快捷。</p>
   </li>
 </ol>
 
 <center><img src="images/step7-themes.png" alt="screenshot at completion of 7th step" /></center>
 
-<p class="h2-like">Problems?</p>
+<p class="h2-like">有问题吗?</p>
 
-<p>If you’ve gotten off track, use the code from the following link
-to see the code for the final app.</p>
+<p>如果又不能正常运行了，请使用以下链接中的代码查看最终应用的代码。</p>
 
 <ul>
   <li><a href="https://gist.githubusercontent.com/Sfshaza/c07c91a4061fce4b5eacaaf4d82e4993/raw/4001a72c0133b97c8e16bdeb3195ca03525696bd/main.dart"><strong>lib/main.dart</strong></a></li>
@@ -1108,27 +944,24 @@ to see the code for the final app.</p>
 
 <hr />
 
-<h1 id="well-done">Well done!</h1>
+<h1 id="干得漂亮">干得漂亮！</h1>
 
-<p>You’ve written an interactive Flutter app that runs on both iOS and Android.
-In this codelab, you’ve:</p>
+<p>您已经编写了一个可在iOS和Android上运行的交互式Flutter应用程序。在这个codelab中，已经完成了：</p>
 
 <ul>
-  <li>Created a Flutter app from the ground up.</li>
-  <li>Written Dart code.</li>
-  <li>Leveraged an external, third party library.</li>
-  <li>Used hot reload for a faster development cycle.</li>
-  <li>Implemented a stateful widget, adding interactivity to your app.</li>
-  <li>Created a lazily loaded, infinite scrolling list displayed with a
-ListView and ListTiles.</li>
-  <li>Created a route and added logic for moving between the home route
-and the new route.</li>
-  <li>Learned about changing the look of your app’s UI using Themes.</li>
+  <li>从头开始创建一个Flutter应用程序。</li>
+  <li>编写Dart语言代码。</li>
+  <li>使用外部的第三方库。</li>
+  <li>使用热更新加快开发。</li>
+  <li>实现了一个有状态的widget，为你的应用增加可交互性。</li>
+  <li>用ListView和ListTiles创建了一个延迟加载的无限滚动列表。</li>
+  <li>创建了一个路由，并添加在主页面路由和新路由之间跳转的逻辑。</li>
+  <li>学习如何使用主题更改应用程序的UI外观。</li>
 </ul>
 
-<p class="h2-like">Next step</p>
+<p class="h2-like">下一步</p>
 
-<p><a href="/get-started/learn-more/">Next step: Learn More</a></p>
+<p><a href="/get-started/learn-more/">下一步: 学习更多</a></p>
 
 
 </article>
