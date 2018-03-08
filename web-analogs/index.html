@@ -83,7 +83,7 @@
       <li><a href="/get-started/install/">1: 安装</a></li>
       <li><a href="/get-started/editor/">2: 配置编辑器</a></li>
       <li><a href="/get-started/test-drive/">3: 试运行</a></li>
-      <li><a href="/get-started/codelab/">4: 编写第一个 Fluuter 应用</a></li>
+      <li><a href="/get-started/codelab/">4: 编写第一个 Flutter 应用</a></li>
       <li><a href="/get-started/learn-more/">5: 学习更多</a></li>
     </ul>
 
@@ -179,76 +179,70 @@
   <link rel="stylesheet" href="/css/two_column.css" />
 
 <ul id="markdown-toc">
-  <li><a href="#performing-basic-layout-operations" id="markdown-toc-performing-basic-layout-operations">Performing Basic Layout Operations</a>    <ul>
-      <li><a href="#styling-and-aligning-text" id="markdown-toc-styling-and-aligning-text">Styling and Aligning Text</a></li>
-      <li><a href="#setting-background-color" id="markdown-toc-setting-background-color">Setting Background Color</a></li>
-      <li><a href="#centering-components" id="markdown-toc-centering-components">Centering Components</a></li>
-      <li><a href="#setting-container-width" id="markdown-toc-setting-container-width">Setting Container Width</a></li>
+  <li><a href="#执行基本布局操作" id="markdown-toc-执行基本布局操作">执行基本布局操作</a>    <ul>
+      <li><a href="#文本样式和文本对齐" id="markdown-toc-文本样式和文本对齐">文本样式和文本对齐</a></li>
+      <li><a href="#设置背景颜色" id="markdown-toc-设置背景颜色">设置背景颜色</a></li>
+      <li><a href="#组件居中" id="markdown-toc-组件居中">组件居中</a></li>
+      <li><a href="#设置container宽度" id="markdown-toc-设置container宽度">设置Container宽度</a></li>
     </ul>
   </li>
-  <li><a href="#manipulating-position-and-size" id="markdown-toc-manipulating-position-and-size">Manipulating Position and Size</a>    <ul>
-      <li><a href="#setting-absolute-position" id="markdown-toc-setting-absolute-position">Setting Absolute Position</a></li>
-      <li><a href="#rotating-components" id="markdown-toc-rotating-components">Rotating Components</a></li>
-      <li><a href="#scaling-components" id="markdown-toc-scaling-components">Scaling Components</a></li>
-      <li><a href="#applying-a-linear-gradient" id="markdown-toc-applying-a-linear-gradient">Applying a Linear Gradient</a>        <ul>
-          <li><a href="#vertical-gradient" id="markdown-toc-vertical-gradient">Vertical Gradient</a></li>
-          <li><a href="#horizontal-gradient" id="markdown-toc-horizontal-gradient">Horizontal Gradient</a></li>
+  <li><a href="#操作位置和尺寸" id="markdown-toc-操作位置和尺寸">操作位置和尺寸</a>    <ul>
+      <li><a href="#设置绝对定位" id="markdown-toc-设置绝对定位">设置绝对定位</a></li>
+      <li><a href="#旋转组件" id="markdown-toc-旋转组件">旋转组件</a></li>
+      <li><a href="#缩放组件" id="markdown-toc-缩放组件">缩放组件</a></li>
+      <li><a href="#应用线性渐变" id="markdown-toc-应用线性渐变">应用线性渐变</a>        <ul>
+          <li><a href="#垂直渐变" id="markdown-toc-垂直渐变">垂直渐变</a></li>
+          <li><a href="#水平渐变" id="markdown-toc-水平渐变">水平渐变</a></li>
         </ul>
       </li>
     </ul>
   </li>
-  <li><a href="#manipulating-shapes" id="markdown-toc-manipulating-shapes">Manipulating Shapes</a>    <ul>
-      <li><a href="#rounding-corners" id="markdown-toc-rounding-corners">Rounding Corners</a></li>
-      <li><a href="#adding-box-shadows" id="markdown-toc-adding-box-shadows">Adding Box Shadows</a></li>
-      <li><a href="#making-circles-and-ellipses" id="markdown-toc-making-circles-and-ellipses">Making Circles and Ellipses</a></li>
+  <li><a href="#改变形状" id="markdown-toc-改变形状">改变形状</a>    <ul>
+      <li><a href="#圆角" id="markdown-toc-圆角">圆角</a></li>
+      <li><a href="#添加阴影效果" id="markdown-toc-添加阴影效果">添加阴影效果</a></li>
+      <li><a href="#制作圆形和椭圆形" id="markdown-toc-制作圆形和椭圆形">制作圆形和椭圆形</a></li>
     </ul>
   </li>
-  <li><a href="#manipulating-text" id="markdown-toc-manipulating-text">Manipulating Text</a>    <ul>
-      <li><a href="#adjusting-text-spacing" id="markdown-toc-adjusting-text-spacing">Adjusting Text Spacing</a></li>
-      <li><a href="#transforming-text" id="markdown-toc-transforming-text">Transforming Text</a></li>
-      <li><a href="#making-inline-formatting-changes" id="markdown-toc-making-inline-formatting-changes">Making Inline Formatting Changes</a></li>
-      <li><a href="#creating-text-excerpts" id="markdown-toc-creating-text-excerpts">Creating Text Excerpts</a></li>
+  <li><a href="#操作文本" id="markdown-toc-操作文本">操作文本</a>    <ul>
+      <li><a href="#调整文本间距" id="markdown-toc-调整文本间距">调整文本间距</a></li>
+      <li><a href="#变换文本" id="markdown-toc-变换文本">变换文本</a></li>
+      <li><a href="#修改行内文本格式" id="markdown-toc-修改行内文本格式">修改行内文本格式</a></li>
+      <li><a href="#创建文本摘录" id="markdown-toc-创建文本摘录">创建文本摘录</a></li>
     </ul>
   </li>
 </ul>
 
 <div class="begin-examples"></div>
-<p>This page is for users who are familiar with the HTML and CSS syntax for
-arranging components of an application’s UI. It maps HTML/CSS code snippets to
-their Flutter/Dart code equivalents.</p>
+<p>本页面是面向那些熟悉使用 HTML 和 CSS 编写应用UI组件的开发人员，这里介绍如何将 HTML/CSS 代码转换成等效的 Flutter/Dart 代码。</p>
 
-<p>The examples assume:</p>
+<p>这里的示例基于以下假设：</p>
 <ul>
-  <li>The HTML document starts with a modern HTML DOCTYPE, and the CSS box model
-for all HTML elements is set to <a href="https://css-tricks.com/box-sizing/">border-box</a>,
-for consistency with the Flutter model.
-    <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;!DOCTYPE html&gt;
-
- {
-   box-sizing: border-box;
- }</code></pre>
-  </li>
-  <li>In Flutter, the default styling of the “Lorem ipsum” text is defined by the
-<code class="highlighter-rouge">bold24Roboto</code> variable as follows, to keep the syntax simple:
-    <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>TextStyle bold24Roboto = new TextStyle(
-  color: Colors.white,
-  fontSize: 24.0,
-  fontWeight: FontWeight.w900,
-);</code></pre>
-  </li>
+  <li>HTML 文档都以 HTML DOCTYPE 开头，所有元素的盒子都是 <a href="https://css-tricks.com/box-sizing/">border-box</a> ，以便与 Flutter 模型保持一致。</li>
 </ul>
+<pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;!DOCTYPE html&gt;
 
-<h2 id="performing-basic-layout-operations">Performing Basic Layout Operations</h2>
+   {
+     box-sizing: border-box;
+   }</code></pre>
 
-<p>The following examples show how to perform the most common UI layout tasks.</p>
+<ul>
+  <li>在 Flutter 中，“Lorem ipsum” 文本的默认样式由 bold24Roboto 变量定义，以保持简单的语法。</li>
+</ul>
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>TextStyle bold24Roboto = new TextStyle(
+    color: Colors.white,
+    fontSize: 24.0,
+    fontWeight: FontWeight.w900,
+);</code></pre>
 
-<h3 id="styling-and-aligning-text">Styling and Aligning Text</h3>
-<p>Font style, size, and other text attributes that CSS handles with the font and
-color properties are individual properties of a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html">TextStyle</a>
-child of a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> widget.</p>
+<h2 id="执行基本布局操作">执行基本布局操作</h2>
 
-<p>In both HTML and Flutter, by default child elements or widgets are anchored at
-the top left.</p>
+<p>以下示例展示如何执行最常见的UI布局任务。</p>
+
+<h3 id="文本样式和文本对齐">文本样式和文本对齐</h3>
+
+<p>CSS 可以处理的字体样式，字体大小和其他文本属性，还有颜色都在 <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> 控件的子控件 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html">TextStyle</a> 中定义。</p>
+
+<p>在 HTML 和 Flutter 中，默认的子元素或控件都被固定在左上角。</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
@@ -278,16 +272,13 @@ the top left.</p>
 );</code></pre>
 </div>
 
-<h3 id="setting-background-color">Setting Background Color</h3>
-<p>In Flutter, you set background color in a <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a>’s
-<code class="highlighter-rouge">decoration</code> property.</p>
+<h3 id="设置背景颜色">设置背景颜色</h3>
+<p>在 Flutter 中，你可以在 <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> 中的 <code class="highlighter-rouge">decoration</code> 属性上设置背景颜色;</p>
 
-<p>The CSS examples use the hex color equivalents to the Material color palette.</p>
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   Lorem ipsum
 &lt;/div&gt;
-
 .greybox {
 <span class="nocode highlight">      background-color: #e0e0e0; </span> /* grey 300 */
       width: 320px;
@@ -308,13 +299,10 @@ the top left.</p>
   );</code></pre>
 </div>
 
-<h3 id="centering-components">Centering Components</h3>
-<p>A <a href="https://docs.flutter.io/flutter/widgets/Center-class.html">Center</a> widget
-centers its child both horizontally and vertically.</p>
+<h3 id="组件居中">组件居中</h3>
+<p><a href="https://docs.flutter.io/flutter/widgets/Center-class.html">Center</a> 控件能够使它的子控件保持水平和垂直居中。</p>
 
-<p>To accomplish a similar effect in CSS, the parent element uses either a flex
-or table-cell display behavior. The examples on this page show the flex
-behavior.</p>
+<p>如果要在 CSS 达到同样的效果，则需要使用 flex 布局或者 table-cell 样式，下面的示例则使用  flex 布局的方法。</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
@@ -346,17 +334,10 @@ behavior.</p>
 );</code></pre>
 </div>
 
-<h3 id="setting-container-width">Setting Container Width</h3>
+<h3 id="设置container宽度">设置Container宽度</h3>
+<p>如果想设置 <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> 的宽度，你需要设置它的 <code class="highlighter-rouge">width</code> 属性。而这里设置的是一个固定的宽度，不像CSS的max-width属性能够自动调整。如果想在Flutter中达到CSS max-width的效果，你可以在Container的 <code class="highlighter-rouge">constraints</code>  属性上使用 <code class="highlighter-rouge">minWidth</code> 或 <code class="highlighter-rouge">maxWidth</code> 创建一个 <a href="https://docs.flutter.io/flutter/rendering/BoxConstraints-class.html">BoxConstraints</a> 对象。
+而对于嵌套的 Container ，如果父控件的宽度小于子控件的宽度，子控件会自动调整自身大小以适应父控件的尺寸。</p>
 
-<p>To specify the width of a <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a>
-widget you set its <code class="highlighter-rouge">width</code> property. This is a fixed width, unlike the
-CSS max-width property which adjusts container width up to a maximum value. To
-mimic that effect in Flutter, use the <code class="highlighter-rouge">constraints</code> property of the Container.
-Create a new <a href="https://docs.flutter.io/flutter/rendering/BoxConstraints-class.html">BoxConstraints</a>
-widget with a <code class="highlighter-rouge">minWidth</code> or <code class="highlighter-rouge">maxWidth</code>.</p>
-
-<p>For nested Containers, if the parent’s width is less than the child’s width,
-the child Container sizes itself to match the parent.</p>
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   &lt;div class=&quot;redbox&quot;&gt;
@@ -403,18 +384,15 @@ the child Container sizes itself to match the parent.</p>
 );</code></pre>
 </div>
 
-<h2 id="manipulating-position-and-size">Manipulating Position and Size</h2>
-<p>The following examples show how to perform more complex operations on widget
-position, size, and background.</p>
+<h2 id="操作位置和尺寸">操作位置和尺寸</h2>
+<p>下面的示例展示如何在控件定位，尺寸和背景上执行更多复杂的操作。</p>
 
-<h3 id="setting-absolute-position">Setting Absolute Position</h3>
+<h3 id="设置绝对定位">设置绝对定位</h3>
 
-<p>By default, widgets are positioned relative to their parent.</p>
+<p>默认情况下，控件是相对于父控件定位的。</p>
 
-<p>To specify an absolute position for a widget as x-y coordinates, nest it in a
-<a href="https://docs.flutter.io/flutter/widgets/Positioned-class.html">Positioned</a>
-widget that is in turn nested in a <a href="https://docs.flutter.io/flutter/widgets/Stack-class.html">Stack</a>
-widget.</p>
+<p>如果想使用x-y坐标设置控件的绝对定位，你可以将该控件放到 <a href="https://docs.flutter.io/flutter/widgets/Positioned-class.html">Positioned</a> 控件，然后再将Positioned控件放到 <a href="https://docs.flutter.io/flutter/widgets/Stack-class.html">Stack</a> 中。</p>
+
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   &lt;div class=&quot;redbox&quot;&gt;
@@ -465,14 +443,13 @@ widget.</p>
 );</code></pre>
 </div>
 
-<h3 id="rotating-components">Rotating Components</h3>
+<h3 id="旋转组件">旋转组件</h3>
 
-<p>To rotate a widget, nest it in a <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html">Transform</a>
-widget. Use the Transform widget’s <code class="highlighter-rouge">alignment</code> and <code class="highlighter-rouge">origin</code> properties to
-specify the transform origin (fulcrum) in relative and absolute terms, respectively.</p>
+<p>如果想让控件旋转，你可以将该控件放到 <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html">Transform</a> 控件中，并设置Transorm控件的 <code class="highlighter-rouge">alignment</code> 或 <code class="highlighter-rouge">origin</code> 属性，以相对（自身宽高）或者绝对（设置top，left）的方式去定义变换的原点。</p>
 
-<p>For a simple 2D rotation, the widget is rotated on the Z axis using radians.
-(degrees × π / 180)</p>
+<p>对于一个简单的2D旋转，控件是围绕Z轴使用弧度控制旋转的：
+(旋转角度 × π / 180)</p>
+
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   &lt;div class=&quot;redbox&quot;&gt;
@@ -523,17 +500,14 @@ specify the transform origin (fulcrum) in relative and absolute terms, respectiv
 );</code></pre>
 </div>
 
-<h3 id="scaling-components">Scaling Components</h3>
+<h3 id="缩放组件">缩放组件</h3>
 
-<p>To scale a widget up or down, nest it in a <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html">Transform</a>
-widget. Use the Transform widget’s <code class="highlighter-rouge">alignment</code> and <code class="highlighter-rouge">origin</code> properties to specify
-the transform origin (fulcrum) in relative and absolute terms, respectively.</p>
+<p>让一个控件能够放大缩小，同样可以将该控件放到 <a href="https://docs.flutter.io/flutter/widgets/Transform-class.html">Transform</a> 中。</p>
 
-<p>For a simple scaling operation along the x-axis, create a new
-<a href="https://docs.flutter.io/flutter/vector_math_64/Matrix4-class.html">Matrix4</a>
-identity object and use its scale() method to specify the scaling factor.</p>
+<p>对于一个简单的基于X轴的缩放操作，可以创建一个 <a href="https://docs.flutter.io/flutter/vector_math_64/Matrix4-class.html">Matrix4</a> 对象并使用它的scale()方法去定义缩放系数。</p>
 
-<p>When you scale a parent widget, all its child widgets are scaled accordingly.</p>
+<p>当你缩放一个控件时，它的所有子控件也会随着比例一起缩放。</p>
+
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   &lt;div class=&quot;redbox&quot;&gt;
@@ -583,24 +557,19 @@ identity object and use its scale() method to specify the scaling factor.</p>
 );</code></pre>
 </div>
 
-<h3 id="applying-a-linear-gradient">Applying a Linear Gradient</h3>
+<h3 id="应用线性渐变">应用线性渐变</h3>
 
-<p>To apply a linear gradient to a widget’s background, nest it in a
-<a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> widget.
-Then use the Container widget’s <code class="highlighter-rouge">decoration</code> property to create a <a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>
-object, and use BoxDecoration’s <code class="highlighter-rouge">gradient</code> property to transform the background
-fill.</p>
+<p>如果想在控件的背景使用线性渐变，可以将该控件放到 <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> 控件中，然后在Container的 <code class="highlighter-rouge">decoration</code> 属性上创建一个 <a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a> 对象，再设置BoxDecoration的 <code class="highlighter-rouge">gradient</code> 属性就可以改变背景颜色填充。</p>
 
-<p>The gradient “angle” is based on the Alignment (x, y) values:</p>
-
+<p>而渐变的角度取决于 Aligment(x,y) 的值:</p>
 <ul>
-  <li>If the beginning and ending x values are equal, the gradient is vertical
-(0° | 180°).</li>
-  <li>If the beginning and ending y values are equal, the gradient is horizontal
-(90° | 270°).</li>
+  <li>如果开始和结束的x值是相等的，那么渐变角度是垂直的。</li>
+  <li>如果开始和结束的y值是相等的，那么渐变角度是水平的。</li>
 </ul>
 
-<h4 id="vertical-gradient">Vertical Gradient</h4>
+<p>PS: 这里可以看作开始和结束两点连成直线的角度和方向就是渐变的角度和方向</p>
+
+<h4 id="垂直渐变">垂直渐变</h4>
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   &lt;div class=&quot;redbox&quot;&gt;
@@ -650,7 +619,7 @@ fill.</p>
 );</code></pre>
 </div>
 
-<h4 id="horizontal-gradient">Horizontal Gradient</h4>
+<h4 id="水平渐变">水平渐变</h4>
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   &lt;div class=&quot;redbox&quot;&gt;
@@ -700,14 +669,13 @@ fill.</p>
 );</code></pre>
 </div>
 
-<h2 id="manipulating-shapes">Manipulating Shapes</h2>
-<p>The following examples show how to make and customize shapes.</p>
+<h2 id="改变形状">改变形状</h2>
 
-<h3 id="rounding-corners">Rounding Corners</h3>
-<p>To round the corners of a rectangular shape, use the <code class="highlighter-rouge">borderRadius</code> property of a
-<a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>
-object. Create a new <a href="https://docs.flutter.io/flutter/painting/BorderRadius-class.html">BorderRadius</a>
-object that specifies the radii for rounding each corner.</p>
+<p>下面的示例展示如何制作和自定义不同的形状。</p>
+
+<h3 id="圆角">圆角</h3>
+<p>如果想让一个矩形四个角都变成圆角，那么可以在 <a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a> 的 <code class="highlighter-rouge">borderRadius</code> 属性上，创建一个 <a href="https://docs.flutter.io/flutter/painting/BorderRadius-class.html">BorderRadius</a> 对象，就可以在该对象上为指定圆角的半径。</p>
+
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   &lt;div class=&quot;redbox&quot;&gt;
@@ -754,18 +722,14 @@ object that specifies the radii for rounding each corner.</p>
 );</code></pre>
 </div>
 
-<h3 id="adding-box-shadows">Adding Box Shadows</h3>
-<p>In CSS you can specify shadow offset and blur in shorthand, using the box-shadow
-property. This example shows two box shadows, with properties:</p>
+<h3 id="添加阴影效果">添加阴影效果</h3>
+<p>在 CSS 中，你可以用简写的方式在box-shadow属性上去定义阴影的偏移和模糊，下面的例子展示了两种阴影效果和它们的属性：</p>
 <ul>
   <li><code class="highlighter-rouge">xOffset: 0px, yOffset: 2px, blur: 4px, color: black @80% alpha</code></li>
   <li><code class="highlighter-rouge">xOffset: 0px, yOffset: 06x, blur: 20px, color: black @50% alpha</code>.</li>
 </ul>
 
-<p>In Flutter, each property and value is specified separately. Use the <code class="highlighter-rouge">boxShadow</code>
-property of BoxDecoration to create a list of <a href="https://docs.flutter.io/flutter/painting/BoxShadow-class.html">BoxShadow</a>
-widgets. You can define one or multiple BoxShadow widgets, which can be stacked
-to customize the shadow depth, color, etc.</p>
+<p>而在 Flutter 中，每个属性和值都需要分别去指定。在 BoxDecoration 的 <code class="highlighter-rouge">boxShadow</code> 上创建一个 <a href="https://docs.flutter.io/flutter/painting/BoxShadow-class.html">BoxShadow</a> 控件列表，这些控件可以叠加来定制阴影的深度，颜色等等</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
@@ -826,14 +790,11 @@ to customize the shadow depth, color, etc.</p>
 );</code></pre>
 </div>
 
-<h3 id="making-circles-and-ellipses">Making Circles and Ellipses</h3>
-<p>Making a circle in CSS requires a workaround of applying a border-radius of
-50% to all four sides of a rectangle.</p>
+<h3 id="制作圆形和椭圆形">制作圆形和椭圆形</h3>
 
-<p>While this approach is supported with the <code class="highlighter-rouge">borderRadius</code> property of
-<a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>,
-Flutter provides a <code class="highlighter-rouge">shape</code> property with <a href="https://docs.flutter.io/flutter/painting/BoxShape-class.html">BoxShape enum</a>
-for this purpose.</p>
+<p>在CSS中制作一个圆形，只需要使用border-radius属性设置为50%即可。</p>
+
+<p>这种方式也被 <a href="https://docs.flutter.io/flutter/painting/BoxDecoration-class.html">BoxDecoration</a> 的 <code class="highlighter-rouge">borderRadius</code> 属性所支持，而Flutter也提供一个可以指定为 <a href="https://docs.flutter.io/flutter/painting/BoxShape-class.html">BoxShape enum</a> 的  <code class="highlighter-rouge">shape</code> 属性来实现这种效果。</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
@@ -885,20 +846,13 @@ for this purpose.</p>
 );</code></pre>
 </div>
 
-<h2 id="manipulating-text">Manipulating Text</h2>
-<p>The following examples show how to specify fonts and other text attributes. They
-also show how to transform text strings, customize spacing, and create excerpts.</p>
+<h2 id="操作文本">操作文本</h2>
+<p>下面的示例展示如何定义字体和其他文本属性，它们同样会展示如何变换字符串，自定义间距和创建摘录。</p>
 
-<h3 id="adjusting-text-spacing">Adjusting Text Spacing</h3>
+<h3 id="调整文本间距">调整文本间距</h3>
+<p>在 CSS 中你可以使用 letter-spacing 和 word-spacing 属性设置一个长度值，从而指定每个字符或者每个单词间的间距，而这些属性中使用长度的单位可以是px, pt, cm, em等等。</p>
 
-<p>In CSS you specify the amount of white space between each letter or word by
-giving a length value for the letter-spacing and word-spacing properties,
-respectively. The amount of space can be in px, pt, cm, em, etc.</p>
-
-<p>In Flutter, you specify white space as logical pixels (negative values are allowed)
-for the <code class="highlighter-rouge">letterSpacing</code> and wordSpacing <code class="highlighter-rouge">properties</code> of a
-<a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html">TextStyle</a>
-child of a Text widget.</p>
+<p>在 Flutter 中，你可以使用逻辑像素（logical pixels）在 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html">TextStyle</a> 的 <code class="highlighter-rouge">letterSpacing</code> 和 <code class="highlighter-rouge">wordSpacing</code> 属性上来定义间距（负值也是允许的）。</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
@@ -948,13 +902,10 @@ child of a Text widget.</p>
 );</code></pre>
 </div>
 
-<h3 id="transforming-text">Transforming Text</h3>
-<p>In HTML/CSS, you perform simple case transformations using the text-transform
-property.</p>
+<h3 id="变换文本">变换文本</h3>
+<p>在 HTML/CSS 中，你可以使用 text-transform 属性执行简单的变换。</p>
 
-<p>In Flutter, you transform the contents of a Text widget using the methods and
-operators of the <a href="https://docs.flutter.io/flutter/dart-core/String-class.html">String class</a>
-in the dart:core library.</p>
+<p>在 Flutter 中，你可以使用 <a href="https://docs.flutter.io/flutter/dart-core/String-class.html">String class</a> 的方法和操作符来变换 Text 控件的内容。</p>
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
   &lt;div class=&quot;redbox&quot;&gt;
@@ -999,19 +950,10 @@ in the dart:core library.</p>
 );</code></pre>
 </div>
 
-<h3 id="making-inline-formatting-changes">Making Inline Formatting Changes</h3>
+<h3 id="修改行内文本格式">修改行内文本格式</h3>
+<p>一个 <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> 控件能够显示相同格式的文本，如果希望能够以不同的样式来显示文本，那么可以使用 <a href="https://docs.flutter.io/flutter/widgets/RichText-class.html">RichText</a> 控件。该控件的 <code class="highlighter-rouge">text</code> 属性能够定义一个或者多个能够自定义样式的 <a href="https://docs.flutter.io/flutter/painting/TextSpan-class.html">TextSpan</a> 控件。</p>
 
-<p>A <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> widget lets
-you display text with the same formatting characteristics. To
-display text that uses multiple styles (in this example, a single word with
-emphasis), use a <a href="https://docs.flutter.io/flutter/widgets/RichText-class.html">RichText</a>
-widget instead. Its <code class="highlighter-rouge">text</code> property can specify one or more
-<a href="https://docs.flutter.io/flutter/painting/TextSpan-class.html">TextSpan</a> widgets
-that can be individually styled.</p>
-
-<p>In the following example, “Lorem” is in a TextSpan widget with the default
-(inherited) text styling, and “ipsum” is in a separate TextSpan with custom
-styling.</p>
+<p>在下面的示例中，”Lorem” 是一个继承默认文本样式的 TestSpan 控件，而 “ipsum” 则是一个自定义样式的TextSpan控件。</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
@@ -1071,15 +1013,10 @@ styling.</p>
 );</code></pre>
 </div>
 
-<h3 id="creating-text-excerpts">Creating Text Excerpts</h3>
+<h3 id="创建文本摘录">创建文本摘录</h3>
+<p>一段摘录一般显示段落中文本的初始行，并且通常使用省略号来处理溢出文本。在 HTML/CSS 中，摘录不可以超过一行，如果需要截断成多行则需要利用 JavaScript 代码操作。</p>
 
-<p>An excerpt displays the initial line(s) of text in a paragraph, and handles the
-overflow text, often using an ellipsis. In HTML/CSS an excerpt can be no longer
-than one line. Truncating after multiple lines requires some JavaScript code.</p>
-
-<p>In Flutter, use the <code class="highlighter-rouge">maxLines</code> property of a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a>
-widget to specify the number of lines to include in the excerpt, and the
-<code class="highlighter-rouge">overflow</code> property for handling overflow text.</p>
+<p>在 Flutter 中，可以使用 <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> 控件的 <code class="highlighter-rouge">maxLines</code> 属性去定义摘录的行数，然后使用 <code class="highlighter-rouge">overflow</code> 属性去处理文本溢出。</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;

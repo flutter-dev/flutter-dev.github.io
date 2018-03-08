@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Preparing an Android App for Release  - Flutter </title>
+  <title>发布 Android 应用的准备工作  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -83,7 +83,7 @@
       <li><a href="/get-started/install/">1: 安装</a></li>
       <li><a href="/get-started/editor/">2: 配置编辑器</a></li>
       <li><a href="/get-started/test-drive/">3: 试运行</a></li>
-      <li><a href="/get-started/codelab/">4: 编写第一个 Fluuter 应用</a></li>
+      <li><a href="/get-started/codelab/">4: 编写第一个 Flutter 应用</a></li>
       <li><a href="/get-started/learn-more/">5: 学习更多</a></li>
     </ul>
 
@@ -165,62 +165,54 @@
          <a href="https://github.com/flutter/website/blob/master/android-release-build.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Preparing an Android App for Release&body=From URL: http://localhost:4000/android-release-build.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 发布 Android 应用的准备工作&body=From URL: http://localhost:4000/android-release-build.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Preparing an Android App for Release </h1>
+    <h1 class="post-title">发布 Android 应用的准备工作 </h1>
    </div>
 
   </header>
   
 
-  <p>During the typical development cycle, you’ll test an app using <code class="highlighter-rouge">flutter run</code> at the
-command line, the Run and Debug toolbar buttons in IntelliJ, or both. By default,
-Flutter builds a <em>debug</em> version of your app.</p>
+  <p>一般当您的软件处于开发阶段，您既可以在命令行中运行 <code class="highlighter-rouge">flutter run</code> 来测试应用，也可以使用 IntelliJ 工具栏中的 Run 和 Debug 按钮。默认情况下 Flutter 会构建出您应用的 <em>debug</em> 版本。</p>
 
-<p>When you’re ready to prepare a <em>release</em> version for Android, for example to
-<a href="https://developer.android.com/distribute/googleplay/start.html">publish to the Google Play Store</a>, follow the steps on this page.</p>
+<p>而当您已经准备好要为 Android 平台构建一个 <em>release</em> 版应用， 例如
+<a href="https://developer.android.com/distribute/googleplay/start.html">发布到 Google Play Store</a>， 请参考本页中的如下步骤。</p>
 
 <ul id="markdown-toc">
-  <li><a href="#review-the-app-manifest" id="markdown-toc-review-the-app-manifest">Review the App Manifest</a></li>
-  <li><a href="#review-the-build-configuration" id="markdown-toc-review-the-build-configuration">Review the build configuration</a></li>
-  <li><a href="#adding-a-launcher-icon" id="markdown-toc-adding-a-launcher-icon">Adding a Launcher icon</a></li>
-  <li><a href="#signing-the-app" id="markdown-toc-signing-the-app">Signing the app</a>    <ul>
-      <li><a href="#create-a-keystore" id="markdown-toc-create-a-keystore">Create a keystore</a></li>
-      <li><a href="#reference-the-keystore-from-the-app" id="markdown-toc-reference-the-keystore-from-the-app">Reference the keystore from the app</a></li>
-      <li><a href="#configure-signing-in-gradle" id="markdown-toc-configure-signing-in-gradle">Configure signing in gradle</a></li>
+  <li><a href="#检查应用的-manifest-清单" id="markdown-toc-检查应用的-manifest-清单">检查应用的 Manifest 清单</a></li>
+  <li><a href="#检查构建配置" id="markdown-toc-检查构建配置">检查构建配置</a></li>
+  <li><a href="#添加桌面图标" id="markdown-toc-添加桌面图标">添加桌面图标</a></li>
+  <li><a href="#给应用签名" id="markdown-toc-给应用签名">给应用签名</a>    <ul>
+      <li><a href="#创建-keystore-证书" id="markdown-toc-创建-keystore-证书">创建 keystore 证书</a></li>
+      <li><a href="#在应用中引用-keystore-证书" id="markdown-toc-在应用中引用-keystore-证书">在应用中引用 keystore 证书</a></li>
+      <li><a href="#在-gradle-中配置签名选项" id="markdown-toc-在-gradle-中配置签名选项">在 gradle 中配置签名选项</a></li>
     </ul>
   </li>
-  <li><a href="#building-a-release-apk" id="markdown-toc-building-a-release-apk">Building a release APK</a></li>
-  <li><a href="#installing-a-release-apk-on-a-device" id="markdown-toc-installing-a-release-apk-on-a-device">Installing a release APK on a device</a></li>
-  <li><a href="#publishing-an-apk-to-the-google-play-store" id="markdown-toc-publishing-an-apk-to-the-google-play-store">Publishing an APK to the Google Play Store</a></li>
+  <li><a href="#构建-release-版应用" id="markdown-toc-构建-release-版应用">构建 release 版应用</a></li>
+  <li><a href="#将-release-版本的-apk-安装到设备上" id="markdown-toc-将-release-版本的-apk-安装到设备上">将 release 版本的 APK 安装到设备上</a></li>
+  <li><a href="#将-apk-发布到-google-play-store" id="markdown-toc-将-apk-发布到-google-play-store">将 APK 发布到 Google Play Store</a></li>
 </ul>
 
-<h2 id="review-the-app-manifest">Review the App Manifest</h2>
+<h2 id="检查应用的-manifest-清单">检查应用的 Manifest 清单</h2>
 
-<p>Review the default <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">App Manifest</a> file <code class="highlighter-rouge">AndroidManifest.xml</code> located
-in <code class="highlighter-rouge">&lt;app dir&gt;/android/app/src/main/</code> and verify the values are correct,
-especially:</p>
+<p>请检查路径 <code class="highlighter-rouge">&lt;app dir&gt;/android/app/src/main/</code> 下保存的默认 <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">App Manifest</a> 清单文件 <code class="highlighter-rouge">AndroidManifest.xml</code> ，确保其中的值正确无误，尤其是：</p>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">application</code>: Edit the <a href="https://developer.android.com/guide/topics/manifest/application-element.html"><code class="highlighter-rouge">application</code></a> tag to reflect the
-final name of the app.</p>
+    <p><code class="highlighter-rouge">application</code>: 编辑 <a href="https://developer.android.com/guide/topics/manifest/application-element.html"><code class="highlighter-rouge">application</code></a> 标签以修改应用最终显示的名称。</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">uses-permission</code>: Remove the <code class="highlighter-rouge">android.permission.INTERNET</code>
-<a href="https://developer.android.com/guide/topics/manifest/uses-permission-element.html">permission</a> if your application code does not need Internet
-access. The standard template includes this tag to enable communication between
-Flutter tools and a running app.</p>
+    <p><code class="highlighter-rouge">uses-permission</code>: 如果您的应用并不需要网络访问权限，请移除 <code class="highlighter-rouge">android.permission.INTERNET</code>
+<a href="https://developer.android.com/guide/topics/manifest/uses-permission-element.html">permission</a> 标签。标准项目模板中包含此标签是因为开发阶段需要利用网络权限来确保应用和 Flutter 工具链间的通讯以完成运行调试等功能。</p>
   </li>
 </ul>
 
-<h2 id="review-the-build-configuration">Review the build configuration</h2>
+<h2 id="检查构建配置">检查构建配置</h2>
 
-<p>Review the default [Gradle build file][gradlebuild] file <code class="highlighter-rouge">build.gradle</code>
-located in <code class="highlighter-rouge">&lt;app dir&gt;/android/app/</code> and verify the values are correct, especially:</p>
+<p>请检查路径 <code class="highlighter-rouge">&lt;app dir&gt;/android/app/</code> 下保存的默认 [Gradle build file][gradlebuild] 文件 <code class="highlighter-rouge">build.gradle</code> ，确保其中的值正确无误，尤其是：</p>
 
 <ul>
   <li>
@@ -228,86 +220,74 @@ located in <code class="highlighter-rouge">&lt;app dir&gt;/android/app/</code> a
 
     <ul>
       <li>
-        <p><code class="highlighter-rouge">applicationId</code>: Specify the final, unique (Application Id)<a href="https://developer.android.com/studio/build/application-id.html">appid</a></p>
+        <p><code class="highlighter-rouge">applicationId</code>: 指定唯一的应用 ID <a href="https://developer.android.com/studio/build/application-id.html">appid</a></p>
       </li>
       <li>
-        <p><code class="highlighter-rouge">versionCode</code> &amp; <code class="highlighter-rouge">versionName</code>: Specify the interall app version number, and
-the version number display string. Consult the version information guidance in
-the <a href="https://developer.android.com/studio/publish/versioning.html">versions documenation</a> for details.</p>
+        <p><code class="highlighter-rouge">versionCode</code> &amp; <code class="highlighter-rouge">versionName</code>: 指定应用的版本号和用于显示的版本号字符串。 与版本信息相关的详细内容请查阅文档 <a href="https://developer.android.com/studio/publish/versioning.html">versions documenation</a> 。</p>
       </li>
       <li>
-        <p><code class="highlighter-rouge">minSdkVersion</code> &amp; <code class="highlighter-rouge">targetSdkVersion</code>: Specify the minimum API level, and the
-API level on which the app is designed to run. Consult the API level section
-in the <a href="https://developer.android.com/studio/publish/versioning.html">versions documetation</a> for details.</p>
+        <p><code class="highlighter-rouge">minSdkVersion</code> &amp; <code class="highlighter-rouge">targetSdkVersion</code>: 指定可运行应用的最低版本的 Android 平台，以及运行应用的目标 API 级别。 具体内容请查阅文档 <a href="https://developer.android.com/studio/publish/versioning.html">versions documetation</a> 中《指定 API 级别要求》部分。</p>
       </li>
     </ul>
   </li>
 </ul>
 
-<h2 id="adding-a-launcher-icon">Adding a Launcher icon</h2>
+<h2 id="添加桌面图标">添加桌面图标</h2>
 
-<p>When a new Flutter app is created, it has a default Launcher icon. To
-customize this icon:</p>
+<p>当创建一个全新的 Flutter 应用时，应用将使用一个默认图标，如果您想要自定义桌面图标：</p>
 
 <ol>
   <li>
-    <p>Review the <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html">Android Launcher Icons</a> guidelines for icon
-design.</p>
+    <p>请参考 <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html">Android Launcher Icons</a> 推荐指南来设计图标。</p>
   </li>
   <li>
-    <p>In the <code class="highlighter-rouge">&lt;app dir&gt;/android/app/src/main/res/</code> directory, place your icon files
-in folders named using <a href="https://developer.android.com/guide/practices/screens_support.html#qualifiers">Configuration Qualifiers</a>.
-The default <code class="highlighter-rouge">mipmap-</code> folders demonstrate the correct naming convention.</p>
+    <p>在 <code class="highlighter-rouge">&lt;app dir&gt;/android/app/src/main/res/</code> 文件夹中放置您以 <a href="https://developer.android.com/guide/practices/screens_support.html#qualifiers">配置限定符</a> 命名过的图标文件。
+默认的 <code class="highlighter-rouge">mipmap-</code> 文件夹演示了正确的命名约定。</p>
   </li>
   <li>
-    <p>In <code class="highlighter-rouge">AndroidManifest.xml</code>, update the <a href="https://developer.android.com/guide/topics/manifest/application-element.html"><code class="highlighter-rouge">application</code></a> tag’s
-<code class="highlighter-rouge">android:icon</code> attribute to reference icons from the previous step (e.g.
+    <p>在 <code class="highlighter-rouge">AndroidManifest.xml</code> 清单文件中， 更新 <a href="https://developer.android.com/guide/topics/manifest/application-element.html"><code class="highlighter-rouge">application</code></a> 标签中
+<code class="highlighter-rouge">android:icon</code> 属性的值以指定使用上一步中配置的图标文件 (例如.
 <code class="highlighter-rouge">&lt;application android:icon="@mipmap/ic_launcher" ...</code>).</p>
   </li>
   <li>
-    <p>To verify the icon has been replaced, run your app using <code class="highlighter-rouge">flutter run</code>
-and inspect the app icon in the Launcher.</p>
+    <p>使用 <code class="highlighter-rouge">flutter run</code> 运行您的应用并检查桌面上的图标，以确保图标文件已经替换成功。</p>
   </li>
 </ol>
 
-<h2 id="signing-the-app">Signing the app</h2>
+<h2 id="给应用签名">给应用签名</h2>
 
-<h3 id="create-a-keystore">Create a keystore</h3>
-<p>If you have an existing keystore, skip to the next step. If not, create one
-by running the following at the command line:
+<h3 id="创建-keystore-证书">创建 keystore 证书</h3>
+<p>如果您已经创建过证书则可以跳过这一步。若要创建新的证书，请在命令行中执行如下命令：
 <code class="highlighter-rouge">keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key</code></p>
 
-<p><em>Note</em>: Keep this file private; do not check it into public source control.</p>
+<p><em>注意</em>: 请注意保护好这个证书文件，确保隐私安全，尤其是不要将其上传到公开的版本控制中。</p>
 
-<p><em>Note</em>: <code class="highlighter-rouge">keytool</code> may not be in your path. It is part of the Java JDK, which is installed as 
-part of Android Studio. For the concrete path, run <code class="highlighter-rouge">flutter doctor</code> and see the path printed 
-after ‘Java binary at:’, and then use that fully qualified path replacing <code class="highlighter-rouge">java</code> with <code class="highlighter-rouge">keytool</code>.</p>
+<p><em>注意</em>: <code class="highlighter-rouge">keytool</code> 命令可能并不存在于您的系统环境路径中。 它是 Java JDK 的一部分，当您安装 Android Studio 时会被一起安装。 您可以通过运行 <code class="highlighter-rouge">flutter doctor</code> 命令，查看 ‘Java binary at:’ 后输出的路径来确定命令所在的路径，然后将全路径中最后的 <code class="highlighter-rouge">java</code> 替换成 <code class="highlighter-rouge">keytool</code> 来执行该命令。</p>
 
-<h3 id="reference-the-keystore-from-the-app">Reference the keystore from the app</h3>
+<h3 id="在应用中引用-keystore-证书">在应用中引用 keystore 证书</h3>
 
-<p>Create a file named <code class="highlighter-rouge">&lt;app dir&gt;/android/key.properties</code> that contains a
-reference to your keystore:</p>
+<p>创建一个包含了 keystore 证书引用的配置文件并命名为 <code class="highlighter-rouge">&lt;app dir&gt;/android/key.properties</code> :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>storePassword=&lt;password from previous step&gt;
-keyPassword=&lt;password from previous step&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>storePassword=&lt;上一步中输入的 store 密码&gt;
+keyPassword=&lt;上一步中输入的 key 密码&gt;
 keyAlias=key
-storeFile=&lt;location of the key store file, e.g. /Users/&lt;user name&gt;/key.jks&gt;
+storeFile=&lt;keystore 文件的位置， 例如： /Users/&lt;user name&gt;/key.jks&gt;
 </code></pre>
 </div>
 
-<p><em>Note</em>: Keep this file private; do not check it into public source control.</p>
+<p><em>注意</em>: 请注意保护好这个配置文件，确保隐私安全，尤其是不要将其上传到公开的版本控制中。</p>
 
-<h3 id="configure-signing-in-gradle">Configure signing in gradle</h3>
+<h3 id="在-gradle-中配置签名选项">在 gradle 中配置签名选项</h3>
 
-<p>Configure signing for your app by editing the <code class="highlighter-rouge">&lt;app dir&gt;/android/app/build.gradle</code>
-file.</p>
+<p>编辑您应用的 <code class="highlighter-rouge">&lt;app dir&gt;/android/app/build.gradle</code>
+文件以配置签名选项</p>
 
 <ol>
-  <li>Replace:
+  <li>替换:
     <div class="highlighter-rouge"><pre class="highlight"><code>android {
 </code></pre>
     </div>
-    <p>with the keystore information from your properties file:</p>
+    <p>为您包含证书引用的配置文件:</p>
     <div class="highlighter-rouge"><pre class="highlight"><code>def keystorePropertiesFile = rootProject.file("key.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
@@ -316,7 +296,7 @@ android {
 </code></pre>
     </div>
   </li>
-  <li>Replace:
+  <li>替换:
     <div class="highlighter-rouge"><pre class="highlight"><code>buildTypes {
     release {
         // TODO: Add your own signing config for the release build.
@@ -326,7 +306,7 @@ android {
 }
 </code></pre>
     </div>
-    <p>with:</p>
+    <p>为如下内容:</p>
     <div class="highlighter-rouge"><pre class="highlight"><code>signingConfigs {
     release {
         keyAlias keystoreProperties['keyAlias']
@@ -345,39 +325,36 @@ buildTypes {
   </li>
 </ol>
 
-<p>Release builds of your app will now automatically be signed.</p>
+<p>这样一来，当您的应用构建 Release 版本时就会自动签名。</p>
 
-<h2 id="building-a-release-apk">Building a release APK</h2>
+<h2 id="构建-release-版应用">构建 release 版应用</h2>
 
-<p>This section describes how to build a release APK. If you completed the
-signing steps in the previous section, the release APK will be signed.</p>
+<p>这一部分介绍了应该如何构建 release 版本的 APK。如果您已经完成了上面的所有步骤， Release 版的 APK 将会被自动签名。</p>
 
-<p>Using the command line:</p>
-
-<ol>
-  <li><code class="highlighter-rouge">cd &lt;app dir&gt;</code> (replace <code class="highlighter-rouge">&lt;app dir&gt;</code> with your application’s directory).</li>
-  <li>Run <code class="highlighter-rouge">flutter build apk</code> (<code class="highlighter-rouge">flutter build</code> defaults to <code class="highlighter-rouge">--release</code>).</li>
-</ol>
-
-<p>The release APK for your app is created at <code class="highlighter-rouge">&lt;app dir&gt;/build/app/outputs/apk/app-release.apk</code>.</p>
-
-<h2 id="installing-a-release-apk-on-a-device">Installing a release APK on a device</h2>
-
-<p>Follow these steps to install the APK built in the previous step on a
-connected Android device.</p>
-
-<p>Using the command line:</p>
+<p>在命令行使用:</p>
 
 <ol>
-  <li>Connect your Android device to your computer with a USB cable.</li>
-  <li><code class="highlighter-rouge">cd &lt;app dir&gt;</code> where <code class="highlighter-rouge">&lt;app dir&gt;</code> is your application directory.</li>
-  <li>Run <code class="highlighter-rouge">flutter install</code> .</li>
+  <li><code class="highlighter-rouge">cd &lt;app dir&gt;</code> (用您应用工程的根目录替换 <code class="highlighter-rouge">&lt;app dir&gt;</code> )。</li>
+  <li>运行 <code class="highlighter-rouge">flutter build apk</code> (<code class="highlighter-rouge">flutter build</code> 命令默认使用 <code class="highlighter-rouge">--release</code>)。</li>
 </ol>
 
-<h2 id="publishing-an-apk-to-the-google-play-store">Publishing an APK to the Google Play Store</h2>
+<p>您应用的 release 版本的 APK 会生成在 <code class="highlighter-rouge">&lt;app dir&gt;/build/app/outputs/apk/app-release.apk</code>。</p>
 
-<p>For detailed instructions on publishing the release version of an app to the
-Google Play Store, see the <a href="https://developer.android.com/distribute/googleplay/start.html">Google Play publishing documentation</a>.</p>
+<h2 id="将-release-版本的-apk-安装到设备上">将 release 版本的 APK 安装到设备上</h2>
+
+<p>参考如下步骤，将上面步骤构建出的 APK 安装到已连接的 Android 设备。</p>
+
+<p>使用命令行命令:</p>
+
+<ol>
+  <li>使用 USB 将 Android 设备连接到您的计算机。</li>
+  <li><code class="highlighter-rouge">cd &lt;app dir&gt;</code> (进入您应用工程的根目录)。</li>
+  <li>运行 <code class="highlighter-rouge">flutter install</code> 。</li>
+</ol>
+
+<h2 id="将-apk-发布到-google-play-store">将 APK 发布到 Google Play Store</h2>
+
+<p>将 release 版应用发布到 Google Play Store 的详细步骤请参阅： <a href="https://developer.android.com/distribute/googleplay/start.html">Google Play publishing documentation</a>。</p>
 
 
 </article>
