@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Using Fonts  - Flutter </title>
+  <title>自定义体  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,35 +165,32 @@
          <a href="https://github.com/flutter/website/blob/master/custom-fonts.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Using Fonts&body=From URL: http://localhost:4000/custom-fonts.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 自定义体&body=From URL: http://localhost:4000/custom-fonts.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Using Fonts </h1>
+    <h1 class="post-title">自定义体 </h1>
    </div>
 
   </header>
   
 
-  <h2 id="introduction">Introduction</h2>
+  <h2 id="前言">前言</h2>
 
-<p>You can use different fonts in your Flutter application.
-For example, you may have a custom font that your designer created,
-or you may have a font from <a href="https://fonts.google.com/">Google Fonts</a>.</p>
+<p>你可以在你 Flutter 应用中使用不同的字体。比如，你可以使用你们设计师设计的字体库，或者使用来自<a href="https://fonts.google.com/">谷歌字体库</a>的字体。</p>
 
-<p>This page describes how to configure fonts for your Flutter app,
-and use them when rendering text.</p>
+<p>这篇文章将指导你怎样定义你的 Flutter 应用的字体，并且在渲染文本时使用这种字体。</p>
 
-<h2 id="using-fonts">Using fonts</h2>
+<h2 id="更换字体">更换字体</h2>
 
-<p>Using fonts in your Flutter application is done in two steps. 
-First declare them in your <code class="highlighter-rouge">pubspec.yaml</code>, to ensure that they are included in the app. Second use the font with a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> property.</p>
+<p>在你的应用中更换字体需要两个步骤。</p>
 
-<h3 id="declaring-in-the-font-asset">Declaring in the font asset</h3>
+<p>首先，需要在 <code class="highlighter-rouge">pubspec.yaml</code> 文件中声明，确保他们在应用中被引用。然后在 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> 属性中使用他们。</p>
 
-<p>To include your font in the app, declare it like in the <code class="highlighter-rouge">pubspec.yaml</code> example below.
-Then copy the font file to the location specified in your <code class="highlighter-rouge">pubspec.yaml</code>.</p>
+<h3 id="在字体库中声明">在字体库中声明</h3>
+
+<p>为了使你的字体被应用引入，你需要在 <code class="highlighter-rouge">pubspec.yaml</code> 中声明他，如下面例子。然后把字体文件复制到你的 <code class="highlighter-rouge">pubspec.yaml</code> 文件声明的对应文件夹下。</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
   <span class="s">fonts</span><span class="pi">:</span>
@@ -210,11 +207,10 @@ Then copy the font file to the location specified in your <code class="highlight
 </code></pre>
 </div>
 
-<h3 id="using-the-font">Using the font</h3>
+<h3 id="使用字体">使用字体</h3>
 
-<p>Second use the font by creating a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>. 
-Then set the <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> <code class="highlighter-rouge">fontFamily</code> property 
-and use the font family specified in the <code class="highlighter-rouge">pubsec.yaml</code> declarations.</p>
+<p>第二步，通过创建 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> 以使用该字体。
+然后把 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> 的 <code class="highlighter-rouge">fontFamily</code> 属性设置为在 <code class="highlighter-rouge">pubsec.yaml</code> 文件中定义的字体。</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// declare the text style</span>
 <span class="kd">const</span> <span class="n">textStyle</span> <span class="o">=</span> <span class="kd">const</span> <span class="n">TextStyle</span><span class="o">(</span>
@@ -228,11 +224,9 @@ and use the font family specified in the <code class="highlighter-rouge">pubsec.
 <span class="o">);</span>
 </code></pre>
 </div>
-<h3 id="from-packages">Fonts in package dependencies</h3>
+<h3 id="from-packages">使用依赖包中的字体</h3>
 
-<p>To use a font family defined in a package, the <code class="highlighter-rouge">package</code> argument must be provided. For instance, suppose the font
-declaration above is in the <code class="highlighter-rouge">pubspec.yaml</code> of a package named <code class="highlighter-rouge">my_package</code> which the app depends on. Then creating the
-TextStyle is done as follows:</p>
+<p>使用依赖包中定义的字体，必须提供<code class="highlighter-rouge">依赖包</code>相关的参数。举个例子，假设上面在 <code class="highlighter-rouge">pubspec.yaml</code> 文件中声明的字体是一个名字是 <code class="highlighter-rouge">my_package</code> 的应用依赖包。然后可以像下面一样创建 TextStyle 。</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">const</span> <span class="n">textStyle</span> <span class="o">=</span> <span class="kd">const</span> <span class="n">TextStyle</span><span class="o">(</span>
   <span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">,</span>
@@ -241,20 +235,15 @@ TextStyle is done as follows:</p>
 </code></pre>
 </div>
 
-<p>If the package internally uses the font it defines, it should still specify
-the <code class="highlighter-rouge">package</code> argument when creating the text style as in the example above.</p>
+<p>在上面的例子中，如果这个依赖包内部使用的是它自己定义的字体，在创建 TextStyle 的时候仍然要明确指明<code class="highlighter-rouge">依赖包</code>参数。</p>
 
-<p>A package can also provide font files without declaring a font in its <code class="highlighter-rouge">pubspec.yaml</code>. These files
-should then be in the <code class="highlighter-rouge">lib/</code> folder of the package. The font files will not
-automatically be bundled in the app, instead the app can use these
-selectively when declaring a font. Suppose a package named <code class="highlighter-rouge">my_package</code> has:</p>
+<p>依赖包也可以在直接提供字体文件，而不必在 <code class="highlighter-rouge">pubspec.yaml</code> 文件中声明。这些字体文件必须放在 <code class="highlighter-rouge">/lib</code> 文件夹下。字体文件不会被应用自动的引入，应用可以在定义字体时选择性的使用某些字体。假设 <code class="highlighter-rouge">my_package</code> 依赖包中有如下字体文件：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>lib/fonts/Raleway-Medium.ttf
 </code></pre>
 </div>
 
-<p>Then the app can declare a font like in the example below:</p>
-
+<p>然后应用就可以像以下例子一样声明一种字体：</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="s">flutter</span><span class="pi">:</span>
    <span class="s">fonts</span><span class="pi">:</span>
      <span class="pi">-</span> <span class="s">family</span><span class="pi">:</span> <span class="s">Raleway</span>
@@ -265,22 +254,18 @@ selectively when declaring a font. Suppose a package named <code class="highligh
 </code></pre>
 </div>
 
-<p>The <code class="highlighter-rouge">lib/</code> is implied, so it should not be included in the asset path.</p>
+<p>由于声明了是 <code class="highlighter-rouge">lib/</code> 文件夹，所以字体文件不必包含在asset路径中。</p>
 
-<p>In this case, since the app locally defines the font, the TextStyle is created
-without the <code class="highlighter-rouge">package</code> argument:</p>
-
+<p>在这个例子中，由于应用局部定义了字体，在创建TextStyle的时候不需要<code class="highlighter-rouge">依赖包</code>的参数：</p>
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">const</span> <span class="n">textStyle</span> <span class="o">=</span> <span class="kd">const</span> <span class="n">TextStyle</span><span class="o">(</span>
   <span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">,</span>
 <span class="o">);</span>
 </code></pre>
 </div>
 
-<h2 id="using-the-material-design-icon-font">Using the Material Design icon font</h2>
+<h2 id="使用material-design图标字体">使用Material Design图标字体</h2>
 
-<p>When you want to use the Material Design icon font,
-it can be simply included by adding a property <code class="highlighter-rouge">uses-material-design: true</code> to the <code class="highlighter-rouge">pubspec.yaml</code> file.</p>
-
+<p>如果你想使用Material Design图标字体，只需要把 <code class="highlighter-rouge">pubsec.yaml</code> 文件中添加一行 <code class="highlighter-rouge">uses-material-design: true</code> 。</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
   <span class="c1"># The following line ensures that the Material Icons font is</span>
   <span class="c1"># included with your application, so that you can use the icons in</span>
@@ -289,50 +274,32 @@ it can be simply included by adding a property <code class="highlighter-rouge">u
 </code></pre>
 </div>
 
-<h2 id="pubspecyaml-option-definitions">pubspec.yaml option definitions</h2>
+<h2 id="pubspecyaml可选定义">pubspec.yaml可选定义</h2>
 
-<p>The <code class="highlighter-rouge">family</code> determines the name of the font, which you can use in the
-<a href="https://docs.flutter.io/flutter/painting/TextStyle/fontFamily.html"><code class="highlighter-rouge">fontFamily</code></a>
-property of a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>
-object to use the font with a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a>
-or a <a href="https://docs.flutter.io/flutter/widgets/RichText-class.html"><code class="highlighter-rouge">RichText</code></a>
-widget.</p>
+<p><code class="highlighter-rouge">falimy</code> 定义了在 <a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a> 或者 <a href="https://docs.flutter.io/flutter/widgets/RichText-class.html"><code class="highlighter-rouge">RichText</code></a> 组件中的 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> 对象的 <a href="https://docs.flutter.io/flutter/painting/TextStyle/fontFamily.html"><code class="highlighter-rouge">fontFamily</code></a> 属性中可以使用的字体名称。</p>
 
-<p>The <code class="highlighter-rouge">asset</code> is a path to the font file, relative to the <code class="highlighter-rouge">pubspec.yaml</code> file.
-These files contain the outlines for the glyphs in the font. When building your app, 
-these files are included in your app’s asset bundle.</p>
+<p><code class="highlighter-rouge">asset</code> 是一个相对于 <code class="highlighter-rouge">pubspec.yaml</code> 文件位置的相对路径。</p>
 
-<p>A single font can reference many different files with different outline weights
-and styles:</p>
+<p>这些文件会被包含在你应用的资源包中。</p>
+
+<p>一种字体可以引入不同的轮廓线粗细和样式的文件。</p>
 
 <ul>
   <li>
-    <p>The <code class="highlighter-rouge">weight</code> property specifies the weight of the outlines in the file as an
-integer multiple of 100 between 100 and 900. These values correspond to the
-<a href="https://docs.flutter.io/flutter/dart-ui/FontWeight-class.html"><code class="highlighter-rouge">FontWeight</code></a>
-and can be used in the <a href="https://docs.flutter.io/flutter/painting/TextStyle/fontWeight.html"><code class="highlighter-rouge">fontWeight</code></a>
-property of a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>
-object.</p>
+    <p><code class="highlighter-rouge">weight</code> 属性可以定义轮廓线的粗细，这个值应该是一个在100-900之间的100的整数倍的数字。这个值和 <a href="https://docs.flutter.io/flutter/dart-ui/FontWeight-class.html"><code class="highlighter-rouge">FontWeight</code></a> 属性一样，并且可以在 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> 对象的 <a href="https://docs.flutter.io/flutter/painting/TextStyle/fontWeight.html"><code class="highlighter-rouge">fontWeight</code></a> 属性中使用该值。</p>
   </li>
   <li>
-    <p>The <code class="highlighter-rouge">style</code> property specfies whether the outlines in the file are
-<code class="highlighter-rouge">italic</code> or <code class="highlighter-rouge">normal</code>. These values correspond to the
-<a href="https://docs.flutter.io/flutter/dart-ui/FontStyle-class.html"><code class="highlighter-rouge">FontStyle</code></a>
-and can be used in the <a href="https://docs.flutter.io/flutter/painting/TextStyle/fontStyle.html">fontStyle</a>
-property of a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>
-object.</p>
+    <p><code class="highlighter-rouge">style</code> 属性定义了文件中的字体是 <code class="highlighter-rouge">italic</code> 或者 <code class="highlighter-rouge">normal</code> 。这个值和 <a href="https://docs.flutter.io/flutter/dart-ui/FontStyle-class.html"><code class="highlighter-rouge">FontStyle</code></a> 属性一样，并且可以在 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> 对象中的 <a href="https://docs.flutter.io/flutter/dart-ui/FontStyle-class.html"><code class="highlighter-rouge">FontStyle</code></a> 属性中使用。</p>
   </li>
 </ul>
 
 <h2 id="textstyle">TextStyle</h2>
 
-<p>If a <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a>
-object specifies a weight or style for which is there is no exact font file, the
-engine uses one of the more generic files for the font and attempts to
-extrapolate outlines for the requested weight and style.</p>
+<p>如果 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html"><code class="highlighter-rouge">TextStyle</code></a> 对象对不存在的字体文件定义了粗细和样式，引擎会使用另一种字体文件，并且会尝试将定义的粗细和样式运用在这种字体上。</p>
 
-<h2 id="example">Example</h2>
-<p>Here is an example delcaring and using the fonts in a simple application.</p>
+<h2 id="举例来说">举例来说</h2>
+
+<p>这个例子中，应用声明和使用了一种字体。</p>
 
 <table>
   <thead>
@@ -349,7 +316,7 @@ extrapolate outlines for the requested weight and style.</p>
   </tbody>
 </table>
 
-<p>Declaring the fonts in the pubsec.yaml.</p>
+<p>在 pubsec.yaml 文件中声明了字体。</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">name</span><span class="pi">:</span> <span class="s">my_application</span>
 <span class="s">description</span><span class="pi">:</span> <span class="s">A new Flutter project.</span>
@@ -357,7 +324,7 @@ extrapolate outlines for the requested weight and style.</p>
 <span class="s">dependencies</span><span class="pi">:</span>
   <span class="s">flutter</span><span class="pi">:</span>
     <span class="s">sdk</span><span class="pi">:</span> <span class="s">flutter</span>
-    
+
 <span class="s">flutter</span><span class="pi">:</span>
   <span class="c1"># Include the Material Design fonts.</span>
   <span class="s">uses-material-design</span><span class="pi">:</span> <span class="s">true</span>
@@ -378,7 +345,7 @@ extrapolate outlines for the requested weight and style.</p>
 </code></pre>
 </div>
 
-<p>Implementing the fonts in the application source code.</p>
+<p>在应用代码中使字体生效。</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 

@@ -47,30 +47,6 @@
 3. 当中英数字混合的时候，中文和英文与数字间应添加空格，如 Flutter 在 Github 上目前有 15269 个 star 。
 
 
-## 任务认领及进度
-| 任务文件 | url | 是否完成 | 译者 |
-| ---------- | --- | ----------- | ----- |
-| website/index.md |https://flutter-dev.github.io/  | ok | [_番茄沙司](https://github.com/ZhangQinglian) | 
-| website/_includes/sidebar.html | https://flutter-dev.github.io/docs/ | ok | [_番茄沙司](https://github.com/ZhangQinglian) | 
-| website/_includes/footer.html |https://flutter-dev.github.io/ |  ok | [\_番茄沙司](https://github.com/ZhangQinglian) | 
-| website/get-started/codelab/index.md | https://flutter-dev.github.io/get-started/codelab/  | no | [MelonRice](https://github.com/MelonRice) | 
-| website/get-started/setup_windows.md |  https://flutter-dev.github.io/setup-windows/  |  ok  |  [gdmec07120731](https://github.com/gdmec07120731)  |
-| website/bug_reports.md |https://flutter-dev.github.io/bug-reports/ | ok | [debuggerx01](https://github.com/debuggerx01)|
-| website/bootstrap-into-dart.md  |  https://flutter-dev.github.io/bootstrap-into-dart/ | ok | [debuggerx01](https://github.com/debuggerx01) |
-| website/android-release-build.md|  https://flutter-dev.github.io/android-release/ | ok   |  [debuggerx01](https://github.com/debuggerx01)   |   
-
-| website/404.md  | https://flutter-dev.github.io/404 | ok  |   [MuffinYu](https://github.com/MuffinYu)  |   
-| website/docs.md | https://flutter-dev.github.io/docs/ |  no  |     |   
-| website/custom-fonts.md  |  https://flutter-dev.github.io/custom-fonts/  |  no |     |   
-| website/debugging.md  | https://flutter-dev.github.io/debugging/   |  no |     |   
-| website/widgets-intro.md   |  https://flutter-dev.github.io/widgets-intro/  | no  |  [goldhan](https://github.com/goldhan)   |   
-| website/web-analogs.md   | 	https://flutter-dev.github.io/web-analogs/   | ok  |  [tain335](https://github.com/tain335)   |   
-| website/animations/index.md   |  https://flutter-dev.github.io/animations/  |  no  |  [Zhevol](https://github.com/Zhevol)   |   
-|    |    |   |     |   
-|    |    |   |     |   
-|    |    |   |     |   
-
-
 ## 本次翻译贡献者（排名不分先后）
 [_番茄沙司](https://github.com/ZhangQinglian)、
 [MelonRice](https://github.com/MelonRice)、

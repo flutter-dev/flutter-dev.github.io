@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Get Started: Install on macOS  - Flutter </title>
+  <title>开始使用：在 macOS 上安装  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,31 +165,31 @@
          <a href="https://github.com/flutter/website/blob/master/get-started/setup_macos.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Get Started: Install on macOS&body=From URL: http://localhost:4000/get-started/setup_macos.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 开始使用：在 macOS 上安装&body=From URL: http://localhost:4000/get-started/setup_macos.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Get Started: Install on macOS </h1>
+    <h1 class="post-title">开始使用：在 macOS 上安装 </h1>
    </div>
 
   </header>
   
 
   <ul id="markdown-toc">
-  <li><a href="#system-requirements" id="markdown-toc-system-requirements">System requirements</a></li>
-  <li><a href="#get-the-flutter-sdk" id="markdown-toc-get-the-flutter-sdk">Get the Flutter SDK</a>    <ul>
-      <li><a href="#clone-the-repo" id="markdown-toc-clone-the-repo">Clone the repo</a></li>
-      <li><a href="#run-flutter-doctor" id="markdown-toc-run-flutter-doctor">Run flutter doctor</a></li>
-      <li><a href="#update-your-path" id="markdown-toc-update-your-path">Update your path</a></li>
+  <li><a href="#系统要求" id="markdown-toc-系统要求">系统要求</a></li>
+  <li><a href="#获取-flutter-sdk" id="markdown-toc-获取-flutter-sdk">获取 Flutter SDK</a>    <ul>
+      <li><a href="#克隆仓库" id="markdown-toc-克隆仓库">克隆仓库</a></li>
+      <li><a href="#运行-flutter-doctor" id="markdown-toc-运行-flutter-doctor">运行 flutter doctor</a></li>
+      <li><a href="#更新你的路径" id="markdown-toc-更新你的路径">更新你的路径</a></li>
     </ul>
   </li>
   <li><a href="#编译器设置" id="markdown-toc-编译器设置">编译器设置</a></li>
-  <li><a href="#platform-setup" id="markdown-toc-platform-setup">Platform setup</a></li>
-  <li><a href="#ios-setup" id="markdown-toc-ios-setup">iOS setup</a>    <ul>
-      <li><a href="#install-xcode" id="markdown-toc-install-xcode">Install Xcode</a></li>
-      <li><a href="#set-up-the-ios-simulator" id="markdown-toc-set-up-the-ios-simulator">Set up the iOS simulator</a></li>
-      <li><a href="#deploy-to-ios-devices" id="markdown-toc-deploy-to-ios-devices">Deploy to iOS devices</a></li>
+  <li><a href="#平台设置" id="markdown-toc-平台设置">平台设置</a></li>
+  <li><a href="#ios-设置" id="markdown-toc-ios-设置">iOS 设置</a>    <ul>
+      <li><a href="#安装-xcode" id="markdown-toc-安装-xcode">安装 Xcode</a></li>
+      <li><a href="#设置-ios-模拟器" id="markdown-toc-设置-ios-模拟器">设置 iOS 模拟器</a></li>
+      <li><a href="#部署到-ios-设备" id="markdown-toc-部署到-ios-设备">部署到 iOS 设备</a></li>
     </ul>
   </li>
   <li><a href="#android-设置" id="markdown-toc-android-设置">Android 设置</a>    <ul>
@@ -198,54 +198,47 @@
       <li><a href="#设置-android-模拟器" id="markdown-toc-设置-android-模拟器">设置 Android 模拟器</a></li>
     </ul>
   </li>
-  <li><a href="#next-step" id="markdown-toc-next-step">Next step</a></li>
+  <li><a href="#下一步" id="markdown-toc-下一步">下一步</a></li>
 </ul>
 
-<h2 id="system-requirements">System requirements</h2>
+<h2 id="系统要求">系统要求</h2>
 
-<p>To install and run Flutter, your development environment must meet these minimum requirements:</p>
+<p>安装并运行 Flutter ，你的开发环境必须满足这些最低要求：</p>
 
 <ul>
-  <li><strong>Operating Systems</strong>: macOS (64-bit)</li>
-  <li><strong>Disk Space</strong>: 700 MB (does not include disk space for Xcode or Android Studio).</li>
-  <li><strong>Tools</strong>: Flutter depends on these command-line tools being available in your environment.
+  <li><strong>操作系统</strong>：macOS （64-bit）。</li>
+  <li><strong>磁盘空间</strong>： 700 MB （不包括 Xcode 和 Android Studio 的磁盘空间）。</li>
+  <li><strong>工具</strong>：Flutter 依赖你环境中可用的这些命令行工具。
     <ul>
-      <li><code class="highlighter-rouge">bash</code>, <code class="highlighter-rouge">mkdir</code>, <code class="highlighter-rouge">rm</code>, <code class="highlighter-rouge">git</code>, <code class="highlighter-rouge">curl</code>, <code class="highlighter-rouge">unzip</code>, <code class="highlighter-rouge">which</code></li>
+      <li><code class="highlighter-rouge">bash</code>， <code class="highlighter-rouge">mkdir</code>，<code class="highlighter-rouge">rm</code>，<code class="highlighter-rouge">git</code>， <code class="highlighter-rouge">curl</code>，<code class="highlighter-rouge">unzip</code>，<code class="highlighter-rouge">which</code></li>
     </ul>
   </li>
 </ul>
 
-<h2 id="get-the-flutter-sdk">Get the Flutter SDK</h2>
+<h2 id="获取-flutter-sdk">获取 Flutter SDK</h2>
 
-<p>To get Flutter, use <code class="highlighter-rouge">git</code> to clone the repository and then add the <code class="highlighter-rouge">flutter</code> tool to your path.
-Running <code class="highlighter-rouge">flutter doctor</code> shows any remaining dependencies you may need to install.</p>
+<p>获取 Flutter ，你可使用 <code class="highlighter-rouge">git</code>去克隆 Flutter 的仓库然后添加 <code class="highlighter-rouge">flutter</code> 工具到你的路径，运行 <code class="highlighter-rouge">flutter doctor </code>显示你可能要安装的依赖。</p>
 
-<h3 id="clone-the-repo">Clone the repo</h3>
+<h3 id="克隆仓库">克隆仓库</h3>
 
-<p>If this is the first time you’re installing Flutter on this machine, clone the
-<code class="highlighter-rouge">beta</code> branch of the repository and then add the <code class="highlighter-rouge">flutter</code> tool to your path:</p>
+<p>如果你是第一次在你机器上安装 Flutter ，克隆 <code class="highlighter-rouge">beta</code> 分支的仓库然后添加 <code class="highlighter-rouge">flutter</code> 工具到你的路径：</p>
 
 <pre><code><span class="noselect">$ </span>git clone -b beta https://github.com/flutter/flutter.git
 <span class="noselect">$ </span>export PATH=`pwd`/flutter/bin:$PATH</code></pre>
 
-<p>The above command sets your PATH variable temporarily, for the current terminal window. To
-permanently add Flutter to your path, see <a href="#update-your-path">Update your path</a>.</p>
+<p>上面的命令会在当前的终端窗口暂时设置 PATH 变量，要永久添加 Flutter 到你的路径，请参阅 <a href="#update-your-path">更新你的路径</a>。</p>
 
-<p>To update an existing version of Flutter, see <a href="/upgrading/">Upgrading Flutter</a>.</p>
+<p>要更新一个现有版本的 Flutter ，请参阅<a href="/upgrading/">更新 Flutter</a> 。</p>
 
-<h3 id="run-flutter-doctor">Run flutter doctor</h3>
+<h3 id="运行-flutter-doctor">运行 flutter doctor</h3>
 
-<p>Run the following command to see if there are any dependencies you need to install to complete
-the setup:</p>
+<p>运行以下命令可以看到你是否需要安装任何依赖来完成安装：</p>
 
 <pre><code><span class="noselect">$ </span>flutter doctor</code></pre>
 
-<p>This command checks your environment and displays a report to the terminal window.
-The Dart SDK is bundled with Flutter; it is not necessary to install Dart separately.
-Check the output carefully for other software you may need to install or further 
-tasks to perform (shown in <strong>bold</strong> text).</p>
+<p>这个命令会检查你的环境并显示一份报告在终端窗口，Dart SDK 已和 Flutter 捆绑在一起，所以你不需要额外安装 Dart 。仔细检查输出信息是否需要安装其他软件或者执行其他任务（以<strong>粗体</strong>字显示）。</p>
 
-<p>For example:</p>
+<p>举个例子：</p>
 <pre>
 [-] Android toolchain - develop for Android devices
     • Android SDK at /Users/obiwan/Library/Android/sdk
@@ -254,57 +247,36 @@ tasks to perform (shown in <strong>bold</strong> text).</p>
       visit https://flutter.io/setup/#android-setup for detailed instructions.
 </pre>
 
-<p>The first time you run a flutter command (such as <code class="highlighter-rouge">flutter doctor</code>), it downloads its own dependencies and compiles
-itself. Subsequent runs should be much faster.</p>
+<p>这是你第一次去运行 flutter 命令（比如 <code class="highlighter-rouge">flutter doctor</code>），它会下载依赖库，并且自行编译。后续运行这条命令就会更加快了。</p>
 
-<p>The following sections describe how to perform these tasks and finish the setup process.
-You’ll see in <code class="highlighter-rouge">flutter doctor</code> output that if you choose to use an IDE, plugins
-are available for IntelliJ IDEA, Android Studio, and VS Code. See <a href="/get-started/editor/">Editor Setup</a>
-for the steps to install the Flutter and Dart plugins.</p>
+<p>接下来的章节就是描述怎么执行这些任务和完成设置过程。你会看到 <code class="highlighter-rouge">flutter doctor</code> 输出了假如你是用了 IDE ，就会显示 IntelliJ IDEA ， Android Studio ， 和 VS Code 这些编译器的可用插件。请参阅<a href="/get-started/editor/">编译器设置</a>根据步骤去安装 Flutter 和 Dart 插件。</p>
 
-<p>Once you have installed any missing dependencies, run the <code class="highlighter-rouge">flutter doctor</code> command again to
-verify that you’ve set everything up correctly.</p>
+<p>当你安装好了所有缺失的依赖库，运行 <code class="highlighter-rouge">flutter doctor</code> 命令去验证你的设置是否正确。</p>
 
-<p class="alert-warning">The <code class="highlighter-rouge">flutter</code> tool uses Google Analytics to anonymously report feature usage statistics
-and basic crash reports. This data is used to help improve Flutter tools over time.
-Analytics is not sent on the very first run or for any runs involving <code class="highlighter-rouge">flutter config</code>,
-so you can opt out of analytics before any data is sent. To disable reporting, 
-type <code class="highlighter-rouge">flutter config --no-analytics</code> and to display the current setting, type 
-<code class="highlighter-rouge">flutter config</code>. See Google’s privacy policy:<a href="https://www.google.com/intl/en/policies/privacy/">www.google.com/intl/en/policies/privacy</a>.</p>
+<p class="alert-warning">这个<code class="highlighter-rouge">flutter</code> 工具使用了 Google Analytics 匿名分析 报告功能，使用情况信息和基本崩溃报告。这些数据用于帮助改进 Flutter 工具。并且这个分析报告是不会在第一次运行或者任何涉及到 <code class="highlighter-rouge">flutter config</code> 的设置运行时发送，因此你可以在任何分析之前退出分析。要禁用分析的话，输入<code class="highlighter-rouge">flutter config --no-analytics</code> ，要显示当前配置的话输入 <code class="highlighter-rouge">flutter config</code> 。详情请参阅 Google 的隐私政策：<a href="https://www.google.com/intl/en/policies/privacy/">www.google.com/intl/en/policies/privacy</a>。</p>
 
-<h3 id="update-your-path">Update your path</h3>
+<h3 id="更新你的路径">更新你的路径</h3>
 
-<p>You can update your PATH variable for the current session only at the command line,
-as shown in <a href="./#clone-the-repo">Clone the Flutter repo</a>. You’ll probably want to 
-update this variable permanently, so you can run <code class="highlighter-rouge">flutter</code> commands in any terminal session.</p>
+<p>你只能在命令行中更新你当前会话窗口的 PATH 变量，如<a href="./#clone-the-repo">克隆 Flutter 库</a>所示。当永久更新这个变量，这样子你就可以在任意终端会话中运行 <code class="highlighter-rouge">flutter</code> 命令了。</p>
 
-<p>The steps for modifying this variable permanently for all terminal sessions are machine-specific.
-Typically you add a line to a file that is executed whenever you open 
-a new window. For example:</p>
+<p>对于计算机来说，永久给全部终端会话修改这个变量这些操作都是不同的。通常，你会打开新窗口时将命令输入。举个例子：</p>
 
 <ol>
-  <li>Determine the directory where you placed the Flutter SDK. You will
-need this in Step 3.</li>
-  <li>Open (or create) <code class="highlighter-rouge">$HOME/.bash_profile</code>. The file path and filename might be
-different on your machine.</li>
-  <li>Add the following line and change <code class="highlighter-rouge">[PATH_TO_FLUTTER_GIT_DIRECTORY]</code> to be
-the path where you cloned Flutter’s git repo:</li>
+  <li>确定好放置 Flutter SDK 的目录，你会在步骤 3 用到它。</li>
+  <li>打开（或者创建） <code class="highlighter-rouge">$HOME/.bash_profile</code> 这个文件或者文件名可能不同于你计算机的。</li>
+  <li>添加下面命令行并将<code class="highlighter-rouge">[PATH_TO_FLUTTER_GIT_DIRECTORY]</code> 改为你克隆 Flutter 仓库的路径：</li>
 </ol>
 
 <pre><code><span class="noselect">$ </span>export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH</code></pre>
 
 <ol>
-  <li>
-    <p>Run <code class="highlighter-rouge">source $HOME/.bash_profile</code> to refresh the current window.</p>
-  </li>
-  <li>
-    <p>Verify that the <code class="highlighter-rouge">flutter/bin</code> directory is now in your PATH by running:</p>
-  </li>
+  <li>运行 <code class="highlighter-rouge">source $HOME/.bash_profile</code> 刷新当前窗口。</li>
+  <li>验证 <code class="highlighter-rouge">flutter/bin</code> 是否在你的路径上：</li>
 </ol>
 
 <pre><code><span class="noselect">$ </span>echo $PATH</code></pre>
 
-<p>For more details, see <a href="https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path">this StackExchange question</a>.</p>
+<p>更多的细节，可以参阅<a href="https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path"> StackExchange 上的问题</a>。</p>
 
 <h2 id="编译器设置">编译器设置</h2>
 
@@ -312,61 +284,51 @@ the path where you cloned Flutter’s git repo:</li>
 
 <p>我推荐使用我们的插件来获取<a href="/using-ide/">丰富的 IDE 体验</a> ，支持编辑，运行和调试 Flutter 应用。参阅<a href="/get-started/editor/">编辑器设置</a>了解详细步骤。</p>
 
-<h2 id="platform-setup">Platform setup</h2>
+<h2 id="平台设置">平台设置</h2>
 
-<p>macOS supports developing Flutter apps for both iOS and Android. Complete at
-least one of the two platform setup steps now, to be able to build and run your
-first Flutter app.</p>
+<p>macOS 支持为 iOS 和 Android 开发 Flutter 应用程序。现在只要在两个系统平台中的一个完成设置，就可以构建运行你的第一个 Flutter 应用程序了。</p>
 
-<h2 id="ios-setup">iOS setup</h2>
+<h2 id="ios-设置">iOS 设置</h2>
 
-<h3 id="install-xcode">Install Xcode</h3>
+<h3 id="安装-xcode">安装 Xcode</h3>
 
-<p>To develop Flutter apps for iOS, you need a Mac with Xcode 7.2 or newer:</p>
+<p>为 iOS 开发 Flutter 应用，你需要一台安装了 Xcode 7.2 或者更新版本的 Mac 。</p>
 
 <ol>
-  <li>Install Xcode 7.2 or newer (via <a href="https://developer.apple.com/xcode/">web download</a> or
-the <a href="https://itunes.apple.com/us/app/xcode/id497799835">Mac App Store</a>).</li>
+  <li>安装 Xcode 7.2  或者更新版本（通过<a href="https://developer.apple.com/xcode/">网页下载</a>或者 <a href="https://itunes.apple.com/us/app/xcode/id497799835">App Store</a> 安装）。</li>
   <li>
-    <p>Configure the Xcode command-line tools to use the newly-installed version of Xcode by
-running <code class="highlighter-rouge">sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</code> from
-the command line.</p>
+    <p>通过在在命令行运行<code class="highlighter-rouge">sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</code> 来配置 Xcode 命令行工具来使用安装好的最新版本 Xcode 。</p>
 
-    <p>This is the correct path for most cases, when you want to use the latest version of Xcode.
-If you need to use a different version, specify that path instead.</p>
+    <p>大多数情况下，这是安装最新版 Xcode 的正确的路径。如果你想使用不同的版本，请改为指定的路径。</p>
   </li>
-  <li>Make sure the Xcode license agreement is signed by either opening Xcode once and confirming or
-running <code class="highlighter-rouge">sudo xcodebuild -license</code> from the command line.</li>
+  <li>确保 Xcode 许可协议是通过打开一次 Xcode 或者从命令行中运行 <code class="highlighter-rouge">sudo xcodebuild -license</code> 来签署的。</li>
 </ol>
 
-<p>With Xcode, you’ll be able to run Flutter apps on an iOS device or on the simulator.</p>
+<p>使用 Xcode ，你就可以在你的 iOS 设备或者在模拟器上运行 Flutter 应用。</p>
 
-<h3 id="set-up-the-ios-simulator">Set up the iOS simulator</h3>
+<h3 id="设置-ios-模拟器">设置 iOS 模拟器</h3>
 
-<p>To prepare to run and test your Flutter app on the iOS simulator, follow these steps:</p>
+<p>准备在 iOS 模拟器上运行并测试你的 Flutter 应用，根据以下步骤：</p>
 
 <ol>
-  <li>On your Mac, find the Simulator via Spotlight or by using the following command:</li>
+  <li>在你的 Mac 上，可以通过 Spotlight 或者使用以下命令找到模拟器：</li>
 </ol>
 
 <pre><code><span class="noselect">$ </span>open -a Simulator</code></pre>
 
 <ol>
-  <li>Make sure your simulator is using a 64-bit device (iPhone 5s or later) by checking the settings
-in the simulator’s <strong>Hardware &gt; Device</strong> menu.</li>
-  <li>Depending on your development machine’s screen size, simulated high-screen-density iOS devices
-may overflow your screen. Set the device scale under the <strong>Window &gt; Scale</strong> menu in the simulator.</li>
-  <li>Start your app by running <code class="highlighter-rouge">flutter run</code>.</li>
+  <li>通过检查模拟器的 <strong>Hardware &gt; Device</strong> 设置，确保你的模拟器运行 64 位的设备（iPhone 5s 或者更高版本）。</li>
+  <li>根据你开发设备的屏幕尺寸，模拟高屏幕密度的 iOS 设备可能会溢出你的屏幕，在模拟器的 <strong>Window &gt; Scale</strong> 菜单设置设备的比例。</li>
+  <li>运行<code class="highlighter-rouge">flutter run</code> 来启动你的应用。</li>
 </ol>
 
-<h3 id="deploy-to-ios-devices">Deploy to iOS devices</h3>
+<h3 id="部署到-ios-设备">部署到 iOS 设备</h3>
 
-<p>To deploy your Flutter app to a physical iOS device, you’ll need some additional tools and an Apple account. You’ll also need to set up physical device deployment in Xcode.</p>
+<p>部署你的 Flutter 应用程序到物理的 iOS 设备，你需要一些额外的工具和一个 Apple 账号。你还需要在 Xcode 中设置物理设备的部署。</p>
 
 <ol>
-  <li>Install <a href="http://brew.sh/">homebrew</a>.</li>
-  <li>Open the terminal and run these commands to install the tools for deploying Flutter apps to
-iOS devices.</li>
+  <li>安装 <a href="http://brew.sh/">homebrew</a>。</li>
+  <li>打开终端运行这些命令来安装部署 Flutter 应用程序到 iOS 设备的工具。</li>
 </ol>
 
 <pre><code><span class="noselect">$ </span>brew update
@@ -374,29 +336,28 @@ iOS devices.</li>
 <span class="noselect">$ </span>brew install ideviceinstaller ios-deploy cocoapods
 <span class="noselect">$ </span>pod setup</code></pre>
 
-<p>If any of these commands fails with an error, run <code class="highlighter-rouge">brew doctor</code> and follow the instructions
-   for resolving the issue.</p>
+<p>如果这些命令中的任何一个命令失败出现错误，运行 <code class="highlighter-rouge">brew doctor</code> 并根据说明解决问题。</p>
 
 <ol>
-  <li>Follow the Xcode signing flow to provision your project:
+  <li>遵循 Xcode 的签名流程来配置你的项目：
     <ol>
-      <li>Open the default Xcode workspace in your project by running <code class="highlighter-rouge">open ios/Runner.xcworkspace</code> in a terminal window from your Flutter project directory.</li>
-      <li>In Xcode, select the <code class="highlighter-rouge">Runner</code> project in the left navigation panel.</li>
-      <li>In the <code class="highlighter-rouge">Runner</code> target settings page, make sure your Development Team is selected under <strong>General &gt; Signing &gt; Team</strong>. When you select a team, Xcode creates and downloads a Development Certificate, registers your device with your account, and creates and downloads a provisioning profile (if needed).
+      <li>打开默认的 Xcode 工作空间，找到你的 Flutter 项目目录并打开终端运行 <code class="highlighter-rouge">open ios/Runner.xcworkspace</code>  。</li>
+      <li>在 Xcode 左边的导航面板，选择 <code class="highlighter-rouge">Runner</code>  项目。</li>
+      <li>在 <code class="highlighter-rouge">Runner</code> 目标设置界面，确保在 <strong>General &gt; Signing &gt; Team</strong> 选择了你的开发团队，当你选择了开发团队，Xcode 创建和下载一个开发证书，向你的设备注册你的账户，并创建和下载配置文件（如果你需要的话）。
         <ul>
-          <li>To start your first iOS development project, you may need to sign into Xcode with your Apple ID.<br />
+          <li>要开始你的第一个 iOS 开发项目，你可能需要在 Xcode 上注册你的 Apple ID。<br />
  <img src="/images/setup/xcode-account.png" alt="Xcode account add" /><br />
- Development and testing is supported for any Apple ID. Enrolling in the Apple Developer Program is required to distribute your app to the App Store. View the <a href="https://developer.apple.com/support/compare-memberships">differences between Apple membership types</a>.</li>
-          <li>The first time you use an attached physical device for iOS development, you will need to trust both your Mac and the Development Certificate on that device. Select <code class="highlighter-rouge">Trust</code> in the dialog prompt when first connecting the iOS device to your Mac.<br />
+ 任意的 Apple ID 都支持开发和测试。需要注册 Apple 开发者计划才能分发你的应用到 App Store 。请参阅 <a href="https://developer.apple.com/support/compare-memberships">Apple 会员类型之间的差异</a>。</li>
+          <li>你第一次用物理设备开发 iOS 时，你需要同时信任该设备上的 Mac 和开发证书。  当你的 iOS 设备第一次连接到你的 Mac 时，在对话框提示中选择 <code class="highlighter-rouge">Trust</code>。<br />
  <img src="/images/setup/trust-computer.png" alt="Trust Mac" /><br />
- Then, go to the Settings app on the iOS device, select <strong>General &gt; Device Management</strong> and trust your Certificate.</li>
-          <li>If automatic signing fails in Xcode, verify that the project’s <strong>General &gt; Identity &gt; Bundle Identifier</strong> value is unique.<br />
+ 然后，打开 iOS 设备上的设置，选择<strong>常规 &gt; 设备管理</strong> 然后信任你的证书。</li>
+          <li>如果 Xcode 的自动签名失败，验证项目的<strong>General &gt; Identity &gt; Bundle Identifier</strong>  是否唯一。<br />
  <img src="/images/setup/xcode-unique-bundle-id.png" alt="Check the app's Bundle ID" /></li>
         </ul>
       </li>
     </ol>
   </li>
-  <li>Start your app by running <code class="highlighter-rouge">flutter run</code>.</li>
+  <li>运行<code class="highlighter-rouge">flutter run</code> 启动你的应用程序。</li>
 </ol>
 
 <h2 id="android-设置">Android 设置</h2>
@@ -448,9 +409,9 @@ iOS devices.</li>
   <li>通过 <code class="highlighter-rouge">flutter run</code> 来启动你的应用，连接设备的名称是 <code class="highlighter-rouge">Android SDK built for &lt;platform&gt;</code> ，这里的  <em>platform</em> 是指设备 soc 芯片系列，比如 x86 。</li>
 </ol>
 
-<h2 id="next-step">Next step</h2>
+<h2 id="下一步">下一步</h2>
 
-<p><a href="/get-started/editor/">Next step: Configure Editor</a></p>
+<p><a href="/get-started/editor/">下一步：配置编译器</a></p>
 
 </article>
 
