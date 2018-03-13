@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HTML/CSS Analogs in Flutter  - Flutter </title>
+  <title>HTML/CSS 模式  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,12 +165,12 @@
          <a href="https://github.com/flutter/website/blob/master/web-analogs.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page HTML/CSS Analogs in Flutter&body=From URL: http://localhost:4000/web-analogs.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page HTML/CSS 模式&body=From URL: http://localhost:4000/web-analogs.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">HTML/CSS Analogs in Flutter </h1>
+    <h1 class="post-title">HTML/CSS 模式 </h1>
    </div>
 
   </header>
@@ -217,7 +217,7 @@
 
 <p>这里的示例基于以下假设：</p>
 <ul>
-  <li>HTML 文档都以 HTML DOCTYPE 开头，所有元素的盒子都是 <a href="https://css-tricks.com/box-sizing/">border-box</a> ，以便与 Flutter 模型保持一致。</li>
+  <li>HTML 文档都以 HTML DOCTYPE 开头，所有元素的盒子模型都是 <a href="https://css-tricks.com/box-sizing/">border-box</a> ，以便与 Flutter 模型保持一致。</li>
 </ul>
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;!DOCTYPE html&gt;
 
@@ -236,13 +236,13 @@
 
 <h2 id="执行基本布局操作">执行基本布局操作</h2>
 
-<p>以下示例展示如何执行最常见的UI布局任务。</p>
+<p>以下示例展示如何执行最常见的UI布局。</p>
 
 <h3 id="文本样式和文本对齐">文本样式和文本对齐</h3>
 
 <p>CSS 可以处理的字体样式，字体大小和其他文本属性，还有颜色都在 <a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> 控件的子控件 <a href="https://docs.flutter.io/flutter/painting/TextStyle-class.html">TextStyle</a> 中定义。</p>
 
-<p>在 HTML 和 Flutter 中，默认的子元素或控件都被固定在左上角。</p>
+<p>而在 HTML 和 Flutter 中，默认的子元素或控件都被固定在左上角的。</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
@@ -273,7 +273,7 @@
 </div>
 
 <h3 id="设置背景颜色">设置背景颜色</h3>
-<p>在 Flutter 中，你可以在 <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> 中的 <code class="highlighter-rouge">decoration</code> 属性上设置背景颜色;</p>
+<p>在 Flutter 中，你可以在 <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> 中的 <code class="highlighter-rouge">decoration</code> 属性上设置背景颜色，如下：</p>
 
 <div class="lefthighlight">
 <pre class="prettyprint highlighter-rouge highlight lang-css language-css"><code>&lt;div class=&quot;greybox&quot;&gt;
