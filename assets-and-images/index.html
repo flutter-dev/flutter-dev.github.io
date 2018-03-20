@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Adding Assets and Images in Flutter  - Flutter </title>
+  <title>资源与图像  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,43 +165,43 @@
          <a href="https://github.com/flutter/website/blob/master/assets-and-images.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Adding Assets and Images in Flutter&body=From URL: http://localhost:4000/assets-and-images.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 资源与图像&body=From URL: http://localhost:4000/assets-and-images.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Adding Assets and Images in Flutter </h1>
+    <h1 class="post-title">资源与图像 </h1>
    </div>
 
   </header>
   
 
   <ul id="markdown-toc">
-  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
-  <li><a href="#specifying-assets" id="markdown-toc-specifying-assets">Specifying assets</a>    <ul>
-      <li><a href="#asset-variants" id="markdown-toc-asset-variants">Asset variants</a></li>
+  <li><a href="#介绍" id="markdown-toc-介绍">介绍</a></li>
+  <li><a href="#具体说明" id="markdown-toc-具体说明">具体说明</a>    <ul>
+      <li><a href="#资源变体" id="markdown-toc-资源变体">资源变体</a></li>
     </ul>
   </li>
-  <li><a href="#loading-assets" id="markdown-toc-loading-assets">Loading assets</a>    <ul>
-      <li><a href="#loading-text-assets" id="markdown-toc-loading-text-assets">Loading text assets</a></li>
-      <li><a href="#loading-images" id="markdown-toc-loading-images">Loading images</a>        <ul>
-          <li><a href="#resolution-aware" id="markdown-toc-resolution-aware">Declaring resolution-aware image assets</a></li>
-          <li><a href="#loading-images-1" id="markdown-toc-loading-images-1">Loading images</a></li>
+  <li><a href="#资源加载" id="markdown-toc-资源加载">资源加载</a>    <ul>
+      <li><a href="#加载文本资源" id="markdown-toc-加载文本资源">加载文本资源</a></li>
+      <li><a href="#加载图像" id="markdown-toc-加载图像">加载图像</a>        <ul>
+          <li><a href="#resolution-aware" id="markdown-toc-resolution-aware">声名带有分辨率的图像资源</a></li>
+          <li><a href="#加载图像-1" id="markdown-toc-加载图像-1">加载图像</a></li>
         </ul>
       </li>
-      <li><a href="#from-packages" id="markdown-toc-from-packages">Asset images in package dependencies</a>        <ul>
-          <li><a href="#bundling-of-package-assets" id="markdown-toc-bundling-of-package-assets">Bundling of package assets</a></li>
+      <li><a href="#from-packages" id="markdown-toc-from-packages">依赖包中的图像资源</a>        <ul>
+          <li><a href="#绑定资源包" id="markdown-toc-绑定资源包">绑定资源包</a></li>
         </ul>
       </li>
     </ul>
   </li>
-  <li><a href="#platform-assets" id="markdown-toc-platform-assets">Platform assets</a>    <ul>
-      <li><a href="#updating-the-app-icon" id="markdown-toc-updating-the-app-icon">Updating the app icon</a>        <ul>
+  <li><a href="#使用资源" id="markdown-toc-使用资源">使用资源</a>    <ul>
+      <li><a href="#更换-app-图标" id="markdown-toc-更换-app-图标">更换 APP 图标</a>        <ul>
           <li><a href="#android" id="markdown-toc-android">Android</a></li>
           <li><a href="#ios" id="markdown-toc-ios">iOS</a></li>
         </ul>
       </li>
-      <li><a href="#updating-the-launch-screen" id="markdown-toc-updating-the-launch-screen">Updating the launch screen</a>        <ul>
+      <li><a href="#更换启动界面" id="markdown-toc-更换启动界面">更换启动界面</a>        <ul>
           <li><a href="#android-1" id="markdown-toc-android-1">Android</a></li>
           <li><a href="#ios-1" id="markdown-toc-ios-1">iOS</a></li>
         </ul>
@@ -210,22 +210,15 @@
   </li>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="介绍">介绍</h2>
 
-<p>Flutter apps can include both code and <em>assets</em> (sometimes called
-resources). An asset is a file that is bundled and deployed with your
-app, and is accessible at runtime. Common types of assets include
-static data (for example, JSON files), configuration files, icons, and
-images (JPEG, WebP, GIF, animated WebP/GIF, PNG, BMP, and WBMP).</p>
+<p>Flutter 应用程序是由代码和资源构建而成的。资源是应用程序需要用到的文件。静态文本文件（如: JSON 文件）、配置文件、图标和图像（包括 JPEG 、 WebP 、 GIF 、 动画、 WebP/GIF 、 PNG 、 BMP 、 和 WBMP ）都可以作为资源使用。</p>
 
-<h2 id="specifying-assets">Specifying assets</h2>
+<h2 id="具体说明">具体说明</h2>
 
-<p>Flutter uses
-the <a href="https://www.dartlang.org/tools/pub/pubspec"><code class="highlighter-rouge">pubspec.yaml</code></a> file,
-located at the root of your project, to identify assets required by an
-app.</p>
+<p>Flutter 应用程序使用项目根目录下的 <a href="https://www.dartlang.org/tools/pub/pubspec"><code class="highlighter-rouge">pubspec.yaml</code></a> 文件，来定义 APP 需要使用的资源。</p>
 
-<p>Here is an example:</p>
+<p>如下所示：</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
   <span class="s">assets</span><span class="pi">:</span>
@@ -234,37 +227,25 @@ app.</p>
 </code></pre>
 </div>
 
-<p>The <code class="highlighter-rouge">assets</code> subsection of the <code class="highlighter-rouge">flutter</code> section specifies files that
-should be included with the app. Each asset is identified by an
-explicit path (relative to the <code class="highlighter-rouge">pubspec.yaml</code> file) where the asset
-file is located. The order in which the assets are declared does not
-matter. The actual directory used (<code class="highlighter-rouge">assets</code> in this case) does not
-matter.</p>
+<p><code class="highlighter-rouge">flutter</code> 下的 <code class="highlighter-rouge">assets</code> 部分指定了 APP 所需的资源。每个资源都由一条路径（ <code class="highlighter-rouge">pubspec.yaml</code> 文件的相对路径）来指定它所在的位置。资源的声明顺序无关紧要。实际使用的目录（在本例中是 <code class="highlighter-rouge">assets</code> 目录）可自定义。</p>
 
-<p>During a build, Flutter places assets into a special archive called
-the <em>asset bundle</em>, which apps can read from at runtime.</p>
+<p>在 APP 的构建过程中， Flutter 会把资源放进 <em>资源包</em> 中，供 APP 在运行时使用。</p>
 
-<h3 id="asset-variants">Asset variants</h3>
+<h3 id="资源变体">资源变体</h3>
 
-<p>The build process supports the notion of asset variants: different
-versions of an asset that might be displayed in different contexts.
-When an asset’s path is specified in the <code class="highlighter-rouge">assets</code> section of
-<code class="highlighter-rouge">pubspec.yaml</code>, the build process looks for any files with the same
-name in adjacent subdirectories. Such files are then included in the
-asset bundle along with the specified asset.</p>
+<p>APP 的构建支持资源变体的概念：不同版本的资源可以用在不同的上下文中。当在 <code class="highlighter-rouge">pubspec.yaml</code> 文件的 <code class="highlighter-rouge">assets</code> 中指定了一个资源后， Flutter 会在构建过程中查找指定目录下的所有子目录中的同名文件，然后， Flutter 会将所有的同名文件都放进 <em>资源包</em> 中。</p>
 
-<p>For example, if you have the following files in your application
-directory:</p>
+<p>举个例子，如果项目目录下有如下文件：</p>
 
 <ul>
   <li>…/pubspec.yaml</li>
   <li>…/graphics/my_icon.png</li>
   <li>…/graphics/background.png</li>
   <li>…/graphics/dark/background.png</li>
-  <li>…etc.</li>
+  <li>…</li>
 </ul>
 
-<p>…and your <code class="highlighter-rouge">pubspec.yaml</code> file contains:</p>
+<p><code class="highlighter-rouge">pubspec.yaml</code> 部分内容如下：</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
   <span class="s">assets</span><span class="pi">:</span>
@@ -272,48 +253,25 @@ directory:</p>
 </code></pre>
 </div>
 
-<p>…then both <code class="highlighter-rouge">graphics/background.png</code> and <code class="highlighter-rouge">graphics/dark/background.png</code>
-will be included in your asset bundle. The former is considered the
-<em>main asset</em>, while the latter is considered a <em>variant</em>.</p>
+<p>这样的话，<code class="highlighter-rouge">graphics/background.png</code> 和 <code class="highlighter-rouge">graphics/dark/background.png</code> 都会被放进资源包中，前者被称为主资源，而后者则称为资源变体。</p>
 
-<p>Flutter uses asset variants when choosing resolution appropriate
-images; see below. In the future, this mechanism may be extended to
-include variants for different locales or regions, reading directions,
-etc.</p>
+<p>Flutter 在选择分辨率合适的图像时会考虑使用资源变体，这在下文有讲解。将来，这种机制会扩展到其他地方。</p>
 
-<h2 id="loading-assets">Loading assets</h2>
+<h2 id="资源加载">资源加载</h2>
 
-<p>Your app can access its assets through an
-<a href="https://docs.flutter.io/flutter/services/AssetBundle-class.html"><code class="highlighter-rouge">AssetBundle</code></a>
-object.</p>
+<p>APP 可以使用 <a href="https://docs.flutter.io/flutter/services/AssetBundle-class.html"><code class="highlighter-rouge">AssetBundle</code></a> 对象来加载资源。</p>
 
-<p>The two main methods on an asset bundle allow you to load a
-string/text asset (<code class="highlighter-rouge">loadString</code>) or an image/binary asset (<code class="highlighter-rouge">load</code>) out
-of the bundle, given a logical key. The logical key maps to the path
-to the asset specified in the <code class="highlighter-rouge">pubspec.yaml</code> file at build time.</p>
+<p>这个对象主要通过两个方法（ <code class="highlighter-rouge">loadString</code> 和 <code class="highlighter-rouge">load</code> ）来加载资源。 <code class="highlighter-rouge">loadString</code> 用来加载文本资源（ string/text ）。 <code class="highlighter-rouge">load</code> 用来加载二进制资源（ image/binary ）。这两个方法通过在 <code class="highlighter-rouge">pubspec.yaml</code> 文件中指定的路径来寻找资源。</p>
 
-<h3 id="loading-text-assets">Loading text assets</h3>
+<h3 id="加载文本资源">加载文本资源</h3>
 
-<p>Each Flutter app has a
-<a href="https://docs.flutter.io/flutter/services/rootBundle.html"><code class="highlighter-rouge">rootBundle</code></a>
-object for easy access to the main asset bundle. It is possible to
-load assets directly using the <code class="highlighter-rouge">rootBundle</code> global static from
-<code class="highlighter-rouge">package:flutter/services.dart</code>.</p>
+<p>为了更容易地访问主资源包， Flutter 提供了一个 <a href="https://docs.flutter.io/flutter/services/rootBundle.html"><code class="highlighter-rouge">rootBundle</code></a> 对象，可以通过引入 <code class="highlighter-rouge">package:flutter/services.dart</code> 来使用这个对象。</p>
 
-<p>However, it’s recommended to obtain the AssetBundle for the current
-BuildContext using
-<a href="https://docs.flutter.io/flutter/widgets/DefaultAssetBundle-class.html"><code class="highlighter-rouge">DefaultAssetBundle</code></a>.
-Rather than the default asset bundle that was built with the app, this
-approach enables a parent widget to substitute a different AssetBundle
-at run time, which can be useful for localization or testing
-scenarios.</p>
+<p>不过，还是建议在当前构建上下文中使用 <a href="https://docs.flutter.io/flutter/widgets/DefaultAssetBundle-class.html"><code class="highlighter-rouge">DefaultAssetBundle</code></a> 来获取  <code class="highlighter-rouge">AssetBundle</code> 对象。与获取默认构建包相比，这种方式可以让父组件在运行时替换资源包。这对于本地开发和测试场景是非常重要的。</p>
 
-<p>Typically, you’ll use <code class="highlighter-rouge">DefaultAssetBundle.of()</code> to indirectly load an
-asset, for example a JSON file, from the app’s runtime <code class="highlighter-rouge">rootBundle</code>.</p>
+<p>通常来说，应该使用 <code class="highlighter-rouge">DefaultAssetBundle.of()</code> 代替 <code class="highlighter-rouge">rootBundle</code> 来间接加载资源。</p>
 
-<p>Outside of a Widget context, or when a handle to an AssetBundle is not
-available, you can use <code class="highlighter-rouge">rootBundle</code> to directly load such assets,
-for example:</p>
+<p>如果在组件的上下文之外，或者当 <code class="highlighter-rouge">AssetBundle</code> 不可获得时，可以使用 <code class="highlighter-rouge">rootBundle</code> 来直接获取资源，例如：</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span> <span class="kd">show</span> <span class="n">Future</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:flutter/services.dart'</span> <span class="kd">show</span> <span class="n">rootBundle</span><span class="o">;</span>
@@ -324,18 +282,13 @@ for example:</p>
 </code></pre>
 </div>
 
-<h3 id="loading-images">Loading images</h3>
+<h3 id="加载图像">加载图像</h3>
 
-<p>Flutter can load resolution-appropriate images for the current device
-pixel ratio.</p>
+<p>Flutter 可以根据当前的设备像素比来加载分辨率合适的图像。</p>
 
-<h4 id="resolution-aware">Declaring resolution-aware image assets</h4>
+<h4 id="resolution-aware">声名带有分辨率的图像资源</h4>
 
-<p><a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a>
-understands how to map a logical requested asset onto one that most
-closely matches the current <a href="https://docs.flutter.io/flutter/dart-ui/Window/devicePixelRatio.html">device pixel ratio</a>.
-In order for this mapping to
-work, assets should be arranged according to a particular directory structure:</p>
+<p><a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a> 对象知道怎样根据当前的 <a href="https://docs.flutter.io/flutter/dart-ui/Window/devicePixelRatio.html"><code class="highlighter-rouge">device pixel ratio</code></a> 来匹配最合适的图像。为了让这个对象自动找到合适的图像，应该使用特定的目录结构来分配资源：</p>
 
 <ul>
   <li>…/image.png</li>
@@ -344,13 +297,9 @@ work, assets should be arranged according to a particular directory structure:</
   <li>…etc.</li>
 </ul>
 
-<p>…where <em>M</em> and <em>N</em> are numeric identifiers that correspond to the nominal resolution
-of the images contained within, in other words, they specify the device pixel ratio that
-the images are intended for.</p>
+<p><em>M</em> 和 <em>N</em> 用来标识图像的设备像素比。</p>
 
-<p>The main asset is assumed to correspond to a
-resolution of 1.0. For example, consider the following asset layout for an
-image named <code class="highlighter-rouge">my_icon.png</code>:</p>
+<p>主资源被默认为 1.0 的设备像素比，举个例子，下面的目录结构列出了多个名为 <code class="highlighter-rouge">my_icon.png</code> 的图像:</p>
 
 <ul>
   <li>…/my_icon.png</li>
@@ -358,31 +307,17 @@ image named <code class="highlighter-rouge">my_icon.png</code>:</p>
   <li>…/3.0x/my_icon.png</li>
 </ul>
 
-<p>On devices with a device pixel ratio of 1.8, the asset <code class="highlighter-rouge">.../2.0x/my_icon.png</code>
-would be chosen. For a device pixel ratio of 2.7, the asset
-<code class="highlighter-rouge">.../3.0x/my_icon.png</code> would be chosen.</p>
+<p>对于设备像素比为 1.8 的设备来说，将匹配到 <code class="highlighter-rouge">.../2.0x/my_icon.png</code>。对于设备像素比为 2.7 的设备，将匹配到 <code class="highlighter-rouge">.../3.0x/my_icon.png</code>。</p>
 
-<p>If the width and height of the rendered image are not specified on the <code class="highlighter-rouge">Image</code> widget, the nominal
-resolution is used to scale the asset so that it will occupy the same amount
-of screen space as the main asset would have, just with a higher resolution.
-That is, if <code class="highlighter-rouge">.../my_icon.png</code> is 72px by 72px, then <code class="highlighter-rouge">.../3.0x/my_icon.png</code>
-should be 216px by 216px; but they both will render into 72px by 72px
-(in logical pixels) if width and height are not specified.</p>
+<p>如果 image 组件没有指定宽度和高度，默认会选用最高分辨率的图片来占据整个组件空间。即，如果 <code class="highlighter-rouge">.../my_icon.png</code> 是 72px * 72px，<code class="highlighter-rouge">.../3.0x/my_icon.png</code> 应该是 216px * 216px，但是如果在长宽都没指定的条件下，它们都会被渲染成 72px * 72px。</p>
 
-<p>Each entry in the asset section of the <code class="highlighter-rouge">pubspec.yaml</code> should correspond to a real file, with the
-exception of the main asset entry. If the main asset entry does not correspond
-to a real file, then the asset with the lowest resolution will be used as the fallback
-for devices with device pixel ratios below that resolution. The entry should still
-be included in the <code class="highlighter-rouge">pubspec.yaml</code> manifest, however.</p>
+<p>除了主资源（即默认为 1.0x 的资源）之外，<code class="highlighter-rouge">pubspec.yaml</code> 中的每项资源都应该对应真实的文件，如果主资源没有对应真实文件，则会使用其他资源变体。尽管如此，这项主资源仍然应该写在 <code class="highlighter-rouge">pubspec.yaml</code> 文件中。</p>
 
-<h4 id="loading-images-1">Loading images</h4>
+<h4 id="加载图像-1">加载图像</h4>
 
-<p>To load an image, use the
-<a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a>
-class in a widget’s <code class="highlighter-rouge">build</code> method.</p>
+<p>可以在 build 方法中使用 <a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a> 组件来加载图像</p>
 
-<p>For example, your app can load the background image from the asset
-declarations above:</p>
+<p>举个例子，可以通过以下方法来加载一张背景图片：</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Widget</span> <span class="nf">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
   <span class="c1">// ...</span>
@@ -400,19 +335,13 @@ declarations above:</p>
 </code></pre>
 </div>
 
-<p>Anything using the default asset bundle will inherit resolution
-awareness when loading images. (If you work with some of the lower
-level classes, like
-<a href="https://docs.flutter.io/flutter/painting/ImageStream-class.html"><code class="highlighter-rouge">ImageStream</code></a>
-or
-<a href="https://docs.flutter.io/flutter/painting/ImageCache-class.html"><code class="highlighter-rouge">ImageCache</code></a>,
-you’ll also notice parameters related to scale.)</p>
+<p>任何使用默认资源包的组件都会根据分辨率来加载图像。如果你使用一些底层的类，如 <a href="https://docs.flutter.io/flutter/painting/ImageStream-class.html"><code class="highlighter-rouge">ImageStream</code></a> 或 <a href="https://docs.flutter.io/flutter/painting/ImageCache-class.html"><code class="highlighter-rouge">ImageCache</code></a> ，你会注意到与 scale 相关的参数。</p>
 
-<h3 id="from-packages">Asset images in package dependencies</h3>
+<h3 id="from-packages">依赖包中的图像资源</h3>
 
-<p>To load an image from a <a href="https://flutter.io/using-packages/">package</a> dependency, the <code class="highlighter-rouge">package</code> argument must be provided to <a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a>.</p>
+<p>为了从依赖包（ <a href="https://flutter.io/using-packages/">package</a> ） 中加载图片资源，必须为 <a href="https://docs.flutter.io/flutter/painting/AssetImage-class.html"><code class="highlighter-rouge">AssetImage</code></a> 组件指定 <code class="highlighter-rouge">package</code> 参数。</p>
 
-<p>For instance, suppose your application depends on a package called <code class="highlighter-rouge">my_icons</code>, which has the following directory structure:</p>
+<p>例如，你的 APP 依赖于一个名为 <code class="highlighter-rouge">my_icons</code> 的包，假如这个包的目录结构如下：</p>
 
 <ul>
   <li>…/pubspec.yaml</li>
@@ -422,20 +351,20 @@ you’ll also notice parameters related to scale.)</p>
   <li>…etc.</li>
 </ul>
 
-<p>Then to load the image, use:</p>
+<p>那么，可以使用以下代码来加载图片：</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code> <span class="k">new</span> <span class="nf">AssetImage</span><span class="p">(</span><span class="s">'icons/heart.png'</span><span class="o">,</span> <span class="nl">package:</span> <span class="s">'my_icons'</span><span class="o">)</span>
 </code></pre>
 </div>
 
-<p>Assets used by the package itself should also be fetched using the <code class="highlighter-rouge">package</code> argument as above.</p>
+<p>加载包本身时也需要像上面一样使用  <code class="highlighter-rouge">package</code> 参数。</p>
 
-<h4 id="bundling-of-package-assets">Bundling of package assets</h4>
+<h4 id="绑定资源包">绑定资源包</h4>
 
-<p>If the desired asset is specified in the <code class="highlighter-rouge">pubspec.yaml</code> file of the package, it is bundled automatically with the application. In particular, assets used by the package itself must be specified in its <code class="highlighter-rouge">pubspec.yaml</code>.</p>
+<p>如果所需的资源在包的 <code class="highlighter-rouge">pubspec.yaml</code> 文件中指定了，那么会自动与应用程序绑定。另外，包本身使用的资源必须在其 <code class="highlighter-rouge">pubspec.yaml</code> 中指定。</p>
 
-<p>A package can also choose to have assets in its <code class="highlighter-rouge">lib/</code> folder that are not specified in its <code class="highlighter-rouge">pubspec.yaml</code> file. In this case, for those images to be bundled, the application has to specify which ones to include in its <code class="highlighter-rouge">pubspec.yaml</code>. For instance, a package named <code class="highlighter-rouge">fancy_backgrounds</code> could have the following files:</p>
+<p>资源包也可以选择使用 <code class="highlighter-rouge">lib/</code> 文件夹下的资源，但是，<code class="highlighter-rouge">lib/</code> 不能出现在 <code class="highlighter-rouge">pubspec.yaml</code> 文件中，在这种情况下，仍可以在 <code class="highlighter-rouge">pubspec.yaml</code> 文件中指定所用到的资源。例如，一个名为 <code class="highlighter-rouge">fancy_backgrounds</code> 的包可以包含以下文件：</p>
 
 <ul>
   <li>…/lib/backgrounds/background1.png</li>
@@ -443,7 +372,7 @@ you’ll also notice parameters related to scale.)</p>
   <li>…/lib/backgrounds/background3.png</li>
 </ul>
 
-<p>To include, say, the first image, the <code class="highlighter-rouge">pubspec.yaml</code> of the application should specify it in the <code class="highlighter-rouge">assets</code> section:</p>
+<p>为了使用第一张图片，可以在 <code class="highlighter-rouge">pubspec.yaml</code> 中的 <code class="highlighter-rouge">assets</code> 节点下添加如下资源路径：</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">flutter</span><span class="pi">:</span>
   <span class="s">assets</span><span class="pi">:</span>
@@ -451,54 +380,55 @@ you’ll also notice parameters related to scale.)</p>
 </code></pre>
 </div>
 
-<p>The <code class="highlighter-rouge">lib/</code> is implied, so it should not be included in the asset path.</p>
+<p>不需要在资源路径中包含 <code class="highlighter-rouge">lib/</code> 目录。</p>
 
-<h2 id="platform-assets">Platform assets</h2>
+<h2 id="使用资源">使用资源</h2>
 
-<p>There will also be occasions to work with assets in the platform projects directly. Below are two common cases where assets are used before the Flutter framework is loaded and running.</p>
+<p>可以直接在项目中使用资源，下面是 Flutter 框架加载和运行 APP 之前使用资源的两个常见情况。</p>
 
-<h3 id="updating-the-app-icon">Updating the app icon</h3>
-<p>Updating your Flutter application’s launch icon works the same way as updating launch icons in native Android or iOS applications.</p>
+<h3 id="更换-app-图标">更换 APP 图标</h3>
+
+<p>更新 Flutter 应用程序的图标与更新原生 Android 或 IOS 应用程序的图标是一样的。</p>
 
 <p><img src="/images/assets-and-images/icon.png" alt="Launch icon" /></p>
 
 <h4 id="android">Android</h4>
 
-<p>In your Flutter project’s root directory, navigate to <code class="highlighter-rouge">.../android/app/src/main/res</code>. The various bitmap resource folders such as <code class="highlighter-rouge">mipmap-hdpi</code> already contain placeholder images named <code class="highlighter-rouge">ic_launcher.png</code>. Simply replace them with your desired assets respecting the recommended icon size per screen density as indicated by the <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size">Android Developer Guide</a>.</p>
+<p>在 Flutter 项目的根目录下，找到 <code class="highlighter-rouge">.../android/app/src/main/res</code> ，这个目录中有各种位图资源文件夹，比如说 <code class="highlighter-rouge">mipmap-hdpi</code> ，这些文件夹下默认存放着名为 <code class="highlighter-rouge">ic_launcher.png</code> 的图标。如果你想使用自己的图标，只需参照每个屏幕密度推荐的图标大小，然后替换掉默认的图标。详细信息请参考： <a href="https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size">Android Developer Guide</a> 。</p>
 
 <p><img src="/images/assets-and-images/android-icon-path.png" alt="Android icon location" /></p>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong> if you rename the .png files, you must also match the new name in your <code class="highlighter-rouge">AndroidManifest.xml</code>’s <code class="highlighter-rouge">&lt;application&gt;</code> tag’s <code class="highlighter-rouge">android:icon</code> attribute.</p>
+  <p><strong>Note:</strong> 如果想重命名图片名，那么也必须修改 <code class="highlighter-rouge">AndroidManifest.xml</code> 文件 <code class="highlighter-rouge">&lt;application&gt;</code> 节点中的 <code class="highlighter-rouge">android:icon</code> 属性。</p>
 </aside>
 
 <h4 id="ios">iOS</h4>
 
-<p>In your Flutter project’s root directory, navigate to <code class="highlighter-rouge">.../ios/Runner</code>. The directory <code class="highlighter-rouge">Assets.xcassets/AppIcon.appiconset</code> already contains placeholder images. Simply replace them with the appropriately sized images as indicated by their filename as dictated by the Apple <a href="https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon">Human Interface Guidelines</a>. Keep the original file names.</p>
+<p>在 Flutter 项目的根目录下，找到 <code class="highlighter-rouge">.../ios/Runner</code> ，这个目录下的 <code class="highlighter-rouge">Assets.xcassets/AppIcon.appiconset</code> 文件已经包含了一些默认的图标。按照图标名显示的大小替换它们，来修改 APP 的图标。需要注意的是不要修改文件名。具体请参考苹果开发者官网： <a href="https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon">Human Interface Guidelines</a> 。</p>
 
 <p><img src="/images/assets-and-images/ios-icon-path.png" alt="iOS icon location" /></p>
 
-<h3 id="updating-the-launch-screen">Updating the launch screen</h3>
+<h3 id="更换启动界面">更换启动界面</h3>
 
 <p align="center">
   <img src="/images/assets-and-images/launch-screen.png" alt="Launch screen" />
 </p>
 
-<p>Flutter also uses native platform mechanisms to draw transitional launch screens to your Flutter app while the Flutter framework loads. This launch screen will persist until Flutter renders the first frame of your application.</p>
+<p>在应用程序加载时， Flutter 采用了和原生平台一样的绘制启动界面机制。启动界面一直持续到 Flutter 渲染完第一个界面。</p>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong> this implies that if you don’t call <a href="https://docs.flutter.io/flutter/widgets/runApp.html">runApp</a> in the <code class="highlighter-rouge">void main()</code> function of your app (or more specifically, if you don’t call <a href="https://docs.flutter.io/flutter/dart-ui/Window/render.html"><code class="highlighter-rouge">window.render</code></a> in response to <a href="https://docs.flutter.io/flutter/dart-ui/Window/onDrawFrame.html"><code class="highlighter-rouge">window.onDrawFrame</code></a>), the launch screen will persist forever.</p>
+  <p><strong>Note:</strong> 这意味着如果不在 <code class="highlighter-rouge">void main()</code> 中调用 <a href="https://docs.flutter.io/flutter/widgets/runApp.html">runApp</a> （准确来说是，如果不在    <a href="https://docs.flutter.io/flutter/dart-ui/Window/onDrawFrame.html"><code class="highlighter-rouge">window.onDrawFrame</code></a> 响应之后调用 <a href="https://docs.flutter.io/flutter/dart-ui/Window/render.html"><code class="highlighter-rouge">window.render</code></a> ），则 APP 会一直显示启动界面。</p>
 </aside>
 
 <h4 id="android-1">Android</h4>
 
-<p>To add a “splash screen” to your Flutter application, navigate to <code class="highlighter-rouge">.../android/app/src/main</code>. In <code class="highlighter-rouge">res/drawable/launch_background.xml</code>, You can use this <a href="https://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList">layer list drawable</a> XML to customize the look of your launch screen. The existing template provides an example for adding a image to to the middle of a white splash screen in commented code. You can uncomment it or use other <a href="https://developer.android.com/guide/topics/resources/drawable-resource.html">drawables</a> to achieve the intended effect.</p>
+<p>在项目根路径下，找到 <code class="highlighter-rouge">.../android/app/src/main</code> 目录中的 <code class="highlighter-rouge">res/drawable/launch_background.xml</code> 文件，可以通过修改这个 XML 文件来定制应用程序的启动界面。书写这个 XML 文件的规则请见： <a href="https://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList">layer list drawable</a> 。现有的模板在注释中提供了一个示例，示例代码的功能是启动时，向屏幕中间渲染一张图片。可以取消注释或者使用其他的 <a href="https://developer.android.com/guide/topics/resources/drawable-resource.html">可绘制对象</a> 来达到预期的效果。</p>
 
 <h4 id="ios-1">iOS</h4>
 
-<p>To add an image to the center of your “splash screen”, navigate to <code class="highlighter-rouge">.../ios/Runner</code>. In, <code class="highlighter-rouge">Assets.xcassets/LaunchImage.imageset</code>, drop in images named <code class="highlighter-rouge">LaunchImage.png</code>, <code class="highlighter-rouge">LaunchImage@2x.png</code>, <code class="highlighter-rouge">LaunchImage@3x.png</code>. If you use different filenames, you’ll also have to update the <code class="highlighter-rouge">Contents.json</code> file in the same directory.</p>
+<p>在项目根路径下，找到 <code class="highlighter-rouge">.../ios/Runner</code> 目录中的 <code class="highlighter-rouge">Assets.xcassets/LaunchImage.imageset</code> 文件夹，替换掉三个名为 <code class="highlighter-rouge">LaunchImage.png</code>、<code class="highlighter-rouge">LaunchImage@2x.png</code>、 <code class="highlighter-rouge">LaunchImage@3x.png</code> 的图片。若图片使用了另外一个文件名，那也必须更改同目录下 <code class="highlighter-rouge">Contents.json</code> 文件中的图片名。</p>
 
-<p>You can also fully customize your launch screen storyboard in Xcode by opening <code class="highlighter-rouge">.../ios/Runner.xcworkspace</code>. Navigate to <code class="highlighter-rouge">Runner/Runner</code> in the Project Navigator and drop in images by opening <code class="highlighter-rouge">Assets.xcassets</code> or do any customization using the Interface Builder in <code class="highlighter-rouge">LaunchScreen.storyboard</code>.</p>
+<p>也可以定制开机动画，在 Xcode 中打开 …/ios/Runner.xcworkspace ，然后在项目导航栏中找到 <code class="highlighter-rouge">Runner/Runner</code> 目录，打开 <code class="highlighter-rouge">Assets.xcassets</code> 来替换图像，或者使用界面构建工具 <code class="highlighter-rouge">LaunchScreen.storyboard</code> 来做其他的定制。</p>
 
 <p><img src="/images/assets-and-images/ios-launchscreen-xcode.png" alt="Adding launch icons in Xcode" /></p>
 
