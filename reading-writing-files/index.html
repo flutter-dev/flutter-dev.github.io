@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reading and Writing Files  - Flutter </title>
+  <title>文件的读写  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,51 +165,47 @@
          <a href="https://github.com/flutter/website/blob/master/reading-writing-files.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Reading and Writing Files&body=From URL: http://localhost:4000/reading-writing-files.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 文件的读写&body=From URL: http://localhost:4000/reading-writing-files.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Reading and Writing Files </h1>
+    <h1 class="post-title">文件的读写 </h1>
    </div>
 
   </header>
   
 
-  <p>This guide describes how to read and write files in Flutter by using the
-<a href="https://pub.dartlang.org/packages/path_provider"><code class="highlighter-rouge">PathProvider</code></a> plugin and
-Dart’s <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html"><code class="highlighter-rouge">IO</code></a> library.</p>
+  <p>这篇指南介绍了在 Flutter 中如何使用 <a href="https://pub.dartlang.org/packages/path_provider"><code class="highlighter-rouge">PathProvider</code></a> 插件和 Dart’s 的 <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html"><code class="highlighter-rouge">IO</code></a> 库来读写文件。</p>
 
 <ul id="markdown-toc">
-  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
-  <li><a href="#example-of-reading-and-writing-to-a-file" id="markdown-toc-example-of-reading-and-writing-to-a-file">Example of reading and writing to a file</a></li>
+  <li><a href="#简介" id="markdown-toc-简介">简介</a></li>
+  <li><a href="#读写文件的示例" id="markdown-toc-读写文件的示例">读写文件的示例</a></li>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
-<p>The <a href="https://pub.dartlang.org/packages/path_provider"><code class="highlighter-rouge">PathProvider</code></a> plugin provides a platform-agnostic way to
-access commonly used locations on the device’s filesystem. The class currently supports access to two filesystem locations:</p>
+<h2 id="简介">简介</h2>
+<p><a href="https://pub.dartlang.org/packages/path_provider"><code class="highlighter-rouge">PathProvider</code></a> 插件提供了一套与平台无关的方法可以到访问设备文件系统中的常用路径。该类当前支持访问两种系统路径：</p>
 
 <ul>
-  <li><strong>Temporary directory:</strong> A temporary directory (cache) that the system can clear at any time. On iOS, this corresponds to the value that <a href="https://developer.apple.com/reference/foundation/1409211-nstemporarydirectory"><code class="highlighter-rouge">NSTemporaryDirectory()</code></a> returns. On Android, this is the value that <a href="https://developer.android.com/reference/android/content/Context.html#getCacheDir()"><code class="highlighter-rouge">getCacheDir()</code></a> returns.</li>
-  <li><strong>Documents directory:</strong> A directory for the app to store files that only it can access. The system clears the directory only when the app is deleted. On iOS, this corresponds to <code class="highlighter-rouge">NSDocumentDirectory</code>. On Android, this is the <code class="highlighter-rouge">AppData</code> directory.</li>
+  <li><strong>Temporary directory:</strong> 系统可能在任意时间清空的临时目录 (缓存)。在 iOS 系统上，相当于 <a href="https://developer.apple.com/reference/foundation/1409211-nstemporarydirectory"><code class="highlighter-rouge">NSTemporaryDirectory()</code></a> 返回的值。在 Android 系统上，相当于 <a href="https://developer.android.com/reference/android/content/Context.html#getCacheDir()"><code class="highlighter-rouge">getCacheDir()</code></a> 返回的值。</li>
+  <li><strong>Documents directory:</strong> 用于存储只有应用自己可以访问的文件。只有应用被删掉的时候系统才会清空目录。在 iOS 系统上, 相当于 <code class="highlighter-rouge">NSDocumentDirectory</code>。在 Android 系统上，相当于 <code class="highlighter-rouge">AppData</code>。</li>
 </ul>
 
-<p>Once your Flutter app has a reference to a file location, you can use the <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> APIs to perform read/write operations to the filesystem. For more information about working on files and directories using Dart, see this <a href="https://www.dartlang.org/articles/dart-vm/io">overview</a> and <a href="https://www.dartlang.org/dart-vm/dart-by-example#files-directories-and-symlinks">these examples</a>.</p>
+<p>一旦你的 Flutter 应用引用了文件路径，你就可以使用 <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> 的接口对文件系统执行读写操作。更多关于使用 Dart 对文件和目录进行操作的信息，请参阅 <a href="https://www.dartlang.org/articles/dart-vm/io">overview</a> 和 <a href="https://www.dartlang.org/dart-vm/dart-by-example#files-directories-and-symlinks">these examples</a>.</p>
 
-<h2 id="example-of-reading-and-writing-to-a-file">Example of reading and writing to a file</h2>
+<h2 id="读写文件的示例">读写文件的示例</h2>
 
-<p>The following example shows how to modify the default app created by <code class="highlighter-rouge">flutter create</code>, so that
-the app persists the number of button presses across relaunches:</p>
+<p>下面的例子展示了如何修改通过 <code class="highlighter-rouge">flutter create</code> 默认创建的应用，在多次重启应用之后能够持久化按钮点击的次数:</p>
 
 <ol>
   <li>
-    <p>Create a new Flutter project with <code class="highlighter-rouge">flutter create</code> or using File &gt; New Project in IntelliJ.</p>
+    <p>使用 <code class="highlighter-rouge">flutter create</code> 创建新的 Flutter 工程或者使用 IntelliJ 中的 文件 &gt; 新建工程。</p>
   </li>
   <li>
-    <p><a href="https://pub.dartlang.org/packages/path_provider#-installing-tab-">Declare a dependency</a> on the PathProvider plugin in <code class="highlighter-rouge">pubspec.yaml</code></p>
+    <p>在 <code class="highlighter-rouge">pubspec.yaml</code>中对插件 PathProvider <a href="https://pub.dartlang.org/packages/path_provider#-installing-tab-">声明依赖</a>。</p>
   </li>
   <li>
-    <p>Replace the contents of <code class="highlighter-rouge">lib/main.dart</code> with the following:</p>
+    <p>替换 <code class="highlighter-rouge">lib/main.dart</code> 为以下代码:</p>
   </li>
 </ol>
 

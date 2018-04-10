@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JSON and serialization  - Flutter </title>
+  <title>JSON 和序列化  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,138 +165,99 @@
          <a href="https://github.com/flutter/website/blob/master/json.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page JSON and serialization&body=From URL: http://localhost:4000/json.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page JSON 和序列化&body=From URL: http://localhost:4000/json.md&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">JSON and serialization </h1>
+    <h1 class="post-title">JSON 和序列化 </h1>
    </div>
 
   </header>
   
 
-  <p>It is hard to think of a mobile app that doesn’t need to communicate with a web
-server or easily store structured data at some point. When making
-network-connected apps, the chances are that we need to consume some good old
-JSON, sooner or later.</p>
+  <p>很难想象一个移动应用不需要和 web 服务器通信或者在某些时候很简单的存储结构化的数据。当开发基于网络的应用时，我们需要生成又老有好用的 JSON。</p>
 
-<p>In this tutorial, we look into ways of using JSON with Flutter. We go over what
-JSON solution to use in different scenarios and why.</p>
+<p>在这篇课程中，我们窥探一些在 Flutter 中使用 JSON的方法。我们检查一些在不同场景下使用 JSON 的方案以及为什么要这么做。</p>
 
 <ul id="markdown-toc">
-  <li><a href="#which-json-serialization-method-is-right-for-me" id="markdown-toc-which-json-serialization-method-is-right-for-me">Which JSON serialization method is right for me?</a>    <ul>
-      <li><a href="#use-manual-serialization-for-smaller-projects" id="markdown-toc-use-manual-serialization-for-smaller-projects">Use manual serialization for smaller projects</a></li>
-      <li><a href="#use-code-generation-for-medium-to-large-projects" id="markdown-toc-use-code-generation-for-medium-to-large-projects">Use code generation for medium to large projects</a></li>
+  <li><a href="#哪一种-json-的序列化方法适合我" id="markdown-toc-哪一种-json-的序列化方法适合我">哪一种 JSON 的序列化方法适合我？</a>    <ul>
+      <li><a href="#小项目使用手动序列化" id="markdown-toc-小项目使用手动序列化">小项目使用手动序列化</a></li>
+      <li><a href="#在中大型项目中使用代码生成" id="markdown-toc-在中大型项目中使用代码生成">在中大型项目中使用代码生成</a></li>
     </ul>
   </li>
-  <li><a href="#is-there-a-gsonjacksonmoshi-equivalent-in-flutter" id="markdown-toc-is-there-a-gsonjacksonmoshi-equivalent-in-flutter">Is there a GSON/Jackson/Moshi equivalent in Flutter?</a></li>
-  <li><a href="#serializing-json-manually-using-dartconvert" id="markdown-toc-serializing-json-manually-using-dartconvert">Serializing JSON manually using dart:convert</a>    <ul>
-      <li><a href="#serializing-json-inline" id="markdown-toc-serializing-json-inline">Serializing JSON inline</a></li>
-      <li><a href="#serializing-json-inside-model-classes" id="markdown-toc-serializing-json-inside-model-classes">Serializing JSON inside model classes</a></li>
+  <li><a href="#在-flutter-中是否有等价与-gsonjacksonmoshi-的库" id="markdown-toc-在-flutter-中是否有等价与-gsonjacksonmoshi-的库">在 Flutter 中是否有等价与 GSON/Jackson/Moshi 的库?</a></li>
+  <li><a href="#使用-dartconvert-手动序列化-json" id="markdown-toc-使用-dartconvert-手动序列化-json">使用 dart:convert 手动序列化 JSON</a>    <ul>
+      <li><a href="#内联序列化-json" id="markdown-toc-内联序列化-json">内联序列化 JSON</a></li>
+      <li><a href="#在模型类内部序列化-json" id="markdown-toc-在模型类内部序列化-json">在模型类内部序列化 JSON</a></li>
     </ul>
   </li>
-  <li><a href="#serializing-json-using-code-generation-libraries" id="markdown-toc-serializing-json-using-code-generation-libraries">Serializing JSON using code generation libraries</a>    <ul>
-      <li><a href="#setting-up-json_serializable-in-a-project" id="markdown-toc-setting-up-json_serializable-in-a-project">Setting up json_serializable in a project</a></li>
-      <li><a href="#creating-model-classes-the-json_serializable-way" id="markdown-toc-creating-model-classes-the-json_serializable-way">Creating model classes the json_serializable way</a></li>
-      <li><a href="#running-the-code-generation-utility" id="markdown-toc-running-the-code-generation-utility">Running the code generation utility</a>        <ul>
-          <li><a href="#one-time-code-generation" id="markdown-toc-one-time-code-generation">One-time code generation</a></li>
-          <li><a href="#generating-code-continuously" id="markdown-toc-generating-code-continuously">Generating code continuously</a></li>
+  <li><a href="#使用-json-序列化代码生成库" id="markdown-toc-使用-json-序列化代码生成库">使用 JSON 序列化代码生成库</a>    <ul>
+      <li><a href="#在项目中设置-json_serializable" id="markdown-toc-在项目中设置-json_serializable">在项目中设置 json_serializable</a></li>
+      <li><a href="#创建模型类的-json_serializable-方式" id="markdown-toc-创建模型类的-json_serializable-方式">创建模型类的 json_serializable 方式</a></li>
+      <li><a href="#运行代码生成工具" id="markdown-toc-运行代码生成工具">运行代码生成工具</a>        <ul>
+          <li><a href="#一次性生成代码" id="markdown-toc-一次性生成代码">一次性生成代码</a></li>
+          <li><a href="#持续地生成代码" id="markdown-toc-持续地生成代码">持续地生成代码</a></li>
         </ul>
       </li>
-      <li><a href="#consuming-json_serializable-models" id="markdown-toc-consuming-json_serializable-models">Consuming json_serializable models</a></li>
+      <li><a href="#使用-json_serializable-模型类" id="markdown-toc-使用-json_serializable-模型类">使用 json_serializable 模型类</a></li>
     </ul>
   </li>
-  <li><a href="#further-references" id="markdown-toc-further-references">Further references</a></li>
+  <li><a href="#更多相关文档" id="markdown-toc-更多相关文档">更多相关文档</a></li>
 </ul>
 
-<h2 id="which-json-serialization-method-is-right-for-me">Which JSON serialization method is right for me?</h2>
+<h2 id="哪一种-json-的序列化方法适合我">哪一种 JSON 的序列化方法适合我？</h2>
 
-<p>This article covers two general strategies for working with JSON:</p>
+<p>本文介绍了两种通用的使用 JSON 的策略：</p>
 
 <ul>
-  <li>Manual serialization and deserialization</li>
-  <li>Automated serialization and deserialization via code generation</li>
+  <li>手动序列化和反序列化</li>
+  <li>通过代码生成自动序列化和反序列化</li>
 </ul>
 
-<p>Different projects come with different complexities and use cases. For smaller
-proof-of-concept projects or quick prototypes, using code generators might be
-overkill. For apps with several JSON models with more complexity, doing
-serialization by hand can quickly become tedious, repetitive and lend itself to
-lots of small errors.</p>
+<p>不同的项目伴随着不同的复杂度和使用场景。对于比较小的验证性项目或者快速原型，使用代码生成可能更有效果。对于有更多 JSON 模型和更复杂的应用，手动序列化很快就变得乏味无趣，重复性劳动并且会产生很多小错误。</p>
 
-<h3 id="use-manual-serialization-for-smaller-projects">Use manual serialization for smaller projects</h3>
+<h3 id="小项目使用手动序列化">小项目使用手动序列化</h3>
 
-<p>Manual JSON serialization refers to using the built-in JSON decoder in
-<code class="highlighter-rouge">dart:convert</code>. It involves passing the raw JSON string to the <code class="highlighter-rouge">JSON.decode()</code>
-method, and then looking up the values you need in the <code class="highlighter-rouge">Map&lt;String, dynamic&gt;</code>
-the method returns. It has no external dependencies or particular setup process,
-and it is good for quick proof of concepts.</p>
+<p>手动序列化是指使用在 <code class="highlighter-rouge">dart:convert</code> 中的内置解码器。包括传入 JSON 原始字符串给 <code class="highlighter-rouge">JSON.decode()</code> 方法，然后从 <code class="highlighter-rouge">Map&lt;String, dynamic&gt;</code> 中查询你需要的数据。它没有外部依赖或特定的设置过程，有助于目的的快速验证。</p>
 
-<p>Where the manual serialization does not perform well is when your project
-becomes bigger. Writing the serialization logic by hand can become hard to
-manage and error-prone. If you have a typo when accessing an unexisting JSON
-field, your code throws an error during runtime.</p>
+<p>当你的项目变得越来越大时，手动序列化变得不那么好用。手动编写序列化逻辑会变得更难管理并且容易出错。如果你编写了错误的代码而访问了一个不存在的 JSON 字段，代码会在运行时抛出错误。</p>
 
-<p>If you do not have many JSON models in your project and are looking to test a
-concept quickly, manual serialization might be the way you want to start. For an
-example of manual serialization, <a href="#manual-serialization">see here</a>.</p>
+<p>如果在你项目中的 JSON 模型不是很多并且期望快速验证目的，手动序列化会是你想要开始使用的方法。关于手动序列化的例子，<a href="#manual-serialization">参阅这里</a>.</p>
 
-<h3 id="use-code-generation-for-medium-to-large-projects">Use code generation for medium to large projects</h3>
+<h3 id="在中大型项目中使用代码生成">在中大型项目中使用代码生成</h3>
 
-<p>JSON serialization with code generation means having an external library
-generate the serialization boilerplate for you. They involve some initial setup
-and running a file watcher that generates the code from your model classes. For
-example,
-<a href="https://pub.dartlang.org/packages/json_serializable">json_serializable</a> and
-<a href="https://pub.dartlang.org/packages/built_value">built_value</a> are these kinds of
-libraries.</p>
+<p>使用代码生成来序列化 JSON 意味着需要额外的库来为你生成序列化样板文件。包括一些初始化设置和运行一个文件监控器来为你的模型类生成代码。例如，<a href="https://pub.dartlang.org/packages/json_serializable">json_serializable</a> 和
+<a href="https://pub.dartlang.org/packages/built_value">built_value</a> 就是这一类的库。</p>
 
-<p>This approach scales well for a larger project. There is no hand-written
-boilerplate needed, and typos when accessing JSON fields are caught at
-compile-time. The downside with code generation is that it involves some initial
-setup. Also, the generated source files may produce visual clutter in your
-project navigator</p>
+<p>这个方法很好的适应大型项目。不需要手写样板文件，并且访问 JSON 字段的编码错误会在编译时被捕获。负面影响就是代码生成包含了一些初始化的设置。而且，生成的源码文件也许在项目导航器中生成杂乱的可见的。</p>
 
-<p>You might want to use generated code for JSON serialization when you have a
-medium or a larger project. To see an example of code generation based JSON
-serialization, <a href="#code-generation">see here</a>.</p>
+<p>当你拥有一个中大型项目时，也许你想对 JSON 序列化使用代码生成。参考基于代码生成的 JSON 序列化的列子，<a href="#code-generation">参阅这里</a>.</p>
 
-<h2 id="is-there-a-gsonjacksonmoshi-equivalent-in-flutter">Is there a GSON/Jackson/Moshi equivalent in Flutter?</h2>
+<h2 id="在-flutter-中是否有等价与-gsonjacksonmoshi-的库">在 Flutter 中是否有等价与 GSON/Jackson/Moshi 的库?</h2>
 
-<p>The simple answer is no.</p>
+<p>答案是没有。</p>
 
-<p>Such a library would require using runtime reflection, which is disabled in
-Flutter. Runtime reflection interferes with <em>tree shaking</em>, which Dart has
-supported for quite a long time. With tree shaking, we can “shake off” unused
-code from our release builds. This allows us to optimize the size of our
-applications significantly.</p>
+<p>这些库需要用到运行时的反射机制，而这在 Flutter 中是被禁用的。运行时反射干涉了 <em>tree shaking</em>，这个特性 Dart 已经支持很久了。通过 tree shaking，我们可以在发布版本中“摆脱”一些无用的代码。这对于我们优化应用的大小有了重大意义。</p>
 
-<p>Since reflection makes all code implicitly used by default, it makes tree
-shaking difficult. The tools cannot know what parts are unused at runtime, so
-the redundant code is hard to strip away. App sizes cannot be easily optimized
-when using reflection.</p>
+<p>自从反射默认隐式调用所有代码，这让 tree
+shaking 变得困难。工具无法知道哪些部分在运行时未使用，以至于多余的代码很难被清理掉。在使用反射时应用大小不容易被优化。</p>
 
 <aside class="alert alert-info">
-  <p><strong>What about dartson?</strong></p>
+  <p><strong>dartson 怎么样?</strong></p>
 
-  <p>The <a href="https://pub.dartlang.org/packages/dartson">dartson</a> library uses runtime
-reflection, which makes it not compatible with Flutter.</p>
+  <p><a href="https://pub.dartlang.org/packages/dartson">dartson</a> 使用了运行时反射，对于 Flutter 来说不适用。</p>
 </aside>
 
-<p>Although we cannot use runtime reflection with Flutter, some libraries give us
-similarly easy to use APIs but are based on code generation instead. This
-approach is covered in more detail in the <a href="#code-generation">code generation
-libraries</a> section.</p>
+<p>虽然我们不能在 Flutter 中使用运行时反射，取而代之，一些库给我们提供了类似的基于代码生成的简单接口。关于这个方法更多的细节在 <a href="#code-generation">code generation
+libraries</a>。</p>
 
 <p><a name="manual-serialization"></a></p>
-<h2 id="serializing-json-manually-using-dartconvert">Serializing JSON manually using dart:convert</h2>
+<h2 id="使用-dartconvert-手动序列化-json">使用 dart:convert 手动序列化 JSON</h2>
 
-<p>Basic JSON serialization in Flutter is very simple. Flutter has a built-in
-<code class="highlighter-rouge">dart:convert</code> library, which includes a straightforward JSON encoder and
-decoder.</p>
+<p>在 Flutter 中基本的 JSON 序列化非常简单。Flutter 拥有内置的<code class="highlighter-rouge">dart:convert</code> 库，包含了直白的 JSON 编码器和解码器。</p>
 
-<p>Here is an example JSON for a simple user model.</p>
+<p>这是一个用户模型的 JSON 例子。</p>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
@@ -305,15 +266,13 @@ decoder.</p>
 </span></code></pre>
 </div>
 
-<p>With <code class="highlighter-rouge">dart:convert</code>, we can serialize this JSON model in two ways. Let’s have a
-look at both.</p>
+<p>通过 <code class="highlighter-rouge">dart:convert</code>，我们可以使用两种方法序列化这个 JSON 模型。让我们看一下。</p>
 
-<h3 id="serializing-json-inline">Serializing JSON inline</h3>
+<h3 id="内联序列化-json">内联序列化 JSON</h3>
 
-<p>By looking at <a href="https://api.dartlang.org/stable/1.24.3/dart-convert/JsonCodec-class.html">the dart:convert JSON
-documentation</a>,
-we see that we can decode the JSON by calling the <code class="highlighter-rouge">JSON.decode</code> method, with our
-JSON string as the method argument.</p>
+<p>从文档 <a href="https://api.dartlang.org/stable/1.24.3/dart-convert/JsonCodec-class.html">the dart:convert JSON
+documentation</a>
+可以看出，我们可以把 JSON 字符串作为参数，通过调用方法 <code class="highlighter-rouge">JSON.decode</code> 可以解码 JSON。</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;</span> <span class="n">user</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">json</span><span class="o">);</span>
@@ -323,31 +282,20 @@ JSON string as the method argument.</p>
 </code></pre>
 </div>
 
-<p>Unfortunately, <code class="highlighter-rouge">JSON.decode()</code> merely returns a <code class="highlighter-rouge">Map&lt;String, dynamic&gt;</code>, meaning
-that we do not know the types of the values until runtime. With this approach,
-we lose most of the statically typed language features: type safety,
-autocompletion and most importantly, compile-time exceptions. Our code can
-become instantly more error-prone.</p>
+<p>不幸的是，<code class="highlighter-rouge">JSON.decode()</code> 仅仅返回一个 <code class="highlighter-rouge">Map&lt;String, dynamic&gt;</code>，意味着我们直到运行时才能知道值的类型。使用这个方法，我们丢失了很多静态类型语言的特性：类型安全，自动补齐和最重要的，编译时异常。我们的代码会马上变得容易出错。</p>
 
-<p>For example, whenever we access the <code class="highlighter-rouge">name</code> or <code class="highlighter-rouge">email</code> fields, we could quickly
-introduce a typo. A typo which our compiler does not know of since our entire
-JSON merely lives in a map structure.</p>
+<p>例如，任何当我们访问 <code class="highlighter-rouge">name</code> 或者 <code class="highlighter-rouge">email</code> 字段的时候，我们都可能会引入一个编码错误。而这个编码错误是编译器所不知道的，因为整个 JSON 仅仅存在于一个字典的结构里面。</p>
 
-<h3 id="serializing-json-inside-model-classes">Serializing JSON inside model classes</h3>
+<h3 id="在模型类内部序列化-json">在模型类内部序列化 JSON</h3>
 
-<p>We can combat the previously mentioned problems by introducing a plain model
-class, which we call <code class="highlighter-rouge">User</code>. Inside the <code class="highlighter-rouge">User</code> class, we have:</p>
+<p>通过引入一个叫做 <code class="highlighter-rouge">User</code> 的普通的模型类，我们实际运用一下我们之前提到的问题，我们拥有：</p>
 
 <ul>
-  <li>a <code class="highlighter-rouge">User.fromJson</code> constructor, for constructing a new <code class="highlighter-rouge">User</code> instance from a
-map structure</li>
-  <li>a <code class="highlighter-rouge">toJson</code> method, which converts a <code class="highlighter-rouge">User</code> instance into a map.</li>
+  <li>一个 <code class="highlighter-rouge">User.fromJson</code> 构造器，用于从一个字典 数据结构构造一个新的 <code class="highlighter-rouge">User</code> 实例。</li>
+  <li>一个 <code class="highlighter-rouge">toJson</code> 方法，用于将 <code class="highlighter-rouge">User</code> 的实例转化成一个字典。</li>
 </ul>
 
-<p>This way, the <em>calling code</em> can now have type safety, autocompletion for the
-<code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">email</code> fields and compile-time exceptions. If we make typos or treat
-the fields as <code class="highlighter-rouge">int</code>s instead of <code class="highlighter-rouge">String</code>s, our app will not even compile,
-instead of crashing on runtime.</p>
+<p>这样，<em>调用代码</em> 可以提供类型安全，为 <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">email</code> 字段自动补全和编译时异常。 如果我们编码错误或者把 <code class="highlighter-rouge">String</code> 当成 <code class="highlighter-rouge">int</code> 来处理，我们的应用程序将不会编译，而不是在运行时崩溃。</p>
 
 <p><strong>user.dart</strong></p>
 
@@ -371,8 +319,7 @@ instead of crashing on runtime.</p>
 </code></pre>
 </div>
 
-<p>Now the responsibility of the serialization logic is moved inside the model
-itself. With this new approach, we can deserialize a user quite easily.</p>
+<p>现在序列化的逻辑被移到了 model 里面，通过这个方法，我们能非常简单地反序列化 user。</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Map</span> <span class="n">userMap</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">json</span><span class="o">);</span>
@@ -383,47 +330,32 @@ itself. With this new approach, we can deserialize a user quite easily.</p>
 </code></pre>
 </div>
 
-<p>To serialize a user, we just pass the <code class="highlighter-rouge">User</code> object to the <code class="highlighter-rouge">JSON.encode</code> method.
-We don’t need to call the <code class="highlighter-rouge">toJson</code> method here, since <code class="highlighter-rouge">JSON.encode</code> already does
-it for us.</p>
+<p>要序列化 user，我们只需要将 <code class="highlighter-rouge">User</code> 对象传入 <code class="highlighter-rouge">JSON.encode</code> 方法。在这儿我们不需要调用 <code class="highlighter-rouge">toJson</code> 方法，因为 <code class="highlighter-rouge">JSON.encode</code> 已经为我们做了。</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kt">String</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
 </code></pre>
 </div>
 
-<p>This way, the calling code does not have to worry about JSON serialization at
-all. However, the model class still definitely has to. In a production app, we
-would want to be sure that the serialization works properly. In practice, the
-<code class="highlighter-rouge">User.fromJson</code> and <code class="highlighter-rouge">User.toJson</code> methods both need to have unit tests in place
-to verify correct behavior.</p>
+<p>这样，调用代码就不用担心JSON序列化了。然而，模型类仍然需要。在应用的生产应用中，我们希望确保序列化工作正常。在实际应用中，<code class="highlighter-rouge">User.fromJson</code> 和 <code class="highlighter-rouge">User.toJson</code> 方法都需要适当的单元测试来验证正确的行为。</p>
 
-<p>Also, real-world scenarios are not usually that simple. It is unlikely that we
-can get by with such small JSON responses. Nested JSON objects are not that
-uncommon either.</p>
+<p>而且，现实世界的场景通常不是那么简单。我们不大可能获取如此小的 JSON 响应对象。嵌套的 JSON 对象很常见。</p>
 
-<p>It would be nice if there were something that handled the JSON serialization for
-us. Luckily, there is!</p>
+<p>如果有什么东西可以为我们处理好 JSON 序列化就太好了。幸运的是，确实有！</p>
 
 <p><a name="code-generation"></a></p>
-<h2 id="serializing-json-using-code-generation-libraries">Serializing JSON using code generation libraries</h2>
+<h2 id="使用-json-序列化代码生成库">使用 JSON 序列化代码生成库</h2>
 
-<p>Although there are other libraries available, in this tutorial, we use the
-<a href="https://pub.dartlang.org/packages/json_serializable">json_serializable package</a>. It
-is an automated source code generator that can generate the JSON serialization
-boilerplate for us.</p>
+<p>虽然还有一些其他的库可用，但是在本教程中，我们使用 <a href="https://pub.dartlang.org/packages/json_serializable">json_serializable package</a>。这是一个自动化的源代码生成器，可以生成 JSON 序列化样板。</p>
 
-<p>Since the serialization code is not handwritten and maintained by us anymore, we
-minimize the risk of having JSON serialization exceptions at runtime.</p>
+<p>由于序列化代码不再由我们手写和维护，所以我们尽量减少了 JSON 序列化在运行时发生异常的风险。</p>
 
-<h3 id="setting-up-json_serializable-in-a-project">Setting up json_serializable in a project</h3>
+<h3 id="在项目中设置-json_serializable">在项目中设置 json_serializable</h3>
 
-<p>To include <code class="highlighter-rouge">json_serializable</code> in our project, we need one regular and two <em>dev
-dependencies</em>. In short, <em>dev dependencies</em> are dependencies that are not
-included in our app source code.</p>
+<p>想要在我们的项目包含 <code class="highlighter-rouge">json_serializable</code> ，需要一个 regular 和两个 <em>dev
+依赖</em> 。简言之， <em>dev 依赖</em> 就是那些不包含在应用源代码中的的依赖项。</p>
 
-<p>The latest versions of these required dependencies can be seen by following
-<a href="https://github.com/dart-lang/json_serializable/blob/master/example/pubspec.yaml">this link</a>.</p>
+<p>通过<a href="https://github.com/dart-lang/json_serializable/blob/master/example/pubspec.yaml">链接</a>可以看到这些依赖项的最新版本。</p>
 
 <p><strong>pubspec.yaml</strong></p>
 
@@ -438,13 +370,12 @@ included in our app source code.</p>
 </code></pre>
 </div>
 
-<p>Run <code class="highlighter-rouge">flutter packages get</code> inside your project root folder (or click “Packages
-Get” in your editor) to make these new dependencies available in your project.</p>
+<p>在项目的根目录运行 <code class="highlighter-rouge">flutter packages get</code> (或者在编辑器中点击 “Packages
+Get”) 可以使这些依赖作用于你的项目。</p>
 
-<h3 id="creating-model-classes-the-json_serializable-way">Creating model classes the json_serializable way</h3>
+<h3 id="创建模型类的-json_serializable-方式">创建模型类的 json_serializable 方式</h3>
 
-<p>Let’s see how to convert our <code class="highlighter-rouge">User</code> class to a <code class="highlighter-rouge">json_serializable</code> one. For the
-sake of simplicity, we use the dumbed-down JSON model from the previous samples.</p>
+<p>让我们看下如何将我们的 <code class="highlighter-rouge">User</code> 类转化成一个 <code class="highlighter-rouge">json_serializable</code>。为了简单起见，我们使用了之前的样例中的 JSON 模型。</p>
 
 <p><strong>user.dart</strong></p>
 
@@ -475,13 +406,9 @@ class User extends Object with _$<span class="nocode highlight">User</span>Seria
   factory User.fromJson(Map&lt;String, dynamic&gt; json) =&gt; _$<span class="nocode highlight">User</span>FromJson(json);
 }</code></pre>
 
-<p>With this setup, the source code generator will generate code for serializing
-the <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">email</code> fields from JSON and back.</p>
+<p>有了这个设置，源代码生成器将从 JSON 中的 <code class="highlighter-rouge">name</code> 和 <code class="highlighter-rouge">email</code> 字段生成代码。</p>
 
-<p>If needed, it is also easy to customize the naming strategy. For example, if the
-API we are working with returns objects with <em>snake_case</em>, and we want to use
-<em>lowerCamelCase</em> in our models, we can use the <code class="highlighter-rouge">@JsonKey</code> annotation with a name
-parameter:</p>
+<p>如果需要，也可以很方便的自定义命名策略。例如，如果我们接口返回的对象是  <em>snake_case</em> 命名方式，而我们想在模型中使用 <em>lowerCamelCase</em> 命名，我们可以使用 <code class="highlighter-rouge">@JsonKey</code> 标注参数名:</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">/// Tell json_serializable that "registration_date_millis" should be</span>
@@ -491,43 +418,32 @@ parameter:</p>
 </code></pre>
 </div>
 
-<h3 id="running-the-code-generation-utility">Running the code generation utility</h3>
+<h3 id="运行代码生成工具">运行代码生成工具</h3>
 
-<p>When creating <code class="highlighter-rouge">json_serializable</code> classes the first time, you will get errors
-similar to the image below.</p>
+<p>当第一次创建 <code class="highlighter-rouge">json_serializable</code> 类的时候，你会收到与下面图片类似的错误。</p>
 
 <p><img src="/images/json/ide_warning.png" alt="IDE warning when the generated code for a model class does not exist
 yet." /></p>
 
-<p>These errors are entirely normal and are simply because the generated code for
-the model class does not exist yet. To resolve this, we must run the code
-generator that generates the serialization boilerplate for us.</p>
+<p>这些错误及其常见也很简单因为模型类的生成代码还不存在。要解决这个问题，我们必须运行代码生成器来为我们生成序列化模板代码。</p>
 
-<p>There are two ways of running the code generator.</p>
+<p>两种方法可以运行代码生成器。</p>
 
-<h4 id="one-time-code-generation">One-time code generation</h4>
+<h4 id="一次性生成代码">一次性生成代码</h4>
 
-<p>By running <code class="highlighter-rouge">flutter packages pub run build_runner build</code> in our project root, we
-can generate json serialization code for our models whenever needed. This
-triggers a one-time build which goes through our source files, picks the
-relevant ones and generates the necessary serialization code for them.</p>
+<p>在项目根目录运行 <code class="highlighter-rouge">flutter packages pub run build_runner build</code> ，我们就可以在任何需要的时候为我们的模型类生成 json 序列化代码。这个触发器一次性编译我们代码中相关的类并为他们生成必要的序列化代码。</p>
 
-<p>While this is pretty convenient, it would nice if we did not have to run the
-build manually every time we make changes in our model classes.</p>
+<p>虽然这非常方便，但如果我们每次在模型类中进行更改时都不需要手动地运行构建，那就更好了。</p>
 
-<h4 id="generating-code-continuously">Generating code continuously</h4>
+<h4 id="持续地生成代码">持续地生成代码</h4>
 
-<p>A <em>watcher</em> can make our source code generation process more convenient. It
-watches changes in our project files and automatically builds the necessary
-files when needed. We can start the watcher by running <code class="highlighter-rouge">flutter packages pub run
-build_runner watch</code> in our project root.</p>
+<p><em>watcher</em>  可以让我们的代码生成过程更加方便。它会监控我们项目文件的改变并在需要的时候自动编译那些必要的文件。我们可以在项目根目录下运行 <code class="highlighter-rouge">flutter packages pub run build_runner watch</code> 来启动 watcher.</p>
 
-<p>It is safe to start the watcher once and leave it running in the background.</p>
+<p>启动 watcher 并让它在后台安全的运行.</p>
 
-<h3 id="consuming-json_serializable-models">Consuming json_serializable models</h3>
+<h3 id="使用-json_serializable-模型类">使用 json_serializable 模型类</h3>
 
-<p>To deserialize a JSON string <code class="highlighter-rouge">json_serializable</code> way, we do not have actually to
-make any changes to our previous code.</p>
+<p>使用 <code class="highlighter-rouge">json_serializable</code> 的方法反序列化 JSON 字符串，我们不需要对之前的代码做任何改动。</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Map</span> <span class="n">userMap</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">json</span><span class="o">);</span>
@@ -535,21 +451,16 @@ make any changes to our previous code.</p>
 </code></pre>
 </div>
 
-<p>Same goes for serialization. The calling API is the same as before.</p>
+<p>同样的对于序列化。和之前一样的调用 API。</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kt">String</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
 </code></pre>
 </div>
 
-<p>With <code class="highlighter-rouge">json_serializable</code>, we can forget any manual JSON serialization in the
-<code class="highlighter-rouge">User</code> class. The source code generator creates a file called <code class="highlighter-rouge">user.g.dart</code>,
-which has all the necessary serialization logic. Now we do not necessarily have
-to write automated tests to be sure that the serialization works - it is now
-<em>the library’s responsibility</em> to make sure the serialization works
-appropriately.</p>
+<p>使用 <code class="highlighter-rouge">json_serializable</code>，我们可以忘了在 <code class="highlighter-rouge">User</code> 类中任何手动调用 JSON 序列化的代码。代码生成器会创建一个叫做 <code class="highlighter-rouge">user.g.dart</code> 的文件，它包含了所有必要的序列化逻辑。现在我们不必编写自动化测试来确保序列化能工作 - 现在这是 <em>库的责任</em>。</p>
 
-<h2 id="further-references">Further references</h2>
+<h2 id="更多相关文档">更多相关文档</h2>
 
 <ul>
   <li><a href="https://api.dartlang.org/stable/1.24.3/dart-convert/JsonCodec-class.html">JsonCodec documentation</a></li>
