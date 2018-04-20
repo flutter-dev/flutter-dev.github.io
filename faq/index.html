@@ -165,7 +165,7 @@
          <a href="https://github.com/flutter/website/blob/master/faq.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page FAQ&body=From URL: http://localhost:4000/faq.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page FAQ&body=From URL: http://localhost:4000/faq/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
@@ -395,9 +395,11 @@ text</li>
 
 <h3 id="does-flutter-work-with-any-editors-or-ides">Does Flutter work with any editors or IDEs?</h3>
 
-<p>We are building plugins for <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>,
-enabling <a href="/using-ide/">fully integrated development experience</a> for Flutter.
-The plugins work in both the Ultimate and the free Community editions.</p>
+<p>We are building plugins for <a href="https://developer.android.com/studio/">Android Studio</a>,
+<a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>, and <a href="https://code.visualstudio.com/">VS Code</a>.</p>
+
+<p>See <a href="/get-started/editor/">editor configuration</a> for setup details, and
+<a href="/using-ide/">‘Developing Flutter apps in an IDE’</a> for tips on how to use the plugins.</p>
 
 <p>Alternatively, you can use a combination of the <code class="highlighter-rouge">flutter</code> command in a terminal
 and one of the many editors that support <a href="https://www.dartlang.org/tools">editing Dart</a>.</p>
@@ -630,6 +632,8 @@ types of code changes cannot be hot reloaded though:</p>
   <li>The <code class="highlighter-rouge">main()</code> method of the app.</li>
 </ul>
 
+<p>See <a href="/hot-reload/">Using Hot Reload</a> for additional details.</p>
+
 <h3 id="where-can-i-deploy-my-flutter-app">Where can I deploy my Flutter app?</h3>
 
 <p>You can compile and deploy your Flutter app to iOS and Android.</p>
@@ -641,6 +645,12 @@ iOS 8 or newer.</p>
 
 <p>Mobile hardware: 64-bit iOS devices (starting with iPhone 5S and newer
 iPhone models), and ARM Android devices.</p>
+
+<p>Note that we currently do not support:</p>
+<ul>
+  <li>ARM32 iOS devices (iPhone 4, iPhone 5; issue <a href="https://github.com/flutter/flutter/issues/2089">#2089</a>)</li>
+  <li>x86 Android devices (issue <a href="https://github.com/flutter/flutter/issues/9253">#9253</a>)</li>
+</ul>
 
 <p>We support developing Flutter apps with Android and iOS devices, as
 well as with Android emulators and the iOS simulator.</p>
@@ -663,13 +673,14 @@ encourage the community to use Flutter in a variety of interesting ways.</p>
 
 <h3 id="can-i-use-flutter-inside-of-my-existing-native-app">Can I use Flutter inside of my existing native app?</h3>
 
-<p>Yes, you can embed a Flutter view in your existing Android or iOS app.
-You can learn more about this at [[docs coming soon]]. If you want to do this,
-we encourage you to email our mailing list:
-<a href="mailto:flutter-dev@googlegroups.com">flutter-dev@googlegroups.com</a>.</p>
+<p>Yes, you can embed a Flutter view in your existing Android or iOS app, however
+our tooling is currently not fully optimized for this use case (see
+<a href="https://github.com/flutter/flutter/issues/14821">this issue</a> for details).</p>
 
-<p>Please follow <a href="https://github.com/flutter/flutter/issues/8945">this issue</a>
-to be notified when docs for this feature are available.</p>
+<p>Two current demonstrations of this are the <a href="https://github.com/flutter/flutter/tree/master/examples/platform_view">platform_view</a>
+and <a href="https://github.com/flutter/flutter/tree/master/examples/flutter_view">flutter_view</a>
+examples. Some initial documentation is available in the wiki page
+<a href="https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps">Add Flutter to existing apps</a>.</p>
 
 <h3 id="can-i-access-platform-services-and-apis-like-sensors-and-local-storage">Can I access platform services and APIs like sensors and local storage?</h3>
 
@@ -734,7 +745,7 @@ across mobile platforms.</p>
 
 <h3 id="can-i-interop-with-my-mobile-platforms-default-programming-language">Can I interop with my mobile platform’s default programming language?</h3>
 
-<p>Yes, Flutter supports calling into the platform, including integrating with Java
+<p>Yes, Flutter supports calling into the platform, including integrating with Java or Kotlin
 code on Android, and ObjectiveC or Swift code on iOS. This is enabled via a
 flexible message passing style where a Flutter app may send and receive messages
 to the mobile platform using a
@@ -759,10 +770,14 @@ what you might need reflection/mirrors for – please let us know at
 <p>Learn more about i18n and l10n in the
 <a href="/tutorials/internationalization/">Flutter Internationalization Tutorial</a>.</p>
 
-<p>Flutter has basic support for accessibility on iOS and Android, 
-though this feature is a work in progress.</p>
+<p>Flutter has built-in support for basic accessibility features including
+screen readers on Android and iOS. Check the
+<a href="https://docs.flutter.io/flutter/widgets/Semantics-class.html">Semantics</a>
+widget for ways to customize the accessibility experience of
+your Flutter app.</p>
 
-<p>We encourage you to email flutter-dev@googlegroups.com with your 
+<p>We encourage you to email
+<a href="mailto:flutter-dev@googlegroups.com">flutter-dev@googlegroups.com</a> with your
 questions regarding these features.</p>
 
 <h3 id="how-do-i-write-parallel-andor-concurrent-apps-for-flutter">How do I write parallel and/or concurrent apps for Flutter?</h3>
@@ -786,8 +801,8 @@ and iOS platforms.</p>
 plugin enables you to run Dart code in the background, even when your Flutter
 app is not in the foreground.</p>
 
-<p>On iOS we currently do not support this capability. Please keep an eye on [bug
-6192] (https://github.com/flutter/flutter/issues/6192) for updates.</p>
+<p>On iOS we currently do not support this capability. Please keep an eye on <a href="https://github.com/flutter/flutter/issues/6192">bug
+6192</a> for updates.</p>
 
 <h3 id="can-i-use-jsonxmlprotobuffersetc-with-flutter">Can I use JSON/XML/protobuffers/etc with Flutter?</h3>
 
@@ -1180,6 +1195,7 @@ can to ensure Flutter apps can be deployed into Apple’s App Store.</p>
     <script src="/js/customscripts.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
     
     <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
   </body>

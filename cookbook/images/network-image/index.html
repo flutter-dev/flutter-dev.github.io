@@ -165,7 +165,7 @@
          <a href="https://github.com/flutter/website/blob/master/cookbook/images/network-image.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Display images from the internet&body=From URL: http://localhost:4000/cookbook/images/network-image.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Display images from the internet&body=From URL: http://localhost:4000/cookbook/images/network-image/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
@@ -180,7 +180,7 @@
 <a href="https://docs.flutter.io/flutter/widgets/Image-class.html"><code class="highlighter-rouge">Image</code></a> Widget to 
 display different types of images.</p>
 
-<p>In order to work with images from the web, use the <a href="https://docs.flutter.io/flutter/widgets/Image/Image.network.html"><code class="highlighter-rouge">Image.network</code></a> 
+<p>In order to work with images from a URL, use the <a href="https://docs.flutter.io/flutter/widgets/Image/Image.network.html"><code class="highlighter-rouge">Image.network</code></a> 
 constructor.</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">Image</span><span class="o">.</span><span class="na">network</span><span class="o">(</span>
@@ -196,9 +196,21 @@ of the box!</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">Image</span><span class="o">.</span><span class="na">network</span><span class="o">(</span>
   <span class="s">'https://github.com/flutter/plugins/raw/master/packages/video_player/doc/demo_ipod.gif?raw=true'</span><span class="o">,</span>
-<span class="o">)</span>
+<span class="o">);</span>
 </code></pre>
 </div>
+
+<h2 id="placeholders-and-caching">Placeholders and Caching</h2>
+
+<p>The default <code class="highlighter-rouge">Image.network</code> constructor does not handle more advanced 
+functionality, such as fading images in after loading or caching images
+to the device after they’re downloaded. To achieve these tasks, please see
+the following recipes:</p>
+
+<ul>
+  <li><a href="/cookbook/images/fading-in-images/">Fade in images with a placeholder</a></li>
+  <li><a href="/cookbook/images/cached-images/">Working with cached images</a></li>
+</ul>
 
 <h2 id="complete-example">Complete Example</h2>
 
@@ -213,9 +225,6 @@ of the box!</p>
 
     <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">title</span><span class="o">,</span>
-      <span class="nl">theme:</span> <span class="k">new</span> <span class="n">ThemeData</span><span class="o">(</span>
-        <span class="nl">primarySwatch:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">blue</span><span class="o">,</span>
-      <span class="o">),</span>
       <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
         <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
           <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
@@ -229,6 +238,8 @@ of the box!</p>
 <span class="o">}</span>
 </code></pre>
 </div>
+
+<p><img src="/images/cookbook/network-image.png" alt="Network Image Demo" /></p>
 
 </article>
 
@@ -273,6 +284,7 @@ of the box!</p>
     <script src="/js/customscripts.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
     
     <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
   </body>

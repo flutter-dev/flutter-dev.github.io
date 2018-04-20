@@ -165,7 +165,7 @@
          <a href="https://github.com/flutter/website/blob/master/debugging.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Debugging Flutter Apps&body=From URL: http://localhost:4000/debugging.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Debugging Flutter Apps&body=From URL: http://localhost:4000/debugging/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
@@ -206,6 +206,11 @@ applications.</p>
   <li><a href="#material-grid" id="markdown-toc-material-grid">Material grid</a></li>
 </ul>
 
+<aside class="alert alert-info">
+  <p><strong>Note:</strong> If your app’s UI isn’t running as smoothly as you expect,
+check out <a href="/ui-performance/">Flutter Performance Profiling</a>.</p>
+</aside>
+
 <h2 id="the-dart-analyzer">The Dart Analyzer</h2>
 
 <p>Before running your applications, test your code with <code class="highlighter-rouge">flutter analyze</code>. This
@@ -216,7 +221,7 @@ and help you find possible mistakes. If you’re using the
 <p>The Dart analyzer makes heavy use of type annotations that you put in
 your code to help track problems down. You are encouraged to use them
 everywhere (avoiding <code class="highlighter-rouge">var</code>, untyped arguments, untyped list literals,
-etc) as this is the quickest and least paintful way of tracking down
+etc) as this is the quickest and least painful way of tracking down
 problems.</p>
 
 <h2 id="dart-observatory-statement-level-single-stepping-debugger-and-profiler">Dart Observatory (statement-level single-stepping debugger and profiler)</h2>
@@ -285,7 +290,7 @@ of the object.</p>
 mode, sometimes referred to as “checked” mode. This is the default if
 you use <code class="highlighter-rouge">flutter run</code>. In this mode, the Dart <code class="highlighter-rouge">assert</code> statement is
 enabled, and the Flutter framework uses this to perform many runtime
-checks verifying that invariants aren’t being violated.</p>
+checks verifying that invariants are not being violated.</p>
 
 <p>When an invariant is violated, it is reported to the console, with
 some context information to help with tracking down the source of the
@@ -1051,7 +1056,7 @@ grid</a>
 over the application to help verify alignments. To that end, the
 <a href="https://docs.flutter.io/flutter/material/MaterialApp/MaterialApp.html"><code class="highlighter-rouge">MaterialApp</code>
 constructor</a>
-has a <code class="highlighter-rouge">debugShowGrid</code> argument which, when set to <code class="highlighter-rouge">true</code> in debug
+has a <code class="highlighter-rouge">debugShowMaterialGrid</code> argument which, when set to <code class="highlighter-rouge">true</code> in debug
 mode, will overlay such a grid.</p>
 
 <p>You can also overlay such a grid on non-Material applications by using
@@ -1102,6 +1107,7 @@ widget directly.</p>
     <script src="/js/customscripts.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
     
     <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
   </body>

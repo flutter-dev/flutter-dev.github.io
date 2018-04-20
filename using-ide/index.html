@@ -165,7 +165,7 @@
          <a href="https://github.com/flutter/website/blob/master/using-ide.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Developing Flutter apps in an IDE&body=From URL: http://localhost:4000/using-ide.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Developing Flutter apps in an IDE&body=From URL: http://localhost:4000/using-ide/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
@@ -176,7 +176,16 @@
   </header>
   
 
-  <p>The Flutter plugin provides a fully integrated development experience in the
+  <div id="tab-set-install">
+
+<ul class="tabs__top-bar">
+    <li class="tab-link current">Android Studio / IntelliJ</li>
+    <li class="tab-link" data-tab-href="/using-ide-vscode/">VS Code</li>
+</ul>
+
+<div class="tabs__content current">
+
+    <p>The Flutter plugin provides a fully integrated development experience in the
 Android Studio or IntelliJ IDEs.</p>
 
 <ul id="markdown-toc">
@@ -222,334 +231,338 @@ Android Studio or IntelliJ IDEs.</p>
   </li>
 </ul>
 
-<h2 id="installation-and-setup">Installation and setup</h2>
+    <h2 id="installation-and-setup">Installation and setup</h2>
 
-<p>Please follow the <a href="/get-started/editor/">Editor Setup</a> instructions to install
+    <p>Please follow the <a href="/get-started/editor/">Editor Setup</a> instructions to install
 the Dart and Flutter plugins.</p>
 
-<h3 id="updating-the-plugins">Updating the plugins<a name="updating"></a></h3>
+    <h3 id="updating-the-plugins">Updating the plugins<a name="updating"></a></h3>
 
-<p>Updates to the plugins will be shipped on a regular basis. You should get
+    <p>Updates to the plugins will be shipped on a regular basis. You should get
 prompted in IntelliJ when an update is available.</p>
 
-<p>To check for updates manually:</p>
+    <p>To check for updates manually:</p>
 
-<ol>
-  <li>Open preferences (<strong>IntelliJ IDEA&gt;Check for Updates…</strong> on macOS,
+    <ol>
+      <li>Open preferences (<strong>IntelliJ IDEA&gt;Check for Updates…</strong> on macOS,
 <strong>Help&gt;Check for Updates…</strong> on Linux).</li>
-  <li>If <code class="highlighter-rouge">dart</code> or <code class="highlighter-rouge">flutter</code> are listed, update them.</li>
-</ol>
+      <li>If <code class="highlighter-rouge">dart</code> or <code class="highlighter-rouge">flutter</code> are listed, update them.</li>
+    </ol>
 
-<h2 id="creating-projects">Creating projects</h2>
+    <h2 id="creating-projects">Creating projects</h2>
 
-<h3 id="creating-a-new-project">Creating a new project</h3>
+    <h3 id="creating-a-new-project">Creating a new project</h3>
 
-<p>To create a new Flutter IntelliJ project from the Flutter starter app template:</p>
+    <p>To create a new Flutter IntelliJ project from the Flutter starter app template:</p>
 
-<ol>
-  <li>In IntelliJ, click <strong>Create New Project</strong> from the ‘Welcome’ window or
+    <ol>
+      <li>In IntelliJ, click <strong>Create New Project</strong> from the ‘Welcome’ window or
 <strong>File&gt;New&gt;Project…</strong> from the main IDE window.</li>
-  <li>Select <strong>Flutter</strong> in the menu, and click <strong>Next</strong>.</li>
-  <li>Enter your desired <strong>Project name</strong> and <strong>Project location</strong>.</li>
-  <li>Click <strong>Finish</strong>.</li>
-</ol>
+      <li>Select <strong>Flutter</strong> in the menu, and click <strong>Next</strong>.</li>
+      <li>Enter your desired <strong>Project name</strong> and <strong>Project location</strong>.</li>
+      <li>Click <strong>Finish</strong>.</li>
+    </ol>
 
-<h3 id="creating-a-new-project-from-existing-source-code">Creating a new project from existing source code</h3>
+    <h3 id="creating-a-new-project-from-existing-source-code">Creating a new project from existing source code</h3>
 
-<p>To create a new Flutter IntelliJ project containing existing Flutter source code
+    <p>To create a new Flutter IntelliJ project containing existing Flutter source code
 files:</p>
 
-<ol>
-  <li>In IntelliJ, click <strong>Create New Project</strong> from the ‘Welcome’ window or
+    <ol>
+      <li>In IntelliJ, click <strong>Create New Project</strong> from the ‘Welcome’ window or
 <strong>File&gt;New&gt;Project…</strong> from the main IDE window.
-    <ul>
-      <li><strong>Note</strong>: Do <em>not</em> use the <strong>New&gt;Project from existing sources…</strong> option for Flutter projects.</li>
-    </ul>
-  </li>
-  <li>Select <strong>Flutter</strong> in the menu, and click <strong>Next</strong>.</li>
-  <li>Under <strong>Project location</strong> enter, or browse to, the directory holding your
+        <ul>
+          <li><strong>Note</strong>: Do <em>not</em> use the <strong>New&gt;Project from existing sources…</strong> option for Flutter projects.</li>
+        </ul>
+      </li>
+      <li>Select <strong>Flutter</strong> in the menu, and click <strong>Next</strong>.</li>
+      <li>Under <strong>Project location</strong> enter, or browse to, the directory holding your
 existing Flutter source code files.</li>
-  <li>Click <strong>Finish</strong>.</li>
-</ol>
+      <li>Click <strong>Finish</strong>.</li>
+    </ol>
 
-<h2 id="editing-code-and-viewing-code-problems">Editing code, and viewing code problems</h2>
+    <h2 id="editing-code-and-viewing-code-problems">Editing code, and viewing code problems</h2>
 
-<p>The Dart plugin performs code analysis that enables:</p>
+    <p>The Dart plugin performs code analysis that enables:</p>
 
-<ul>
-  <li>Syntax highlighting.</li>
-  <li>Code completions based on rich type analysis.</li>
-  <li>Navigating to type declarations (<strong>Navigate&gt;Declaration</strong>), and finding type
+    <ul>
+      <li>Syntax highlighting.</li>
+      <li>Code completions based on rich type analysis.</li>
+      <li>Navigating to type declarations (<strong>Navigate&gt;Declaration</strong>), and finding type
 usages (<strong>Edit&gt;Find&gt;Find Usages</strong>).</li>
-  <li>Viewing all current source code problems (<strong>View&gt;Tool Windows&gt;Dart Analysis</strong>).
+      <li>Viewing all current source code problems (<strong>View&gt;Tool Windows&gt;Dart Analysis</strong>).
 Any analysis issues will be shows in the Dart Analysis pane:<br />
 <img src="/images/intellij/dart-analysis.png" alt="Dart Analysis pane" /></li>
-</ul>
+    </ul>
 
-<h2 id="running-and-debugging">Running and Debugging</h2>
+    <h2 id="running-and-debugging">Running and Debugging</h2>
 
-<p>Running and Debugging is controlled from the main toolbar:</p>
+    <p>Running and Debugging is controlled from the main toolbar:</p>
 
-<p><img src="/images/intellij/main-toolbar.png" alt="Main IntelliJ toolbar" /></p>
+    <p><img src="/images/intellij/main-toolbar.png" alt="Main IntelliJ toolbar" /></p>
 
-<h3 id="selecting-a-target">Selecting a target</h3>
+    <h3 id="selecting-a-target">Selecting a target</h3>
 
-<p>When a Flutter project is open in IntelliJ, you should see a set of Flutter
+    <p>When a Flutter project is open in IntelliJ, you should see a set of Flutter
 specific buttons on the right-hand side of the toolbar.</p>
 
-<p><em>Note</em>: If the Run &amp; Debug buttons are disabled, and no targets are listed, Flutter
+    <p><em>Note</em>: If the Run &amp; Debug buttons are disabled, and no targets are listed, Flutter
 has not been able to discover any connected iOS or Android devices or simulators.
 You need to connect a device, or start a simulator, to proceed.</p>
 
-<ol>
-  <li>Locate the <strong>Flutter Target Selector</strong> drop-down button. This will show a
+    <ol>
+      <li>Locate the <strong>Flutter Target Selector</strong> drop-down button. This will show a
  list of available targets. Select the target you want your app to started on.
-    <ul>
-      <li>When you connect devices, or start simulators, additional entries will appear.</li>
-    </ul>
-  </li>
-</ol>
+        <ul>
+          <li>When you connect devices, or start simulators, additional entries will appear.</li>
+        </ul>
+      </li>
+    </ol>
 
-<h3 id="run-app-without-breakpoints">Run app without breakpoints</h3>
+    <h3 id="run-app-without-breakpoints">Run app without breakpoints</h3>
 
-<ol>
-  <li>Click the <strong>Play icon</strong> in the toolbar, or invoke <strong>Run&gt;Run</strong>.
-    <ul>
-      <li>The bottom <strong>Run</strong> pane will show logs output:<br />
+    <ol>
+      <li>Click the <strong>Play icon</strong> in the toolbar, or invoke <strong>Run&gt;Run</strong>.
+        <ul>
+          <li>The bottom <strong>Run</strong> pane will show logs output:<br />
 <img src="/images/intellij/log.png" alt="Log pane" /></li>
-    </ul>
-  </li>
-</ol>
+        </ul>
+      </li>
+    </ol>
 
-<h3 id="run-app-with-breakpoints">Run app with breakpoints</h3>
+    <h3 id="run-app-with-breakpoints">Run app with breakpoints</h3>
 
-<ol>
-  <li>If desired, set breakpoints in your source code.</li>
-  <li>Click the <strong>Debug icon</strong> in the toolbar, or invoke <strong>Run&gt;Debug</strong>.
-    <ul>
-      <li>The bottom <strong>Debugger</strong> pane will show Stack Frames and Variables.</li>
-      <li>The bottom <strong>Console</strong> pane will show detailed logs output.</li>
-      <li>Debugging is based on a default launch configuration. To customize this,
+    <ol>
+      <li>If desired, set breakpoints in your source code.</li>
+      <li>Click the <strong>Debug icon</strong> in the toolbar, or invoke <strong>Run&gt;Debug</strong>.
+        <ul>
+          <li>The bottom <strong>Debugger</strong> pane will show Stack Frames and Variables.</li>
+          <li>The bottom <strong>Console</strong> pane will show detailed logs output.</li>
+          <li>Debugging is based on a default launch configuration. To customize this,
 click. the drop-down button to the right of the device selector, and select
 <strong>Edit configuration</strong>.</li>
-    </ul>
-  </li>
-</ol>
+        </ul>
+      </li>
+    </ol>
 
-<h2 id="fast-edit-and-refresh-development-cycle">Fast edit and refresh development cycle</h2>
+    <h2 id="fast-edit-and-refresh-development-cycle">Fast edit and refresh development cycle</h2>
 
-<p>Flutter offers a best-in-class developer cycle enabling you to see the effect
+    <p>Flutter offers a best-in-class developer cycle enabling you to see the effect
 of your changes almost instantly with the ‘hot reload’ feature. See
 <a href="/hot-reload/">Hot reloading Flutter Apps</a> for details.</p>
 
-<h2 id="advanced-debugging">Advanced debugging</h2>
+    <h2 id="advanced-debugging">Advanced debugging</h2>
 
-<h3 id="debugging-visual-layout-issues">Debugging visual layout issues</h3>
+    <h3 id="debugging-visual-layout-issues">Debugging visual layout issues</h3>
 
-<p>To debug a visual issue, start the app with ‘Debug’, and then open the Flutter
+    <p>To debug a visual issue, start the app with ‘Debug’, and then open the Flutter
 inspector tool window using ‘View &gt; Tool Windows &gt; Flutter Inspector’.</p>
 
-<p><img src="/images/intellij/visual-debugging.png" alt="IntelliJ Flutter Inspector Window" /></p>
+    <p><img src="/images/intellij/visual-debugging.png" alt="IntelliJ Flutter Inspector Window" /></p>
 
-<p>This offers many debugging tools; for details on these please see
+    <p>This offers many debugging tools; for details on these please see
 <a href="https://flutter.io/debugging/">Debugging Flutter Apps</a>.</p>
 
-<ul>
-  <li>
-    <p>‘Toggle Select Widget Mode’: Select a widget on the device to inspect it in the
+    <ul>
+      <li>
+        <p>‘Toggle Select Widget Mode’: Select a widget on the device to inspect it in the
 <a href="/inspector/">Flutter Inspector</a>.</p>
-  </li>
-  <li>
-    <p>‘Toggle Debug Paint’: Add visual debugging hints to the rendering displaying
+      </li>
+      <li>
+        <p>‘Toggle Debug Paint’: Add visual debugging hints to the rendering displaying
  borders, padding, alignment, and spacers.</p>
-  </li>
-  <li>
-    <p>‘Toggle Platform Mode’: Toggle between rendering for Android or iOS.</p>
-  </li>
-  <li>
-    <p>‘Toggle Performance Overlay’: Show performance graphs for the GPU &amp; CPU threads.</p>
-  </li>
-  <li>
-    <p>‘Open Timeline View’: Analyze activity of the application as it runs.</p>
-  </li>
-  <li>
-    <p>‘Open Observatory’: A profiler for Dart applications.</p>
-  </li>
-</ul>
+      </li>
+      <li>
+        <p>‘Toggle Platform Mode’: Toggle between rendering for Android or iOS.</p>
+      </li>
+      <li>
+        <p>‘Toggle Performance Overlay’: Show performance graphs for the GPU &amp; CPU threads.</p>
+      </li>
+      <li>
+        <p>‘Open Timeline View’: Analyze activity of the application as it runs.</p>
+      </li>
+      <li>
+        <p>‘Open Observatory’: A profiler for Dart applications.</p>
+      </li>
+    </ul>
 
-<p>Also available in the additional actions menu:</p>
+    <p>Also available in the additional actions menu:</p>
 
-<ul>
-  <li>
-    <p>‘Show Paint Baselines’: Causes each RenderBox to paint a line at each of its
+    <ul>
+      <li>
+        <p>‘Show Paint Baselines’: Causes each RenderBox to paint a line at each of its
 baselines.</p>
-  </li>
-  <li>
-    <p>‘Enable Repaint Rainbow’: Show rotating colors on layers when repainting.</p>
-  </li>
-  <li>
-    <p>‘Enable Slow Animations’: Slow down animations to enable visual inspection.</p>
-  </li>
-  <li>
-    <p>‘Hide Slow Mode Banner’: Hide the ‘slow mode’ banner even when running a
+      </li>
+      <li>
+        <p>‘Enable Repaint Rainbow’: Show rotating colors on layers when repainting.</p>
+      </li>
+      <li>
+        <p>‘Enable Slow Animations’: Slow down animations to enable visual inspection.</p>
+      </li>
+      <li>
+        <p>‘Hide Slow Mode Banner’: Hide the ‘slow mode’ banner even when running a
 debug build.</p>
-  </li>
-</ul>
+      </li>
+    </ul>
 
-<h3 id="debugging-with-observatory">Debugging with Observatory</h3>
+    <h3 id="debugging-with-observatory">Debugging with Observatory</h3>
 
-<p>Observatory is an additional debugging and profiling tool presented with an
+    <p>Observatory is an additional debugging and profiling tool presented with an
 html-based UI. For details see the <a href="https://dart-lang.github.io/observatory/">Observatory page</a>.</p>
 
-<p>To open Observatory:</p>
+    <p>To open Observatory:</p>
 
-<ol>
-  <li>Run your app in debug mode.</li>
-  <li>Select the ‘open observatory’ action from the Debug panel (see screenshot below), click the <strong>Stopwatch icon</strong> (‘Open Observatory’).</li>
-</ol>
+    <ol>
+      <li>Run your app in debug mode.</li>
+      <li>Select the ‘open observatory’ action from the Debug panel (see screenshot below), click the <strong>Stopwatch icon</strong> (‘Open Observatory’).</li>
+    </ol>
 
-<p><img src="/images/intellij/debug-panel.png" alt="Debugging panel" /></p>
+    <p><img src="/images/intellij/debug-panel.png" alt="Debugging panel" /></p>
 
-<h2 id="editing-tips-for-flutter-code">Editing tips for Flutter code</h2>
+    <h2 id="editing-tips-for-flutter-code">Editing tips for Flutter code</h2>
 
-<h3 id="assists--quick-fixes">Assists &amp; Quick Fixes</h3>
+    <h3 id="assists--quick-fixes">Assists &amp; Quick Fixes</h3>
 
-<p>Assists are code changes related to a certain code identifier. A number of these
+    <p>Assists are code changes related to a certain code identifier. A number of these
 are available when the cursor is placed on a Flutter widget identifier, as
 indicated by the yellow lightbulb icon. The assist can be invoked by clicking
 the lightbulb, or by using the keyboard shortcut <code class="highlighter-rouge">Alt-Enter</code>, as illustrated
 here:</p>
 
-<p><img src="/images/intellij/assists.gif" alt="IntelliJ editing assists" /></p>
+    <p><img src="/images/intellij/assists.gif" alt="IntelliJ editing assists" /></p>
 
-<p>Quick Fixes are similar, only they are shown with a piece of code has an error and they
+    <p>Quick Fixes are similar, only they are shown with a piece of code has an error and they
 can assist in correcting it. They are indicated with a red lightbulb.</p>
 
-<h4 id="wrap-with-new-widget-assist">Wrap with new widget assist</h4>
-<p>This can be used when you have a widget that you want to wrap in a surrounding widget,
+    <h4 id="wrap-with-new-widget-assist">Wrap with new widget assist</h4>
+    <p>This can be used when you have a widget that you want to wrap in a surrounding widget,
 for example if you want to wrap a widget in a <code class="highlighter-rouge">Row</code> or <code class="highlighter-rouge">Column</code>.</p>
 
-<h4 id="wrap-widget-list-with-new-widget-assist">Wrap widget list with new widget assist</h4>
-<p>Similar to the assist above, but for wrapping an existing list of widgets rather than an
+    <h4 id="wrap-widget-list-with-new-widget-assist">Wrap widget list with new widget assist</h4>
+    <p>Similar to the assist above, but for wrapping an existing list of widgets rather than an
 individual widget.</p>
 
-<h4 id="convert-child-to-children-assist">Convert child to children assist</h4>
-<p>Changes a child argument to a children argument, and wraps the argument value in a list.</p>
+    <h4 id="convert-child-to-children-assist">Convert child to children assist</h4>
+    <p>Changes a child argument to a children argument, and wraps the argument value in a list.</p>
 
-<h3 id="live-templates">Live Templates</h3>
+    <h3 id="live-templates">Live Templates</h3>
 
-<p>Live templates can be used to speed up entering typical code structures. They
+    <p>Live templates can be used to speed up entering typical code structures. They
 are invoked by typing their ‘prefix’, and then selecting it in the code
 completion window:</p>
 
-<p><img src="/images/intellij/templates.gif" alt="IntelliJ live templates" /></p>
+    <p><img src="/images/intellij/templates.gif" alt="IntelliJ live templates" /></p>
 
-<p>The Flutter plugin includes the following templates:</p>
+    <p>The Flutter plugin includes the following templates:</p>
 
-<ul>
-  <li>Prefix <code class="highlighter-rouge">stless</code>: Create a new subclass of <code class="highlighter-rouge">StatelessWidget</code>.</li>
-  <li>Prefix <code class="highlighter-rouge">stful</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code> and it’s associated
+    <ul>
+      <li>Prefix <code class="highlighter-rouge">stless</code>: Create a new subclass of <code class="highlighter-rouge">StatelessWidget</code>.</li>
+      <li>Prefix <code class="highlighter-rouge">stful</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code> and it’s associated
  State subclass.</li>
-  <li>Prefix <code class="highlighter-rouge">stanim</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code>, and it’s
+      <li>Prefix <code class="highlighter-rouge">stanim</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code>, and it’s
  associated State subclass including a field initialized with an
  <code class="highlighter-rouge">AnimationController</code>.</li>
-</ul>
+    </ul>
 
-<p>You can also define custom templates in <strong>Settings &gt; Editor &gt; Live Templates</strong>.</p>
+    <p>You can also define custom templates in <strong>Settings &gt; Editor &gt; Live Templates</strong>.</p>
 
-<h3 id="intellij-keyboard-shortcuts">IntelliJ keyboard shortcuts</h3>
+    <h3 id="intellij-keyboard-shortcuts">IntelliJ keyboard shortcuts</h3>
 
-<p><strong>Hot Reload</strong></p>
+    <p><strong>Hot Reload</strong></p>
 
-<p>On Linux (IntelliJ keymaps <em>Default for XWin</em>) and Windows the keyboard shortcuts
+    <p>On Linux (IntelliJ keymaps <em>Default for XWin</em>) and Windows the keyboard shortcuts
 are <code class="highlighter-rouge">ctrl-alt-;</code> and <code class="highlighter-rouge">ctrl-\</code>.</p>
 
-<p>On macOS (IntelliJ keymap <em>Mac OS X 10.5+ copy</em>) the keyboard shortcuts are <code class="highlighter-rouge">⌘-⌥-;</code>
+    <p>On macOS (IntelliJ keymap <em>Mac OS X 10.5+ copy</em>) the keyboard shortcuts are <code class="highlighter-rouge">⌘-⌥-;</code>
 and <code class="highlighter-rouge">⌘-\</code>.</p>
 
-<p>Keyboard mappings can be changed in IntelliJ Preferences/Settings: Select
+    <p>Keyboard mappings can be changed in IntelliJ Preferences/Settings: Select
 <em>Keymap</em>, then enter <em>flutter</em> into the search box in the upper right corner.
 Right click the binding you want to change and <em>Add Keyboard Shortcut</em>.</p>
 
-<p><img src="/images/intellij/keymap-settings-flutter-plugin.png" alt="IntelliJ Settings Keymap" /></p>
+    <p><img src="/images/intellij/keymap-settings-flutter-plugin.png" alt="IntelliJ Settings Keymap" /></p>
 
-<h3 id="hot-reloads-vs-full-application-restarts">‘Hot Reloads’ vs ‘Full Application Restarts’</h3>
+    <h3 id="hot-reloads-vs-full-application-restarts">‘Hot Reloads’ vs ‘Full Application Restarts’</h3>
 
-<p>Hot Reload works by injecting updated source code files into the running Dart VM
+    <p>Hot Reload works by injecting updated source code files into the running Dart VM
 (Virtual Machine). This includes not only adding new classes, but also adding
 methods and fields to existing classes, and changing existing functions. A few
 types of code changes cannot be hot reloaded though:</p>
 
-<ul>
-  <li>Global variable initializers.</li>
-  <li>Static field initializers.</li>
-  <li>The <code class="highlighter-rouge">main()</code> method of the app.</li>
-</ul>
+    <ul>
+      <li>Global variable initializers.</li>
+      <li>Static field initializers.</li>
+      <li>The <code class="highlighter-rouge">main()</code> method of the app.</li>
+    </ul>
 
-<p>For these changes you can fully restart your application, without having to end
+    <p>For these changes you can fully restart your application, without having to end
 your debugging session:</p>
 
-<ol>
-  <li>Don’t click the Stop button; simply re-click the Run button (if in a run
+    <ol>
+      <li>Don’t click the Stop button; simply re-click the Run button (if in a run
 session) or Debug button (if in a debug session), or shift-click the ‘hot
 reload’ button.</li>
-</ol>
+    </ol>
 
-<h2 id="edit-android-code">Editing Android code in IntelliJ IDEA</h2>
+    <h2 id="edit-android-code">Editing Android code in IntelliJ IDEA</h2>
 
-<p>To enable editing of Android code in IntelliJ IDEA, you need to configure the
+    <p>To enable editing of Android code in IntelliJ IDEA, you need to configure the
 location of the Android SDK:</p>
 
-<ol>
-  <li>In Preferences-&gt;Plugins, enable <strong>Android Support</strong> if you haven’t already.</li>
-  <li>Right-click the <strong>android</strong> folder in the Project view, and select <strong>Open
+    <ol>
+      <li>In Preferences-&gt;Plugins, enable <strong>Android Support</strong> if you haven’t already.</li>
+      <li>Right-click the <strong>android</strong> folder in the Project view, and select <strong>Open
 Module Settings</strong>.</li>
-  <li>In <strong>Sources</strong> tab, locate the <strong>Language level</strong> field, and select level ‘8’
+      <li>In <strong>Sources</strong> tab, locate the <strong>Language level</strong> field, and select level ‘8’
 or later.</li>
-  <li>In <strong>Dependencies</strong> tab, locate the <strong>Module SDK</strong> field, and select an
+      <li>In <strong>Dependencies</strong> tab, locate the <strong>Module SDK</strong> field, and select an
 Android SDK. If no SDK is listed, click <strong>New…</strong> and specify the location of
 the Android SDK. Make sure to select an Android SDK matching the one used by
 Flutter (as reported by <code class="highlighter-rouge">flutter doctor</code>).</li>
-  <li>Click <strong>OK</strong>.</li>
-</ol>
+      <li>Click <strong>OK</strong>.</li>
+    </ol>
 
-<h2 id="tips-and-tricks">Tips and tricks</h2>
+    <h2 id="tips-and-tricks">Tips and tricks</h2>
 
-<p>Please checkout these ‘cheat sheets’:</p>
+    <p>Please checkout these ‘cheat sheets’:</p>
 
-<ul>
-  <li><a href="/downloads/Flutter-IntelliJ-cheat-sheet-MacOS.pdf">Flutter IntelliJ cheat sheet, MacOS version</a></li>
-  <li><a href="/downloads/Flutter-IntelliJ-cheat-sheet-WindowsLinux.pdf">Flutter IntelliJ cheat sheet, Windows &amp; Linux version</a></li>
-</ul>
+    <ul>
+      <li><a href="/downloads/Flutter-IntelliJ-cheat-sheet-MacOS.pdf">Flutter IntelliJ cheat sheet, MacOS version</a></li>
+      <li><a href="/downloads/Flutter-IntelliJ-cheat-sheet-WindowsLinux.pdf">Flutter IntelliJ cheat sheet, Windows &amp; Linux version</a></li>
+    </ul>
 
-<h2 id="troubleshooting">Troubleshooting</h2>
+    <h2 id="troubleshooting">Troubleshooting</h2>
 
-<h3 id="known-issues-and-feedback">Known issues and feedback</h3>
+    <h3 id="known-issues-and-feedback">Known issues and feedback</h3>
 
-<p>Important known issues that may impact your experience are documented in the
+    <p>Important known issues that may impact your experience are documented in the
 <a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter plugin README</a> file.</p>
 
-<p>All known bugs are tracked in the issue trackers:</p>
+    <p>All known bugs are tracked in the issue trackers:</p>
 
-<ul>
-  <li>Flutter plugin: <a href="https://github.com/flutter/flutter-intellij/issues">GitHub issue
+    <ul>
+      <li>Flutter plugin: <a href="https://github.com/flutter/flutter-intellij/issues">GitHub issue
    tracker</a>.</li>
-  <li>Dart plugin: <a href="https://youtrack.jetbrains.com/issues?q=%23dart%20%23Unresolved">JetBrains
+      <li>Dart plugin: <a href="https://youtrack.jetbrains.com/issues?q=%23dart%20%23Unresolved">JetBrains
    YouTrack</a>.</li>
-</ul>
+    </ul>
 
-<p>We very much welcome feedback, both on bugs/issues and feature requests. Prior
+    <p>We very much welcome feedback, both on bugs/issues and feature requests. Prior
 to filing new issues, please:</p>
 
-<ul>
-  <li>do a quick search in the issue trackers to see if the issue is already
+    <ul>
+      <li>do a quick search in the issue trackers to see if the issue is already
    tracked.</li>
-  <li>make sure you have <a href="#updating">updated</a> to the most recent version of the
+      <li>make sure you have <a href="#updating">updated</a> to the most recent version of the
    plugin.</li>
-</ul>
+    </ul>
 
-<p>When filing new issues, please include the output of <a href="https://flutter.io/bug-reports/#provide-some-flutter-diagnostics"><code class="highlighter-rouge">flutter
+    <p>When filing new issues, please include the output of <a href="https://flutter.io/bug-reports/#provide-some-flutter-diagnostics"><code class="highlighter-rouge">flutter
 doctor</code></a>.</p>
+
+  </div>
+
+</div>
 
 </article>
 
@@ -594,6 +607,7 @@ doctor</code></a>.</p>
     <script src="/js/customscripts.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
     
     <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
   </body>

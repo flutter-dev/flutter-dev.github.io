@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building a form with validation  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/cookbook/forms/validation/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
+            <a class="page-link" href="/support/">支持</a>
+            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="搜索">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">入门</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: 安装</a></li>
+      <li><a href="/get-started/editor/">2: 配置编辑器</a></li>
+      <li><a href="/get-started/test-drive/">3: 试运行</a></li>
+      <li><a href="/get-started/codelab/">4: 编写第一个 Flutter 应用</a></li>
+      <li><a href="/get-started/learn-more/">5: 学习更多</a></li>
+    </ul>
+
+  <li class="sidebar-title">构建 UI</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">框架预览</a></li>
+      <li><a href="/widgets/">Widget 目录</a></li>
+      <li><a href="/cookbook/">小案例</a></li>
+      <li><a href="/catalog/samples/">示例目录</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">构建漂亮的用户界面 - Codelab</a></li>
+      <li><a href="/tutorials/layout/">构建布局 - 教程</a></li>
+      <li><a href="/tutorials/interactive/">添加交互 - 教程</a></li>
+      <li><a href="/web-analogs/">HTML/CSS 模式</a></li>
+      <li><a href="/flutter-for-android/">Android 开发者参考</a></li>
+      <li><a href="/flutter-for-react-native/">React Native 开发者参考</a></li>
+      <li><a href="/gestures/">手势</a></li>
+      <li><a href="/animations/">动画</a></li>
+      <li><a href="/custom-fonts/">自定义字体</a></li>
+      <li><a href="/layout/">框约束</a></li>
+      <li><a href="/assets-and-images/">资源与图像</a></li>
+      <li><a href="/text-input/">文本输入</a></li>
+      <li><a href="/routing-and-navigation/">界面路由与导航</a></li>
+      <li><a href="/tutorials/internationalization">国际化</a></li>
+    </ul>
+
+  <li class="sidebar-title">使用设备与 SDK 中的 API</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">使用扩展包</a></li>
+      <li><a href="/developing-packages/">开发扩展包</a></li>
+      <li><a href="/platform-channels/">平台特定代码</a></li>
+      <li><a href="/reading-writing-files/">文件的读写</a></li>
+      <li><a href="/networking/">网络和 HTTP</a></li>
+      <li><a href="/json/">JSON 和序列化</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">开发与工具</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Flutter IDE 的使用</a></li>
+      <li><a href="/hot-reload/">热重载的使用</a></li>
+      <li><a href="/testing/">应用测试</a></li>
+      <li><a href="/debugging/">应用调试</a></li>
+      <li><a href="/inspector/">用户界面检查</a></li>
+      <li><a href="/android-release/">编译正式版的 Android 应用</a></li>
+      <li><a href="/ios-release/">编译正式版的 iOS 应用</a></li>
+      <li><a href="/upgrading/">升级 Flutter</a></li>
+      <li><a href="/formatting/"> 格式化代码</a></li>
+    </ul>
+
+  <li class="sidebar-title">更多细节</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">技术一览</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">神奇的 Flutter - 幻灯片</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">架构图</a></li>
+      <li><a href="https://www.bilibili.com/video/av14430321/">Flutter 框架层设计 <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.bilibili.com/video/av6269773/">Flutter 的渲染管线 <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/cookbook/forms/validation.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Building a form with validation&body=From URL: http://localhost:4000/cookbook/forms/validation/&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Building a form with validation </h1>
+   </div>
+
+  </header>
+  
+
+  <p>Apps often require users to enter information into a text field. For 
+example, we might be working on an app that requires our users to log in with an 
+email address and password combination.</p>
+
+<p>In order to make our apps secure and easy to use, we can check whether the 
+information the user has provided is valid. If the user has correctly filled
+out the form, we can process the information. If the user submits incorrect
+information, we can display a friendly error message letting them know what went
+wrong.</p>
+
+<p>In this example, we’ll see how to add validation to a form with a single 
+text field.</p>
+
+<h2 id="directions">Directions</h2>
+
+<ol>
+  <li>Create a <code class="highlighter-rouge">Form</code> with a <code class="highlighter-rouge">GlobalKey</code></li>
+  <li>Add a <code class="highlighter-rouge">TextFormField</code> with validation logic</li>
+  <li>Create a button to validate and submit the form</li>
+</ol>
+
+<h2 id="1-create-a-form-with-a-globalkey">1. Create a <code class="highlighter-rouge">Form</code> with a <code class="highlighter-rouge">GlobalKey</code></h2>
+
+<p>First, we’ll need a <a href="https://docs.flutter.io/flutter/widgets/Form-class.html"><code class="highlighter-rouge">Form</code></a> 
+to work with. The <code class="highlighter-rouge">Form</code> Widget acts as a container to group and validate 
+multiple form fields.</p>
+
+<p>When we create the form, we’ll also need to provide a <a href="https://docs.flutter.io/flutter/widgets/GlobalKey-class.html"><code class="highlighter-rouge">GlobalKey</code></a>. 
+This will uniquely identify the <code class="highlighter-rouge">Form</code> that we’re working with, and will allow
+us to validate the form in a later step.</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// Define a Custom Form Widget</span>
+<span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MyFormState</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Define a corresponding State class. This class will hold the data related to </span>
+<span class="c1">// the form.</span>
+<span class="kd">class</span> <span class="nc">MyFormState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyForm</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="c1">// Create a global key that will uniquely identify the Form widget and allow</span>
+  <span class="c1">// us to validate the form</span>
+  <span class="kd">final</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;</span> <span class="n">_formKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;();</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Build a Form widget using the _formKey we created above</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Form</span><span class="o">(</span>
+      <span class="nl">key:</span> <span class="n">_formKey</span><span class="o">,</span>
+      <span class="nl">child:</span> <span class="c1">// We'll build this out in the next steps!</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="2-add-a-textformfield-with-validation-logic">2. Add a <code class="highlighter-rouge">TextFormField</code> with validation logic</h2>
+
+<p>We have our <code class="highlighter-rouge">Form</code> in place, but we haven’t provided a way for our users to 
+enter text! This the job of a <a href="https://docs.flutter.io/flutter/material/TextFormField-class.html"><code class="highlighter-rouge">TextFormField</code></a>.
+The <code class="highlighter-rouge">TextFormField</code> Widget renders a material design text input and knows how to
+display validation errors when they occur.</p>
+
+<p>How can we validate the input? By providing a <code class="highlighter-rouge">validator</code> function to the 
+<code class="highlighter-rouge">TextFormField</code>. If there is an error with the information the user has
+provided, the <code class="highlighter-rouge">validator</code> function must return a <code class="highlighter-rouge">String</code> containing
+an error message. If there are no errors, the function should not return
+anything.</p>
+
+<p>In this example, we will create a <code class="highlighter-rouge">validator</code> that ensures the <code class="highlighter-rouge">TextFormField</code>
+isn’t empty. If it is empty, we will return a friendly error message!</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">TextFormField</span><span class="p">(</span>
+  <span class="c1">// The validator receives the text the user has typed in</span>
+  <span class="nl">validator:</span> <span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="s">'Please enter some text'</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">},</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<h2 id="3-create-a-button-to-validate-and-submit-the-form">3. Create a button to validate and submit the form</h2>
+
+<p>Now that we have a form with a text field, we’ll need to provide a button the 
+user can tap to submit the information.</p>
+
+<p>When the user attempts to submit the form, we’ll need to check if the form is 
+valid. If it is, we will show a success message. If the text field has no 
+content, we’ll want to display the error message.</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">RaisedButton</span><span class="p">(</span>
+  <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Validate will return true if the form is valid, or false if</span>
+    <span class="c1">// the form is invalid.</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">_formKey</span><span class="o">.</span><span class="na">currentState</span><span class="o">.</span><span class="na">validate</span><span class="o">())</span> <span class="o">{</span>
+      <span class="c1">// If the form is valid, display a snackbar. In the real world, you'd</span>
+      <span class="c1">// often want to call a server or save the information in a database</span>
+      <span class="n">Scaffold</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">showSnackBar</span><span class="o">(</span>
+          <span class="k">new</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Processing Data'</span><span class="o">)));</span>
+    <span class="o">}</span>
+  <span class="o">},</span>
+  <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Submit'</span><span class="o">),</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<h3 id="how-does-this-work">How does this work?</h3>
+
+<p>In order to validate the form, we’ll need to use the <code class="highlighter-rouge">_formKey</code> created in 
+step 1. We can use the <code class="highlighter-rouge">_formKey.currentState</code> method to access the 
+<a href="https://docs.flutter.io/flutter/widgets/FormState-class.html"><code class="highlighter-rouge">FormState</code></a>,
+which is automatically created by Flutter when we build a <code class="highlighter-rouge">Form</code>.</p>
+
+<p>The <code class="highlighter-rouge">FormState</code> class contains the <code class="highlighter-rouge">validate</code> method. When the <code class="highlighter-rouge">validate</code> method
+is called, it will run the <code class="highlighter-rouge">validator</code> function for each text field in the form. 
+If everything looks good, the method returns <code class="highlighter-rouge">true</code>. If any text field contains
+errors, it will display the error message for each invalid text field and return 
+<code class="highlighter-rouge">false</code>.</p>
+
+<h2 id="complete-example">Complete Example</h2>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="n">appTitle</span> <span class="o">=</span> <span class="s">'Form Validation Demo'</span><span class="o">;</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+      <span class="nl">title:</span> <span class="n">appTitle</span><span class="o">,</span>
+      <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+        <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
+          <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">appTitle</span><span class="o">),</span>
+        <span class="o">),</span>
+        <span class="nl">body:</span> <span class="k">new</span> <span class="n">MyForm</span><span class="o">(),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Create a Form Widget</span>
+<span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MyFormState</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Create a corresponding State class. This class will hold the data related to</span>
+<span class="c1">// the form.</span>
+<span class="kd">class</span> <span class="nc">MyFormState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyForm</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="c1">// Create a global key that will uniquely identify the `Form` widget</span>
+  <span class="kd">final</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;</span> <span class="n">_formKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;();</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Build a Form widget using the _formKey we created above</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Form</span><span class="o">(</span>
+      <span class="nl">key:</span> <span class="n">_formKey</span><span class="o">,</span>
+      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">crossAxisAlignment:</span> <span class="n">CrossAxisAlignment</span><span class="o">.</span><span class="na">start</span><span class="o">,</span>
+        <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
+          <span class="k">new</span> <span class="n">TextFormField</span><span class="o">(</span>
+            <span class="nl">validator:</span> <span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+              <span class="k">if</span> <span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="s">'Please enter some text'</span><span class="o">;</span>
+              <span class="o">}</span>
+            <span class="o">},</span>
+          <span class="o">),</span>
+          <span class="k">new</span> <span class="n">Padding</span><span class="o">(</span>
+            <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">symmetric</span><span class="o">(</span><span class="nl">vertical:</span> <span class="mf">16.0</span><span class="o">),</span>
+            <span class="nl">child:</span> <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
+              <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
+                <span class="c1">// Validate will return true if the form is valid, or false if</span>
+                <span class="c1">// the form is invalid.</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">_formKey</span><span class="o">.</span><span class="na">currentState</span><span class="o">.</span><span class="na">validate</span><span class="o">())</span> <span class="o">{</span>
+                  <span class="c1">// If the form is valid, we want to show a Snackbar</span>
+                  <span class="n">Scaffold</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">showSnackBar</span><span class="o">(</span>
+                      <span class="k">new</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Processing Data'</span><span class="o">)));</span>
+                <span class="o">}</span>
+              <span class="o">},</span>
+              <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Submit'</span><span class="o">),</span>
+            <span class="o">),</span>
+          <span class="o">),</span>
+        <span class="o">],</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p><img src="/images/cookbook/form-validation.gif" alt="Form Validation Demo" /></p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+        <p class="site-footer__link-list">
+          <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+          <a href="https://twitter.com/flutterio">twitter</a> &bull;
+          <a href="https://github.com/flutter/">github</a> &bull;
+          <a href="/tos">terms</a> &bull;
+          <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a> &bull;
+          <a href="https://github.com/orgs/flutter-dev/teams/flutter/">翻译组</a>
+        </p>
+
+        <p class="licenses">
+          除非另有说明，否则本作品根据
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 国际许可证</a>进行许可，代码示例已根据 BSD 许可证进行许可。
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

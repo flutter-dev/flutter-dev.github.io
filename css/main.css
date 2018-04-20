@@ -365,6 +365,8 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
     @media screen and (max-width: 980px) {
       .post-content h4 {
         font-size: 12px; } }
+  .post-content a {
+    hyphens: auto; }
 
 /* Make fragment identifier links visible below the header. */
 :target:before {
@@ -849,7 +851,7 @@ div#toc ul li ul li {
 div.alert code, h2 code {
   background-color: transparent !important; }
 
-/* without this, the links in these notes aren't visible.*/
+/* without this, the links in these notes are not visible.*/
 .alert a {
   text-decoration: underline; }
 
@@ -1702,6 +1704,20 @@ ul.tabs__top-bar li.current {
 
 .tabs__content.current {
   display: inherit; }
+
+.sdk-archives th, .sdk-archives td {
+  padding-right: 30px; }
+.sdk-archives .date {
+  text-align: right; }
+.sdk-archives .collapsed .overflow {
+  display: none; }
+.sdk-archives .loading {
+  font-weight: italic;
+  color: #999999; }
+.sdk-archives .git-hash:before {
+  padding-left: 5px; }
+.sdk-archives .git-hash {
+  color: #999999; }
 
 aside > :not(pre) > code[class*="language-"], aside > pre[class*="language-"] {
   background: inherit; }

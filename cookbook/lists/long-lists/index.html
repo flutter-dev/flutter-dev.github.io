@@ -165,7 +165,7 @@
          <a href="https://github.com/flutter/website/blob/master/cookbook/lists/long-lists.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Working with long lists&body=From URL: http://localhost:4000/cookbook/lists/long-lists.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Working with long lists&body=From URL: http://localhost:4000/cookbook/lists/long-lists/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
@@ -178,7 +178,7 @@
 
   <p>The standard <a href="https://docs.flutter.io/flutter/widgets/ListView-class.html"><code class="highlighter-rouge">ListView</code></a> 
 constructor works well for small lists. In order to work with lists that contain
-a large number of items, it’s best to use the <a href="https://docs.flutter.io/flutter/widgets/ListView/ListView.builder.html"><code class="highlighter-rouge">Listview.builder</code></a> 
+a large number of items, it’s best to use the <a href="https://docs.flutter.io/flutter/widgets/ListView/ListView.builder.html"><code class="highlighter-rouge">ListView.builder</code></a> 
 constructor.</p>
 
 <p>Whereas the default <code class="highlighter-rouge">ListView</code> constructor requires us to create all items at
@@ -189,136 +189,68 @@ onto the screen.</p>
 
 <p>First, we’ll need a data source to work with. For example, your data source 
 might be a list of messages, search results, or products in a store. Most of 
-the time, this data will come from the internet or a database. For this example, 
-we’ll manually create a List of Messages to work with.</p>
+the time, this data will come from the internet or a database.</p>
 
-<h3 id="define-a-message-class">Define a Message class</h3>
+<p>For this example, we’ll generate a list of 10000 Strings using the 
+<a href="https://docs.flutter.io/flutter/dart-core/List/List.generate.html"><code class="highlighter-rouge">List.generate</code></a> 
+constructor.</p>
 
-<p>We’ll need to create a class that holds the data of each message.</p>
-
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Message</span> <span class="o">{</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">sender</span><span class="o">;</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">subject</span><span class="o">;</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">body</span><span class="o">;</span>
-
-  <span class="n">Message</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">sender</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">subject</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">body</span><span class="o">});</span>
-<span class="o">}</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span><span class="mi">10000</span><span class="o">,</span> <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">"Item </span><span class="si">$i</span><span class="s">"</span><span class="o">);</span>
 </code></pre>
 </div>
 
-<h3 id="create-a-list-of-messages">Create a list of Messages</h3>
+<h2 id="2-convert-the-data-source-into-widgets">2. Convert the data source into Widgets</h2>
 
-<p>Now that we’ve got a Message class to work with, we’ll create a list of sample
-data to work with.</p>
-
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">messages</span> <span class="o">=</span> <span class="o">[</span>
-  <span class="k">new</span> <span class="n">Message</span><span class="o">(</span>
-    <span class="nl">sender:</span> <span class="s">'Flutter Weekly'</span><span class="o">,</span>
-    <span class="nl">subject:</span> <span class="s">'Flutter Weekly #5'</span><span class="o">,</span>
-    <span class="nl">body:</span> <span class="s">'Check out this week</span><span class="se">\'</span><span class="s">s latest Flutter news'</span>
-  <span class="o">),</span>
-  <span class="k">new</span> <span class="n">Message</span><span class="o">(</span>
-    <span class="nl">sender:</span> <span class="s">'Drew'</span><span class="o">,</span>
-    <span class="nl">subject:</span> <span class="s">'Scuba Photos'</span><span class="o">,</span>
-    <span class="nl">body:</span> <span class="s">'Check out the pictures from our last trip'</span>
-  <span class="o">),</span>
-  <span class="k">new</span> <span class="n">Message</span><span class="o">(</span>
-    <span class="nl">sender:</span> <span class="s">'Lindsey'</span><span class="o">,</span>
-    <span class="nl">subject:</span> <span class="s">'Catch up on Thursday?'</span><span class="o">,</span>
-    <span class="nl">body:</span> <span class="s">'Long time no see, let</span><span class="se">\'</span><span class="s">s grab coffee!'</span>
-  <span class="o">),</span>
-<span class="o">];</span>
-</code></pre>
-</div>
-
-<h2 id="2-convert-our-items-into-a-list">2. Convert our Items into a List</h2>
-
-<p>In order to display out list of messages, we’ll need to render each Message as 
-a Widget for our users to interact with!</p>
+<p>In order to display our List of Strings, we’ll need to render each String as 
+a Widget!</p>
 
 <p>This is where the <code class="highlighter-rouge">ListView.builder</code> will come into play. In our case, we’ll 
-display a list of messages that imitate the Gmail app.</p>
+display each String on it’s own line.</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
-  <span class="c1">// Pass the number of messages in your list to the builder</span>
-  <span class="nl">itemCount:</span> <span class="n">messages</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
-  <span class="c1">// Provide a function that will build each Widget as it's scrolled on screen</span>
+  <span class="nl">itemCount:</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
   <span class="nl">itemBuilder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">final</span> <span class="n">message</span> <span class="o">=</span> <span class="n">messages</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
-
     <span class="k">return</span> <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
-      <span class="nl">leading:</span> <span class="k">new</span> <span class="n">CircleAvatar</span><span class="o">(</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">sender</span><span class="o">[</span><span class="mi">0</span><span class="o">]),</span>
-      <span class="o">),</span>
-      <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">sender</span><span class="o">),</span>
-      <span class="nl">subtitle:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'</span><span class="si">${message.subject}</span><span class="se">\n</span><span class="si">${message.body}</span><span class="s">'</span><span class="o">),</span>
-      <span class="nl">isThreeLine:</span> <span class="kc">true</span><span class="o">,</span>
+      <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'</span><span class="si">${items[index]}</span><span class="s">'</span><span class="o">),</span>
     <span class="o">);</span>
-  <span class="o">}</span>
+  <span class="o">},</span>
 <span class="o">);</span>
 </code></pre>
 </div>
 
 <h2 id="complete-example">Complete Example</h2>
 
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/foundation.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
-
-<span class="kd">class</span> <span class="nc">Message</span> <span class="o">{</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">sender</span><span class="o">;</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">subject</span><span class="o">;</span>
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">body</span><span class="o">;</span>
-
-  <span class="n">Message</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">sender</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">subject</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">body</span><span class="o">});</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">(</span>
+    <span class="nl">items:</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span><span class="mi">10000</span><span class="o">,</span> <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">"Item </span><span class="si">$i</span><span class="s">"</span><span class="o">),</span>
+  <span class="o">));</span>
 <span class="o">}</span>
 
-<span class="kd">final</span> <span class="n">messages</span> <span class="o">=</span> <span class="o">[</span>
-  <span class="k">new</span> <span class="n">Message</span><span class="o">(</span>
-    <span class="nl">sender:</span> <span class="s">'Flutter Weekly'</span><span class="o">,</span>
-    <span class="nl">subject:</span> <span class="s">'Flutter Weekly #5'</span><span class="o">,</span>
-    <span class="nl">body:</span> <span class="s">'Check out this week</span><span class="se">\'</span><span class="s">s latest Flutter news'</span>
-  <span class="o">),</span>
-  <span class="k">new</span> <span class="n">Message</span><span class="o">(</span>
-    <span class="nl">sender:</span> <span class="s">'Drew'</span><span class="o">,</span>
-    <span class="nl">subject:</span> <span class="s">'Scuba Photos'</span><span class="o">,</span>
-    <span class="nl">body:</span> <span class="s">'Check out the pictures from our last trip'</span>
-  <span class="o">),</span>
-  <span class="k">new</span> <span class="n">Message</span><span class="o">(</span>
-    <span class="nl">sender:</span> <span class="s">'Lindsey'</span><span class="o">,</span>
-    <span class="nl">subject:</span> <span class="s">'Catch up on Thursday?'</span><span class="o">,</span>
-    <span class="nl">body:</span> <span class="s">'Long time no see, let</span><span class="se">\'</span><span class="s">s grab coffee!'</span>
-  <span class="o">),</span>
-<span class="o">];</span>
-
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">items</span><span class="o">;</span>
+
+  <span class="n">MyApp</span><span class="o">({</span><span class="n">Key</span> <span class="n">key</span><span class="o">,</span> <span class="nd">@required</span> <span class="k">this</span><span class="o">.</span><span class="na">items</span><span class="o">})</span> <span class="o">:</span> <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
+
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">final</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Basic List'</span><span class="o">;</span>
+    <span class="kd">final</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Long List'</span><span class="o">;</span>
 
     <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">title</span><span class="o">,</span>
-      <span class="nl">theme:</span> <span class="k">new</span> <span class="n">ThemeData</span><span class="o">(</span>
-        <span class="nl">primarySwatch:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">blue</span><span class="o">,</span>
-      <span class="o">),</span>
       <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
         <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
           <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
         <span class="o">),</span>
         <span class="nl">body:</span> <span class="k">new</span> <span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
-          <span class="nl">itemCount:</span> <span class="n">messages</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
+          <span class="nl">itemCount:</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
           <span class="nl">itemBuilder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-            <span class="kd">final</span> <span class="n">message</span> <span class="o">=</span> <span class="n">messages</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
-
             <span class="k">return</span> <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
-              <span class="nl">leading:</span> <span class="k">new</span> <span class="n">CircleAvatar</span><span class="o">(</span>
-                <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">sender</span><span class="o">[</span><span class="mi">0</span><span class="o">]),</span>
-              <span class="o">),</span>
-              <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">sender</span><span class="o">),</span>
-              <span class="nl">subtitle:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'</span><span class="si">${message.subject}</span><span class="se">\n</span><span class="si">${message.body}</span><span class="s">'</span><span class="o">),</span>
-              <span class="nl">isThreeLine:</span> <span class="kc">true</span><span class="o">,</span>
+              <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'</span><span class="si">${items[index]}</span><span class="s">'</span><span class="o">),</span>
             <span class="o">);</span>
-          <span class="o">}</span>
+          <span class="o">},</span>
         <span class="o">),</span>
       <span class="o">),</span>
     <span class="o">);</span>
@@ -326,6 +258,8 @@ display a list of messages that imitate the Gmail app.</p>
 <span class="o">}</span>
 </code></pre>
 </div>
+
+<p><img src="/images/cookbook/long-lists.gif" alt="Long Lists Demo" /></p>
 
 </article>
 
@@ -370,6 +304,7 @@ display a list of messages that imitate the Gmail app.</p>
     <script src="/js/customscripts.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
     
     <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
   </body>

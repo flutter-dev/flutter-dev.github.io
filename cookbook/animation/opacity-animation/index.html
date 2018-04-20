@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fade a Widget in and out  - Flutter </title>
+  <link rel="shortcut icon" href="/images/favicon.png">
+
+  <meta name="description" content="">
+  <meta name="keywords" content=" ">
+
+  <link rel="stylesheet" href="/css/lavish-bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro%7CRoboto:500,400italic,300,400" rel="stylesheet">
+  
+  <link rel="canonical" href="http://localhost:4000/cookbook/animation/opacity-animation/">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67589403-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <meta name="google-site-verification" content="HFqxhSbf9YA_0rBglNLzDiWnrHiK_w4cqDh2YD2GEY4" />
+</head>
+
+
+  <body class="">
+
+    <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
+
+    <header class="site-header">
+  <div class="container-fluid header-contents">
+    <div class="row">
+      <div class="col-md-12">
+        <i class="fa fa-bars" id="sidebar-toggle-button" aria-hidden="true" style="display:none"></i>
+        <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="40" height="40" style="vertical-align:middle">
+
+        <a class="site-title" href="/">Flutter</a>
+
+        <nav class="site-nav">
+          <a href="#" class="menu-icon">
+            <i class="material-icons-extended">more_vert</i>
+          </a>
+          <div class="trigger">
+            <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
+            <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
+            <a class="page-link" href="/support/">支持</a>
+            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
+              <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="hl" value="en">
+              <input type="search" name="q" id="q" autocomplete="off" placeholder="搜索">
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</header>
+
+
+    <!-- Page Content -->
+    <div class="container-fluid contents">
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Sidebar Column -->
+        <div id="side-nav-container" class="col-sm-3">
+          <ul id="mysidebar" class="nav">
+
+  <li class="sidebar-title">入门</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/get-started/install/">1: 安装</a></li>
+      <li><a href="/get-started/editor/">2: 配置编辑器</a></li>
+      <li><a href="/get-started/test-drive/">3: 试运行</a></li>
+      <li><a href="/get-started/codelab/">4: 编写第一个 Flutter 应用</a></li>
+      <li><a href="/get-started/learn-more/">5: 学习更多</a></li>
+    </ul>
+
+  <li class="sidebar-title">构建 UI</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/widgets-intro/">框架预览</a></li>
+      <li><a href="/widgets/">Widget 目录</a></li>
+      <li><a href="/cookbook/">小案例</a></li>
+      <li><a href="/catalog/samples/">示例目录</a></li>
+      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">构建漂亮的用户界面 - Codelab</a></li>
+      <li><a href="/tutorials/layout/">构建布局 - 教程</a></li>
+      <li><a href="/tutorials/interactive/">添加交互 - 教程</a></li>
+      <li><a href="/web-analogs/">HTML/CSS 模式</a></li>
+      <li><a href="/flutter-for-android/">Android 开发者参考</a></li>
+      <li><a href="/flutter-for-react-native/">React Native 开发者参考</a></li>
+      <li><a href="/gestures/">手势</a></li>
+      <li><a href="/animations/">动画</a></li>
+      <li><a href="/custom-fonts/">自定义字体</a></li>
+      <li><a href="/layout/">框约束</a></li>
+      <li><a href="/assets-and-images/">资源与图像</a></li>
+      <li><a href="/text-input/">文本输入</a></li>
+      <li><a href="/routing-and-navigation/">界面路由与导航</a></li>
+      <li><a href="/tutorials/internationalization">国际化</a></li>
+    </ul>
+
+  <li class="sidebar-title">使用设备与 SDK 中的 API</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-packages/">使用扩展包</a></li>
+      <li><a href="/developing-packages/">开发扩展包</a></li>
+      <li><a href="/platform-channels/">平台特定代码</a></li>
+      <li><a href="/reading-writing-files/">文件的读写</a></li>
+      <li><a href="/networking/">网络和 HTTP</a></li>
+      <li><a href="/json/">JSON 和序列化</a></li>
+      
+    </ul>
+
+  <li class="sidebar-title">开发与工具</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/using-ide/">Flutter IDE 的使用</a></li>
+      <li><a href="/hot-reload/">热重载的使用</a></li>
+      <li><a href="/testing/">应用测试</a></li>
+      <li><a href="/debugging/">应用调试</a></li>
+      <li><a href="/inspector/">用户界面检查</a></li>
+      <li><a href="/android-release/">编译正式版的 Android 应用</a></li>
+      <li><a href="/ios-release/">编译正式版的 iOS 应用</a></li>
+      <li><a href="/upgrading/">升级 Flutter</a></li>
+      <li><a href="/formatting/"> 格式化代码</a></li>
+    </ul>
+
+  <li class="sidebar-title">更多细节</li>
+
+    <ul class="sidebar-items">
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="/technical-overview">技术一览</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1B3p0kP6NV_XMOimRV09Ms75ymIjU5gr6GGIX74Om_DE/edit?usp=sharing">神奇的 Flutter - 幻灯片</a></li>
+      <li><a href="https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I/edit?usp=sharing">架构图</a></li>
+      <li><a href="https://www.bilibili.com/video/av14430321/">Flutter 框架层设计 <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.bilibili.com/video/av6269773/">Flutter 的渲染管线 <i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
+    </ul>
+
+</ul>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-sm-9 main-contents">
+          <div class="main-contents-body">
+            <article class="post-content">
+  
+  
+  <header class="post-header">
+      <div class="btn-group contribute" role="group">
+         <a href="https://github.com/flutter/website/blob/master/cookbook/animation/opacity-animation.md" class="btn btn-sm">
+            <i class="fa fa-pencil"></i> Edit Source
+         </a>
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Fade a Widget in and out&body=From URL: http://localhost:4000/cookbook/animation/opacity-animation/&labels=dev: docs - website" class="btn btn-sm">
+            <i class="fa fa-github"></i> File Issue
+        </a>
+     </div>
+   <div>
+    <h1 class="post-title">Fade a Widget in and out </h1>
+   </div>
+
+  </header>
+  
+
+  <p>As UI developers, we often need to show and hide elements on screen. However, 
+quickly popping elements on and off the screen can feel jarring to end users.
+Instead, we can fade elements in and out with an opacity animation to create
+a smooth experience.</p>
+
+<p>In Flutter, we can achieve this task using the <a href="https://docs.flutter.io/flutter/widgets/AnimatedOpacity-class.html"><code class="highlighter-rouge">AnimatedOpacity</code></a>
+Widget.</p>
+
+<h2 id="directions">Directions</h2>
+
+<ol>
+  <li>Show a box to fade in and out</li>
+  <li>Define a <code class="highlighter-rouge">StatefulWidget</code></li>
+  <li>Display a button that toggles the visibility</li>
+  <li>Fade the box in and out</li>
+</ol>
+
+<h2 id="1-create-a-box-to-fade-in-and-out">1. Create a box to fade in and out</h2>
+
+<p>First, we’ll need something to fade in and out! In this example, we’ll draw a
+green box on screen.</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Container</span><span class="p">(</span>
+  <span class="nl">width:</span> <span class="mf">200.0</span><span class="o">,</span>
+  <span class="nl">height:</span> <span class="mf">200.0</span><span class="o">,</span>
+  <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">green</span><span class="o">,</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<h2 id="2-define-a-statefulwidget">2. Define a <code class="highlighter-rouge">StatefulWidget</code></h2>
+
+<p>Now that we have a green box to animate, we’ll need a way to know whether the 
+box should be visible or invisible. To accomplish this, we can use a 
+<a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html"><code class="highlighter-rouge">StatefulWidget</code></a>.</p>
+
+<p>A <code class="highlighter-rouge">StatefulWidget</code> is a class that creates a <code class="highlighter-rouge">State</code> object. The <code class="highlighter-rouge">State</code> object
+holds some data about our app and provides a way to update that data. When we 
+update the data, we can also ask Flutter to rebuild our UI with those changes.</p>
+
+<p>In our case, we’ll have one piece of data: a boolean representing whether the 
+button is visible or invisible.</p>
+
+<p>To construct a <code class="highlighter-rouge">StatefulWidget</code>, we need to create two classes: A 
+<code class="highlighter-rouge">StatefulWidget</code> and a corresponding <code class="highlighter-rouge">State</code> class. Pro tip: The Flutter plugins 
+for Android Studio and VSCode include the <code class="highlighter-rouge">stful</code> snippet to quickly generate 
+this code!</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// The StatefulWidget's job is to take in some data and create a State class.</span>
+<span class="c1">// In this case, our Widget takes in a title, and creates a _MyHomePageState.</span>
+<span class="kd">class</span> <span class="nc">MyHomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="kd">final</span> <span class="kt">String</span> <span class="n">title</span><span class="o">;</span>
+
+  <span class="n">MyHomePage</span><span class="o">({</span><span class="n">Key</span> <span class="n">key</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">})</span> <span class="o">:</span> <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
+
+  <span class="nd">@override</span>
+  <span class="n">_MyHomePageState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_MyHomePageState</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="c1">// The State class is responsible for two things: holding some data we can </span>
+<span class="c1">// update and building the UI using that data.</span>
+<span class="kd">class</span> <span class="nc">_MyHomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyHomePage</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="c1">// Whether the green box should be visible or invisible</span>
+  <span class="kt">bool</span> <span class="n">_visible</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// The green box will go here with some other Widgets!</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h2 id="3-display-a-button-that-toggles-the-visibility">3. Display a button that toggles the visibility</h2>
+
+<p>Now that we have some data to determine whether our green box should be visible
+or invisible, we’ll need a way update that data. In our case, if the box is
+visible, we want to hide it. If the box is hidden, we want to show it!</p>
+
+<p>To achieve this, we’ll display a button. When a user presses the button, we’ll 
+flip the boolean from true to false, or false to true. We need to make this 
+change using <a href="https://docs.flutter.io/flutter/widgets/State/setState.html"><code class="highlighter-rouge">setState</code></a>,
+which is a method on the <code class="highlighter-rouge">State</code> class. This will let Flutter know it needs to 
+rebuild the Widget.</p>
+
+<p>Note: For more information on working with user input, please see the 
+<a href="/cookbook/#handling-gestures">Handling Gestures</a> section of the Cookbook.</p>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">FloatingActionButton</span><span class="p">(</span>
+  <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Make sure we call setState! This will tell Flutter to rebuild the</span>
+    <span class="c1">// UI with our changes!</span>
+    <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+      <span class="n">_visible</span> <span class="o">=</span> <span class="o">!</span><span class="n">_visible</span><span class="o">;</span>
+    <span class="o">});</span>
+  <span class="o">},</span>
+  <span class="nl">tooltip:</span> <span class="s">'Toggle Opacity'</span><span class="o">,</span>
+  <span class="nl">child:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">flip</span><span class="o">),</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<h2 id="4-fade-the-box-in-and-out">4. Fade the box in and out</h2>
+
+<p>We’ve got a green box on screen. We’ve got a button to toggle the visibility
+to <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. So how do we fade the box in and out? With an 
+<a href="https://docs.flutter.io/flutter/widgets/AnimatedOpacity-class.html"><code class="highlighter-rouge">AnimatedOpacity</code></a> 
+Widget!</p>
+
+<p>The <code class="highlighter-rouge">AnimatedOpacity</code> Widget requires three arguments:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">opacity</code>: A value from 0.0 (invisible) to 1.0 (fully visible).</li>
+  <li><code class="highlighter-rouge">duration</code>: How long the animation should take to complete</li>
+  <li><code class="highlighter-rouge">child</code>: The Widget to animate. In our case, the green box.</li>
+</ul>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">AnimatedOpacity</span><span class="p">(</span>
+  <span class="c1">// If the Widget should be visible, animate to 1.0 (fully visible). If</span>
+  <span class="c1">// the Widget should be hidden, animate to 0.0 (invisible).</span>
+  <span class="nl">opacity:</span> <span class="n">_visible</span> <span class="o">?</span> <span class="mf">1.0</span> <span class="o">:</span> <span class="mf">0.0</span><span class="o">,</span>
+  <span class="nl">duration:</span> <span class="k">new</span> <span class="n">Duration</span><span class="o">(</span><span class="nl">milliseconds:</span> <span class="mi">500</span><span class="o">),</span>
+  <span class="c1">// The green box needs to be the child of the AnimatedOpacity</span>
+  <span class="nl">child:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
+    <span class="nl">width:</span> <span class="mf">200.0</span><span class="o">,</span>
+    <span class="nl">height:</span> <span class="mf">200.0</span><span class="o">,</span>
+    <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">green</span><span class="o">,</span>
+  <span class="o">),</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<h2 id="complete-example">Complete Example</h2>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="n">appTitle</span> <span class="o">=</span> <span class="s">'Opacity Demo'</span><span class="o">;</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+      <span class="nl">title:</span> <span class="n">appTitle</span><span class="o">,</span>
+      <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyHomePage</span><span class="o">(</span><span class="nl">title:</span> <span class="n">appTitle</span><span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// The StatefulWidget's job is to take in some data and create a State class.</span>
+<span class="c1">// In this case, our Widget takes in a title, and creates a _MyHomePageState.</span>
+<span class="kd">class</span> <span class="nc">MyHomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
+  <span class="kd">final</span> <span class="kt">String</span> <span class="n">title</span><span class="o">;</span>
+
+  <span class="n">MyHomePage</span><span class="o">({</span><span class="n">Key</span> <span class="n">key</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">})</span> <span class="o">:</span> <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
+
+  <span class="nd">@override</span>
+  <span class="n">_MyHomePageState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_MyHomePageState</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="c1">// The State class is responsible for two things: holding some data we can</span>
+<span class="c1">// update and building the UI using that data.</span>
+<span class="kd">class</span> <span class="nc">_MyHomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyHomePage</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="c1">// Whether the green box should be visible or invisible</span>
+  <span class="kt">bool</span> <span class="n">_visible</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">widget</span><span class="o">.</span><span class="na">title</span><span class="o">),</span>
+      <span class="o">),</span>
+      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="k">new</span> <span class="n">AnimatedOpacity</span><span class="o">(</span>
+          <span class="c1">// If the Widget should be visible, animate to 1.0 (fully visible). If</span>
+          <span class="c1">// the Widget should be hidden, animate to 0.0 (invisible).</span>
+          <span class="nl">opacity:</span> <span class="n">_visible</span> <span class="o">?</span> <span class="mf">1.0</span> <span class="o">:</span> <span class="mf">0.0</span><span class="o">,</span>
+          <span class="nl">duration:</span> <span class="k">new</span> <span class="n">Duration</span><span class="o">(</span><span class="nl">milliseconds:</span> <span class="mi">500</span><span class="o">),</span>
+          <span class="c1">// The green box needs to be the child of the AnimatedOpacity</span>
+          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
+            <span class="nl">width:</span> <span class="mf">200.0</span><span class="o">,</span>
+            <span class="nl">height:</span> <span class="mf">200.0</span><span class="o">,</span>
+            <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">green</span><span class="o">,</span>
+          <span class="o">),</span>
+        <span class="o">),</span>
+      <span class="o">),</span>
+      <span class="nl">floatingActionButton:</span> <span class="k">new</span> <span class="n">FloatingActionButton</span><span class="o">(</span>
+        <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
+          <span class="c1">// Make sure we call setState! This will tell Flutter to rebuild the</span>
+          <span class="c1">// UI with our changes!</span>
+          <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
+            <span class="n">_visible</span> <span class="o">=</span> <span class="o">!</span><span class="n">_visible</span><span class="o">;</span>
+          <span class="o">});</span>
+        <span class="o">},</span>
+        <span class="nl">tooltip:</span> <span class="s">'Toggle Opacity'</span><span class="o">,</span>
+        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">flip</span><span class="o">),</span>
+      <span class="o">),</span> <span class="c1">// This trailing comma makes auto-formatting nicer for build methods.</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p><img src="/images/cookbook/fade-in-out.gif" alt="Fade In and Out Demo" /></p>
+
+</article>
+
+          </div>
+        </div>
+
+        
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="site-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo">
+          <img src="/images/flutter-mark-square-100.png" alt="Flutter Logo" width="100" height="100">
+        </div>
+        <p class="site-footer__link-list">
+          <a href="https://groups.google.com/forum/#!forum/flutter-dev">flutter-dev@</a> &bull;
+          <a href="https://twitter.com/flutterio">twitter</a> &bull;
+          <a href="https://github.com/flutter/">github</a> &bull;
+          <a href="/tos">terms</a> &bull;
+          <a href="https://www.google.com/intl/en/policies/privacy/">privacy</a> &bull;
+          <a href="https://github.com/orgs/flutter-dev/teams/flutter/">翻译组</a>
+        </p>
+
+        <p class="licenses">
+          除非另有说明，否则本作品根据
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 国际许可证</a>进行许可，代码示例已根据 BSD 许可证进行许可。
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_toggle.js"></script>
+    <script src="/js/customscripts.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
+    
+    <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
+  </body>
+</html>

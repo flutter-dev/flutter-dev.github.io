@@ -165,7 +165,7 @@
          <a href="https://github.com/flutter/website/blob/master/cookbook/networking/fetch-data.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Fetch data from the internet&body=From URL: http://localhost:4000/cookbook/networking/fetch-data.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Fetch data from the internet&body=From URL: http://localhost:4000/cookbook/networking/fetch-data/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
@@ -182,14 +182,27 @@ Flutter provide tools for this type of work!</p>
 <h2 id="directions">Directions</h2>
 
 <ol>
+  <li>Add the <code class="highlighter-rouge">http</code> package</li>
   <li>Make a network request using the <code class="highlighter-rouge">http</code> package</li>
   <li>Convert the response into a custom Dart object</li>
+  <li>Fetch and Display the data with Flutter</li>
 </ol>
 
-<h2 id="1-make-a-network-request">1. Make a network request</h2>
+<h2 id="1-add-the-http-package">1. Add the <code class="highlighter-rouge">http</code> package</h2>
 
 <p>The <a href="https://pub.dartlang.org/packages/http"><code class="highlighter-rouge">http</code></a> package provides the 
 simplest way to fetch data from the internet.</p>
+
+<p>To install the <code class="highlighter-rouge">http</code> package, we need to add it to the dependencies section
+of our <code class="highlighter-rouge">pubspec.yaml</code>. We can <a href="https://pub.dartlang.org/packages/http#-installing-tab-">find the latest version of the http package on 
+the pub website</a>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dependencies</span><span class="pi">:</span>
+  <span class="s">http</span><span class="pi">:</span> <span class="s">&lt;latest_version&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="2-make-a-network-request">2. Make a network request</h2>
 
 <p>In this example, we’ll fetch a sample post from the 
 <a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder REST API</a> using the 
@@ -212,7 +225,7 @@ method.</p>
   call.</li>
 </ul>
 
-<h2 id="2-convert-the-response-into-a-custom-dart-object">2. Convert the response into a custom Dart object</h2>
+<h2 id="3-convert-the-response-into-a-custom-dart-object">3. Convert the response into a custom Dart object</h2>
 
 <p>While it’s easy to make a network request, working with a raw 
 <code class="highlighter-rouge">Future&lt;http.Response&gt;</code> isn’t very convenient. To make our lives easier, we can 
@@ -259,9 +272,9 @@ we’ll need to:</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;</span> <span class="n">fetchPost</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">response</span> <span class="o">=</span> <span class="n">await</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">);</span>
-  <span class="kd">final</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span> 
+  <span class="kd">final</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span> 
   
-  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">);</span> 
+  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">responseJson</span><span class="o">);</span> 
 <span class="o">}</span>
 </code></pre>
 </div>
@@ -269,17 +282,52 @@ we’ll need to:</p>
 <p>Hooray! Now we’ve got a function that we can call to fetch a Post from the 
 internet!</p>
 
+<h2 id="4-fetch-and-display-the-data">4. Fetch and Display the data</h2>
+
+<p>In order to fetch the data and display it on screen, we can use the
+<a href="https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html"><code class="highlighter-rouge">FutureBuilder</code></a>
+widget! The <code class="highlighter-rouge">FutureBuilder</code> Widget comes with Flutter and makes it easy to work
+with async data sources.</p>
+
+<p>We must provide two parameters:</p>
+
+<ol>
+  <li>The <code class="highlighter-rouge">Future</code> we want to work with. In our case, we’ll call our
+  <code class="highlighter-rouge">fetchPost()</code> function.</li>
+  <li>A <code class="highlighter-rouge">builder</code> function that tells Flutter what to render, depending on the
+  state of the <code class="highlighter-rouge">Future</code>: loading, success, or error.</li>
+</ol>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;(</span>
+  <span class="nl">future:</span> <span class="n">fetchPost</span><span class="o">(),</span>
+  <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">title</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasError</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"</span><span class="si">${snapshot.error}</span><span class="s">"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// By default, show a loading spinner</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">CircularProgressIndicator</span><span class="o">();</span>
+  <span class="o">},</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
 <h2 id="complete-example">Complete Example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'dart:convert'</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:http/http.dart'</span> <span class="k">as</span> <span class="n">http</span><span class="o">;</span>
 
 <span class="n">Future</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;</span> <span class="n">fetchPost</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
-  <span class="kd">final</span> <span class="n">response</span> <span class="o">=</span> <span class="n">await</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">);</span>
-  <span class="kd">final</span> <span class="n">json</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span> 
-  
-  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">);</span> 
+  <span class="kd">final</span> <span class="n">response</span> <span class="o">=</span>
+      <span class="n">await</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">);</span>
+  <span class="kd">final</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span>
+
+  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">responseJson</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">Post</span> <span class="o">{</span>
@@ -296,6 +344,40 @@ internet!</p>
       <span class="nl">id:</span> <span class="n">json</span><span class="o">[</span><span class="s">'id'</span><span class="o">],</span>
       <span class="nl">title:</span> <span class="n">json</span><span class="o">[</span><span class="s">'title'</span><span class="o">],</span>
       <span class="nl">body:</span> <span class="n">json</span><span class="o">[</span><span class="s">'body'</span><span class="o">],</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+      <span class="nl">title:</span> <span class="s">'Fetch Data Example'</span><span class="o">,</span>
+      <span class="nl">theme:</span> <span class="k">new</span> <span class="n">ThemeData</span><span class="o">(</span>
+        <span class="nl">primarySwatch:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">blue</span><span class="o">,</span>
+      <span class="o">),</span>
+      <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+        <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
+          <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Fetch Data Example'</span><span class="o">),</span>
+        <span class="o">),</span>
+        <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+          <span class="nl">child:</span> <span class="k">new</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;(</span>
+            <span class="nl">future:</span> <span class="n">fetchPost</span><span class="o">(),</span>
+            <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>
+              <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">title</span><span class="o">);</span>
+              <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasError</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"</span><span class="si">${snapshot.error}</span><span class="s">"</span><span class="o">);</span>
+              <span class="o">}</span>
+
+              <span class="c1">// By default, show a loading spinner</span>
+              <span class="k">return</span> <span class="k">new</span> <span class="n">CircularProgressIndicator</span><span class="o">();</span>
+            <span class="o">},</span>
+          <span class="o">),</span>
+        <span class="o">),</span>
+      <span class="o">),</span>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -345,6 +427,7 @@ internet!</p>
     <script src="/js/customscripts.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
     
     <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
   </body>

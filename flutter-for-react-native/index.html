@@ -165,7 +165,7 @@
          <a href="https://github.com/flutter/website/blob/master/flutter-for-react-native.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Flutter for React Native Developers&body=From URL: http://localhost:4000/flutter-for-react-native.md&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Flutter for React Native Developers&body=From URL: http://localhost:4000/flutter-for-react-native/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
@@ -475,7 +475,7 @@ _getIPAddress = () =&gt; {
 _getIPAddress() {
   final url = &#39;https://httpbin.org/ip&#39;;
   HttpRequest.request(url).then((value) {
-      print(JSON.decode(value.responseText)[&#39;origin&#39;]);
+      print(json.decode(value.responseText)[&#39;origin&#39;]);
   }).catchError((error) =&gt; print(error));
 }</code></pre>
 
@@ -504,7 +504,7 @@ async _getIPAddress() {
 _getIPAddress() async {
   final url = &#39;https://httpbin.org/ip&#39;;
   var request = await HttpRequest.request(url);
-  String ip = JSON.decode(request.responseText)[&#39;origin&#39;];
+  String ip = json.decode(request.responseText)[&#39;origin&#39;];
   print(ip);
 }</code></pre>
 
@@ -594,11 +594,22 @@ When developing a more complex app you would create another class that is either
 
 <h5 id="preview">Preview</h5>
 
-<p>|Android |iOS |
-|:—:|:—:|
-|<img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/hello-world/flutterhelloworld/screenshots/android.png?raw=true" style="width:300px;" alt="Loading" />|<img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/hello-world/flutterhelloworld/screenshots/iOS.png?raw=true" style="width:300px;" alt="Loading" />|
-<br /></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Android</th>
+      <th style="text-align: center">iOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/hello-world/flutterhelloworld/screenshots/android.png?raw=true" style="width:300px;" alt="Loading" /></td>
+      <td style="text-align: center"><img src="https://github.com/GeekyAnts/flutter-docs-code-samples/blob/master/hello-world/flutterhelloworld/screenshots/iOS.png?raw=true" style="width:300px;" alt="Loading" /></td>
+    </tr>
+  </tbody>
+</table>
 
+<p><br /></p>
 <h3 id="how-do-i-use-widgets-and-nest-them-to-form-a-widget-tree">How do I use Widgets and nest them to form a Widget tree?</h3>
 
 <p>When writing an app, you will commonly author new widgets that are subclasses of either <a href="https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a> or <a href="https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a>, depending on whether your widget manages any state. In the above Hello World example, HelloWorldApp class extends a StatelessWidget and overrides a build function that describes the widget in terms of other, lower-level widgets.</p>
@@ -735,7 +746,7 @@ In Flutter, the entry file is <code class="highlighter-rouge">’projectname’/
 
 <p><b><code class="highlighter-rouge">projectname/android</code></b> - directory containing android-specific files.</p>
 
-<p><b><code class="highlighter-rouge">projectname/build</code></b> - stores iOS apk and Android app installation packages.</p>
+<p><b><code class="highlighter-rouge">projectname/build</code></b> - stores iOS and Android build files.</p>
 
 <p><b> <code class="highlighter-rouge">projectname/ios</code> </b> - directory containing iOS-specific files.</p>
 
@@ -976,7 +987,7 @@ class _MyCanvasState extends State&lt;MyCanvas&gt; {
 <p>In Flutter, layout is determined by a combination of the type of Widget that you choose and its layout and style properties. Contrary to how it is done in React Native, where most of the layout can be done with the props that are passed to a specific component, in Flutter most of the layout is done by the use of widgets that are specifically designed to provide layout.
 The Flutter widgets <a href="https://docs.flutter.io/flutter/widgets/Column-class.html">Column</a> and <a href="https://docs.flutter.io/flutter/widgets/Row-class.html">Row</a> take an array of children and not styling properties (although there are layout properties such as <code class="highlighter-rouge">CrossAxisAlignment</code> and <code class="highlighter-rouge">direction</code>) and aligns them vertically and horizontally respectively. A <a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a> takes a combination of layout and styling properties. A <a href="https://docs.flutter.io/flutter/widgets/Center-class.html"><code class="highlighter-rouge">Center</code></a> widget centers its child widget tree.</p>
 
-<p>For example, if you want to arrange your components in a <a href="https://docs.flutter.io/flutter/widgets/Row-class.html">Row</a>.
+<p>For example, if you want to arrange your components in a <a href="https://docs.flutter.io/flutter/widgets/Column-class.html">Column</a>.
 In React Native, you would specify it as a prop: <code class="highlighter-rouge">flexDirection: “column”</code>. But in Flutter, you would use a <a href="https://docs.flutter.io/flutter/widgets/Column-class.html"><code class="highlighter-rouge">Column</code></a> widget and provide the required children widgets.</p>
 
 <!-- skip -->
@@ -1071,6 +1082,7 @@ new Stack(
   </tbody>
 </table>
 
+<p><br /></p>
 <h3 id="styling">Styling</h3>
 <h3 id="how-to-custom-style-my-components-in-flutter">How to custom style my components in Flutter?</h3>
 
@@ -1365,7 +1377,7 @@ Stateful widgets are useful when the part of the user interface you are describi
 
 <!-- skip -->
 <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class MyStatefulWidget extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyStatefulWidget({Key key, this.title}) : super(key: key);
   final String title;
   
   @override
@@ -1517,7 +1529,7 @@ new CustomCard(
 
 <!-- skip -->
 <pre class="prettyprint highlighter-rouge highlight lang-javascript language-javascript"><code>// React Native
-await AsyncStorage.setItem( &quot;counterkey&quot;, JSON.stringify(++this.state.counter));
+await AsyncStorage.setItem( &quot;counterkey&quot;, json.stringify(++this.state.counter));
 AsyncStorage.getItem(&quot;counterkey&quot;).then(value =&gt; {
   if (value != null) {
     this.setState({ counter: value });
@@ -1860,20 +1872,22 @@ _getIPAddress = () =&gt; {
     });
 };</code></pre>
 
-<p>Similar flow is followed in Flutter but it uses the <a href="https://docs.flutter.io/flutter/dart-io/dart-io-library.html"><code class="highlighter-rouge">dart:io</code></a> core HTTP support, so to create an HTTP Client we need to add an import.</p>
+<p>A similar flow is followed in Flutter but it uses the <a href="https://docs.flutter.io/flutter/dart-io/dart-io-library.html"><code class="highlighter-rouge">dart:io</code></a> core HTTP support, so to create an HTTP Client we need to add an import.</p>
 
 <!-- skip -->
-<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/services.dart&#39;;</code></pre>
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;dart:io&#39;;</code></pre>
 
 <p>The client supports HTTP operations, such as GET, POST, PUT, DELETE.</p>
 
 <!-- skip -->
 <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>// Flutter
-final url = &#39;https://httpbin.org/ip&#39;;
-final httpClient = createHttpClient();
+final url = new Uri.https(&#39;httpbin.org&#39;, &#39;ip&#39;);
+final httpClient = new HttpClient();
 _getIPAddress() async {
-  var response = await httpClient.get(url);
-  String ip = JSON.decode(response.body)[&#39;origin&#39;];
+  var request = await httpClient.getUrl(url);
+  var response = await request.close();
+  var responseBody = await response.transform(utf8.decoder).join();
+  String ip = json.decode(responseBody)[&#39;origin&#39;];
   setState(() {
     _ipAddress = ip;
   });
@@ -2040,61 +2054,61 @@ if (Theme.of(context).platform == TargetPlatform.iOS) {
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Action</th>
-      <th style="text-align: left">Terminal Shortcut</th>
-      <th>Debug functions/ properties</th>
+      <th style="text-align: center">Action</th>
+      <th style="text-align: center">Terminal Shortcut</th>
+      <th style="text-align: center">Debug functions/ properties</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Widget hierarchy of the app</td>
-      <td style="text-align: left"><code class="highlighter-rouge">w</code></td>
-      <td>debugDumpApp()</td>
+      <td style="text-align: center">Widget hierarchy of the app</td>
+      <td style="text-align: center"><code class="highlighter-rouge">w</code></td>
+      <td style="text-align: center">debugDumpApp()</td>
     </tr>
     <tr>
-      <td style="text-align: left">Rendering tree of the app</td>
-      <td style="text-align: left"><code class="highlighter-rouge">t</code></td>
-      <td>debugDumpRenderTree()</td>
+      <td style="text-align: center">Rendering tree of the app</td>
+      <td style="text-align: center"><code class="highlighter-rouge">t</code></td>
+      <td style="text-align: center">debugDumpRenderTree()</td>
     </tr>
     <tr>
-      <td style="text-align: left">Layers</td>
-      <td style="text-align: left"><code class="highlighter-rouge">L</code></td>
-      <td>debugDumpLayerTree()</td>
+      <td style="text-align: center">Layers</td>
+      <td style="text-align: center"><code class="highlighter-rouge">L</code></td>
+      <td style="text-align: center">debugDumpLayerTree()</td>
     </tr>
     <tr>
-      <td style="text-align: left">Accessibility</td>
-      <td style="text-align: left"><code class="highlighter-rouge">S</code> (traversal order) or “U” (inverse hit test order)</td>
-      <td>debugDumpSemantics()</td>
+      <td style="text-align: center">Accessibility</td>
+      <td style="text-align: center"><code class="highlighter-rouge">S</code> (traversal order) or <code class="highlighter-rouge">U</code> (inverse hit test order)</td>
+      <td style="text-align: center">debugDumpSemantics()</td>
     </tr>
     <tr>
-      <td style="text-align: left">To toggle the widget inspector</td>
-      <td style="text-align: left">“i”</td>
-      <td>WidgetsApp.showWidgetInspectorOverride</td>
+      <td style="text-align: center">To toggle the widget inspector</td>
+      <td style="text-align: center"><code class="highlighter-rouge">i</code></td>
+      <td style="text-align: center">WidgetsApp. showWidgetInspectorOverride</td>
     </tr>
     <tr>
-      <td style="text-align: left">To toggle the display of construction lines</td>
-      <td style="text-align: left">“p”</td>
-      <td>debugPaintSizeEnabled</td>
+      <td style="text-align: center">To toggle the display of construction lines</td>
+      <td style="text-align: center"><code class="highlighter-rouge">p</code></td>
+      <td style="text-align: center">debugPaintSizeEnabled</td>
     </tr>
     <tr>
-      <td style="text-align: left">To simulate different operating systems</td>
-      <td style="text-align: left">“o”</td>
-      <td>defaultTargetPlatform</td>
+      <td style="text-align: center">To simulate different operating systems</td>
+      <td style="text-align: center"><code class="highlighter-rouge">o</code></td>
+      <td style="text-align: center">defaultTargetPlatform</td>
     </tr>
     <tr>
-      <td style="text-align: left">To display the performance overlay</td>
-      <td style="text-align: left">“P”</td>
-      <td>WidgetsApp.showPerformanceOverlay</td>
+      <td style="text-align: center">To display the performance overlay</td>
+      <td style="text-align: center"><code class="highlighter-rouge">P</code></td>
+      <td style="text-align: center">WidgetsApp. showPerformanceOverlay</td>
     </tr>
     <tr>
-      <td style="text-align: left">To save a screenshot to flutter.png</td>
-      <td style="text-align: left">”s”</td>
-      <td> </td>
+      <td style="text-align: center">To save a screenshot to flutter. png</td>
+      <td style="text-align: center"><code class="highlighter-rouge">s</code></td>
+      <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">To quit</td>
-      <td style="text-align: left">“q”</td>
-      <td> </td>
+      <td style="text-align: center">To quit</td>
+      <td style="text-align: center"><code class="highlighter-rouge">q</code></td>
+      <td style="text-align: center"> </td>
     </tr>
   </tbody>
 </table>
@@ -2268,7 +2282,7 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
   <tbody>
     <tr>
       <td><a href="https://facebook.github.io/react-native/docs/button.html">Button</a></td>
-      <td><a href="https://docs.flutter.io/flutter/material/RaisedButton-class.html">RaisedButton</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/RaisedButton-class.html">Raised Button</a></td>
       <td>A basic button that should render nicely on any platform.</td>
     </tr>
     <tr>
@@ -2288,7 +2302,7 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
     </tr>
     <tr>
       <td><a href="https://facebook.github.io/react-native/docs/button.html">Button</a></td>
-      <td><a href="https://docs.flutter.io/flutter/material/FlatButton-class.html">FlatButton</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/FlatButton-class.html">Flat Button</a></td>
       <td>A basic material design button</td>
     </tr>
     <tr>
@@ -2319,7 +2333,7 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
     <tr>
       <td> </td>
       <td>controller</td>
-      <td>[ <a href="https://docs.flutter.io/flutter/widgets/ScrollController-class.html">ScrollController</a> ] An object that can be used to control the position to which this scroll view is scrolled.</td>
+      <td>[ <a href="https://docs.flutter.io/flutter/widgets/ScrollController-class.html">Scroll Controller</a> ] An object that can be used to control the position to which this scroll view is scrolled.</td>
     </tr>
     <tr>
       <td> </td>
@@ -2328,7 +2342,7 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
     </tr>
     <tr>
       <td> </td>
-      <td>scrollDirection</td>
+      <td>scroll Direction</td>
       <td>[ <a href="https://docs.flutter.io/flutter/painting/Axis-class.html">Axis</a> ] The axis along which the scroll view scrolls.</td>
     </tr>
     <tr>
@@ -2338,13 +2352,13 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
     </tr>
     <tr>
       <td><a href="https://facebook.github.io/react-native/docs/flatlist.html">FlatList</a></td>
-      <td><a href="https://docs.flutter.io/flutter/widgets/ListView/ListView.builder.html">ListView.builder()</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/ListView/ListView.builder.html">ListView. builder()</a></td>
       <td>Constructor for linear array of widgets that are created on demand.</td>
     </tr>
     <tr>
       <td> </td>
       <td>itemBuilder [required]</td>
-      <td>[<a href="https://docs.flutter.io/flutter/widgets/IndexedWidgetBuilder.html"> IndexedWidgetBuilder</a>] helps in building the children on demand. This callback will be called only with indices greater than or equal to zero and less than itemCount.</td>
+      <td>[<a href="https://docs.flutter.io/flutter/widgets/IndexedWidgetBuilder.html"> Indexed Widget Builder</a>] helps in building the children on demand. This callback will be called only with indices greater than or equal to zero and less than itemCount.</td>
     </tr>
     <tr>
       <td> </td>
@@ -2368,7 +2382,7 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
     </tr>
     <tr>
       <td> </td>
-      <td>Image.asset</td>
+      <td>Image. asset</td>
       <td>Several constructors are provided for the various ways that an image can be specified.</td>
     </tr>
     <tr>
@@ -2402,8 +2416,8 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
       <td> </td>
     </tr>
     <tr>
-      <td><a href="https://facebook.github.io/react-native/docs/activityindicator.html">ActivityIndicator</a></td>
-      <td><a href="https://docs.flutter.io/flutter/material/CircularProgressIndicator-class.html">CircularProgressIndicator</a></td>
+      <td><a href="https://facebook.github.io/react-native/docs/activityindicator.html">Activity Indicator</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/CircularProgressIndicator-class.html">Circular Progress Indicator</a></td>
       <td>A widget that shows progress along a circle.</td>
     </tr>
     <tr>
@@ -2414,7 +2428,7 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
     <tr>
       <td> </td>
       <td>backgroundColor</td>
-      <td>The progress indicator’s background color. The current theme’s ThemeData.backgroundColor by default.</td>
+      <td>The progress indicator’s background color. The current theme’s ThemeData. backgroundColor by default.</td>
     </tr>
     <tr>
       <td> </td>
@@ -2422,8 +2436,8 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
       <td> </td>
     </tr>
     <tr>
-      <td><a href="https://facebook.github.io/react-native/docs/activityindicator.html">ActivityIndicator</a></td>
-      <td><a href="https://docs.flutter.io/flutter/material/LinearProgressIndicator-class.html">LinearProgressIndicator</a></td>
+      <td><a href="https://facebook.github.io/react-native/docs/activityindicator.html">Activity Indicator</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/LinearProgressIndicator-class.html">Linear Progress Indicator</a></td>
       <td>A widget that shows progress along a circle.</td>
     </tr>
     <tr>
@@ -2437,8 +2451,8 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
       <td> </td>
     </tr>
     <tr>
-      <td><a href="https://facebook.github.io/react-native/docs/refreshcontrol.html">RefreshControl</a></td>
-      <td><a href="https://docs.flutter.io/flutter/material/RefreshIndicator-class.html">RefreshIndicator</a></td>
+      <td><a href="https://facebook.github.io/react-native/docs/refreshcontrol.html">Refresh Control</a></td>
+      <td><a href="https://docs.flutter.io/flutter/material/RefreshIndicator-class.html">Refresh Indicator</a></td>
       <td>A widget that supports the Material “swipe to refresh” idiom.</td>
     </tr>
     <tr>
@@ -2512,8 +2526,8 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
       <td> </td>
     </tr>
     <tr>
-      <td><a href="https://facebook.github.io/react-native/docs/touchableopacity.html">TouchableOpacity</a></td>
-      <td><a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html">GestureDetector</a></td>
+      <td><a href="https://facebook.github.io/react-native/docs/touchableopacity.html">Touchable Opacity</a></td>
+      <td><a href="https://docs.flutter.io/flutter/widgets/GestureDetector-class.html">Gesture Detector</a></td>
       <td>detects gestures</td>
     </tr>
     <tr>
@@ -2532,14 +2546,14 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
       <td> </td>
     </tr>
     <tr>
-      <td><a href="https://docs.flutter.io/flutter/services/TextInput-class.html">TextInput</a></td>
-      <td><a href="https://facebook.github.io/react-native/docs/textinput.html">TextInput</a></td>
+      <td><a href="https://docs.flutter.io/flutter/services/TextInput-class.html">Text Input</a></td>
+      <td><a href="https://facebook.github.io/react-native/docs/textinput.html">Text Input</a></td>
       <td>interface to the system’s text input control</td>
     </tr>
     <tr>
       <td> </td>
       <td>controller</td>
-      <td>[ <a href="https://docs.flutter.io/flutter/widgets/TextEditingController-class.html">TextEditingController</a> ] to access and modify text.</td>
+      <td>[ <a href="https://docs.flutter.io/flutter/widgets/TextEditingController-class.html">Text Editing Controller</a> ] to access and modify text.</td>
     </tr>
     <tr>
       <td> </td>
@@ -2559,7 +2573,7 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
     <tr>
       <td> </td>
       <td>textDirection</td>
-      <td>[ <a href="https://docs.flutter.io/flutter/dart-ui/TextAlign-class.html">TextAlign</a> ] How the text should be aligned horizontally.</td>
+      <td>[ <a href="https://docs.flutter.io/flutter/dart-ui/TextAlign-class.html">Text Align</a> ] How the text should be aligned horizontally.</td>
     </tr>
     <tr>
       <td> </td>
@@ -2648,6 +2662,7 @@ class _LogoFadeState extends State&lt;LogoFade&gt; with TickerProviderStateMixin
     <script src="/js/customscripts.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/tabs.js"></script>
+    <script src="/js/archive.js"></script>
     
     <script async="" defer="" src="//survey.g.doubleclick.net/async_survey?site=at3ul57xpub2vk3oxt2ytw365i"></script>
   </body>
