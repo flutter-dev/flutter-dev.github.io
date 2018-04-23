@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Writing custom platform-specific code with platform channels  - Flutter </title>
+  <title>使用平台通道编写平台特定代码  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -162,94 +162,73 @@
   
   <header class="post-header">
       <div class="btn-group contribute" role="group">
-         <a href="https://github.com/flutter/website/blob/master/platform-channels.md" class="btn btn-sm">
+         <a href="https://github.com/flutter/website/blob/master/zh_CN/platform-channels.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Writing custom platform-specific code with platform channels&body=From URL: http://localhost:4000/platform-channels/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 使用平台通道编写平台特定代码&body=From URL: http://localhost:4000/platform-channels/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Writing custom platform-specific code with platform channels </h1>
+    <h1 class="post-title">使用平台通道编写平台特定代码 </h1>
    </div>
 
   </header>
   
 
-  <p>This guide describes how to write custom platform-specific code. Some
-platform-specific functionality is available through existing packages;
-please see <a href="/using-packages/">using packages</a>.</p>
+  <p>本教程介绍了怎样编写平台特定代码。一些平台特定的功能在已存在的扩展包可以直接使用；请参阅 <a href="/using-packages/">using packages</a>.</p>
 
 <ul id="markdown-toc">
-  <li><a href="#architecture" id="markdown-toc-architecture">Architectural overview: platform channels</a>    <ul>
-      <li><a href="#codec" id="markdown-toc-codec">Platform channel data types support and codecs</a></li>
+  <li><a href="#architecture" id="markdown-toc-architecture">结构概述：平台通道</a>    <ul>
+      <li><a href="#codec" id="markdown-toc-codec">平台通道支持的数据类型和编解码器</a></li>
     </ul>
   </li>
-  <li><a href="#example" id="markdown-toc-example">Example: Calling platform-specific iOS and Android code using platform channels</a>    <ul>
-      <li><a href="#example-project" id="markdown-toc-example-project">Step 1: Create a new app project</a></li>
-      <li><a href="#example-client" id="markdown-toc-example-client">Step 2: Create the Flutter platform client</a></li>
-      <li><a href="#example-java" id="markdown-toc-example-java">Step 3a: Add an Android platform-specific implementation using Java</a></li>
-      <li><a href="#example-kotlin" id="markdown-toc-example-kotlin">Step 3b: Add an Android platform-specific implementation using Kotlin</a></li>
-      <li><a href="#example-objc" id="markdown-toc-example-objc">Step 4a: Add an iOS platform-specific implementation using Objective-C</a></li>
-      <li><a href="#example-swift" id="markdown-toc-example-swift">Step 4b: Add an iOS platform-specific implementation using Swift</a></li>
+  <li><a href="#example" id="markdown-toc-example">示例: 使用平台通道调用平台特定的 iOS 和 Android 代码</a>    <ul>
+      <li><a href="#example-project" id="markdown-toc-example-project">步骤 1: 创建新工程</a></li>
+      <li><a href="#example-client" id="markdown-toc-example-client">步骤 2: 创建 Flutter 平台客户端</a></li>
+      <li><a href="#example-java" id="markdown-toc-example-java">步骤 3a: 用 Java 添加 Android 平台特定实现</a></li>
+      <li><a href="#example-kotlin" id="markdown-toc-example-kotlin">步骤 3b: 用 Kotlin 添加 Android 特定平台实现</a></li>
+      <li><a href="#example-objc" id="markdown-toc-example-objc">步骤 4a: 用 Objective-C 添加 iOS 平台特定实现</a></li>
+      <li><a href="#example-swift" id="markdown-toc-example-swift">步骤 4b: 用 Swift 添加 iOS 平台特定实现</a></li>
     </ul>
   </li>
-  <li><a href="#separate" id="markdown-toc-separate">Separate platform-specific code from UI code</a></li>
-  <li><a href="#publish" id="markdown-toc-publish">Publish platform-specific code as a package</a></li>
-  <li><a href="#custom-channels-and-codecs" id="markdown-toc-custom-channels-and-codecs">Custom channels and codecs</a></li>
+  <li><a href="#separate" id="markdown-toc-separate">从 UI 代码中拆分平台特定的代码</a></li>
+  <li><a href="#publish" id="markdown-toc-publish">发布平台特定代码为扩展包</a></li>
+  <li><a href="#自定义通道和编解码器" id="markdown-toc-自定义通道和编解码器">自定义通道和编解码器</a></li>
 </ul>
 
-<p>Flutter uses a flexible system that allows you to call platform-specific APIs
-whether available in Java or Kotlin code on Android, or in ObjectiveC or Swift
-code on iOS.</p>
+<p>Flutter 使用了一个灵活的系统允许你调用平台特定的接口，无论在 Android 上使用 Java 或 Kotlin, 在 iOS 上使用 ObjectiveC 或 Swift 代码都可以.</p>
 
-<p>Flutter’s platform-specific API support does not rely on code generation, but
-rather on a flexible message passing style:</p>
+<p>Flutter 对于平台特定接口的支持不依赖代码生成，而是基于灵活的消息传递的方式：</p>
 
 <ul>
   <li>
-    <p>The Flutter portion of your app sends messages to its <em>host</em>, the iOS or
- Android portion of your app, over a platform channel.</p>
+    <p>应用程序的 Flutter 部分通过平台通道向其<em>主机</em>、应用程序的iOS或Android部分发送消息.</p>
   </li>
   <li>
-    <p>The <em>host</em> listens on the platform channel, and receives the message. It then
- calls into any number of platform-specific APIs – using the native
- programming language – and sends back a response to the <em>client</em>, the Flutter
- portion of your app.</p>
+    <p><em>宿主</em>监听平台通道，并接受消息。然后调用任意数量的平台特定接口 – 使用原生编程语言 – 并将响应发送回<em>客户端</em>，即应用的 Flutter 部分。</p>
   </li>
 </ul>
 
-<h2 id="architecture">Architectural overview: platform channels</h2>
+<h2 id="architecture">结构概述：平台通道</h2>
 
-<p>Messages are passed between the client (UI) and host (platform) using platform
-channels as illustrated in this diagram:</p>
+<p>使用平台通道在客户端（UI）和宿主（平台）之间传递消息，如图所示：</p>
 
 <p><img src="/images/PlatformChannels.png" alt="Platform channels architecture" /></p>
 
-<p>Messages and responses are passed asynchronously, to ensure the user interface
-remains responsive.</p>
+<p>为了让用户界面保持响应，消息和响应被异步传递。</p>
 
-<p>On the client side, <code class="highlighter-rouge">MethodChannel</code> (<a href="https://docs.flutter.io/flutter/services/MethodChannel-class.html">API</a>) enables sending
-messages that correspond to method calls. On the platform side, <code class="highlighter-rouge">MethodChannel</code>
-on Android (<a href="https://docs.flutter.io/javadoc/io/flutter/plugin/common/MethodChannel.html">API</a>) and <code class="highlighter-rouge">FlutterMethodChannel</code> on iOS
-(<a href="https://docs.flutter.io/objcdoc/Classes/FlutterMethodChannel.html">API</a>) enable receiving method calls and sending back a
-result. These classes allow you to develop a platform plugin with very little
-‘boilerplate’ code.</p>
+<p>在客户端这端，<code class="highlighter-rouge">MethodChannel</code> (<a href="https://docs.flutter.io/flutter/services/MethodChannel-class.html">API</a>) 可以发送与方法调用相对应的消息。在平台端，<code class="highlighter-rouge">MethodChannel</code> 在 Android (<a href="https://docs.flutter.io/javadoc/io/flutter/plugin/common/MethodChannel.html">API</a>) 和 iOS
+(<a href="https://docs.flutter.io/objcdoc/Classes/FlutterMethodChannel.html">API</a>) 上能够接收方法调用并返回结果。这些类允许你通过很少的’样板’代码开发平台插件。</p>
 
-<p><em>Note</em>: If desired, method calls can also be sent in the reverse direction, with
-the platform acting as client to methods implemented in Dart. A concrete example
-of this is the <a href="https://pub.dartlang.org/packages/quick_actions"><code class="highlighter-rouge">quick_actions</code></a> plugin.</p>
+<p><em>注意</em>：必要时，方法调用也可以反方向调用，平台作为客户端通过 Dart 实现方法。具体的例子在这里 <a href="https://pub.dartlang.org/packages/quick_actions"><code class="highlighter-rouge">quick_actions</code></a> 插件.</p>
 
-<h3 id="codec">Platform channel data types support and codecs</h3>
+<h3 id="codec">平台通道支持的数据类型和编解码器</h3>
 
-<p>The standard platform channels use a standard message codec that supports
-efficient binary serialization of simple JSON-like values, such as booleans,
-numbers, Strings, byte buffers, and List and Maps of these (see
-<a href="https://docs.flutter.io/flutter/services/StandardMessageCodec-class.html"><code class="highlighter-rouge">StandardMessageCodec</code></a>)
-for details). The serialization and deserialization of these values to and from
-messages happens automatically when you send and receive values.</p>
+<p>标准平台通道使用一个标准的消息编解码器。简单的JSON类值（如布尔值）的高效二进制序列化，数字、字符串、字节缓冲区以及这些列表和映射。(查看细节
+<a href="https://docs.flutter.io/flutter/services/StandardMessageCodec-class.html"><code class="highlighter-rouge">StandardMessageCodec</code></a>)。这些值的序列化和反序列化在消息发送和接收值时自动发生。</p>
 
-<p>The following table shows how Dart values are received on the platform side and vice versa:</p>
+<p>下表展示了如何在平台上接收的 Dart 值，反之亦然：</p>
 
 <table>
   <thead>
@@ -329,51 +308,35 @@ messages happens automatically when you send and receive values.</p>
 </table>
 
 <p><br /></p>
-<h2 id="example">Example: Calling platform-specific iOS and Android code using platform channels</h2>
+<h2 id="example">示例: 使用平台通道调用平台特定的 iOS 和 Android 代码</h2>
 
-<p>The following demonstrates how to call a platform-specific API to retrieve and
-display the current battery level. It uses the Android <code class="highlighter-rouge">BatteryManager</code> API, and
-the iOS <code class="highlighter-rouge">device.batteryLevel</code> API, via a single platform message,
-<code class="highlighter-rouge">getBatteryLevel</code>.</p>
+<p>以下说明了怎么调用平台特定的接口来取得并显示当前的电池电量。通过单独的一个的平台消息，使用 Android <code class="highlighter-rouge">BatteryManager</code> 接口，和 iOS <code class="highlighter-rouge">device.batteryLevel</code> 接口。</p>
 
-<p>The example adds the platform-specific code inside the main app itself. If you
-want to reuse the platform-specific code for multiple apps, the project creation
-step is slightly different (see <a href="/developing-packages/#plugin">developing
-packages</a>), but the platform channel code is still
-written in the same way.</p>
+<p>示例在主应用中添加了平台特定代码。如果你想在多个应用程序中重用平台代码，创建工程的步骤略有不同 (请参阅 <a href="/developing-packages/#plugin">开发扩展包</a>)，但是平台通道代码使用同样的方法。</p>
 
-<p><em>Note</em>: The full, runnable source-code for this example is available in
-<a href="https://github.com/flutter/flutter/tree/master/examples/platform_channel"><code class="highlighter-rouge">/examples/platform_channel/</code></a>
-for Android with Java and iOS with Objective-C. For iOS with Swift, see
-<a href="https://github.com/flutter/flutter/tree/master/examples/platform_channel_swift"><code class="highlighter-rouge">/examples/platform_channel_swift/</code></a>.</p>
+<p><em>注意</em>：这个示例完整可运行的代码在这儿<a href="https://github.com/flutter/flutter/tree/master/examples/platform_channel"><code class="highlighter-rouge">/examples/platform_channel/</code></a>，该版本使用 Java  开发 Android，Objective-C 开发的 iOS。iOS 的 Swift 版本请参阅<a href="https://github.com/flutter/flutter/tree/master/examples/platform_channel_swift"><code class="highlighter-rouge">/examples/platform_channel_swift/</code></a>.</p>
 
-<h3 id="example-project">Step 1: Create a new app project</h3>
+<h3 id="example-project">步骤 1: 创建新工程</h3>
 
-<p>Start by creating a new app:</p>
+<p>开始创建新工程：</p>
 
 <ul>
-  <li>In a terminal run: <code class="highlighter-rouge">flutter create batterylevel</code></li>
+  <li>在终端运行: <code class="highlighter-rouge">flutter create batterylevel</code></li>
 </ul>
 
-<p>By default our template supports writing Android code using Java, or iOS code
-using Objective-C. To use Kotlin or Swift, use the <code class="highlighter-rouge">-i</code> and/or <code class="highlighter-rouge">-a</code> flags:</p>
+<p>默认模板支持使用 Java 编写 Android，Objective-C 编写 iOS。想使用Kotlin 或者 Swift，使用 <code class="highlighter-rouge">-i</code> 与/或 <code class="highlighter-rouge">-a</code> 标记；</p>
 
 <ul>
-  <li>In a terminal run: <code class="highlighter-rouge">flutter create -i swift -a kotlin batterylevel</code></li>
+  <li>终端运行： <code class="highlighter-rouge">flutter create -i swift -a kotlin batterylevel</code></li>
 </ul>
 
-<h3 id="example-client">Step 2: Create the Flutter platform client</h3>
+<h3 id="example-client">步骤 2: 创建 Flutter 平台客户端</h3>
 
-<p>The app’s <code class="highlighter-rouge">State</code> class holds the current app state. We need to extend that to
-hold the current battery state.</p>
+<p>应用的 <code class="highlighter-rouge">State</code> 类持有当前应用的状态。我们需要扩展它来持有当前的电池状态。</p>
 
-<p>First, we construct the channel. We use a <code class="highlighter-rouge">MethodChannel</code> with a single
-platform method that returns the battery level.</p>
+<p>首先，我们构造通道。我们使用 <code class="highlighter-rouge">MethodChannel</code> 编写单独的平台方法并返回电池变量。</p>
 
-<p>The client and host sides of a channel are connected through a channel name
-passed in the channel constructor. All channel names used in a single app must
-be unique; we recommend prefixing the channel name with a unique ‘domain
-prefix’, e.g. <code class="highlighter-rouge">samples.flutter.io/battery</code>.</p>
+<p>通道的客户端和宿主端通过在构造器中传入通道名来连接。所有的通道名在一个应用中必须唯一；我们推荐使用唯一的’域名前缀’给通道名加前缀，如 <code class="highlighter-rouge">samples.flutter.io/battery</code>。</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
@@ -389,13 +352,7 @@ prefix’, e.g. <code class="highlighter-rouge">samples.flutter.io/battery</code
 </code></pre>
 </div>
 
-<p>Next, we invoke a method on the method channel, specifying the concrete method
-to call via the String identifier <code class="highlighter-rouge">getBatteryLevel</code>. The call may fail – for
-example if the platform does not support the platform API (such as when running
-in a simulator), so we wrap the <code class="highlighter-rouge">invokeMethod</code> call in a try-catch statement.</p>
-
-<p>We use the returned result to update our user interface state in <code class="highlighter-rouge">_batteryLevel</code>
-inside <code class="highlighter-rouge">setState</code>.</p>
+<p>接下来，我们调用方法通道上的方法，指定具体方法。通过字符串标识符 <code class="highlighter-rouge">getBatteryLevel</code> 调用。调用也许会失败 – 例如如果平台不支持平台接口（比如运行在模拟器上），所以我们用语句块来包装<code class="highlighter-rouge">invokeMethod</code> 调用。我们拿到返回结果在 <code class="highlighter-rouge">setState</code> 里面用 <code class="highlighter-rouge">_batteryLevel</code> 更新用户界面状态。</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code>  <span class="c1">// Get battery level.</span>
@@ -417,9 +374,7 @@ inside <code class="highlighter-rouge">setState</code>.</p>
 </code></pre>
 </div>
 
-<p>Finally, we replace the <code class="highlighter-rouge">build</code> method from the template to contain a small user
-interface that displays the battery state in a string, and a button for
-refreshing the value.</p>
+<p>最后，我们把模板中的 <code class="highlighter-rouge">build</code> 方法替换为一个小的用户界面用字符串显示电池状态，还有一个按钮来刷新这个值。</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="nd">@override</span>
@@ -442,33 +397,28 @@ refreshing the value.</p>
 </code></pre>
 </div>
 
-<h3 id="example-java">Step 3a: Add an Android platform-specific implementation using Java</h3>
+<h3 id="example-java">步骤 3a: 用 Java 添加 Android 平台特定实现</h3>
 
-<p><em>Note</em>: The following steps use Java. If you prefer Kotlin, skip to step
-3b.</p>
+<p><em>注意</em>: 以下步骤使用 Java。如果你更喜欢 Kotlin，跳到步骤3b。</p>
 
-<p>Start by opening the Android host portion of your Flutter app in Android Studio:</p>
+<p>在 Android Studio 中打开 Android 宿主端：</p>
 
 <ol>
   <li>
-    <p>Start Android Studio</p>
+    <p>打开 Android Studio。</p>
   </li>
   <li>
-    <p>Select the menu item ‘File &gt; Open…’</p>
+    <p>选择菜单项 ‘文件 &gt; 打开…‘。</p>
   </li>
   <li>
-    <p>Navigate to the directory holding your Flutter app, and select the <code class="highlighter-rouge">android</code>
-folder inside it. Click OK.</p>
+    <p>导航到 Flutter 应用程序的目录，选择它里面的 <code class="highlighter-rouge">android</code> 文件夹。点击确定。</p>
   </li>
   <li>
-    <p>Open the file <code class="highlighter-rouge">MainActivity.java</code> located in the <code class="highlighter-rouge">java</code> folder in the Project
-view.</p>
+    <p>在工程视图下打开位于 <code class="highlighter-rouge">java</code> 文件夹的 <code class="highlighter-rouge">MainActivity.java</code> 文件。</p>
   </li>
 </ol>
 
-<p>Next, create a <code class="highlighter-rouge">MethodChannel</code> and set a <code class="highlighter-rouge">MethodCallHandler</code> inside the
-<code class="highlighter-rouge">onCreate</code> method. Make sure to use the same channel name as was used on the
-Flutter client side.</p>
+<p>下一步，创建 <code class="highlighter-rouge">MethodChannel</code> 并在 <code class="highlighter-rouge">onCreate</code> 方法中设置 <code class="highlighter-rouge">MethodCallHandler</code>。确保使用了和 Flutter 客户端同样的通道名。</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">io.flutter.app.FlutterActivity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">io.flutter.plugin.common.MethodCall</span><span class="o">;</span>
@@ -496,11 +446,9 @@ Flutter client side.</p>
 </code></pre>
 </div>
 
-<p>Next, we add the actual Android Java code that uses the Android battery APIs to
-retrieve the battery level. This code is exactly the same as you would have
-written in a native Android app.</p>
+<p>下一步，我们添加真正的 Android Java 代码，使用 Android 电池接口取到电池电量。这些代码和你编写原生的 Android 应用一样。</p>
 
-<p>First, add the needed imports at the top of the file:</p>
+<p>首先，在文件顶部添加必要的应用：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>import android.content.ContextWrapper;
 import android.content.Intent;
@@ -512,8 +460,7 @@ import android.os.Bundle;
 </code></pre>
 </div>
 
-<p>Then add the following as a new method in the activity class, below the <code class="highlighter-rouge">onCreate</code>
-method:</p>
+<p>在 activity 类中 <code class="highlighter-rouge">onCreate</code> 的方法下面紧接着添加一个新的方法：</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">int</span> <span class="nf">getBatteryLevel</span><span class="o">()</span> <span class="o">{</span>
   <span class="kt">int</span> <span class="n">batteryLevel</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
@@ -532,12 +479,7 @@ method:</p>
 </code></pre>
 </div>
 
-<p>Finally, we complete the <code class="highlighter-rouge">onMethodCall</code> method we added earlier. We need to
-handle a single platform method, <code class="highlighter-rouge">getBatteryLevel</code>, so we test for that in the
-<code class="highlighter-rouge">call</code> argument. The implementation of this platform method simply calls the
-Android code we wrote in the previous step, and passes back a response for both
-the success and error cases using the <code class="highlighter-rouge">response</code> argument. If an unknown method
-is called, we report that instead. Replace:</p>
+<p>最后，我们完成之前添加的 <code class="highlighter-rouge">onMethodCall</code> 方法。我们需要一个单一的平台方法，<code class="highlighter-rouge">getBatteryLevel</code>，我们在 <code class="highlighter-rouge">call</code> 参数中检测它。这个平台方法的实现调用了我们在之前步骤中写的 Android 代码，并在成功和错误的情况下都返回 <code class="highlighter-rouge">response</code> 参数。如果调用了一个未知的方法，我们会发出报告。替换：</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMethodCall</span><span class="o">(</span><span class="n">MethodCall</span> <span class="n">call</span><span class="o">,</span> <span class="n">Result</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// TODO</span>
@@ -545,7 +487,7 @@ is called, we report that instead. Replace:</p>
 </code></pre>
 </div>
 
-<p>with:</p>
+<p>为：</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@Override</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMethodCall</span><span class="o">(</span><span class="n">MethodCall</span> <span class="n">call</span><span class="o">,</span> <span class="n">Result</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
@@ -564,41 +506,32 @@ is called, we report that instead. Replace:</p>
 </code></pre>
 </div>
 
-<p>You should now be able to run the app on Android. If you are using the Android
-Emulator, you can set the battery level in the Extended Controls panel
-accessible from the <code class="highlighter-rouge">...</code> button in the toolbar.</p>
+<p>你现在应该能够在 Android 系统上运行应用程序了。如果使用了 Android 模拟器，你可以在点击工具栏中的 <code class="highlighter-rouge">...</code> 按钮，在扩展控制栏设置电池电量。</p>
 
-<h3 id="example-kotlin">Step 3b: Add an Android platform-specific implementation using Kotlin</h3>
+<h3 id="example-kotlin">步骤 3b: 用 Kotlin 添加 Android 特定平台实现</h3>
 
-<p><em>Note</em>: The following steps are similar to step 3a, only using Kotlin rather than
-Java.</p>
+<p><em>注意</em>：以下步骤和步骤 3a 类似，除了用 Kotlin 代替 Java。</p>
 
-<p>This step assumes that you created your project in <a href="#example-project">step 1.</a>
-using the <code class="highlighter-rouge">-a kotlin</code> option.</p>
+<p>本步骤假设你在<a href="#example-project">步骤 1.</a>中使用 <code class="highlighter-rouge">-a kotlin</code> 选项创建工程。</p>
 
-<p>Start by opening the Android host portion of your Flutter app in Android Studio:</p>
+<p>在 Android Studio 中打开 Android 宿主端：</p>
 
 <ol>
   <li>
-    <p>Start Android Studio</p>
+    <p>打开 Android Studio。</p>
   </li>
   <li>
-    <p>Select the menu item ‘File &gt; Open…’</p>
+    <p>选择菜单项 ‘文件 &gt; 打开…‘。</p>
   </li>
   <li>
-    <p>Navigate to the directory holding your Flutter app, and select the <code class="highlighter-rouge">android</code>
-folder inside it. Click OK.</p>
+    <p>导航到 Flutter 应用程序的目录，选择它里面的 <code class="highlighter-rouge">android</code> 文件夹。点击确定。</p>
   </li>
   <li>
-    <p>Open the file <code class="highlighter-rouge">MainActivity.kt</code> located in the <code class="highlighter-rouge">kotlin</code> folder in the Project
-view. (Note: If you are editing using Android Studio 2.3, note that the
-‘kotlin’ folder will be shown as-if named ‘java’.)</p>
+    <p>在工程视图下打开位于 <code class="highlighter-rouge">kotlin</code> 文件夹下的 <code class="highlighter-rouge">MainActivity.kt</code> 文件。(注意：如果你正在使用 Android Studio 2.3 编辑，’kotlin’ 文件夹将会显示名为 ’java’。）</p>
   </li>
 </ol>
 
-<p>Next, inside the <code class="highlighter-rouge">onCreate</code> method, create a <code class="highlighter-rouge">MethodChannel</code> and call
-<code class="highlighter-rouge">setMethodCallHandler</code>. Make sure to use the same channel name as was used on
-the Flutter client side.</p>
+<p>下一步，创建 <code class="highlighter-rouge">MethodChannel</code> 并在 <code class="highlighter-rouge">onCreate</code> 方法中调用 <code class="highlighter-rouge">setMethodCallHandler </code>。确保使用了和 Flutter 客户端同样的通道名。</p>
 
 <div class="language-kotlin highlighter-rouge"><pre class="highlight"><code><span class="k">import</span> <span class="nn">android.os.Bundle</span>
 <span class="k">import</span> <span class="nn">io.flutter.app.FlutterActivity</span>
@@ -620,11 +553,9 @@ the Flutter client side.</p>
 </code></pre>
 </div>
 
-<p>Next, we add the actual Android Kotlin code that uses the Android battery APIs to
-retrieve the battery level. This code is exactly the same as you would have
-written in a native Android app.</p>
+<p>下一步，我们添加真正的 Android Kotlin 代码，使用 Android 电池接口取到电池电量。这些代码和你编写原生的 Android 应用一样。</p>
 
-<p>First, add the needed imports at the top of the file:</p>
+<p>首先，在文件顶部添加必要的引用：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>import android.content.Context
 import android.content.ContextWrapper
@@ -636,8 +567,7 @@ import android.os.Build.VERSION_CODES
 </code></pre>
 </div>
 
-<p>Next, add the following as a new method in the <code class="highlighter-rouge">MainActivity</code> class, below the <code class="highlighter-rouge">onCreate</code>
-method:</p>
+<p>在 <code class="highlighter-rouge">MainActivity</code> 类中 <code class="highlighter-rouge">onCreate</code> 的方法下面紧接着添加一个新的方法：</p>
 
 <div class="language-kotlin highlighter-rouge"><pre class="highlight"><code>  <span class="k">private</span> <span class="k">fun</span> <span class="nf">getBatteryLevel</span><span class="p">():</span> <span class="n">Int</span> <span class="p">{</span>
     <span class="kd">val</span> <span class="py">batteryLevel</span><span class="p">:</span> <span class="n">Int</span>
@@ -654,12 +584,7 @@ method:</p>
 </code></pre>
 </div>
 
-<p>Finally, we complete the <code class="highlighter-rouge">onMethodCall</code> method we added earlier. We need to
-handle a single platform method, <code class="highlighter-rouge">getBatteryLevel</code>, so we test for that in the
-<code class="highlighter-rouge">call</code> argument. The implementation of this platform method simply calls the
-Android code we wrote in the previous step, and passes back a response for both
-the success and error cases using the <code class="highlighter-rouge">response</code> argument. If an unknown method
-is called, we report that instead. Replace:</p>
+<p>最后，我们完成之前添加的 <code class="highlighter-rouge">onMethodCall</code> 方法。我们需要一个单一的平台方法，<code class="highlighter-rouge">getBatteryLevel</code>，我们在 <code class="highlighter-rouge">call</code> 参数中检测它。这个平台方法的实现调用了我们在之前步骤中写的 Android 代码，并在成功和错误的情况下都返回 <code class="highlighter-rouge">response</code> 参数。如果调用了一个未知的方法，我们会发出报告。替换：</p>
 
 <div class="language-kotlin highlighter-rouge"><pre class="highlight"><code>    <span class="n">MethodChannel</span><span class="p">(</span><span class="n">flutterView</span><span class="p">,</span> <span class="n">CHANNEL</span><span class="p">).</span><span class="n">setMethodCallHandler</span> <span class="p">{</span> <span class="n">call</span><span class="p">,</span> <span class="n">result</span> <span class="p">-&gt;</span>
       <span class="c1">// TODO
@@ -667,7 +592,7 @@ is called, we report that instead. Replace:</p>
 </code></pre>
 </div>
 
-<p>with:</p>
+<p>为:</p>
 
 <div class="language-kotlin highlighter-rouge"><pre class="highlight"><code>    <span class="n">MethodChannel</span><span class="p">(</span><span class="n">flutterView</span><span class="p">,</span> <span class="n">CHANNEL</span><span class="p">).</span><span class="n">setMethodCallHandler</span> <span class="p">{</span> <span class="n">call</span><span class="p">,</span> <span class="n">result</span> <span class="p">-&gt;</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">call</span><span class="p">.</span><span class="n">method</span> <span class="p">==</span> <span class="s">"getBatteryLevel"</span><span class="p">)</span> <span class="p">{</span>
@@ -685,40 +610,34 @@ is called, we report that instead. Replace:</p>
 </code></pre>
 </div>
 
-<p>You should now be able to run the app on Android. If you are using the Android
-Emulator, you can set the battery level in the Extended Controls panel
-accessible from the <code class="highlighter-rouge">...</code> button in the toolbar.</p>
+<p>你现在应该能够在 Android 系统上运行应用程序了。如果使用了 Android 模拟器，你可以在点击工具栏中的 <code class="highlighter-rouge">...</code> 按钮，在扩展控制栏设置电池电量。</p>
 
-<h3 id="example-objc">Step 4a: Add an iOS platform-specific implementation using Objective-C</h3>
+<h3 id="example-objc">步骤 4a: 用 Objective-C 添加 iOS 平台特定实现</h3>
 
-<p><em>Note</em>: The following steps use Objective-C. If you prefer Swift, skip to step
-4b.</p>
+<p><em>注意</em>：以下步骤使用 Objective-C。如果你更喜欢 Swift，跳到步骤4b。</p>
 
-<p>Start by opening the iOS host portion of your Flutter app in Xcode:</p>
+<p>在 Xcode 中打开 Flutter 应用的 iOS 宿主端：</p>
 
 <ol>
   <li>
-    <p>Start Xcode</p>
+    <p>打开 Xcode</p>
   </li>
   <li>
-    <p>Select the menu item ‘File &gt; Open…’</p>
+    <p>选择菜单项 ‘文件 &gt; 打开…’</p>
   </li>
   <li>
-    <p>Navigate to the directory holding your Flutter app, and select the <code class="highlighter-rouge">ios</code>
-folder inside it. Click OK.</p>
+    <p>导航到 Flutter 应用程序的目录，选择它里面的 <code class="highlighter-rouge">ios</code> 文件夹。点击确定。</p>
   </li>
   <li>
-    <p>Make sure the Xcode projects builds without errors.</p>
+    <p>确保 Xcode 工程编译没有错误。</p>
   </li>
   <li>
-    <p>Open the file <code class="highlighter-rouge">AppDelegate.m</code> located under Runner &gt; Runner in the Project
-navigator.</p>
+    <p>打开位于 Runner &gt; Runner 工程目录下的文件 <code class="highlighter-rouge">AppDelegate.m</code>。</p>
   </li>
 </ol>
 
-<p>Next, create a <code class="highlighter-rouge">FlutterMethodChannel</code> and add a handler inside the <code class="highlighter-rouge">application
-didFinishLaunchingWithOptions:</code> method. Make sure to use the same channel name
-as was used on the Flutter client side.</p>
+<p>下一步，创建 ‘FlutterMethodChannel’ 并在 <code class="highlighter-rouge">application
+didFinishLaunchingWithOptions:</code> 方法中添加一个处理器。确保使用了和 Flutter 客户端同样的通道名。</p>
 
 <pre><code class="language-objectivec">#import &lt;Flutter/Flutter.h&gt;
 
@@ -738,11 +657,9 @@ as was used on the Flutter client side.</p>
 }
 </code></pre>
 
-<p>Next, we add the actual iOS ObjectiveC code that uses the iOS battery APIs to
-retrieve the battery level. This code is exactly the same as you would have
-written in a native iOS app.</p>
+<p>下一步，我们添加真正的 iOS ObjectiveC 代码，使用 iOS 电池接口取到电池电量。这些代码和你编写原生的 iOS 应用一样。</p>
 
-<p>Add the following as a new method in the <code class="highlighter-rouge">AppDelegate</code> class, just before <code class="highlighter-rouge"><span class="k">@end</span></code>:</p>
+<p>在 <code class="highlighter-rouge">AppDelegate</code> 类中，<code class="highlighter-rouge"><span class="k">@end</span></code> 之前接着添加一个新方法：</p>
 
 <pre><code class="language-objectivec">- (int)getBatteryLevel {
   UIDevice* device = UIDevice.currentDevice;
@@ -755,12 +672,7 @@ written in a native iOS app.</p>
 }
 </code></pre>
 
-<p>Finally, we complete the <code class="highlighter-rouge">setMethodCallHandler</code> method we added earlier. We need
-to handle a single platform method, <code class="highlighter-rouge">getBatteryLevel</code>, so we test for that in
-the <code class="highlighter-rouge">call</code> argument. The implementation of this platform method simply calls the
-iOS code we wrote in the previous step, and passes back a response for both
-the success and error cases using the <code class="highlighter-rouge">result</code> argument. If an unknown method
-is called, we report that instead.</p>
+<p>最后，我们完成之前添加的 <code class="highlighter-rouge">setMethodCallHandler</code> 方法。我们需要一个单一的平台方法，<code class="highlighter-rouge">getBatteryLevel</code>，我们在 <code class="highlighter-rouge">call</code> 参数中检测它。这个平台方法的实现调用了我们在之前步骤中写的 iOS 代码，并在成功和错误的情况下都返回 <code class="highlighter-rouge">response</code> 参数。如果调用了一个未知的方法，我们会发出报告。</p>
 
 <pre><code class="language-objectivec">[batteryChannel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
   if ([@"getBatteryLevel" isEqualToString:call.method]) {
@@ -779,48 +691,40 @@ is called, we report that instead.</p>
 }];
 </code></pre>
 
-<p>You should now be able to run the app on iOS. If you are using the iOS
-Simulator, note that it does not support battery APIs, and the app will thus
-display ‘battery info unavailable’.</p>
+<p>你现在应该能够在 iOS 系统上运行应用程序了。如果使用了 iOS 模拟器，注意它不支持电池相关接口，应用会显示 ‘无法获取电池信息’。</p>
 
-<h3 id="example-swift">Step 4b: Add an iOS platform-specific implementation using Swift</h3>
+<h3 id="example-swift">步骤 4b: 用 Swift 添加 iOS 平台特定实现</h3>
 
-<p><em>Note</em>: The following steps are similar to step 4a, only using Swift rather than
-Objective-C.</p>
+<p><em>注意</em>：以下步骤和步骤 3a 类似，除了用 Swift 代替 Objective-C。</p>
 
-<p>This step assumes that you created your project in <a href="#example-project">step 1.</a>
-using the <code class="highlighter-rouge">-i swift</code> option.</p>
+<p>本步骤假设你在<a href="#example-project">步骤 1.</a>中使用 <code class="highlighter-rouge">-i swift</code> 选项创建工程。</p>
 
-<p>Start by opening the iOS host portion of your Flutter app in Xcode:</p>
+<p>在 Xcode 中打开 Flutter 应用的 iOS 宿主端：</p>
 
 <ol>
   <li>
-    <p>Start Xcode</p>
+    <p>打开 Xcode</p>
   </li>
   <li>
-    <p>Select the menu item ‘File &gt; Open…’</p>
+    <p>选择菜单项 ‘文件 &gt; 打开…’</p>
   </li>
   <li>
-    <p>Navigate to the directory holding your Flutter app, and select the <code class="highlighter-rouge">ios</code>
-folder inside it. Click OK.</p>
+    <p>导航到 Flutter 应用程序的目录，选择它里面的 <code class="highlighter-rouge">ios</code> 文件夹。点击确定。</p>
   </li>
 </ol>
 
-<p>Next, we add support for Swift in the standard template setup that uses
-Objective-C:</p>
+<p>下一步，在使用 Objective-C 设置的标准模板中添加 Swift 支持：</p>
 
 <ol>
   <li>
-    <p>Expand Runner &gt; Runner in the Project navigator.</p>
+    <p>在工程中展开 Runner &gt; Runner。</p>
   </li>
   <li>
-    <p>Open the file <code class="highlighter-rouge">AppDelegate.swift</code> located under Runner &gt; Runner in the Project
-navigator.</p>
+    <p>在工程中打开位于 Runner &gt; Runner 下的<code class="highlighter-rouge">AppDelegate.swift</code>。</p>
   </li>
 </ol>
 
-<p>Next, override the <code class="highlighter-rouge">application</code> function and create a <code class="highlighter-rouge">FlutterMethodChannel</code>
-tied to the channel name <code class="highlighter-rouge">samples.flutter.io/battery</code>:</p>
+<p>下一步，重写 <code class="highlighter-rouge">application</code> 函数并创建一个 <code class="highlighter-rouge">FlutterMethodChannel</code> 绑定到通道 <code class="highlighter-rouge">samples.flutter.io/battery</code>：</p>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">@UIApplicationMain</span>
 <span class="kd">@objc</span> <span class="kd">class</span> <span class="kt">AppDelegate</span><span class="p">:</span> <span class="kt">FlutterAppDelegate</span> <span class="p">{</span>
@@ -843,11 +747,9 @@ tied to the channel name <code class="highlighter-rouge">samples.flutter.io/batt
 </code></pre>
 </div>
 
-<p>Next, add the actual iOS Swift code that uses the iOS battery APIs to retrieve
-the battery level. This code is exactly the same as you would have written in a
-native iOS app.</p>
+<p>下一步, 我们添加真正的 iOS Swift 代码，使用 iOS 电池接口取到电池电量。这些代码和你编写原生的 iOS 应用一样。</p>
 
-<p>Add the following as a new method at the bottom of <code class="highlighter-rouge">AppDelegate.swift</code>:</p>
+<p>在 <code class="highlighter-rouge">AppDelegate.swift</code> 底部添加下面的新方法：</p>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">receiveBatteryLevel</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="kt">FlutterResult</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">let</span> <span class="nv">device</span> <span class="o">=</span> <span class="kt">UIDevice</span><span class="o">.</span><span class="n">current</span><span class="p">;</span>
@@ -863,11 +765,7 @@ native iOS app.</p>
 </code></pre>
 </div>
 
-<p>Finally, complete the <code class="highlighter-rouge">setMethodCallHandler</code> method we added earlier. We need
-to handle a single platform method, <code class="highlighter-rouge">getBatteryLevel</code>, so we test for that in
-the <code class="highlighter-rouge">call</code> argument. The implementation of this platform method simply calls the
-iOS code we wrote in the previous step. If an unknown method
-is called, we report that instead.</p>
+<p>最后，我们完成之前添加的 <code class="highlighter-rouge">setMethodCallHandler</code> 方法。我们需要一个单一的平台方法，<code class="highlighter-rouge">getBatteryLevel</code>，我们在 <code class="highlighter-rouge">call</code> 参数中检测它。这个平台方法的实现调用了我们在之前步骤中写的 iOS 代码，并在成功和错误的情况下都返回 <code class="highlighter-rouge">response</code> 参数。如果调用了一个未知的方法，我们会发出报告。</p>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">batteryChannel</span><span class="o">.</span><span class="nf">setMethodCallHandler</span><span class="p">({</span>
   <span class="p">(</span><span class="nv">call</span><span class="p">:</span> <span class="kt">FlutterMethodCall</span><span class="p">,</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">FlutterResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span> <span class="k">in</span>
@@ -880,30 +778,20 @@ is called, we report that instead.</p>
 </code></pre>
 </div>
 
-<p>You should now be able to run the app on iOS. If you are using the iOS
-Simulator, note that it does not support battery APIs, and the app will thus
-display ‘Battery info unavailable.’.</p>
+<p>你现在应该能够在 iOS 系统上运行应用程序了。如果使用了 iOS 模拟器，注意它不支持电池相关接口，应用会显示 ‘无法获取电池信息’。</p>
 
-<h2 id="separate">Separate platform-specific code from UI code</h2>
+<h2 id="separate">从 UI 代码中拆分平台特定的代码</h2>
 
-<p>If you expect to use your platform-specific code in multiple Flutter apps, it
-can be useful to separate the code into a platform plugin located in a directory
-outside your main application. See <a href="/developing-packages/">developing packages</a>
-for details.</p>
+<p>如果你希望在多个 Flutter 应用中使用平台特定代码，在主应用之外的目录，把代码拆分到平台插件中非常有用。更多细节请参考 <a href="/developing-packages/">开发扩展包</a>。</p>
 
-<h2 id="publish">Publish platform-specific code as a package</h2>
+<h2 id="publish">发布平台特定代码为扩展包</h2>
 
-<p>If you wish to share your platform-specific with other developers in the Flutter
-ecosystem, please see <a href="/developing-packages/#publish">publishing packages</a>
-for details.</p>
+<p>如果你希望在 Flutter 的生态系统中和其他开发者分享自己的平台特定代码，更多细节请参考 <a href="/developing-packages/#publish">发布扩展包</a>。</p>
 
-<h2 id="custom-channels-and-codecs">Custom channels and codecs</h2>
+<h2 id="自定义通道和编解码器">自定义通道和编解码器</h2>
 
-<p>Besides the above mentioned <code class="highlighter-rouge">MethodChannel</code>, you can also use the more plain
-<a href="https://docs.flutter.io/flutter/services/BasicMessageChannel-class.html"><code class="highlighter-rouge">BasicMessageChannel</code></a>, which supports basic, asynchronous
-message passing using a custom message codec. Further, you can use the
-specialized <a href="https://docs.flutter.io/flutter/services/BinaryCodec-class.html"><code class="highlighter-rouge">BinaryCodec</code></a>, <a href="https://docs.flutter.io/flutter/services/StringCodec-class.html"><code class="highlighter-rouge">StringCodec</code></a>, and
-<a href="https://docs.flutter.io/flutter/services/JSONMessageCodec-class.html"><code class="highlighter-rouge">JSONMessageCodec</code></a> classes, or create your own codec.</p>
+<p>除了上面提到的 <code class="highlighter-rouge">MethodChannel</code>，你也可以使用更简单的 <a href="https://docs.flutter.io/flutter/services/BasicMessageChannel-class.html"><code class="highlighter-rouge">BasicMessageChannel</code></a>，它使用自定义消息编解码器支持最基本的，异步消息传递。甚至，你可以使用特定的 <a href="https://docs.flutter.io/flutter/services/BinaryCodec-class.html"><code class="highlighter-rouge">BinaryCodec</code></a>, <a href="https://docs.flutter.io/flutter/services/StringCodec-class.html"><code class="highlighter-rouge">StringCodec</code></a>, 和
+<a href="https://docs.flutter.io/flutter/services/JSONMessageCodec-class.html"><code class="highlighter-rouge">JSONMessageCodec</code></a> 类，或创建你自己的编解码器.</p>
 
 
 </article>
