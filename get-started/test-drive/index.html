@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Get Started: Test Drive  - Flutter </title>
+  <title>入门：Flutter 初体验  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -82,7 +82,7 @@
     <ul class="sidebar-items">
       <li><a href="/get-started/install/">1: 安装</a></li>
       <li><a href="/get-started/editor/">2: 配置编辑器</a></li>
-      <li><a href="/get-started/test-drive/">3: 试运行</a></li>
+      <li><a href="/get-started/test-drive/">3: Flutter 初体验</a></li>
       <li><a href="/get-started/codelab/">4: 编写第一个 Flutter 应用</a></li>
       <li><a href="/get-started/learn-more/">5: 学习更多</a></li>
     </ul>
@@ -165,193 +165,172 @@
          <a href="https://github.com/flutter/website/blob/master/zh_CN/get-started/test-drive.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Get Started: Test Drive&body=From URL: http://localhost:4000/get-started/test-drive/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 入门：Flutter 初体验&body=From URL: http://localhost:4000/get-started/test-drive/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Get Started: Test Drive </h1>
+    <h1 class="post-title">入门：Flutter 初体验 </h1>
    </div>
 
   </header>
   
 
-  <p>This page describes how to “test drive” Flutter: create a new Flutter app from
-our templates, run it, and learn how to make changes with Hot Reload.</p>
+  <p>在这篇文档中你将了解如何在 Flutter 开发中进行调试和修改：从我们提供的项目模板创建一个 Flutter 应用程序，运行然后学习如何使用热重载来修改程序。</p>
 
-<p>Flutter is a flexible toolkit, so please start by selecting your development
-tool of choice for writing, building, and running your Flutter app.</p>
+<p>Flutter 是一个扩展性极强的工具集，因此你可以选择你钟爱的开发工具或者平台来写代码，编译以及运行 Flutter 应用程序。</p>
+
+<div id="tab-set-install">
 
 <ul class="tabs__top-bar">
-    <li class="tab-link current" data-tab="tab-install-androidsstudio">Android Studio</li>
+    <li class="tab-link current" data-tab="tab-install-androidstudio">Android Studio</li>
     <li class="tab-link" data-tab="tab-install-vscode">VS Code</li>
-    <li class="tab-link" data-tab="tab-install-terminal">Terminal + editor</li>
+    <li class="tab-link" data-tab="tab-install-terminal">控制台 + 文本编辑器</li>
 </ul>
 
-<div id="tab-install-androidsstudio" class="tabs__content current">
+<div id="tab-install-androidstudio" class="tabs__content current">
 
-  <p><em>Android Studio:</em> A complete, integrated IDE experience for Flutter.</p>
+    <p><em>Android Studio:</em> 一个完整的，高度集成的 Flutter 开发编辑器。</p>
 
-  <h2 id="create-app">Create new app</h2>
+    <h2 id="create-app">创建应用程序</h2>
 
-  <ol>
-    <li>Select <strong>File&gt;New Flutter Project</strong></li>
-    <li>Select <strong>Flutter application</strong> as the project type, and press Next</li>
-    <li>Enter a project name (e.g. <code class="highlighter-rouge">myapp</code>), and press Next</li>
-    <li>Click <strong>Finish</strong></li>
-    <li>Wait for Android Studio to install the SDK, and create the project.</li>
-  </ol>
+    <ol>
+      <li>依次选择 <strong>File&gt;New Flutter Project</strong></li>
+      <li>选择 <strong>Flutter application</strong> 作为项目类型，然后点击下一步</li>
+      <li>输入项目名称（例如：<code class="highlighter-rouge">myapp</code>），然后点击下一步</li>
+      <li>点击 <strong>Finish</strong></li>
+      <li>等待 Android Studio 安装好 SDK 和创建好这个项目。</li>
+    </ol>
 
-  <p>The above command creates a Flutter project directory called <code class="highlighter-rouge">myapp</code> that contains a simple demo
-app that uses <a href="https://material.io/guidelines/">Material Components</a>.</p>
+    <p>以上的命令创建了一个名叫 <code class="highlighter-rouge">myapp</code> 的 Flutter 项目，并且放在 ‘myapp’ 文件夹中。这是一个很简单的，基于 <a href="https://material.io/guidelines/">Material 组件</a> 的项目。</p>
 
-  <p>In the project directory, the code for your app is in <code class="highlighter-rouge">lib/main.dart</code>.</p>
+    <p>在这个项目的文件夹中，和项目业务相关的代码都在 <code class="highlighter-rouge">lib/main.dart</code> 中。</p>
 
-  <h2 id="run-the-app">Run the app</h2>
+    <h2 id="section">运行这个程序</h2>
 
-  <ol>
-    <li>Locate the main Android Studio toolbar:<br />
-<img src="/images/intellij/main-toolbar.png" alt="Main IntelliJ toolbar" /></li>
-    <li>In the <strong>target selector</strong>, select an Android device for running the app.
-If none are listed as available, select <strong>Tools&gt;Android&gt;AVD Manager</strong> and
-create one there. For details, see <a href="https://developer.android.com/studio/run/managing-avds.html">Managing
-AVDs</a>.</li>
-    <li>Click the <strong>Run icon</strong> in the toolbar, or invoke the menu item <strong>Run &gt;
-Run</strong>.</li>
-    <li>If everything works, you should see your starter app on your device or
-simulator:<br />
-<img src="/images/flutter-starter-app-android.png" alt="Starter App on Android" /></li>
-  </ol>
+    <ol>
+      <li>找到 Android Studio 的主工具栏：<br />
+<img src="/images/intellij/main-toolbar.png" alt="IntelliJ 的主工具栏" /></li>
+      <li>在 <strong>target selector</strong> 中，选择一个已连接的 Android 设备来运行这个程序。如果列表中没有可用的设备，   那么依次选择 <strong>Tools&gt;Android&gt;AVD Manager</strong> 创建一个可用的模拟器。了解更多，请查看 <a href="https://developer.android.com/studio/run/managing-avds.html">管理
+AVDs</a>。</li>
+      <li>点击工具栏中的 <strong>Run icon</strong>，或者在菜单栏中一次选择 <strong>Run &gt; Run</strong>。</li>
+      <li>如果一切正常，那么你现在就可以在你的手机或者模拟器上看到程序的起始界面了：<br />
+<img src="/images/flutter-starter-app-android.png" alt="Android 设备/模拟器上的起始界面" /></li>
+    </ol>
 
-  <h2 id="try-a-hot-reload">Try a hot reload</h2>
+    <h2 id="section-1">尝试一下热重载</h2>
 
-  <p>Flutter offers a fast development cycle with <em>hot reload</em>, the ability to reload
-the code of a live running app without restarting or losing app state. Simply
-make a change to your source code, tell your IDE or command-line tool that you
-want to hot reload, and see the change in your simulator, emulator, or device.</p>
+    <p>Flutter 提供了一种非常高效的开发方式，叫做 <em>热重载</em> ，这个功能可以在应用程序运行的状态下替换部分代码，并且运行中的程序不会丢失任何状态。简单的对你的源代码做一些修改，告诉你的 IDE 或者命令行工具，你需要进行热重载，然后你就可以在模拟器或者手机中看到你的修改了。</p>
 
-  <ol>
-    <li>Change the string<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>
-to<br /><code class="highlighter-rouge">'You have clicked the button this many times:'</code></li>
-    <li>Do not press the ‘Stop’ button; let your app continue to run.</li>
-    <li>To see your changes invoke <strong>Save All</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>), or click the
-<strong>Hot Reload button</strong> (the button with the lightning bolt icon).</li>
-  </ol>
+    <ol>
+      <li>把字符串<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>修改为<br /><code class="highlighter-rouge">'You have clicked      the button this many times:'</code></li>
+      <li>不需要点击 ‘Stop’ 按钮；让应用程序继续运行。</li>
+      <li>只需要将代码 <strong>全部保存</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>)，或者点击 <strong>热重载</strong> 按钮（那个像闪电⚡️一样的图标按钮）你就可以看到你的修改已经被执行了。</li>
+    </ol>
 
-  <p>You should see the updated string in the running app almost immediately.</p>
+    <p>你几乎可以立刻就在应用程序里看到你对字符串的修改。</p>
 
-</div>
+  </div>
 
 <div id="tab-install-vscode" class="tabs__content">
 
-  <p><em>VS Code:</em> A light-weight editor with Flutter run and debug support.</p>
+    <p><em>VS Code:</em> 包含了运行和调试 Flutter 应用程序的轻量级编辑器。</p>
 
-  <h2 id="create-new-app">Create new app</h2>
+    <h2 id="section-2">创建应用程序</h2>
 
-  <ol>
-    <li>Start VS Code</li>
-    <li>Invoke <strong>View&gt;Command Palette…</strong></li>
-    <li>Type ‘flutter’, and select the <strong>‘Flutter: New Project’</strong> action</li>
-    <li>Enter a project name (e.g. <code class="highlighter-rouge">myapp</code>), and press Enter</li>
-    <li>Specify a location to place the project, and press the blue OK button</li>
-    <li>Wait for the project creation to continue, and the <code class="highlighter-rouge">main.dart</code> file to appear</li>
-  </ol>
+    <ol>
+      <li>启动 VS Code</li>
+      <li>依次执行 <strong>View&gt;Command Palette…</strong></li>
+      <li>输入 ‘flutter’，选择 <strong>‘Flutter: New Project’</strong> 命令</li>
+      <li>输入项目名称（例如：<code class="highlighter-rouge">myapp</code>），回车</li>
+      <li>找到一个用于保存项目的目录，然后点击蓝色的确认按钮</li>
+      <li>项目会自动进行创建，创建完毕之后，<code class="highlighter-rouge">main.dart</code> 文件会被自动打开</li>
+    </ol>
 
-  <p>The above command creates a Flutter project directory called <code class="highlighter-rouge">myapp</code> that contains a simple demo
-app that uses <a href="https://material.io/guidelines/">Material Components</a>.</p>
+    <p>以上的命令创建了一个名叫 <code class="highlighter-rouge">myapp</code> 的 Flutter 项目，并且放在 ‘myapp’ 文件夹中。这是一个很简单的，基于 <a href="https://material.io/guidelines/">Material 组件</a> 的项目。</p>
 
-  <p>In the project directory, the code for your app is in <code class="highlighter-rouge">lib/main.dart</code>.</p>
+    <p>在这个项目的文件夹中，和项目业务相关的代码都在 <code class="highlighter-rouge">lib/main.dart</code> 中。</p>
 
-  <h2 id="run-the-app-1">Run the app</h2>
+    <h2 id="section-3">运行这个程序</h2>
 
-  <ol>
-    <li>Make sure a target device is selected in the lower, right-hand corner of VS Code</li>
-    <li>Press the F5 button on the keyboard, or invoke <strong>Debug&gt;Start Debugging</strong></li>
-    <li>Wait for the app to launch</li>
-    <li>If everything works, after the app has been built, you should see your
- starter app on your device or simulator:<br />
- <img src="/images/flutter-starter-app-android.png" alt="Starter App on Android" /></li>
-  </ol>
+    <ol>
+      <li>确保在 VS Code 的右下角能看到目标设备的名称</li>
+      <li>使用键盘上的 F5 按钮，或者依次执行 <strong>Debug&gt;Start Debugging</strong></li>
+      <li>等待应用程序启动</li>
+      <li>如果一切正常，构建完应用程序之后，你就可以在你的手机或者模拟器上看到应用程序的起始界面了：<br />
+<img src="/images/flutter-starter-app-android.png" alt="Android 设备/模拟器上的起始界面" /></li>
+    </ol>
 
-  <h2 id="try-a-hot-reload-1">Try a hot reload</h2>
+    <h2 id="section-4">尝试一下热重载</h2>
 
-  <p>Flutter offers a fast development cycle with <em>hot reload</em>, the ability to reload
-the code of a live running app without restarting or losing app state. Simply
-make a change to your source code, tell your IDE or command-line tool that you
-want to hot reload, and see the change in your simulator, emulator, or device.</p>
+    <p>Flutter 提供了一种非常高效的开发方式，叫做 <em>热重载</em> ，这个功能可以在应用程序运行的状态下替换部分代码，并且运行中的程序不会丢失任何状态。简单的对你的源代码做一些修改，告诉你的 IDE 或者命令行工具，你需要进行热重载，然后你就可以在模拟器或者手机中看到你的修改了。</p>
 
-  <ol>
-    <li>Open the file <code class="highlighter-rouge">lib/main.dart</code> in your favorite Dart code editor</li>
-    <li>Change the string<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>
-to<br /><code class="highlighter-rouge">'You have clicked the button this many times:'</code></li>
-    <li>Do not press the ‘Stop’ button; let your app continue to run.</li>
-    <li>To see your changes invoke <strong>Save</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>), or click the
-<strong>Hot Reload button</strong> (the green circular arrow button).</li>
-  </ol>
+    <ol>
+      <li>在你最钟爱的 Dart 开发编辑器中打开 <code class="highlighter-rouge">lib/main.dart</code> 文件</li>
+      <li>把字符串<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>
+修改为<br /><code class="highlighter-rouge">'You have clicked the button this many times:'</code></li>
+      <li>不需要点击 ‘Stop’ 按钮；让应用程序继续运行。</li>
+      <li>只需要将代码 <strong>全部保存</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>)，或者点击 <strong>热重载</strong> 按钮（那个绿色的带箭头的转圈图标按钮）你就可以看到你的修改已经被执行了。</li>
+    </ol>
 
-  <p>You should see the updated string in the running app almost immediately.</p>
+    <p>你几乎可以立刻就在应用程序里看到你对字符串的修改。</p>
 
-</div>
+  </div>
 
 <div id="tab-install-terminal" class="tabs__content">
 
-  <p><em>Terminal + editor:</em> Your editor-of-choice combined with Flutter’s terminal tool
-for running and building.</p>
+    <p><em>控制台 + 文本编辑器</em> 你自己选择的代码编辑器加上 Flutter 提供的命令行工具来运行和构建 Flutter 应用程序。</p>
 
-  <h2 id="create-new-app-1">Create new app</h2>
+    <h2 id="section-5">创建应用程序</h2>
 
-  <ol>
-    <li>Use the <code class="highlighter-rouge">flutter create</code> command to create a new project:</li>
-  </ol>
-  <pre><code><span class="noselect">$ </span>flutter create myapp
+    <ol>
+      <li>使用 <code class="highlighter-rouge">flutter create</code> 命令来创建一个新的应用程序：</li>
+    </ol>
+    <pre><code><span class="noselect">$ </span>flutter create myapp
 <span class="noselect">$ </span>cd myapp</code></pre>
 
-  <p>The above command creates a Flutter project directory called <code class="highlighter-rouge">myapp</code> that contains a simple demo
-app that uses <a href="https://material.io/guidelines/">Material Components</a>.</p>
+    <p>以上的命令创建了一个名叫 <code class="highlighter-rouge">myapp</code> 的 Flutter 项目，并且放在 ‘myapp’ 文件夹中。这是一个很简单的，基于 <a href="https://material.io/guidelines/">Material 组件</a> 的项目。</p>
 
-  <p>In the project directory, the code for your app is in <code class="highlighter-rouge">lib/main.dart</code>.</p>
+    <p>在这个项目的文件夹中，和项目业务相关的代码都在 <code class="highlighter-rouge">lib/main.dart</code> 中。</p>
 
-  <h2 id="run-the-app-2">Run the app</h2>
+    <h2 id="section-6">运行这个程序</h2>
 
-  <ul>
-    <li>Check that an Android device is running. If none are shown, see <a href="/get-started/install/">setup</a>.</li>
-  </ul>
-  <pre><code><span class="noselect">$ </span>flutter devices</code></pre>
-  <ul>
-    <li>Run the app with the <code class="highlighter-rouge">flutter run</code> command:</li>
-  </ul>
-  <pre><code><span class="noselect">$ </span>flutter run</code></pre>
-  <ul>
-    <li>If everything works, after the app has been built, you should see your
- starter app on your device or simulator:<br />
- <img src="/images/flutter-starter-app-android.png" alt="Starter App on Android" /></li>
-  </ul>
+    <ul>
+      <li>确保 Android 设备当前处于运行状态。如果没有发现在运行的设备，查看 <a href="/get-started/install/">安装</a>   页面。</li>
+    </ul>
+    <pre><code><span class="noselect">$ </span>flutter devices</code></pre>
+    <ul>
+      <li>使用 <code class="highlighter-rouge">flutter run</code> 命令来运行程序：</li>
+    </ul>
+    <pre><code><span class="noselect">$ </span>flutter run</code></pre>
+    <ul>
+      <li>如果一切正常，构建完应用程序之后，你就可以在你的手机或者模拟器上看到应用程序的起始界面了：<br />
+<img src="/images/flutter-starter-app-android.png" alt="Android 设备/模拟器上的起始界面" /></li>
+    </ul>
 
-  <h2 id="try-a-hot-reload-2">Try a hot reload</h2>
+    <h2 id="section-7">尝试一下热重载</h2>
 
-  <p>Flutter offers a fast development cycle with <em>hot reload</em>, the ability to reload
-the code of a live running app without restarting or losing app state. Simply
-make a change to your source code, tell your IDE or command-line tool that you
-want to hot reload, and see the change in your simulator, emulator, or device.</p>
+    <p>Flutter 提供了一种非常高效的开发方式，叫做 <em>热重载</em> ，这个功能可以在应用程序运行的状态下替换部分代码，并且运行中的程序不会丢失任何状态。简单的对你的源代码做一些修改，告诉你的 IDE 或者命令行工具，你需要进行热重载，然后你就可以在模拟器或者手机中看到你的修改了。</p>
 
-  <ol>
-    <li>Open the file <code class="highlighter-rouge">lib/main.dart</code></li>
-    <li>Change the string<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>
-to<br /><code class="highlighter-rouge">'You have clicked the button this many times:'</code></li>
-    <li>Do not press the ‘Stop’ button; let your app continue to run.</li>
-    <li>To see your changes invoke <strong>Save All</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>), or click the
-<strong>Hot Reload button</strong> (the button with the lightning bolt icon).</li>
-  </ol>
+    <ol>
+      <li>在编辑器中打开 <code class="highlighter-rouge">lib/main.dart</code> 文件</li>
+      <li>把字符串<br /><code class="highlighter-rouge">'You have pushed the button this many times:'</code>
+修改为<br /><code class="highlighter-rouge">'You have clicked the button this many times:'</code></li>
+      <li>不需要点击 ‘Stop’ 按钮；让应用程序继续运行。</li>
+      <li>只需要将代码 <strong>全部保存</strong> (<code class="highlighter-rouge">cmd-s</code> / <code class="highlighter-rouge">ctrl-s</code>)，或者点击 <strong>热重载</strong> 按钮（那个绿色的带箭头的转圈图标按钮）你就可以看到你的修改已经被执行了。</li>
+    </ol>
 
-  <p>You should see the updated string in the running app almost immediately.</p>
+    <p>你几乎可以立刻就在应用程序里看到你对字符串的修改。</p>
+
+  </div>
 
 </div>
 
-<h2 id="next-step">Next step</h2>
+<h2 id="下一步">下一步</h2>
 
-<p>Let’s learn some core Flutter concepts, by creating a small app.</p>
+<p>让我们通过创建一个小应用来学习一些 Flutter 中的核心概念。</p>
 
-<p><a href="/get-started/codelab/">Next step: Write your first app</a></p>
+<p><a href="/get-started/codelab/">下一步：编写第一个 Flutter 应用</a></p>
 
 </article>
 
