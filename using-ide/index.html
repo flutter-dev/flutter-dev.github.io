@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Developing Flutter apps in an IDE  - Flutter </title>
+  <title>在 IDE 中开发 Flutter  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -162,15 +162,15 @@
   
   <header class="post-header">
       <div class="btn-group contribute" role="group">
-         <a href="https://github.com/flutter/website/blob/master/using-ide.md" class="btn btn-sm">
+         <a href="https://github.com/flutter/website/blob/master/zh_CN/using-ide.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Developing Flutter apps in an IDE&body=From URL: http://localhost:4000/using-ide/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 在 IDE 中开发 Flutter&body=From URL: http://localhost:4000/using-ide/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Developing Flutter apps in an IDE </h1>
+    <h1 class="post-title">在 IDE 中开发 Flutter </h1>
    </div>
 
   </header>
@@ -185,380 +185,331 @@
 
 <div class="tabs__content current">
 
-    <p>The Flutter plugin provides a fully integrated development experience in the
-Android Studio or IntelliJ IDEs.</p>
+    <p>Flutter 插件在 Android Studio 和 IntelliJ IDEs 中提供了完整的开发体验。</p>
 
 <ul id="markdown-toc">
-  <li><a href="#installation-and-setup" id="markdown-toc-installation-and-setup">Installation and setup</a>    <ul>
-      <li><a href="#updating-the-plugins" id="markdown-toc-updating-the-plugins">Updating the plugins<a name="updating"></a></a></li>
+  <li><a href="#section" id="markdown-toc-section">安装配置</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">更新插件<a name="updating"></a></a></li>
     </ul>
   </li>
-  <li><a href="#creating-projects" id="markdown-toc-creating-projects">Creating projects</a>    <ul>
-      <li><a href="#creating-a-new-project" id="markdown-toc-creating-a-new-project">Creating a new project</a></li>
-      <li><a href="#creating-a-new-project-from-existing-source-code" id="markdown-toc-creating-a-new-project-from-existing-source-code">Creating a new project from existing source code</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">创建工程</a>    <ul>
+      <li><a href="#section-3" id="markdown-toc-section-3">创建一个新的工程</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">通过现有源代码创建新的工程</a></li>
     </ul>
   </li>
-  <li><a href="#editing-code-and-viewing-code-problems" id="markdown-toc-editing-code-and-viewing-code-problems">Editing code, and viewing code problems</a></li>
-  <li><a href="#running-and-debugging" id="markdown-toc-running-and-debugging">Running and Debugging</a>    <ul>
-      <li><a href="#selecting-a-target" id="markdown-toc-selecting-a-target">Selecting a target</a></li>
-      <li><a href="#run-app-without-breakpoints" id="markdown-toc-run-app-without-breakpoints">Run app without breakpoints</a></li>
-      <li><a href="#run-app-with-breakpoints" id="markdown-toc-run-app-with-breakpoints">Run app with breakpoints</a></li>
+  <li><a href="#section-5" id="markdown-toc-section-5">编辑代码和查看代码问题。</a></li>
+  <li><a href="#section-6" id="markdown-toc-section-6">运行和调试</a>    <ul>
+      <li><a href="#target" id="markdown-toc-target">选择一个target</a></li>
+      <li><a href="#section-7" id="markdown-toc-section-7">无断点运行</a></li>
+      <li><a href="#section-8" id="markdown-toc-section-8">断点运行</a></li>
     </ul>
   </li>
-  <li><a href="#fast-edit-and-refresh-development-cycle" id="markdown-toc-fast-edit-and-refresh-development-cycle">Fast edit and refresh development cycle</a></li>
-  <li><a href="#advanced-debugging" id="markdown-toc-advanced-debugging">Advanced debugging</a>    <ul>
-      <li><a href="#debugging-visual-layout-issues" id="markdown-toc-debugging-visual-layout-issues">Debugging visual layout issues</a></li>
-      <li><a href="#debugging-with-observatory" id="markdown-toc-debugging-with-observatory">Debugging with Observatory</a></li>
+  <li><a href="#section-9" id="markdown-toc-section-9">快速编辑和刷新开发周期</a></li>
+  <li><a href="#section-10" id="markdown-toc-section-10">高级调试</a>    <ul>
+      <li><a href="#section-11" id="markdown-toc-section-11">调试可视化布局问题</a></li>
+      <li><a href="#observatory-" id="markdown-toc-observatory-">使用 Observatory 调试</a></li>
     </ul>
   </li>
-  <li><a href="#editing-tips-for-flutter-code" id="markdown-toc-editing-tips-for-flutter-code">Editing tips for Flutter code</a>    <ul>
-      <li><a href="#assists--quick-fixes" id="markdown-toc-assists--quick-fixes">Assists &amp; Quick Fixes</a>        <ul>
-          <li><a href="#wrap-with-new-widget-assist" id="markdown-toc-wrap-with-new-widget-assist">Wrap with new widget assist</a></li>
-          <li><a href="#wrap-widget-list-with-new-widget-assist" id="markdown-toc-wrap-widget-list-with-new-widget-assist">Wrap widget list with new widget assist</a></li>
-          <li><a href="#convert-child-to-children-assist" id="markdown-toc-convert-child-to-children-assist">Convert child to children assist</a></li>
+  <li><a href="#flutter-" id="markdown-toc-flutter-">Flutter 源码编辑技巧</a>    <ul>
+      <li><a href="#section-12" id="markdown-toc-section-12">辅助 &amp; 快速修正</a>        <ul>
+          <li><a href="#section-13" id="markdown-toc-section-13">使用新的控件辅助包裹当前控件</a></li>
+          <li><a href="#section-14" id="markdown-toc-section-14">使用新的控件辅助包裹控件列表</a></li>
+          <li><a href="#child--children" id="markdown-toc-child--children">将 child 转换为 children</a></li>
         </ul>
       </li>
-      <li><a href="#live-templates" id="markdown-toc-live-templates">Live Templates</a></li>
-      <li><a href="#intellij-keyboard-shortcuts" id="markdown-toc-intellij-keyboard-shortcuts">IntelliJ keyboard shortcuts</a></li>
-      <li><a href="#hot-reloads-vs-full-application-restarts" id="markdown-toc-hot-reloads-vs-full-application-restarts">‘Hot Reloads’ vs ‘Full Application Restarts’</a></li>
+      <li><a href="#section-15" id="markdown-toc-section-15">动态模板</a></li>
+      <li><a href="#intellij-" id="markdown-toc-intellij-">IntelliJ 键盘快捷键</a></li>
+      <li><a href="#vs-" id="markdown-toc-vs-">’热重载 ‘ vs ‘完全重启’</a></li>
     </ul>
   </li>
-  <li><a href="#edit-android-code" id="markdown-toc-edit-android-code">Editing Android code in IntelliJ IDEA</a></li>
-  <li><a href="#tips-and-tricks" id="markdown-toc-tips-and-tricks">Tips and tricks</a></li>
-  <li><a href="#troubleshooting" id="markdown-toc-troubleshooting">Troubleshooting</a>    <ul>
-      <li><a href="#known-issues-and-feedback" id="markdown-toc-known-issues-and-feedback">Known issues and feedback</a></li>
+  <li><a href="#edit-android-code" id="markdown-toc-edit-android-code">在 IntelliJ 中编辑 Android 代码</a></li>
+  <li><a href="#section-16" id="markdown-toc-section-16">提示和技巧</a></li>
+  <li><a href="#section-17" id="markdown-toc-section-17">故障排除</a>    <ul>
+      <li><a href="#section-18" id="markdown-toc-section-18">已知问题和反馈</a></li>
     </ul>
   </li>
 </ul>
 
-    <h2 id="installation-and-setup">Installation and setup</h2>
+    <h2 id="section">安装配置</h2>
 
-    <p>Please follow the <a href="/get-started/editor/">Editor Setup</a> instructions to install
-the Dart and Flutter plugins.</p>
+    <p>请您按照<a href="/get-started/editor/">编辑器配置</a> 说明来安装 Dart 和 Flutter 插件。</p>
 
-    <h3 id="updating-the-plugins">Updating the plugins<a name="updating"></a></h3>
+    <h3 id="section-1">更新插件<a name="updating"></a></h3>
 
-    <p>Updates to the plugins will be shipped on a regular basis. You should get
-prompted in IntelliJ when an update is available.</p>
+    <p>对插件的更新会定期发布。 当有可用更新时您会在 IntelliJ 中收到弹窗提示。</p>
 
-    <p>To check for updates manually:</p>
+    <p>手动检查更新：</p>
 
     <ol>
-      <li>Open preferences (<strong>IntelliJ IDEA&gt;Check for Updates…</strong> on macOS,
-<strong>Help&gt;Check for Updates…</strong> on Linux).</li>
-      <li>If <code class="highlighter-rouge">dart</code> or <code class="highlighter-rouge">flutter</code> are listed, update them.</li>
+      <li>macOS 上打开 preferences (<strong>IntelliJ IDEA&gt;Check for Updates…</strong>,
+Linux 上 <strong>Help&gt;Check for Updates…</strong>).</li>
+      <li>如果 <code class="highlighter-rouge">dart</code> 或 <code class="highlighter-rouge">flutter</code> 被列出, 更新它们。</li>
     </ol>
 
-    <h2 id="creating-projects">Creating projects</h2>
+    <h2 id="section-2">创建工程</h2>
 
-    <h3 id="creating-a-new-project">Creating a new project</h3>
+    <h3 id="section-3">创建一个新的工程</h3>
 
-    <p>To create a new Flutter IntelliJ project from the Flutter starter app template:</p>
+    <p>从 Flutter starter app 模板创建一个新的 Flutter IntelliJ 项目：</p>
 
     <ol>
-      <li>In IntelliJ, click <strong>Create New Project</strong> from the ‘Welcome’ window or
-<strong>File&gt;New&gt;Project…</strong> from the main IDE window.</li>
-      <li>Select <strong>Flutter</strong> in the menu, and click <strong>Next</strong>.</li>
-      <li>Enter your desired <strong>Project name</strong> and <strong>Project location</strong>.</li>
-      <li>Click <strong>Finish</strong>.</li>
+      <li>在  IntelliJ 中, 从 ‘Welcome’ 窗口点击 <strong>Create New Project</strong>  或从 IDE 主窗口点击
+<strong>File&gt;New&gt;Project…</strong> .</li>
+      <li>选择 <strong>Flutter</strong> 菜单项并点击 <strong>Next</strong>.</li>
+      <li>输入 <strong>Project name</strong> 和 <strong>Project location</strong>.</li>
+      <li>点击 <strong>Finish</strong>.</li>
     </ol>
 
-    <h3 id="creating-a-new-project-from-existing-source-code">Creating a new project from existing source code</h3>
+    <h3 id="section-4">通过现有源代码创建新的工程</h3>
 
-    <p>To create a new Flutter IntelliJ project containing existing Flutter source code
-files:</p>
+    <p>创建包含已存在 Flutter 源码的新工程：</p>
 
     <ol>
-      <li>In IntelliJ, click <strong>Create New Project</strong> from the ‘Welcome’ window or
-<strong>File&gt;New&gt;Project…</strong> from the main IDE window.
+      <li>在  IntelliJ 中, 从 ‘Welcome’ 窗口点击 <strong>Create New Project</strong> 或从 IDE 主窗口点击
+<strong>File&gt;New&gt;Project…</strong> .
         <ul>
-          <li><strong>Note</strong>: Do <em>not</em> use the <strong>New&gt;Project from existing sources…</strong> option for Flutter projects.</li>
+          <li><strong>注意</strong>:  <em>不要</em> 使用 <strong>New&gt;Project from existing sources…</strong> 选项来创建</li>
         </ul>
       </li>
-      <li>Select <strong>Flutter</strong> in the menu, and click <strong>Next</strong>.</li>
-      <li>Under <strong>Project location</strong> enter, or browse to, the directory holding your
-existing Flutter source code files.</li>
-      <li>Click <strong>Finish</strong>.</li>
+      <li>选择 <strong>Flutter</strong> 选项并点击 <strong>Next</strong>.</li>
+      <li>在 <strong>Project location</strong> 项输入,或浏览选择包含 Flutter 源代码文件的目录。</li>
+      <li>点击 <strong>Finish</strong>.</li>
     </ol>
 
-    <h2 id="editing-code-and-viewing-code-problems">Editing code, and viewing code problems</h2>
+    <h2 id="section-5">编辑代码和查看代码问题。</h2>
 
-    <p>The Dart plugin performs code analysis that enables:</p>
+    <p>Dart 插件执行代码分析，可以：</p>
 
     <ul>
-      <li>Syntax highlighting.</li>
-      <li>Code completions based on rich type analysis.</li>
-      <li>Navigating to type declarations (<strong>Navigate&gt;Declaration</strong>), and finding type
-usages (<strong>Edit&gt;Find&gt;Find Usages</strong>).</li>
-      <li>Viewing all current source code problems (<strong>View&gt;Tool Windows&gt;Dart Analysis</strong>).
-Any analysis issues will be shows in the Dart Analysis pane:<br />
-<img src="/images/intellij/dart-analysis.png" alt="Dart Analysis pane" /></li>
+      <li>语法高亮。</li>
+      <li>基于丰富类型分析的代码补全。</li>
+      <li>导航到类型声明 (<strong>Navigate&gt;Declaration</strong>),查看类型的使用情况 (<strong>Edit&gt;Find&gt;Find Usages</strong>).</li>
+      <li>查看当前代码所有问题  (<strong>View&gt;Tool Windows&gt;Dart Analysis</strong>).
+任何问题分析都将在Dart分析窗格中显示。:<br />
+<img src="../images/intellij/dart-analysis.png" alt="Dart 分析窗格" /></li>
     </ul>
 
-    <h2 id="running-and-debugging">Running and Debugging</h2>
+    <h2 id="section-6">运行和调试</h2>
 
-    <p>Running and Debugging is controlled from the main toolbar:</p>
+    <p>运行和调试由主工具栏控制：</p>
 
-    <p><img src="/images/intellij/main-toolbar.png" alt="Main IntelliJ toolbar" /></p>
+    <p><img src="../images/intellij/main-toolbar.png" alt="Main IntelliJ toolbar" /></p>
 
-    <h3 id="selecting-a-target">Selecting a target</h3>
+    <h3 id="target">选择一个target</h3>
 
-    <p>When a Flutter project is open in IntelliJ, you should see a set of Flutter
-specific buttons on the right-hand side of the toolbar.</p>
+    <p>在 IntelliJ 中打开一个 Flutter 工程，您会在右侧工具栏看到一组特定的按钮。</p>
 
-    <p><em>Note</em>: If the Run &amp; Debug buttons are disabled, and no targets are listed, Flutter
-has not been able to discover any connected iOS or Android devices or simulators.
-You need to connect a device, or start a simulator, to proceed.</p>
+    <p><em>注意</em>:如果运行和调试按钮被禁用而且没有列出目标设备,那是因为 Flutter 没发现任何连接的 iOS 或Android 设备或模拟器。您需要连接设备或启动模拟器才能继续。</p>
 
     <ol>
-      <li>Locate the <strong>Flutter Target Selector</strong> drop-down button. This will show a
- list of available targets. Select the target you want your app to started on.
+      <li>找到 <strong>Flutter Target Selector</strong> 下拉按钮。 这会显示可用设备列表。选择您想运行应用的目标设备。
         <ul>
-          <li>When you connect devices, or start simulators, additional entries will appear.</li>
+          <li>当您连接设备或启动模拟器，会出钱额外的选项。</li>
         </ul>
       </li>
     </ol>
 
-    <h3 id="run-app-without-breakpoints">Run app without breakpoints</h3>
+    <h3 id="section-7">无断点运行</h3>
 
     <ol>
-      <li>Click the <strong>Play icon</strong> in the toolbar, or invoke <strong>Run&gt;Run</strong>.
+      <li>点击工具栏 <strong>Play</strong>图标，或调用 <strong>Run&gt;Run</strong>.
         <ul>
-          <li>The bottom <strong>Run</strong> pane will show logs output:<br />
-<img src="/images/intellij/log.png" alt="Log pane" /></li>
+          <li>底部 <strong>Run</strong> 面板将输出日志：:<br />
+<img src="../images/intellij/log.png" alt="Log pane" /></li>
         </ul>
       </li>
     </ol>
 
-    <h3 id="run-app-with-breakpoints">Run app with breakpoints</h3>
+    <h3 id="section-8">断点运行</h3>
 
     <ol>
-      <li>If desired, set breakpoints in your source code.</li>
-      <li>Click the <strong>Debug icon</strong> in the toolbar, or invoke <strong>Run&gt;Debug</strong>.
+      <li>如果需要，可以在源码中设置断点。</li>
+      <li>点击工具栏 <strong>Debug</strong> 图标或调用 <strong>Run&gt;Debug</strong>.
         <ul>
-          <li>The bottom <strong>Debugger</strong> pane will show Stack Frames and Variables.</li>
-          <li>The bottom <strong>Console</strong> pane will show detailed logs output.</li>
-          <li>Debugging is based on a default launch configuration. To customize this,
-click. the drop-down button to the right of the device selector, and select
-<strong>Edit configuration</strong>.</li>
+          <li>底部 <strong>Debugger</strong> 面板会展示栈帧和变量。</li>
+          <li>底部 <strong>Console</strong> 面板将会输出日志细节。</li>
+          <li>调试基于默认的启动配置。如果要自定义，点击设备选择器右边的下拉按钮并选择 <strong>Edit configuration</strong>.</li>
         </ul>
       </li>
     </ol>
 
-    <h2 id="fast-edit-and-refresh-development-cycle">Fast edit and refresh development cycle</h2>
+    <h2 id="section-9">快速编辑和刷新开发周期</h2>
 
-    <p>Flutter offers a best-in-class developer cycle enabling you to see the effect
-of your changes almost instantly with the ‘hot reload’ feature. See
-<a href="/hot-reload/">Hot reloading Flutter Apps</a> for details.</p>
+    <p>Flutter 提供了快速的开发周期，通过“热重加载”特性可以让您几乎立即看到您的更改产生的影响。
+详情查看 <a href="/hot-reload/">热重载 Flutter 应用程序</a>。</p>
 
-    <h2 id="advanced-debugging">Advanced debugging</h2>
+    <h2 id="section-10">高级调试</h2>
 
-    <h3 id="debugging-visual-layout-issues">Debugging visual layout issues</h3>
+    <h3 id="section-11">调试可视化布局问题</h3>
 
-    <p>To debug a visual issue, start the app with ‘Debug’, and then open the Flutter
-inspector tool window using ‘View &gt; Tool Windows &gt; Flutter Inspector’.</p>
+    <p>要调试视图问题，通过 ‘Debug’ 启动应用，然后使用 ‘View &gt; Tool Windows &gt; Flutter Inspector’ 打开 Flutter 检查工具窗口。</p>
 
-    <p><img src="/images/intellij/visual-debugging.png" alt="IntelliJ Flutter Inspector Window" /></p>
+    <p><img src="../images/intellij/visual-debugging.png" alt="IntelliJ Flutter Inspector Window" /></p>
 
-    <p>This offers many debugging tools; for details on these please see
-<a href="https://flutter.io/debugging/">Debugging Flutter Apps</a>.</p>
+    <p>这里提供了很多调试工具，详情请查看
+<a href="https://flutter.io/debugging/">调试 Flutter 应用程序</a>.</p>
 
     <ul>
       <li>
-        <p>‘Toggle Select Widget Mode’: Select a widget on the device to inspect it in the
-<a href="/inspector/">Flutter Inspector</a>.</p>
+        <p>‘切换 Select Widget 模式’: 在设备上选择一个控件在  <a href="/inspector/">Flutter Inspector</a> 中对其进行检查。</p>
       </li>
       <li>
-        <p>‘Toggle Debug Paint’: Add visual debugging hints to the rendering displaying
- borders, padding, alignment, and spacers.</p>
+        <p>‘切换 Debug Paint’: 添加可视化调试提示，以显示边框、填充、对齐和间隔。</p>
       </li>
       <li>
-        <p>‘Toggle Platform Mode’: Toggle between rendering for Android or iOS.</p>
+        <p>‘切换 Platform 模式’: 在渲染 Android 或 iOS 之间切换。</p>
       </li>
       <li>
-        <p>‘Toggle Performance Overlay’: Show performance graphs for the GPU &amp; CPU threads.</p>
+        <p>‘切换 Performance Overlay’: 展示 GPU 和 CPU 线程的性能图表。</p>
       </li>
       <li>
-        <p>‘Open Timeline View’: Analyze activity of the application as it runs.</p>
+        <p>‘打开 Timeline View’: 分析应用程序运行时的活动。</p>
       </li>
       <li>
-        <p>‘Open Observatory’: A profiler for Dart applications.</p>
+        <p>‘打开 Observatory’: 用于 Dart 应用程序的分析器。</p>
       </li>
     </ul>
 
-    <p>Also available in the additional actions menu:</p>
+    <p>附加菜单：</p>
 
     <ul>
       <li>
-        <p>‘Show Paint Baselines’: Causes each RenderBox to paint a line at each of its
-baselines.</p>
+        <p>‘Show Paint Baselines’: 使每个 RenderBox 展示基线。</p>
       </li>
       <li>
-        <p>‘Enable Repaint Rainbow’: Show rotating colors on layers when repainting.</p>
+        <p>‘Enable Repaint Rainbow’: 重绘时在图层上显示旋转颜色。</p>
       </li>
       <li>
-        <p>‘Enable Slow Animations’: Slow down animations to enable visual inspection.</p>
+        <p>‘Enable Slow Animations’: 减慢动画以进行视图检查。</p>
       </li>
       <li>
-        <p>‘Hide Slow Mode Banner’: Hide the ‘slow mode’ banner even when running a
-debug build.</p>
+        <p>‘Hide Slow Mode Banner’: 运行调试版本时隐藏  ‘slow mode’ 横幅。</p>
       </li>
     </ul>
 
-    <h3 id="debugging-with-observatory">Debugging with Observatory</h3>
+    <h3 id="observatory-">使用 Observatory 调试</h3>
 
-    <p>Observatory is an additional debugging and profiling tool presented with an
-html-based UI. For details see the <a href="https://dart-lang.github.io/observatory/">Observatory page</a>.</p>
+    <p>Observatory 是一个额外的基于 html UI 的调试和分析工具，详情查看 <a href="https://dart-lang.github.io/observatory/">Observatory page</a>.</p>
 
-    <p>To open Observatory:</p>
+    <p>打开 Observatory:</p>
 
     <ol>
-      <li>Run your app in debug mode.</li>
-      <li>Select the ‘open observatory’ action from the Debug panel (see screenshot below), click the <strong>Stopwatch icon</strong> (‘Open Observatory’).</li>
+      <li>调试模式下运行应用。</li>
+      <li>在调试面板选择 ‘open observatory’ (依照如下截图), 点击 <strong>Stopwatch</strong> (‘打开 Observatory’).</li>
     </ol>
 
-    <p><img src="/images/intellij/debug-panel.png" alt="Debugging panel" /></p>
+    <p><img src="../images/intellij/debug-panel.png" alt="Debugging panel" /></p>
 
-    <h2 id="editing-tips-for-flutter-code">Editing tips for Flutter code</h2>
+    <h2 id="flutter-">Flutter 源码编辑技巧</h2>
 
-    <h3 id="assists--quick-fixes">Assists &amp; Quick Fixes</h3>
+    <h3 id="section-12">辅助 &amp; 快速修正</h3>
 
-    <p>Assists are code changes related to a certain code identifier. A number of these
-are available when the cursor is placed on a Flutter widget identifier, as
-indicated by the yellow lightbulb icon. The assist can be invoked by clicking
-the lightbulb, or by using the keyboard shortcut <code class="highlighter-rouge">Alt-Enter</code>, as illustrated
-here:</p>
+    <p>辅助是与某个代码标识符相关的代码更改。就如黄色灯泡图标展示的， 当光标放在 Flutter 空间标识符上时，有一定数量的辅助可以使用。可以通过点击黄色灯泡或者键盘快捷键 <code class="highlighter-rouge">Alt-Enter</code> 来调用辅助：</p>
 
-    <p><img src="/images/intellij/assists.gif" alt="IntelliJ editing assists" /></p>
+    <p><img src="../images/intellij/assists.gif" alt="IntelliJ editing assists" /></p>
 
-    <p>Quick Fixes are similar, only they are shown with a piece of code has an error and they
-can assist in correcting it. They are indicated with a red lightbulb.</p>
+    <p>快速修正也是相似的，只有在一段代码有错误时，它们可以帮您纠正。他们用一个红色灯泡表示。</p>
 
-    <h4 id="wrap-with-new-widget-assist">Wrap with new widget assist</h4>
-    <p>This can be used when you have a widget that you want to wrap in a surrounding widget,
-for example if you want to wrap a widget in a <code class="highlighter-rouge">Row</code> or <code class="highlighter-rouge">Column</code>.</p>
+    <h4 id="section-13">使用新的控件辅助包裹当前控件</h4>
+    <p>当您有一个控件想要包装在一个控件中时，可以使用它，例如，如果您想要将一个控件包在<code class="highlighter-rouge">Row</code> 或 <code class="highlighter-rouge">Column</code>中。</p>
 
-    <h4 id="wrap-widget-list-with-new-widget-assist">Wrap widget list with new widget assist</h4>
-    <p>Similar to the assist above, but for wrapping an existing list of widgets rather than an
-individual widget.</p>
+    <h4 id="section-14">使用新的控件辅助包裹控件列表</h4>
+    <p>与上一条相似，只是用在包裹控件列表而不是单个独立控件。</p>
 
-    <h4 id="convert-child-to-children-assist">Convert child to children assist</h4>
-    <p>Changes a child argument to a children argument, and wraps the argument value in a list.</p>
+    <h4 id="child--children">将 child 转换为 children</h4>
+    <p>将 child 参数 改为 children 参数，并将参数值放在一个 list 中。</p>
 
-    <h3 id="live-templates">Live Templates</h3>
+    <h3 id="section-15">动态模板</h3>
 
-    <p>Live templates can be used to speed up entering typical code structures. They
-are invoked by typing their ‘prefix’, and then selecting it in the code
-completion window:</p>
+    <p>动态模板可以用来加速输入典型的代码结构。通过输入它们的前缀并在代码补全窗口中选择来调用：</p>
 
-    <p><img src="/images/intellij/templates.gif" alt="IntelliJ live templates" /></p>
+    <p><img src="../images/intellij/templates.gif" alt="IntelliJ live templates" /></p>
 
-    <p>The Flutter plugin includes the following templates:</p>
+    <p>Flutter 插件包含以下模板：</p>
 
     <ul>
-      <li>Prefix <code class="highlighter-rouge">stless</code>: Create a new subclass of <code class="highlighter-rouge">StatelessWidget</code>.</li>
-      <li>Prefix <code class="highlighter-rouge">stful</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code> and it’s associated
- State subclass.</li>
-      <li>Prefix <code class="highlighter-rouge">stanim</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code>, and it’s
- associated State subclass including a field initialized with an
- <code class="highlighter-rouge">AnimationController</code>.</li>
+      <li>前缀 <code class="highlighter-rouge">stless</code>: 创建一个新的 <code class="highlighter-rouge">StatelessWidget</code> 派生类。</li>
+      <li>前缀 <code class="highlighter-rouge">stful</code>: 创建一个新的 <code class="highlighter-rouge">StatefulWidget</code> 的派生类和相关联的
+ State 派生类。</li>
+      <li>前缀 <code class="highlighter-rouge">stanim</code>: 创建一个 <code class="highlighter-rouge">StatefulWidget</code> 派生类和一个与其关联的包含一个使用<code class="highlighter-rouge">AnimationController</code>初始化字段的 State 派生类。</li>
     </ul>
 
-    <p>You can also define custom templates in <strong>Settings &gt; Editor &gt; Live Templates</strong>.</p>
+    <p>通过  <strong>Settings &gt; Editor &gt; Live Templates</strong>  您也可以定义自定义模板。</p>
 
-    <h3 id="intellij-keyboard-shortcuts">IntelliJ keyboard shortcuts</h3>
+    <h3 id="intellij-">IntelliJ 键盘快捷键</h3>
 
-    <p><strong>Hot Reload</strong></p>
+    <p><strong>热重载</strong></p>
 
-    <p>On Linux (IntelliJ keymaps <em>Default for XWin</em>) and Windows the keyboard shortcuts
-are <code class="highlighter-rouge">ctrl-alt-;</code> and <code class="highlighter-rouge">ctrl-\</code>.</p>
+    <p>在 Linux (IntelliJ 键盘映射 <em>Default for XWin</em>)  和  Windows 上键盘快捷键是 <code class="highlighter-rouge">ctrl-alt-;</code> 和 <code class="highlighter-rouge">ctrl-\</code>.</p>
 
-    <p>On macOS (IntelliJ keymap <em>Mac OS X 10.5+ copy</em>) the keyboard shortcuts are <code class="highlighter-rouge">⌘-⌥-;</code>
+    <p>在 MacOS 上 (IntelliJ 键盘映射 <em>Mac OS X 10.5+ copy</em>) 快捷键是 <code class="highlighter-rouge">⌘-⌥-;</code>
 and <code class="highlighter-rouge">⌘-\</code>.</p>
 
-    <p>Keyboard mappings can be changed in IntelliJ Preferences/Settings: Select
-<em>Keymap</em>, then enter <em>flutter</em> into the search box in the upper right corner.
-Right click the binding you want to change and <em>Add Keyboard Shortcut</em>.</p>
+    <p>在 IntelliJ Preferences/Settings 下可以修改键盘映射：选择
+<em>Keymap</em>,  然后在右上角搜索框输入  <em>flutter</em> 。右击您想要修改的绑定并点击  <em>Add Keyboard Shortcut</em>。</p>
 
-    <p><img src="/images/intellij/keymap-settings-flutter-plugin.png" alt="IntelliJ Settings Keymap" /></p>
+    <p><img src="../images/intellij/keymap-settings-flutter-plugin.png" alt="IntelliJ Settings Keymap" /></p>
 
-    <h3 id="hot-reloads-vs-full-application-restarts">‘Hot Reloads’ vs ‘Full Application Restarts’</h3>
+    <h3 id="vs-">’热重载 ‘ vs ‘完全重启’</h3>
 
-    <p>Hot Reload works by injecting updated source code files into the running Dart VM
-(Virtual Machine). This includes not only adding new classes, but also adding
-methods and fields to existing classes, and changing existing functions. A few
-types of code changes cannot be hot reloaded though:</p>
+    <p>热重载通过将更新后的代码注入到运行中的 Dart VM（虚拟机）的方式工作。 这不仅包含添加新类还包含向已存在的类中添加方法和字段，以及修改已有函数。少数几种代码更改不支持：</p>
 
     <ul>
-      <li>Global variable initializers.</li>
-      <li>Static field initializers.</li>
-      <li>The <code class="highlighter-rouge">main()</code> method of the app.</li>
+      <li>全局变量初始化。</li>
+      <li>静态字段初始化。</li>
+      <li>应用的 ’main()’ 方法。</li>
     </ul>
 
-    <p>For these changes you can fully restart your application, without having to end
-your debugging session:</p>
+    <p>对于这些改动，您可以完全重启应用不需要结束调试会话：</p>
 
     <ol>
-      <li>Don’t click the Stop button; simply re-click the Run button (if in a run
-session) or Debug button (if in a debug session), or shift-click the ‘hot
-reload’ button.</li>
+      <li>不要点击 Stop 按钮；仅仅重新点击 Run 按钮  (如果在运行会话中) 或 Debug 按钮 (如果在调试会话中), 或按住 shift 点击 ‘hot reload’  按钮。.</li>
     </ol>
 
-    <h2 id="edit-android-code">Editing Android code in IntelliJ IDEA</h2>
+    <h2 id="edit-android-code">在 IntelliJ 中编辑 Android 代码</h2>
 
-    <p>To enable editing of Android code in IntelliJ IDEA, you need to configure the
-location of the Android SDK:</p>
+    <p>要使 IntelliJ IDEA 可以编辑 Android 代码，您需要配置 Android SDK 的位置：</p>
 
     <ol>
-      <li>In Preferences-&gt;Plugins, enable <strong>Android Support</strong> if you haven’t already.</li>
-      <li>Right-click the <strong>android</strong> folder in the Project view, and select <strong>Open
-Module Settings</strong>.</li>
-      <li>In <strong>Sources</strong> tab, locate the <strong>Language level</strong> field, and select level ‘8’
-or later.</li>
-      <li>In <strong>Dependencies</strong> tab, locate the <strong>Module SDK</strong> field, and select an
-Android SDK. If no SDK is listed, click <strong>New…</strong> and specify the location of
-the Android SDK. Make sure to select an Android SDK matching the one used by
-Flutter (as reported by <code class="highlighter-rouge">flutter doctor</code>).</li>
-      <li>Click <strong>OK</strong>.</li>
+      <li>在 Preferences-&gt;Plugins 中,启用 <strong>Android Support</strong> 如果您还没有启用。</li>
+      <li>右击工程视图下 <strong>android</strong> 文件夹，选择 <strong>Open Module Settings</strong>。</li>
+      <li>在 <strong>Sources</strong>  选项卡，找到  <strong>Language level</strong> 并选择 level ‘8’ 或以上。</li>
+      <li>在 <strong>Dependencies</strong> 选项卡，找到 <strong>Module SDK</strong> 并选择 Android SDK 。如果没有 SDK 列出来，点击 <strong>New</strong> 并指定 Android SDK 的位置。确保选择的 Android SDK 与 Flutter 使用的相匹配 （如 <code class="highlighter-rouge">flutter doctor</code> 所示）。</li>
+      <li>点击  <strong>OK</strong>.</li>
     </ol>
 
-    <h2 id="tips-and-tricks">Tips and tricks</h2>
+    <h2 id="section-16">提示和技巧</h2>
 
-    <p>Please checkout these ‘cheat sheets’:</p>
+    <p>请查看这些 ‘备忘单’:</p>
 
     <ul>
       <li><a href="/downloads/Flutter-IntelliJ-cheat-sheet-MacOS.pdf">Flutter IntelliJ cheat sheet, MacOS version</a></li>
       <li><a href="/downloads/Flutter-IntelliJ-cheat-sheet-WindowsLinux.pdf">Flutter IntelliJ cheat sheet, Windows &amp; Linux version</a></li>
     </ul>
 
-    <h2 id="troubleshooting">Troubleshooting</h2>
+    <h2 id="section-17">故障排除</h2>
 
-    <h3 id="known-issues-and-feedback">Known issues and feedback</h3>
+    <h3 id="section-18">已知问题和反馈</h3>
 
-    <p>Important known issues that may impact your experience are documented in the
-<a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter plugin README</a> file.</p>
+    <p><a href="https://github.com/flutter/flutter-intellij/blob/master/README.md">Flutter plugin README</a> 中记录了已知可能影响您的体验的重要问题。</p>
 
-    <p>All known bugs are tracked in the issue trackers:</p>
+    <p>所有已知的bug都被追踪到问题追踪器:</p>
 
     <ul>
       <li>Flutter plugin: <a href="https://github.com/flutter/flutter-intellij/issues">GitHub issue
-   tracker</a>.</li>
+  tracker</a>.</li>
       <li>Dart plugin: <a href="https://youtrack.jetbrains.com/issues?q=%23dart%20%23Unresolved">JetBrains
-   YouTrack</a>.</li>
+  YouTrack</a>.</li>
     </ul>
 
-    <p>We very much welcome feedback, both on bugs/issues and feature requests. Prior
-to filing new issues, please:</p>
+    <p>我们非常欢迎您的反馈。 bugs/issues 或特性要求。 在此之前请：</p>
 
     <ul>
-      <li>do a quick search in the issue trackers to see if the issue is already
-   tracked.</li>
-      <li>make sure you have <a href="#updating">updated</a> to the most recent version of the
-   plugin.</li>
+      <li>在 issue 追踪器中快速检索查看是否已被追踪。</li>
+      <li>确保 <a href="#updating">updated</a> 更新到了最新版本的插件。</li>
     </ul>
 
-    <p>When filing new issues, please include the output of <a href="https://flutter.io/bug-reports/#provide-some-flutter-diagnostics"><code class="highlighter-rouge">flutter
-doctor</code></a>.</p>
+    <p>提交新 issue 时，请附加 <a href="https://flutter.io/bug-reports/#provide-some-flutter-diagnostics">flutter doctor</a>。</p>
 
   </div>
 
