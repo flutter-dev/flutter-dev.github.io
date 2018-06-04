@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Developing Flutter apps in an IDE  - Flutter </title>
+  <title>在 IDE 中开发 Flutter  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -162,15 +162,15 @@
   
   <header class="post-header">
       <div class="btn-group contribute" role="group">
-         <a href="https://github.com/flutter/website/blob/master/using-ide-vscode.md" class="btn btn-sm">
+         <a href="https://github.com/flutter/website/blob/master/zh_CN/using-ide-vscode.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Developing Flutter apps in an IDE&body=From URL: http://localhost:4000/using-ide-vscode/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 在 IDE 中开发 Flutter&body=From URL: http://localhost:4000/using-ide-vscode/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Developing Flutter apps in an IDE </h1>
+    <h1 class="post-title">在 IDE 中开发 Flutter </h1>
    </div>
 
   </header>
@@ -185,299 +185,249 @@
 
 <div class="tabs__content current">
 
-    <p>The Dart extension provides a fully integrated development experience in Visual Studio Code.</p>
+    <p>Visual Studio Code 的 Dart 扩展提供了完整集成开发体验。</p>
 
 <ul id="markdown-toc">
-  <li><a href="#installation-and-setup" id="markdown-toc-installation-and-setup">Installation and setup</a>    <ul>
-      <li><a href="#updating-the-extension" id="markdown-toc-updating-the-extension">Updating the extension<a name="updating"></a></a></li>
+  <li><a href="#section" id="markdown-toc-section">安装和配置</a>    <ul>
+      <li><a href="#section-1" id="markdown-toc-section-1">升级扩展<a name="updating"></a></a></li>
     </ul>
   </li>
-  <li><a href="#creating-projects" id="markdown-toc-creating-projects">Creating projects</a>    <ul>
-      <li><a href="#creating-a-new-project" id="markdown-toc-creating-a-new-project">Creating a new project</a></li>
-      <li><a href="#opening-a-project-from-existing-source-code" id="markdown-toc-opening-a-project-from-existing-source-code">Opening a project from existing source code</a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2">创建工程</a>    <ul>
+      <li><a href="#section-3" id="markdown-toc-section-3">创建一个新工程</a></li>
+      <li><a href="#section-4" id="markdown-toc-section-4">通过现有代码打开项目</a></li>
     </ul>
   </li>
-  <li><a href="#editing-code-and-viewing-issues" id="markdown-toc-editing-code-and-viewing-issues">Editing code and viewing issues</a></li>
-  <li><a href="#running-and-debugging" id="markdown-toc-running-and-debugging">Running and Debugging</a>    <ul>
-      <li><a href="#selecting-a-target-device" id="markdown-toc-selecting-a-target-device">Selecting a target device</a></li>
-      <li><a href="#run-app-without-breakpoints" id="markdown-toc-run-app-without-breakpoints">Run app without breakpoints</a></li>
-      <li><a href="#run-app-with-breakpoints" id="markdown-toc-run-app-with-breakpoints">Run app with breakpoints</a></li>
+  <li><a href="#section-5" id="markdown-toc-section-5">编辑代码并查看问题</a></li>
+  <li><a href="#section-6" id="markdown-toc-section-6">执行和调试</a>    <ul>
+      <li><a href="#section-7" id="markdown-toc-section-7">选择目标设备</a></li>
+      <li><a href="#section-8" id="markdown-toc-section-8">运行没有断点的应用程序</a></li>
+      <li><a href="#section-9" id="markdown-toc-section-9">运行带有断点的应用程序</a></li>
     </ul>
   </li>
-  <li><a href="#fast-edit-and-refresh-development-cycle" id="markdown-toc-fast-edit-and-refresh-development-cycle">Fast edit and refresh development cycle</a></li>
-  <li><a href="#advanced-debugging" id="markdown-toc-advanced-debugging">Advanced debugging</a>    <ul>
-      <li><a href="#debugging-visual-layout-issues" id="markdown-toc-debugging-visual-layout-issues">Debugging visual layout issues</a></li>
-      <li><a href="#debugging-with-observatory" id="markdown-toc-debugging-with-observatory">Debugging with Observatory</a></li>
+  <li><a href="#section-10" id="markdown-toc-section-10">快速编辑并刷新开发周期</a></li>
+  <li><a href="#section-11" id="markdown-toc-section-11">高级调试</a>    <ul>
+      <li><a href="#section-12" id="markdown-toc-section-12">调试可视化布局问题</a></li>
+      <li><a href="#observatory-" id="markdown-toc-observatory-">通过 Observatory 进行调试</a></li>
     </ul>
   </li>
-  <li><a href="#editing-tips-for-flutter-code" id="markdown-toc-editing-tips-for-flutter-code">Editing tips for Flutter code</a>    <ul>
-      <li><a href="#assists--quick-fixes" id="markdown-toc-assists--quick-fixes">Assists &amp; Quick Fixes</a>        <ul>
-          <li><a href="#wrap-with-new-widget-assist" id="markdown-toc-wrap-with-new-widget-assist">Wrap with new widget assist</a></li>
-          <li><a href="#wrap-widget-list-with-new-widget-assist" id="markdown-toc-wrap-widget-list-with-new-widget-assist">Wrap widget list with new widget assist</a></li>
-          <li><a href="#convert-child-to-children-assist" id="markdown-toc-convert-child-to-children-assist">Convert child to children assist</a></li>
+  <li><a href="#flutter-" id="markdown-toc-flutter-">编辑 Flutter 代码的提示</a>    <ul>
+      <li><a href="#section-13" id="markdown-toc-section-13">辅助功能和快速修复</a>        <ul>
+          <li><a href="#widget--widget" id="markdown-toc-widget--widget">用新的 Widget 包裹您的 Widget</a></li>
+          <li><a href="#widget--widget-" id="markdown-toc-widget--widget-">用新的 Widget 包裹您的 Widget 集合</a></li>
+          <li><a href="#child--children" id="markdown-toc-child--children">转换 child 到 children</a></li>
         </ul>
       </li>
-      <li><a href="#snippets" id="markdown-toc-snippets">Snippets</a></li>
-      <li><a href="#keyboard-shortcuts" id="markdown-toc-keyboard-shortcuts">Keyboard Shortcuts</a></li>
-      <li><a href="#hot-reloads-vs-full-application-restarts" id="markdown-toc-hot-reloads-vs-full-application-restarts">‘Hot Reloads’ vs ‘Full Application Restarts’</a></li>
+      <li><a href="#section-14" id="markdown-toc-section-14">代码片段</a></li>
+      <li><a href="#section-15" id="markdown-toc-section-15">键盘快捷键</a></li>
+      <li><a href="#section-16" id="markdown-toc-section-16">热重载和热重启</a></li>
     </ul>
   </li>
-  <li><a href="#troubleshooting" id="markdown-toc-troubleshooting">Troubleshooting</a>    <ul>
-      <li><a href="#known-issues-and-feedback" id="markdown-toc-known-issues-and-feedback">Known issues and feedback</a></li>
+  <li><a href="#section-17" id="markdown-toc-section-17">疑难解答</a>    <ul>
+      <li><a href="#section-18" id="markdown-toc-section-18">已知问题和反馈</a></li>
     </ul>
   </li>
 </ul>
 
-    <h2 id="installation-and-setup">Installation and setup</h2>
+    <h2 id="section">安装和配置</h2>
 
-    <p>Please follow the <a href="/get-started/editor/#vscode">Editor Setup</a> instructions to install
-the Dart extension (which includes Flutter functionality).</p>
+    <p>请按照 <a href="/get-started/editor/#vscode">配置编辑器</a> 指令安装 Dart 扩展（包含 Flutter 功能包）。</p>
 
-    <h3 id="updating-the-extension">Updating the extension<a name="updating"></a></h3>
+    <h3 id="section-1">升级扩展<a name="updating"></a></h3>
 
-    <p>Updates to the extension will be shipped on a regular basis. By default, VS Code will
-automatically update extensions when updates are available.</p>
+    <p>Vs Code 将定期发送扩展程序的更新通知。默认情况下，VS Code 将自动更新可更新的扩展程序。</p>
 
-    <p>To install updates manually:</p>
+    <p>手动安装更新：</p>
 
     <ol>
-      <li>Click on the Extensions button in the Side Bar</li>
-      <li>If the Dart extension is shown with an available update, click the update button and then
-the reload button</li>
+      <li>在侧边栏点击扩展按钮。</li>
+      <li>如果 Dart 扩展显示可更新，点击 <strong>更新</strong> 随后当更新完成时点击 <strong>重新加载</strong>。</li>
     </ol>
 
-    <h2 id="creating-projects">Creating projects</h2>
+    <h2 id="section-2">创建工程</h2>
 
-    <h3 id="creating-a-new-project">Creating a new project</h3>
+    <h3 id="section-3">创建一个新工程</h3>
 
-    <p>To create a new Flutter project from the Flutter starter app template:</p>
+    <p>通过 Flutter 应用模板启动器创建一个新的 Flutter 工程：</p>
 
     <ol>
-      <li>Open the Command Palette (<code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">P</code> (<code class="highlighter-rouge">Cmd</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">P</code> on macOS)).</li>
-      <li>Select the <strong>Flutter: New Project</strong> command and press <code class="highlighter-rouge">Enter</code>.</li>
-      <li>Enter your desired <strong>Project name</strong>.</li>
-      <li>Select a <strong>Project location</strong>.</li>
+      <li>打开命令选项板 (<code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">P</code> (macOS 系统使用 <code class="highlighter-rouge">Cmd</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">P</code>))。</li>
+      <li>选择 <strong>Flutter: New Project</strong> 命令并按下 <code class="highlighter-rouge">Enter</code> 键。</li>
+      <li>输入你想要的 <strong>工程名称</strong>。</li>
+      <li>选择一个 <strong>工程位置</strong>。</li>
     </ol>
 
-    <h3 id="opening-a-project-from-existing-source-code">Opening a project from existing source code</h3>
+    <h3 id="section-4">通过现有代码打开项目</h3>
 
-    <p>To open an existing Flutter project:</p>
+    <p>打开一个已经存在的 Flutter 工程：</p>
 
     <ol>
-      <li>Click <strong>File&gt;Open…</strong> from the main IDE window.</li>
-      <li>Browse to the directory holding your existing Flutter source code files.</li>
-      <li>Click <strong>Open</strong>.</li>
+      <li>点击 IDE 主窗口 <strong>文件&gt;打开…</strong>。</li>
+      <li>找到保存现有 Flutter 源代码的目录。</li>
+      <li>点击 <strong>打开</strong>。</li>
     </ol>
 
-    <h2 id="editing-code-and-viewing-issues">Editing code and viewing issues</h2>
+    <h2 id="section-5">编辑代码并查看问题</h2>
 
-    <p>The Dart extension performs code analysis that enables:</p>
+    <p>Dart 扩展可以执行代码分析，使得：</p>
 
     <ul>
-      <li>Syntax highlighting.</li>
-      <li>Code completions based on rich type analysis.</li>
-      <li>Navigating to type declarations (<strong>Go to Definition</strong> or <code class="highlighter-rouge">F12</code>), and finding type
-usages (<strong>Find All References</strong> or <code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">F12</code>).</li>
-      <li>Viewing all current source code problems (<strong>View&gt;Problems</strong> or <code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">M</code> (<code class="highlighter-rouge">Cmd</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">M</code> on macOS)).
-Any analysis issues will be shows in the Problems pane:<br />
-<img src="/images/vscode/problems.png" style="width:660px;height:141px" alt="Problems pane" /></li>
+      <li>语法高亮。</li>
+      <li>基于丰富类型分析的代码补全。</li>
+      <li>导航至类型声明 (<strong>转到定义…</strong> 或者 <code class="highlighter-rouge">F12</code>)，并查找类型用法 (<strong>查找所有引用</strong> 或者 <code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">F12</code>)。</li>
+      <li>查看所有当前源代码的问题 (<strong>查看&gt;问题</strong> 或者 <code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">M</code> (macOS 下使用<code class="highlighter-rouge">Cmd</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">M</code>))。所有分析出来的问题将在问题面板中显示:
+<br /><img src="/images/vscode/problems.png" style="width:660px;height:141px" alt="Problems pane" /></li>
     </ul>
 
-    <h2 id="running-and-debugging">Running and Debugging</h2>
+    <h2 id="section-6">执行和调试</h2>
 
-    <p>Start debugging by clicking <strong>Debug&gt;Start Debugging</strong> from the main IDE window or press <code class="highlighter-rouge">F5</code>.</p>
+    <p>在 IDE 主窗口上点击 <strong>调试&gt;启动调试</strong> 或者按下 <code class="highlighter-rouge">F5</code> 开始调试。</p>
 
-    <h3 id="selecting-a-target-device">Selecting a target device</h3>
+    <h3 id="section-7">选择目标设备</h3>
 
-    <p>When a Flutter project is open in VS Code, you should see a set of Flutter
-specific entries in the status bar, including a Flutter SDK version and a
-device name (or the message <strong>No Devices</strong>).</p>
+    <p>当使用 VS Code 打开一个 Flutter 项目，你会在状态栏中看到一些具体的条目，包括 Flutter SDK 的版本号和一个设备名称 (或者 <strong>No Devices</strong> 提示)。</p>
 
     <p><img src="/images/vscode/device_status_bar.png" style="width:477px;height:73px" alt="Flutter device" /></p>
 
-    <p><em>Note</em>: If you do not see a Flutter version number or device info your project may not have been detected
-as a Flutter project. Please ensure the folder that contains your <code class="highlighter-rouge">pubspec.yaml</code> is inside a VS Code <strong>Workspace Folder</strong></p>
+    <p><em>注意</em>: 如果你没有看到 Flutter 的版本号和设备信息说明你的工程可能还没有被检测成为一个 Flutter 工程。请确保包含您的 <code class="highlighter-rouge">pubspec.yaml</code> 的文件夹位于VS Code <strong>工作区文件夹</strong>。</p>
 
-    <p><em>Note</em>: If the status bar reads <strong>No Devices</strong> Flutter has not been able to discover any connected
-iOS or Android devices or simulators. You need to connect a device, or start a simulator, to proceed.</p>
+    <p><em>注意</em>: 如果状态栏显示 <strong>No Devices</strong> 说明 Flutter 无法发现任何连接的 iOS 或 Android 设备或模拟器。您需要连接设备或启动模拟器才能继续。</p>
 
-    <p>The Dart extension will automatically select the last device connected, however if you have multiple
-devices/simulators connected you can click on the device in the status bar to be presented with a pick-list
-at the top of the screen to allow you to select the device to use for running/debugging.</p>
+    <p>Dart 扩展会自动选择一个最近连接的设备，如果你连接了多个设备或模拟器你可以在状态栏中点击设备并在屏幕上方展示的选择列表中选择一个设备用于运行或者调试。</p>
 
-    <h3 id="run-app-without-breakpoints">Run app without breakpoints</h3>
+    <h3 id="section-8">运行没有断点的应用程序</h3>
 
     <ol>
-      <li>Click <strong>Debug&gt;Start Without Debugging</strong> in main IDE window or press <code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">F5</code>.
-        <ul>
-          <li>The status bar will turn orange to show you are in a debug session</li>
-          <li>The bottom <strong>Debug Console</strong> will show output:<br />
-<img src="/images/vscode/debug_console.png" style="width:490px;height:208px" alt="Debug Console" /></li>
-        </ul>
-      </li>
+      <li>在 IDE 主窗口点击 <strong>调试&gt;非调试启动</strong> 或者按下 <code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">F5</code>。</li>
+      <li>状态栏将变为橙色说明您正在进行调试会话。</li>
+      <li>底部 <strong>Debug Console</strong> 将显示输出：
+<br /><img src="/images/vscode/debug_console.png" style="width:490px;height:208px" alt="Debug Console" /></li>
     </ol>
 
-    <h3 id="run-app-with-breakpoints">Run app with breakpoints</h3>
+    <h3 id="section-9">运行带有断点的应用程序</h3>
 
     <ol>
-      <li>If desired, set breakpoints in your source code.</li>
-      <li>Click <strong>Debug&gt;Start Debugging</strong> in main IDE window or press <code class="highlighter-rouge">F5</code>.
-        <ul>
-          <li>The left <strong>Debug Sidebar</strong> will show Stack Frames and Variables.</li>
-          <li>The bottom <strong>Debug Console</strong> pane will show detailed logs output.</li>
-          <li>Debugging is based on a default launch configuration. To customize this,
-click the cog at the top of the <strong>Debug Sidebar</strong> to create a <code class="highlighter-rouge">launch.json</code>
-file and customise values.</li>
-        </ul>
-      </li>
+      <li>如果有需要可以在源代码中设置断点。</li>
+      <li>在 IDE 主窗口中点击 <strong>调试&gt;启动调试</strong> 或者按下 <code class="highlighter-rouge">F5</code>。</li>
+      <li>左侧 <strong>调试侧边栏</strong> 将显示堆栈帧和变量。</li>
+      <li>底部 <strong>调试控制台</strong> 面板将显示详细的日志输出。</li>
+      <li>调试基于默认的启动配置。 点击 <strong>调试侧边栏</strong> 顶部的齿轮按钮会创建一个 <code class="highlighter-rouge">launch.json</code> 文件，在该文件中自定义值可以定制启动配置。</li>
     </ol>
 
-    <h2 id="fast-edit-and-refresh-development-cycle">Fast edit and refresh development cycle</h2>
+    <h2 id="section-10">快速编辑并刷新开发周期</h2>
 
-    <p>Flutter offers a best-in-class developer cycle enabling you to see the effect
-of your changes almost instantly with the ‘hot reload’ feature. See
-<a href="/hot-reload/">Hot reloading Flutter Apps</a> for details.</p>
+    <p>Flutter 提供了一流的显影循环，使您能够通过“热重载”功能几乎可以立即看到变更的效果。 有关详细信息，请参阅 <a href="/hot-reload/">热重载 Flutter 应用程序</a>。</p>
 
-    <h2 id="advanced-debugging">Advanced debugging</h2>
+    <h2 id="section-11">高级调试</h2>
 
-    <h3 id="debugging-visual-layout-issues">Debugging visual layout issues</h3>
+    <h3 id="section-12">调试可视化布局问题</h3>
 
-    <p>During a debug session, several additional debugging commands will be added to the <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">Command Palette</a>, including:</p>
+    <p>在调试会话期间，会在 <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">命令选项板</a> 中添加几个附加的调试命令，包括：</p>
 
     <ul>
       <li>
-        <p>‘Toggle Baseline Painting’: Causes each RenderBox to paint a line at each of its
-baselines.</p>
+        <p>切换基线绘制：在每个 RenderBox 的基线上绘制一条线。</p>
       </li>
       <li>
-        <p>‘Toggle Repaint Rainbow’: Show rotating colors on layers when repainting.</p>
+        <p>切换彩虹重绘：重绘时显示图层周边的颜色（译者注：用不同的颜色代表不同的图层并显示出来）。</p>
       </li>
       <li>
-        <p>‘Toggle Slow Animations’: Slow down animations to enable visual inspection.</p>
+        <p>切换慢动画：减慢动画以便肉眼观察。</p>
       </li>
       <li>
-        <p>‘Toggle Slow-Mode Banner’: Hide the ‘slow mode’ banner even when running a
-debug build.</p>
+        <p>切换慢模式横幅：即便在调试构建时也要隐藏’慢速模式’的 Banner。</p>
       </li>
     </ul>
 
-    <h3 id="debugging-with-observatory">Debugging with Observatory</h3>
+    <h3 id="observatory-">通过 Observatory 进行调试</h3>
 
-    <p>Observatory is an additional debugging and profiling tool presented with an
-html-based UI. For details see the <a href="https://dart-lang.github.io/observatory/">Observatory page</a>.</p>
-
-    <p>To open Observatory:</p>
+    <p>Observatory （天文台）是一个额外的基于html的用户界面的调试和分析工具。 详情请参阅 <a href="https://dart-lang.github.io/observatory/">Observatory page</a>。
+打开 Observatory：</p>
 
     <ol>
-      <li>Run your app in debug mode.</li>
-      <li>Run the <strong>Open Observatory</strong> command from the <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">Command Palette</a>.</li>
+      <li>在调试模式下运行您的应用程序。</li>
+      <li>从 <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">命令选项板</a> 中运行 <strong>Open Observatory</strong> 命令。</li>
     </ol>
 
-    <h2 id="editing-tips-for-flutter-code">Editing tips for Flutter code</h2>
+    <h2 id="flutter-">编辑 Flutter 代码的提示</h2>
 
-    <h3 id="assists--quick-fixes">Assists &amp; Quick Fixes</h3>
+    <h3 id="section-13">辅助功能和快速修复</h3>
 
-    <p>Assists are code changes related to a certain code identifier. A number of these
-are available when the cursor is placed on a Flutter widget identifier, as
-indicated by the yellow lightbulb icon. The assist can be invoked by clicking
-the lightbulb, or by using the keyboard shortcut <code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">Enter</code>, as illustrated
-here:</p>
+    <p>辅助功能可以更改与特定代码标识符相关的代码。 当把光标放在 Flutter Widget 的标识符上的时候，出现黄色灯泡图标时表示辅助功能可用。 通过点击灯泡图标或使用键盘快捷键 <code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">Enter</code> 可以调用辅助功能如下图所示：</p>
 
     <p><img src="/images/vscode/assists.png" style="width:467px;height:234px" alt="Code Assists" /></p>
 
-    <p>Quick Fixes are similar, only they are shown with a piece of code has an error and they
-can assist in correcting it.</p>
+    <p>与辅助功能类似，快速修复只有当一段代码显示有错误时才会显示可用，快速修复可以帮助纠正代码。</p>
 
-    <h4 id="wrap-with-new-widget-assist">Wrap with new widget assist</h4>
-    <p>This can be used when you have a widget that you want to wrap in a surrounding widget,
-for example if you want to wrap a widget in a <code class="highlighter-rouge">Row</code> or <code class="highlighter-rouge">Column</code>.</p>
+    <h4 id="widget--widget">用新的 Widget 包裹您的 Widget</h4>
+    <p>你可以使用这个功能使用一个父 Widget 包裹你的 Widget，例如，如果你想在一个 <code class="highlighter-rouge">Row</code> 或 <code class="highlighter-rouge">Column</code> 中包裹你已有的 Widget。</p>
 
-    <h4 id="wrap-widget-list-with-new-widget-assist">Wrap widget list with new widget assist</h4>
-    <p>Similar to the assist above, but for wrapping an existing list of widgets rather than an
-individual widget.</p>
+    <h4 id="widget--widget-">用新的 Widget 包裹您的 Widget 集合</h4>
+    <p>和上面的辅助功能相似，这个辅助功能用于包裹已经存在的 Widget 集合而不是个别的 Widget。</p>
 
-    <h4 id="convert-child-to-children-assist">Convert child to children assist</h4>
-    <p>Changes a child argument to a children argument, and wraps the argument value in a list.</p>
+    <h4 id="child--children">转换 child 到 children</h4>
+    <p>将一个 child 参数转换为一个 children 参数，并将这个 children 参数加入到一个集合中。</p>
 
-    <h3 id="snippets">Snippets</h3>
+    <h3 id="section-14">代码片段</h3>
 
-    <p>Snippets can be used to speed up entering typical code structures. They
-are invoked by typing their ‘prefix’, and then selecting from the code
-completion window:</p>
+    <p>片段可以加快典型代码结构输入的速度。 输入片段的’前缀’调用片段，然后从窗口中选择片段：</p>
 
     <p><img src="/images/vscode/snippets.png" style="width:706px;height258px" alt="Snippets" /></p>
 
-    <p>The Dart extension includes the following snippets:</p>
+    <p>Dart 扩展包含下面几种代码片段：</p>
 
     <ul>
-      <li>Prefix <code class="highlighter-rouge">stless</code>: Create a new subclass of <code class="highlighter-rouge">StatelessWidget</code>.</li>
-      <li>Prefix <code class="highlighter-rouge">stful</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code> and it’s associated
- State subclass.</li>
-      <li>Prefix <code class="highlighter-rouge">stanim</code>: Create a new subclass of <code class="highlighter-rouge">StatefulWidget</code>, and it’s
- associated State subclass including a field initialized with an
- <code class="highlighter-rouge">AnimationController</code>.</li>
+      <li><code class="highlighter-rouge">stless</code> 前缀： 创建一个 <code class="highlighter-rouge">StatelessWidget</code> 的子类。</li>
+      <li><code class="highlighter-rouge">stful</code> 前缀： 创建一个 <code class="highlighter-rouge">StatefulWidget</code> 的子类和一个与之关联的 State 子类。</li>
+      <li><code class="highlighter-rouge">stanim</code> 前缀：创建一个 <code class="highlighter-rouge">StatefulWidget</code> 的子类和一个与之关联的 State 子类。并且关联的 State 子类中包括一个用 <code class="highlighter-rouge">AnimationController</code> 初始化的字段。</li>
     </ul>
 
-    <p>You can also define custom snippets by executing <strong>Configure User Snippets</strong> from
-the <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">Command Palette</a>.</p>
+    <p>你同样可以在 <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">命令选项板</a> 中执行 <strong>Configure User Snippets</strong> 来自定义代码片段。</p>
 
-    <h3 id="keyboard-shortcuts">Keyboard Shortcuts</h3>
+    <h3 id="section-15">键盘快捷键</h3>
 
-    <p><strong>Hot Reload</strong></p>
+    <p><strong>热重载</strong></p>
 
-    <p>During a debug session clicking the <strong>Restart</strong> button on the <strong>Debug Toolbar</strong> or
-pressing <code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">F5</code> (<code class="highlighter-rouge">Cmd</code>+<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">F5</code> on macOS) will perform a hot reload.</p>
+    <p>在调试会话期间，单击 <strong>调试工具栏</strong> 上的 <strong>重新启动</strong> 按钮或者按下 <code class="highlighter-rouge">Ctrl</code> +<code class="highlighter-rouge">Shift</code>+<code class="highlighter-rouge">F5</code>（macOS上的<code class="highlighter-rouge">Cmd</code> +<code class="highlighter-rouge">Shift</code> +<code class="highlighter-rouge">F5</code>）会执行热重载。</p>
 
-    <p>Keyboard mappings can be changed by executing the <strong>Open Keyboard Shotcuts</strong> command
-from the <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">Command Palette</a>.</p>
+    <p>键盘映射可通过在 <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">命令选项板</a> 中执行 <strong>Open Keyboard Shortcuts</strong> 命令进行更改。</p>
 
-    <p><strong>Full Restart</strong></p>
+    <p><strong>热重启</strong></p>
 
-    <h3 id="hot-reloads-vs-full-application-restarts">‘Hot Reloads’ vs ‘Full Application Restarts’</h3>
+    <h3 id="section-16">热重载和热重启</h3>
 
-    <p>Hot Reload works by injecting updated source code files into the running Dart VM
-(Virtual Machine). This includes not only adding new classes, but also adding
-methods and fields to existing classes, and changing existing functions. A few
-types of code changes cannot be hot reloaded though:</p>
+    <p>热重载通过将更新的源代码文件注入正在运行的 Dart VM（虚拟机）中来工作。 不仅可以添加新类，还可以向现有的类中添加方法和字段，改变现有的函数。 但是一些类型的代码更改不能热重载：</p>
 
     <ul>
-      <li>Global variable initializers.</li>
-      <li>Static field initializers.</li>
-      <li>The <code class="highlighter-rouge">main()</code> method of the app.</li>
+      <li>全局变量初始化器。</li>
+      <li>静态字段初始化器。</li>
+      <li>应用程序的 <code class="highlighter-rouge">main()</code> 方法。</li>
     </ul>
 
-    <p>For these changes you can fully restart your application, without having to end
-your debugging session by running the <strong>Flutter: Full Restart</strong> command from the
-<a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">Command Palette</a> or pressing <code class="highlighter-rouge">Ctrl</code>+<code class="highlighter-rouge">F5</code> will cause a full restart of the
-application.</p>
+    <p>对于这些需要您完全重新启动应用程序的更改，不必结束您的调试会话，您可以通过在 <a href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">命令选项板</a> 中运行 <strong>Flutter：Full Restart</strong> 命令或者按下 <code class="highlighter-rouge">Ctrl + F5</code> 热重启您的应用程序。</p>
 
-    <h2 id="troubleshooting">Troubleshooting</h2>
+    <h2 id="section-17">疑难解答</h2>
 
-    <h3 id="known-issues-and-feedback">Known issues and feedback</h3>
+    <h3 id="section-18">已知问题和反馈</h3>
 
-    <p>All known bugs are tracked in the issue tracker:</p>
+    <p>在问题追踪系统中可以找到所有的已知漏洞：</p>
 
     <ul>
-      <li>Dart extension: <a href="https://github.com/Dart-Code/Dart-Code/issues">GitHub issue
-   tracker</a>.</li>
+      <li>Dart 扩展: <a href="https://github.com/Dart-Code/Dart-Code/issues">GitHub 问题追踪</a>。</li>
     </ul>
 
-    <p>We very much welcome feedback, both on bugs/issues and feature requests. Prior
-to filing new issues, please:</p>
+    <p>我们非常欢迎您反馈在使用过程中遇到的问题和对新功能的需求。提交新的问题前请首先：</p>
 
     <ul>
-      <li>do a quick search in the issue trackers to see if the issue is already
-   tracked.</li>
-      <li>make sure you have <a href="#updating">updated</a> to the most recent version of the
-   plugin.</li>
+      <li>在问题跟踪器中进行搜索，查看在问题清单中是否已经存在相同的问题。</li>
+      <li>确定您已经 <a href="#updating">升级</a> 了最新版本的插件。</li>
     </ul>
 
-    <p>When filing new issues, please include the output of <a href="https://flutter.io/bug-reports/#provide-some-flutter-diagnostics"><code class="highlighter-rouge">flutter
-doctor</code></a>.</p>
+    <p>在提交新的问题的时候请包含 <a href="https://flutter.io/bug-reports/#provide-some-flutter-diagnostics"><code class="highlighter-rouge">flutter doctor</code></a> 输出的内容。</p>
 
   </div>
 
 </div>
+
 
 </article>
 

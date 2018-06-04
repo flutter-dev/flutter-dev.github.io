@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Testing Flutter Apps  - Flutter </title>
+  <title>测试 Flutter 应用  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -162,71 +162,47 @@
   
   <header class="post-header">
       <div class="btn-group contribute" role="group">
-         <a href="https://github.com/flutter/website/blob/master/testing.md" class="btn btn-sm">
+         <a href="https://github.com/flutter/website/blob/master/zh_CN/testing.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Testing Flutter Apps&body=From URL: http://localhost:4000/testing/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 测试 Flutter 应用&body=From URL: http://localhost:4000/testing/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Testing Flutter Apps </h1>
+    <h1 class="post-title">测试 Flutter 应用 </h1>
    </div>
 
   </header>
   
 
   <ul id="markdown-toc">
-  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
-  <li><a href="#unit-testing" id="markdown-toc-unit-testing">Unit testing</a></li>
-  <li><a href="#widget-testing" id="markdown-toc-widget-testing">Widget testing</a></li>
-  <li><a href="#integration-testing" id="markdown-toc-integration-testing">Integration testing</a>    <ul>
-      <li><a href="#adding-the-flutter_driver-dependency" id="markdown-toc-adding-the-flutter_driver-dependency">Adding the flutter_driver dependency</a></li>
-      <li><a href="#creating-instrumented-flutter-apps" id="markdown-toc-creating-instrumented-flutter-apps">Creating instrumented Flutter apps</a></li>
-      <li><a href="#writing-integration-tests" id="markdown-toc-writing-integration-tests">Writing integration tests</a></li>
-      <li><a href="#running-integration-tests" id="markdown-toc-running-integration-tests">Running integration tests</a></li>
+  <li><a href="#介绍" id="markdown-toc-介绍">介绍</a></li>
+  <li><a href="#单元测试" id="markdown-toc-单元测试">单元测试</a></li>
+  <li><a href="#widget-测试" id="markdown-toc-widget-测试">Widget 测试</a></li>
+  <li><a href="#集成测试" id="markdown-toc-集成测试">集成测试</a>    <ul>
+      <li><a href="#添加-flutter_driver-依赖" id="markdown-toc-添加-flutter_driver-依赖">添加 flutter_driver 依赖</a></li>
+      <li><a href="#创建指令化-flutter-应用" id="markdown-toc-创建指令化-flutter-应用">创建指令化 Flutter 应用</a></li>
+      <li><a href="#编写集成测试" id="markdown-toc-编写集成测试">编写集成测试</a></li>
+      <li><a href="#运行集成测试" id="markdown-toc-运行集成测试">运行集成测试</a></li>
     </ul>
   </li>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="介绍">介绍</h2>
 
-<p>The more features your app has, the harder it is to test it manually. A
-good set of automated tests will help you make sure your app performs
-correctly before you publish it while retaining your feature and bug fix
-velocity.</p>
+<p>应用的功能特性越多手动测试的难度就越大。一套好的自动化测试将帮助您确保您的应用程序在发布之前正确执行，同时保留您的特性和 bug 修复速度。</p>
 
-<p>There are many kinds of automated testing. These are summarized below:</p>
+<p>自动化测试有很多种，总结如下：</p>
 
 <ul>
-  <li>A <em>unit test</em> tests a single function, method, or class. External dependencies
-of the unit under test are generally mocked out using, for example,
-<a href="https://github.com/fibulwinter/dart-mockito/blob/master/README.md"><code class="highlighter-rouge">package:mockito</code></a>.
-Unit tests generally do not read from/write to disk, render to screen and do
-not receive user actions from outside the process running the test. The goal
-of a unit test is to verify the correctness of a unit of logic under a
-variety of conditions.</li>
-  <li>A <em>widget test</em> (in other UI frameworks referred to as <em>component test</em>) tests
-a single widget. Testing a widget involves multiple classes and requires a
-test environment that provides the appropriate widget lifecycle context. For
-example, it should be able to receive and respond to user actions and events,
-perform layout, and instantiate child widgets. A widget test is
-therefore more comprehensive than a unit test. However, like a unit test, a
-widget test’s environment is replaced with an implementation much simpler than
-a full-blown UI system. The goal of a widget test is to verify that the
-widget’s UI looks and interacts as expected.</li>
-  <li>An <a href="https://en.wikipedia.org/wiki/Integration_testing"><em>integration test</em></a>
-tests a complete app or a large part of an app. Generally, an
-<em>integration test</em> runs on a real device or an OS emulator, such as iOS
-Simulator or Android Emulator. The app under test is typically isolated from
-the test driver code to avoid skewing the results. The goal of an integration
-test is to verify that the app functions correctly as a whole, that all the
-widgets it is composed of integrate with each other as expected. You can also
-use your integration tests to verify your app’s performance.</li>
+  <li>_单元测试_测试单个函数，方法或类。单元测试下的外部依赖通常使用例如  <a href="https://github.com/fibulwinter/dart-mockito/blob/master/README.md"><code class="highlighter-rouge">package:mockito</code></a>。
+单元测试一般不读/写到磁盘，渲染到屏幕上，并且不从运行测试的进程之外接收用户操作。单元测试的目标是在各种条件下验证逻辑单元的正确性。</li>
+  <li><em>widget 测试</em>(在其他的 UI 框架里也叫  <em>组件测试</em>) 测试单个控件。 测试控件涉及多个类，需要一个测试环境，该环境提供适当的控件生命周期上下文。例如，它应该能够接收和响应用户操作和事件，执行布局，并实例化子控件。 因此，控件测试比单元测试更全面。但是，就像单元测试一样，控件测试的环境被一个比成熟的 UI 系统更简单的实现所替代。控件测试的目标是为了确保控件的 UI 外观和交互符合预期。</li>
+  <li><a href="https://en.wikipedia.org/wiki/Integration_testing"><em>集成测试</em></a>测试一个完整的应用或应用的一个部分。一般情况下，<em>集成测试</em> 运行在真机或模拟器上，比如 iOS 模拟器或 Android 模拟器。测试中的应用程序通常是从测试驱动程序代码中分离出来的，以避免产生偏差。集成测试的目标是验证整个应用程序的功能是否正确，所有的控件都是按照预期的方式集成在一起的。您也可以使用集成测试来验证应用程序的性能。</li>
 </ul>
 
-<p>Here is a table summarizing the tradeoffs concerning the choice between
-different kinds of tests:</p>
+<p>这里有一个表总结了在选择不同类型的测试之间的权衡:</p>
 
 <table class="flutter-table">
   <thead>
@@ -271,25 +247,17 @@ different kinds of tests:</p>
   </tbody>
 </table>
 
-<p><strong>Tip</strong>: As a rule of thumb a well-tested app has a very high number of unit
-and widget tests, tracked by <a href="https://en.wikipedia.org/wiki/Code_coverage">code coverage</a>,
-and a good number of integration tests covering all the important usage
-scenarios.</p>
+<p><strong>提示</strong>: 根据经验，一个经过良好测试的应用程序有大量的单元测试和控件测试。通过 <a href="https://en.wikipedia.org/wiki/Code_coverage">code coverage</a> 追踪，大量的集成测试涵盖了所有重要的使用场景。</p>
 
-<h2 id="unit-testing">Unit testing</h2>
+<h2 id="单元测试">单元测试</h2>
 
-<p>Some Flutter libraries, such as <code class="highlighter-rouge">dart:ui</code>, are not available in the standalone
-Dart VM that ships with the default Dart SDK. The <code class="highlighter-rouge">flutter test</code> command lets
-you run your tests in a local Dart VM with a headless version of the Flutter
-Engine, which supplies these libraries. Using this command you can run any test,
-whether it depends on Flutter libraries or not.</p>
+<p>有些 Flutter 库，比如 <code class="highlighter-rouge">dart:ui</code>,在使用默认 Dart SDK 的独立 Dart VM 中不可用。<code class="highlighter-rouge">flutter test</code> 命令可以让您在本地的 Dart 虚拟机中运行您的测试，而不需要提供这些库的无头版本 Flutter 引擎。使用这个命令可以运行任何测试，无论是否依赖 Flutter 库。</p>
 
-<p>Write a Flutter unit test as a normal <code class="highlighter-rouge">package:test</code> test. Writing unit tests
-using <code class="highlighter-rouge">package:test</code> is documented <a href="https://github.com/dart-lang/test/blob/master/README.md">here</a>.</p>
+<p>使用 <code class="highlighter-rouge">package:test</code> 编写一个 Flutter 单元测试。<code class="highlighter-rouge">package:test</code>使用文档在 <a href="https://github.com/dart-lang/test/blob/master/README.md">这里</a>.</p>
 
-<p>Example:</p>
+<p>例:</p>
 
-<p>Add this file to <code class="highlighter-rouge">test/unit_test.dart</code>:</p>
+<p>添加文件到 <code class="highlighter-rouge">test/unit_test.dart</code>:</p>
 
 <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:test/test.dart&#39;;
 
@@ -300,7 +268,7 @@ void main() {
   });
 }</code></pre>
 
-<p>In addition, you must add the following block to your <code class="highlighter-rouge">pubspec.yaml</code>:</p>
+<p>另外，您必须将以下代码块添加到 <code class="highlighter-rouge">pubspec.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dev_dependencies</span><span class="pi">:</span>
   <span class="s">flutter_test</span><span class="pi">:</span>
@@ -308,29 +276,22 @@ void main() {
 </code></pre>
 </div>
 
-<p>(This is needed even if your test does not itself explicitly import
-<code class="highlighter-rouge">flutter_test</code>, because the test framework itself uses it behind the
-scenes.)</p>
+<p>（即使您的测试没有显示导入<code class="highlighter-rouge">flutter_test</code>也需要加上，因为测试框架本身在后台使用了它。)</p>
 
-<p>To run the test, run <code class="highlighter-rouge">flutter test test/unit_test.dart</code> from your
-project directory (not from the <code class="highlighter-rouge">test</code> subdirectory).</p>
+<p>要运行调试， 从工程目录（不是 <code class="highlighter-rouge">test</code> 子目录）运行 <code class="highlighter-rouge">flutter test test/unit_test.dart</code> 。</p>
 
-<p>To run all your tests, run <code class="highlighter-rouge">flutter test</code> from your project directory.</p>
+<p>要运行所有测试，从工程目录运行  <code class="highlighter-rouge">flutter test</code>。</p>
 
-<h2 id="widget-testing">Widget testing</h2>
+<h2 id="widget-测试">Widget 测试</h2>
 
-<p>You implement a widget test in a similar way as a unit test. To perform an
-interaction with a widget in your test, use the
+<p>您可以通过与单元测试类似的方式实现控件测试。 在测试中执行与控件的交互，使用 Flutter 提供的工具<a href="https://docs.flutter.io/flutter/flutter_test/WidgetTester-class.html"><code class="highlighter-rouge">WidgetTester</code></a>
+例如，您可以发动轻击和滑动手势。您也可以使用
 <a href="https://docs.flutter.io/flutter/flutter_test/WidgetTester-class.html"><code class="highlighter-rouge">WidgetTester</code></a>
-utility that Flutter provides. For example, you can send tap and scroll
-gestures. You can also use
-<a href="https://docs.flutter.io/flutter/flutter_test/WidgetTester-class.html"><code class="highlighter-rouge">WidgetTester</code></a>
-to find child widgets in the widget tree, read text, and verify that the values
-of widget properties are correct.</p>
+来获取控件树中的子控件，读取文本，以及校验控件的属性值是否正确。</p>
 
-<p>Example:</p>
+<p>例:</p>
 
-<p>Add this file to <code class="highlighter-rouge">test/widget_test.dart</code>:</p>
+<p>添加文件到 <code class="highlighter-rouge">test/widget_test.dart</code>:</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:flutter_test/flutter_test.dart'</span><span class="o">;</span>
@@ -375,51 +336,38 @@ of widget properties are correct.</p>
 </code></pre>
 </div>
 
-<p>Run <code class="highlighter-rouge">flutter test test/widget_test.dart</code>.</p>
+<p>运行 <code class="highlighter-rouge">flutter test test/widget_test.dart</code>.</p>
 
-<p>Check out <a href="https://docs.flutter.io/flutter/flutter_test/flutter_test-library.html"><code class="highlighter-rouge">package:flutter_test</code> API</a>
-for all the utilities available for widget testing.</p>
+<p>查看 [<code class="highlighter-rouge">package:flutter_test</code> API 获取所有控件测试可用的工具。</p>
 
-<p>To help debug widget tests, you can use the <a href="https://docs.flutter.io/flutter/widgets/debugDumpApp.html"><code class="highlighter-rouge">debugDumpApp()</code></a> function to visualize the UI state of your test or simply <code class="highlighter-rouge">flutter run test/widget_test.dart</code> to see your test run in your preferred runtime environment such as a simulator or a device. During a <code class="highlighter-rouge">flutter run</code> session on a widget test, you can also interactively tap parts of the screen for the Flutter tool to print the suggested <a href="https://docs.flutter.io/flutter/flutter_test/CommonFinders-class.html"><code class="highlighter-rouge">Finder</code></a>.</p>
+<p>您可以使用<a href="https://docs.flutter.io/flutter/widgets/debugDumpApp.html"><code class="highlighter-rouge">debugDumpApp()</code></a> 函数来可视化测试 UI 状态或仅仅使用 <code class="highlighter-rouge">flutter run test/widget_test.dart</code> 将测试程序运行在模拟器或真机等目标运行环境中来辅助调试。在控件测试 <code class="highlighter-rouge">flutter run</code> 会话中，您可以交互地轻触部分屏幕来打印建议的 <a href="https://docs.flutter.io/flutter/flutter_test/CommonFinders-class.html"><code class="highlighter-rouge">Finder</code></a>.</p>
 
-<h2 id="integration-testing">Integration testing</h2>
+<h2 id="集成测试">集成测试</h2>
 
-<p>A Flutter integration test is also written using <code class="highlighter-rouge">package:test</code>. A full test is a
-pair - a test script and a Flutter app instrumented to receive commands
-from the test. Unlike unit and widget tests, integration test code does not run
-in the same process as the app that’s being tested. Instead, the tested
-app is launched on a <em>real device</em> or in an <em>emulator</em> (e.g. Android
-simulator or iOS Simulator). The test script runs on your computer. It connects
-to the app and issues commands to the app to perform various
-user actions. This is known as “driving” the app. Flutter provides tools
-and APIs, collectively referred to as <em>Flutter Driver</em>, to do just that.</p>
+<p>集成测试也用<code class="highlighter-rouge">package:test</code>来编写。一个完整的测试是一对 — 一个测试脚本和一个接收测试命令的 Flutter 应用程序。与单元测试和控件测试不同，集成测试不能与被测应用运行在相同进程。反而，被测应用是运行在_真是设备_或_模拟器_（例如 Android 模拟器或 iOS 模拟器）。测试脚本运行在您的电脑上。它和应用连接并发出不同的命令来执行不同的用户行为。这就是所谓的  “driving”  应用程序。Flutter 提供了工具和 API ，统称为 <em>Flutter Driver</em>，来实现这一点。</p>
 
 <blockquote>
-  <p>If you are familiar with Selenium/WebDriver (web), Espresso (Android) or UI
-Automation (iOS), then Flutter Driver is Flutter’s equivalent to those
-integration testing tools. In addition, Flutter Driver provides API for
-recording performance traces (a.k.a. the <em>timeline</em>) from actions performed
-by the test.</p>
+  <p>如果您熟悉  Selenium/WebDriver (web), Espresso (Android)  和  UI Automation (iOS), 那么  Flutter Driver 就是 Flutter 中这些集成测试工具的等价物。另外， Flutter Driver 提供了记录测试执行的性能跟踪 API (又名 <em>时间轴</em>)。</p>
 </blockquote>
 
-<p>Flutter Driver is:</p>
+<p>Flutter Driver 是:</p>
 
 <ul>
-  <li>a command-line tool <code class="highlighter-rouge">flutter drive</code></li>
-  <li>a package <code class="highlighter-rouge">package:flutter_driver</code> (<a href="https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html">API</a>)</li>
+  <li>一个命令行工具 <code class="highlighter-rouge">flutter drive</code></li>
+  <li>一个包 <code class="highlighter-rouge">package:flutter_driver</code> (<a href="https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html">API</a>)</li>
 </ul>
 
-<p>Together, the two allow you to:</p>
+<p>两者在一起可以让您:</p>
 
 <ul>
-  <li>create instrumented app for integration testing</li>
-  <li>write a test</li>
-  <li>run the test</li>
+  <li>为集成测试创建指令化应用程序</li>
+  <li>编写一个测试</li>
+  <li>运行测试</li>
 </ul>
 
-<h3 id="adding-the-flutter_driver-dependency">Adding the flutter_driver dependency</h3>
+<h3 id="添加-flutter_driver-依赖">添加 flutter_driver 依赖</h3>
 
-<p>To use <code class="highlighter-rouge">flutter_driver</code>, you must add the following block to your <code class="highlighter-rouge">pubspec.yaml</code>:</p>
+<p>要使用 <code class="highlighter-rouge">flutter_driver</code>, 您必须添加下面代码块到 <code class="highlighter-rouge">pubspec.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">dev_dependencies</span><span class="pi">:</span>
   <span class="s">flutter_driver</span><span class="pi">:</span>
@@ -427,17 +375,13 @@ by the test.</p>
 </code></pre>
 </div>
 
-<h3 id="creating-instrumented-flutter-apps">Creating instrumented Flutter apps</h3>
+<h3 id="创建指令化-flutter-应用">创建指令化 Flutter 应用</h3>
 
-<p>An instrumented app is a Flutter app that has the Flutter Driver
-<em>extension</em> enabled. To enable the extension call <code class="highlighter-rouge">enableFlutterDriverExtension()</code>.</p>
+<p>一个指令化应用是一个 Flutter  应用启用了 Flutter Driver <em>拓展</em>。要启用拓展请调用<code class="highlighter-rouge">enableFlutterDriverExtension()</code>.</p>
 
-<p>Example:</p>
+<p>例:</p>
 
-<p>Let’s assume you have an app with the entry point in
-<code class="highlighter-rouge">my_app/lib/main.dart</code>. To create an instrumented version of it, create a Dart
-file under <code class="highlighter-rouge">my_app/test_driver/</code>. Name it after the feature you are testing;
-let’s go for <code class="highlighter-rouge">user_list_scrolling.dart</code> located in my_app/test_driver/:</p>
+<p>我们假设您有一个入口在<code class="highlighter-rouge">my_app/lib/main.dart</code>的应用程序。要创建它的指令化版本，在<code class="highlighter-rouge">my_app/test_driver/</code>下创建一个 Dart 文件。基于您在测试的功能来命名；接下来定位到 my_app/test_driver/ 中的<code class="highlighter-rouge">user_list_scrolling.dart</code> :</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// This line imports the extension</span>
 <span class="kn">import</span> <span class="s">'package:flutter_driver/driver_extension.dart'</span><span class="o">;</span>
@@ -452,16 +396,13 @@ let’s go for <code class="highlighter-rouge">user_list_scrolling.dart</code> l
 </code></pre>
 </div>
 
-<h3 id="writing-integration-tests">Writing integration tests</h3>
+<h3 id="编写集成测试">编写集成测试</h3>
 
-<p>An integration test is a plain <code class="highlighter-rouge">package:test</code> test that uses the Flutter Driver
-API to tell the app what to do and then verifies that the app
-did it.</p>
+<p>一个集成测试是一个简单的<code class="highlighter-rouge">package:test</code>，它使用 Flutter Driver API 告诉应用执行什么操作然后验证程序是否执行了操作。</p>
 
-<p>Example:</p>
+<p>例：:</p>
 
-<p>Just for fun let’s also make our test record the performance timeline. Let’s
-create a test file <code class="highlighter-rouge">user_list_scrolling_test.dart</code> located in <code class="highlighter-rouge">my_app/test_driver/</code>:</p>
+<p>为了增加趣味性我们也让测试记录下性能时间轴，在<code class="highlighter-rouge">my_app/test_driver/</code>中创建测试文件 <code class="highlighter-rouge">user_list_scrolling_test.dart</code>:</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
 
@@ -522,27 +463,23 @@ create a test file <code class="highlighter-rouge">user_list_scrolling_test.dart
 </code></pre>
 </div>
 
-<h3 id="running-integration-tests">Running integration tests</h3>
+<h3 id="运行集成测试">运行集成测试</h3>
 
-<p>To run the test on an Android device, connect the device via USB to your
-computer and enable USB debugging. Then run the following command:</p>
+<p>要在 Android 设备上运行测试，通过 USB 连接设备到您的电脑并打开 USB 调试。然后运行下面的命令：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>flutter drive --target=my_app/test_driver/user_list_scrolling.dart
 </code></pre>
 </div>
 
-<p>This command will:</p>
+<p>此命令会:</p>
 
 <ul>
-  <li>build the <code class="highlighter-rouge">--target</code> app and install it on the device</li>
-  <li>launch the app</li>
-  <li>run the <code class="highlighter-rouge">user_list_scrolling_test.dart</code> test located in <code class="highlighter-rouge">my_app/test_driver/</code></li>
+  <li>构建 <code class="highlighter-rouge">--target</code> 应用并安装到设备上</li>
+  <li>启动应用</li>
+  <li>运行 <code class="highlighter-rouge">my_app/test_driver/</code> 目录下的 <code class="highlighter-rouge">user_list_scrolling_test.dart</code> 测试</li>
 </ul>
 
-<p>You might be wondering how the command finds the correct test file. The
-<code class="highlighter-rouge">flutter drive</code> command uses a convention to look for the test file in the same
-directory as the instrumented <code class="highlighter-rouge">--target</code> app that has the same file name
-but for the <code class="highlighter-rouge">_test</code> suffix in it.</p>
+<p>您可能想知道该命令是如何找到正确的测试文件的。<code class="highlighter-rouge">flutter drive</code> 命令使用一种约定来查找与 <code class="highlighter-rouge">--target</code> 应用程序在同一目录中具有相同文件名但是具有 <code class="highlighter-rouge">_test</code> 后缀的测试文件。</p>
 
 </article>
 
