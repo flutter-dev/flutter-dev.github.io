@@ -203,6 +203,7 @@ messages from the server as well as push messages to the server.</p>
 <p>In Flutter, we can create a <code class="highlighter-rouge">WebSocketChannel</code> that connects to a server in one 
 line:</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">channel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IOWebSocketChannel</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="s">'ws://echo.websocket.org'</span><span class="o">);</span>
 </code></pre>
 </div>
@@ -214,11 +215,12 @@ server.</p>
 
 <p>After we send a message to the test server, it will send the same message back.</p>
 
-<p>How how do we listen for messages and display them? In this example, we’ll use 
+<p>How do we listen for messages and display them? In this example, we’ll use 
 a <a href="https://docs.flutter.io/flutter/widgets/StreamBuilder-class.html"><code class="highlighter-rouge">StreamBuilder</code></a> 
 Widget to listen for new messages and a <a href="https://docs.flutter.io/flutter/widgets/Text-class.html"><code class="highlighter-rouge">Text</code></a> 
 Widget to display them.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">StreamBuilder</span><span class="p">(</span>
   <span class="nl">stream:</span> <span class="n">widget</span><span class="o">.</span><span class="na">channel</span><span class="o">.</span><span class="na">stream</span><span class="o">,</span>
   <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>
@@ -247,6 +249,7 @@ receives an event using the given <code class="highlighter-rouge">builder</code>
 <p>In order to send data to the server, we’ll <code class="highlighter-rouge">add</code> messages to the <code class="highlighter-rouge">sink</code> provided
 by the <code class="highlighter-rouge">WebSocketChannel</code>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">channel</span><span class="o">.</span><span class="na">sink</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">'Hello!'</span><span class="o">);</span>
 </code></pre>
 </div>
@@ -264,6 +267,7 @@ data source.</p>
 <p>After we’re done using the WebSocket, we’ll want to close the connection! To do 
 so, we can close the <code class="highlighter-rouge">sink</code>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">channel</span><span class="o">.</span><span class="na">sink</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </code></pre>
 </div>

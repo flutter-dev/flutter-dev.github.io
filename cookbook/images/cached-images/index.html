@@ -184,6 +184,7 @@ package.</p>
 <p>In addition to caching, the cached_image_network package also supports 
 placeholders and fading images in as they’re loaded!</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">CachedNetworkImage</span><span class="p">(</span>
   <span class="nl">imageUrl:</span> <span class="s">'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'</span><span class="o">,</span>
 <span class="o">);</span>
@@ -195,6 +196,7 @@ placeholders and fading images in as they’re loaded!</p>
 <p>The <code class="highlighter-rouge">cached_network_image</code> package allows us to use any Widget as a placeholder! 
 In this example, we’ll display a spinner while the image loads.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">CachedNetworkImage</span><span class="p">(</span>
   <span class="nl">placeholder:</span> <span class="k">new</span> <span class="n">CircularProgressIndicator</span><span class="o">(),</span>
   <span class="nl">imageUrl:</span> <span class="s">'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'</span><span class="o">,</span>
@@ -204,6 +206,7 @@ In this example, we’ll display a spinner while the image loads.</p>
 
 <h2 id="complete-example">Complete Example</h2>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:cached_network_image/cached_network_image.dart'</span><span class="o">;</span>
 

@@ -220,6 +220,7 @@ locations:</p>
 <p>In our case, we’ll want to store information in the documents directory! We
 can find the path to the documents directory like so:</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="kd">get</span> <span class="n">_localPath</span> <span class="n">async</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">await</span> <span class="n">getApplicationDocumentsDirectory</span><span class="o">();</span>
   
@@ -235,6 +236,7 @@ file’s full location. We can use the <a href="https://docs.flutter.io/flutter/
 class from the <a href="https://docs.flutter.io/flutter/dart-io/dart-io-library.html">dart:io</a> 
 library to achieve this.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="kd">get</span> <span class="n">_localFile</span> <span class="n">async</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">path</span> <span class="o">=</span> <span class="n">await</span> <span class="n">_localPath</span><span class="o">;</span>
   <span class="k">return</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">'</span><span class="si">$path</span><span class="s">/counter.txt'</span><span class="o">);</span>
@@ -248,6 +250,7 @@ library to achieve this.</p>
 First, we’ll write some data to the file. Since we’re working with a counter,
 we’ll simply store the integer as a String.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="n">writeCounter</span><span class="o">(</span><span class="kt">int</span> <span class="n">counter</span><span class="o">)</span> <span class="n">async</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">file</span> <span class="o">=</span> <span class="n">await</span> <span class="n">_localFile</span><span class="o">;</span>
   
@@ -262,6 +265,7 @@ we’ll simply store the integer as a String.</p>
 <p>Now that we have some data on disk, we can read it! Once again, we’ll use the 
 <code class="highlighter-rouge">File</code> class to do so.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">readCounter</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
   <span class="k">try</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">file</span> <span class="o">=</span> <span class="n">await</span> <span class="n">_localFile</span><span class="o">;</span>
@@ -290,6 +294,7 @@ interact with our test environment’s filesystem!</p>
 <p>To mock the method call, we can provide a <code class="highlighter-rouge">setupAll</code> function in our test file.
 This function will run before the tests are executed.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">setUpAll</span><span class="o">(()</span> <span class="n">async</span> <span class="o">{</span>
   <span class="c1">// Create a temporary directory to work with</span>
   <span class="kd">final</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">await</span> <span class="n">Directory</span><span class="o">.</span><span class="na">systemTemp</span><span class="o">.</span><span class="na">createTemp</span><span class="o">();</span>

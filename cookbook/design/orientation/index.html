@@ -199,6 +199,7 @@ portrait mode and 3 columns in landscape mode.</p>
 we’ll want a list that displays items in a Grid. For now, we’ll create a grid
 with 2 columns.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">GridView</span><span class="o">.</span><span class="na">count</span><span class="o">(</span>
   <span class="c1">// A list with 2 columns</span>
   <span class="nl">crossAxisCount:</span> <span class="mi">2</span><span class="o">,</span>
@@ -220,6 +221,7 @@ rebuild when the <code class="highlighter-rouge">Orientation</code> changes.</p>
 <p>Using the <code class="highlighter-rouge">Orientation</code>, we can build a list that displays 2 columns in portrait 
 mode, or 3 columns in landscape mode.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">OrientationBuilder</span><span class="p">(</span>
   <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orientation</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="n">GridView</span><span class="o">.</span><span class="na">count</span><span class="o">(</span>

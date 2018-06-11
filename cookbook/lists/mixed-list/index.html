@@ -200,6 +200,7 @@ a class for each type of item.</p>
 messages. Therefore, we’ll create three classes: <code class="highlighter-rouge">ListItem</code>, <code class="highlighter-rouge">HeadingItem</code>, 
 and <code class="highlighter-rouge">MessageItem</code>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// The base class for the different types of items the List can contain</span>
 <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">ListItem</span> <span class="o">{}</span>
 
@@ -228,6 +229,7 @@ convert that data into a list of items.</p>
 <p>For this example, we’ll generate a list of items to work with. The list will
 contain a header followed by five messages. Rinse, repeat.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ListItem</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span>
   <span class="mi">1200</span><span class="o">,</span>
   <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span>
@@ -252,6 +254,7 @@ with can be handy. It’s fast, and will automatically cast each item to the
 appropriate type. However, there are different ways to approach this problem if 
 you prefer another pattern!</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
   <span class="c1">// Let the ListView know how many items it needs to build</span>
   <span class="nl">itemCount:</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>

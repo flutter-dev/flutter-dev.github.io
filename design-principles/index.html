@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Design Principles  - Flutter </title>
+  <title>Flutter's Development Philosophy  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -165,12 +165,12 @@
          <a href="https://github.com/flutter/website/blob/master/design-principles.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Design Principles&body=From URL: http://localhost:4000/design-principles/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Flutter's Development Philosophy&body=From URL: http://localhost:4000/design-principles/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Design Principles </h1>
+    <h1 class="post-title">Flutter's Development Philosophy </h1>
    </div>
 
   </header>
@@ -314,15 +314,22 @@ label.</p>
   </li>
   <li>
     <p>Send an e-mail to <a href="mailto:flutter-dev@googlegroups.com">flutter-dev@googlegroups.com</a> to socialize
-your proposed change. The e-mail should include the following:</p>
+your proposed change. The purpose of this e-mail is to see if you can
+get consensus around your change. <strong>You are not telling people that
+the change will happen, you are asking them for permission.</strong>
+The e-mail should include the following:</p>
 
     <ul>
       <li>
-        <p>A subject line that clearly summarises the change and sounds like it
-matters (so that people can spot these e-mails among the noise).</p>
+        <p>A subject line that clearly summarises the proposed change and sounds like it
+matters (so that people can spot these e-mails among the noise). Prefix
+the subject line with <code class="highlighter-rouge">[Breaking Change]</code>.</p>
       </li>
       <li>
         <p>A summary of each change you propose.</p>
+      </li>
+      <li>
+        <p>A brief justification for the change.</p>
       </li>
       <li>
         <p>A link to the issue you filed in step 1, and any PRs you may have already
@@ -332,9 +339,6 @@ posted relating to this change.</p>
         <p>Clear mechanical steps for porting the code from the old form to the new
 form, if possible. If not possible, clear steps for figuring out how to
 port the code.</p>
-      </li>
-      <li>
-        <p>A brief justification for the change.</p>
       </li>
       <li>
         <p>A sincere offer to help port code, which includes the preferred venue for
@@ -347,8 +351,8 @@ perhaps by discussing the change in the issue tracker on on the pull request.</p
     </ul>
   </li>
   <li>
-    <p>If folks agree that the benefits of changing the API outweigh the stablity
-costs, you can proceed with the normal code review process for making
+    <p><strong>If folks agree that the benefits of changing the API outweigh the stablity
+costs</strong>, you can proceed with the normal code review process for making
 changes. You should leave some time between steps 2 and 3 (at a bare minimum
 24 hours during the work week so that people in all time zones have had a
 chance to see it, but ideally a week or so).</p>
@@ -379,7 +383,7 @@ example:</p>
 </div>
 
 <p>If you use <code class="highlighter-rouge">@deprecated</code>, make sure to remember to actually remove the feature a few
-weeks later, do not just leave it forever!</p>
+weeks later (after the next beta release), do not just leave it forever!</p>
 
 <h4 id="google-only-responsibilities">Google-only responsibilities</h4>
 
@@ -434,22 +438,34 @@ so as to make it reappear on the list.</p>
 
 <h2 id="api-design">API design</h2>
 
+<p>We have learned various lessons over the years.</p>
+
 <ul>
   <li>
-    <p>There should be no objects that represent live state that reflects
-some other state, since they are expensive to maintain. e.g. no
-<code class="highlighter-rouge">HTMLCollection</code>.</p>
+    <p>There should be no objects that represent live state that reflect
+some state from another source, since they are expensive to maintain.
+(The Web’s <code class="highlighter-rouge">HTMLCollection</code> object is an example of such an object.)
+In other words, <strong>keep only one source of truth</strong>, and <strong>don’t replicate
+live state</strong>.</p>
   </li>
   <li>
     <p>Property getters should be efficient (e.g. just returning a cached
-value, or an O(1) table lookup). If an operation is inefficient it
+value, or an O(1) table lookup). If an operation is inefficient, it
 should be a method instead. e.g. <code class="highlighter-rouge">document.getForms()</code>, not
-<code class="highlighter-rouge">document.forms</code>.</p>
+<code class="highlighter-rouge">document.forms</code> (it walks the entire tree).</p>
+
+    <ul>
+      <li>Asynchronous expensive operations can be represented by futures.
+A method can start the work and return a future; a getter can return 
+a future corresponding to already-running work. A getter should not
+kick-off the work and return the future, since getters appear idempotent
+and side-effect free.</li>
+    </ul>
   </li>
   <li>
     <p>There should be no APIs that require synchronously completing an
 expensive operation (e.g. computing a full app layout outside of the
-layout phase).</p>
+layout phase). Expensive work should be asynchronous.</p>
   </li>
   <li>
     <p>We use a layered framework design, where each layer addresses a
@@ -478,18 +494,42 @@ using a dedicated API, then a dedicated API is fine.</p>
 <code class="highlighter-rouge">document.write()</code>, <code class="highlighter-rouge">innerHTML</code>, <code class="highlighter-rouge">insertAdjacentHTML()</code>, etc.</p>
 
     <ul>
-      <li>String manipulation to generate data or code that will subsequently
+      <li>
+        <p>String manipulation to generate data or code that will subsequently
 be interpreted or parsed is a bad practice as it leads to code
-injection vulnerabilities.</li>
+injection vulnerabilities.</p>
+      </li>
+      <li>
+        <p>If an operation is expensive, that expense should be represented
+in the API (e.g. by returning a <code class="highlighter-rouge">Future</code> or a <code class="highlighter-rouge">Stream</code>).  Avoid
+providing APIs that hide the expense of tasks.</p>
+      </li>
     </ul>
   </li>
   <li>
-    <p>If we wrap some aspect of a service from one environment for exposure
-in another environment (for example, exposing an Android API in Dart),
-we should expose/wrap all of it, so that there’s no cognitive cliff
+    <p>Convenience APIs that wrap some aspect of a service from one environment
+for exposure in another environment (for example, exposing an Android API
+in Dart), should expose/wrap the complete API, so that there’s no cognitive cliff
 when interacting with that service (where you are fine using the exposed
 API up to a point, but beyond that have to learn all about the underlying
 service).</p>
+  </li>
+  <li>
+    <p>APIs that wrap underlying services but prevent the underlying API from
+being directly accessed (e.g. how <code class="highlighter-rouge">dart:ui</code> exposes Skia) should carefully
+expose only the best parts of the underlying API. This may require refactoring
+features so that they are more usable. It may mean avoiding exposing
+convenience features that abstract over expensive operations unless there’s a
+distinct performance gain from doing so. A smaller API surface is easier
+to understand.</p>
+
+    <ul>
+      <li>This is why <code class="highlighter-rouge">dart:ui</code> doesn’t expose <code class="highlighter-rouge">Path.fromSVG()</code>: we checked, and it
+is just as fast to do that work directly in Dart, so there is no benefit
+to exposing it. That way, we avoid the costs (bigger API surfaces are more
+expensive to maintain, document, and test, and put a compatibility burden
+on the underlying API).</li>
+    </ul>
   </li>
 </ul>
 

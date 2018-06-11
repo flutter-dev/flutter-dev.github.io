@@ -203,6 +203,7 @@ away. For more detailed instructions on how to create a list, please follow the
 <p>In our example, we’ll want 20 sample items to work with. To keep it simple, 
 we’ll generate a List of Strings.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span> <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">"Item </span><span class="si">${i + 1}</span><span class="s">"</span><span class="o">);</span>
 </code></pre>
 </div>
@@ -212,6 +213,7 @@ we’ll generate a List of Strings.</p>
 <p>At first, we’ll simply display each item in the List on screen. Users will
 not be able to swipe away with these items just yet!</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
   <span class="nl">itemCount:</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
   <span class="nl">itemBuilder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
@@ -235,6 +237,7 @@ database.</p>
 Widget comes into play! In our example, we’ll update our <code class="highlighter-rouge">itemBuilder</code> function 
 to return a <code class="highlighter-rouge">Dismissible</code> Widget.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Dismissible</span><span class="p">(</span>
   <span class="c1">// Each Dismissible must contain a Key. Keys allow Flutter to</span>
   <span class="c1">// uniquely identify Widgets.</span>
@@ -263,6 +266,7 @@ swipe the item off the screen. In this case, a red background!</p>
 
 <p>For this purpose, we’ll provide a <code class="highlighter-rouge">background</code> parameter to the <code class="highlighter-rouge">Dismissible</code>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Dismissible</span><span class="p">(</span>
   <span class="c1">// Show a red background as the item is swiped away</span>
   <span class="nl">background:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span><span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">red</span><span class="o">),</span>

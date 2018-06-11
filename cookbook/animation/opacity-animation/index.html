@@ -198,6 +198,7 @@ Widget.</p>
 <p>First, we’ll need something to fade in and out! In this example, we’ll draw a
 green box on screen.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Container</span><span class="p">(</span>
   <span class="nl">width:</span> <span class="mf">200.0</span><span class="o">,</span>
   <span class="nl">height:</span> <span class="mf">200.0</span><span class="o">,</span>
@@ -224,6 +225,7 @@ button is visible or invisible.</p>
 for Android Studio and VSCode include the <code class="highlighter-rouge">stful</code> snippet to quickly generate 
 this code!</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// The StatefulWidget's job is to take in some data and create a State class.</span>
 <span class="c1">// In this case, our Widget takes in a title, and creates a _MyHomePageState.</span>
 <span class="kd">class</span> <span class="nc">MyHomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
@@ -264,6 +266,7 @@ rebuild the Widget.</p>
 <p>Note: For more information on working with user input, please see the 
 <a href="/cookbook/#handling-gestures">Handling Gestures</a> section of the Cookbook.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">FloatingActionButton</span><span class="p">(</span>
   <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
     <span class="c1">// Make sure we call setState! This will tell Flutter to rebuild the</span>
@@ -293,6 +296,7 @@ Widget!</p>
   <li><code class="highlighter-rouge">child</code>: The Widget to animate. In our case, the green box.</li>
 </ul>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">AnimatedOpacity</span><span class="p">(</span>
   <span class="c1">// If the Widget should be visible, animate to 1.0 (fully visible). If</span>
   <span class="c1">// the Widget should be hidden, animate to 0.0 (invisible).</span>

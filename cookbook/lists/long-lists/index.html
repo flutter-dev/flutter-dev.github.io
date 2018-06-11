@@ -195,6 +195,7 @@ the time, this data will come from the internet or a database.</p>
 <a href="https://docs.flutter.io/flutter/dart-core/List/List.generate.html"><code class="highlighter-rouge">List.generate</code></a> 
 constructor.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span><span class="mi">10000</span><span class="o">,</span> <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">"Item </span><span class="si">$i</span><span class="s">"</span><span class="o">);</span>
 </code></pre>
 </div>
@@ -207,6 +208,7 @@ a Widget!</p>
 <p>This is where the <code class="highlighter-rouge">ListView.builder</code> will come into play. In our case, we’ll 
 display each String on it’s own line.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
   <span class="nl">itemCount:</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
   <span class="nl">itemBuilder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>

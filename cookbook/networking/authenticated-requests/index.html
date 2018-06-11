@@ -186,6 +186,7 @@ requires using the <code class="highlighter-rouge">Authorization</code> HTTP hea
 convenient way to add headers to your requests. You can also take advantage of 
 the <code class="highlighter-rouge">dart:io</code> package for common <code class="highlighter-rouge">HttpHeaders</code>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="n">http</span><span class="o">.</span><span class="na">Response</span><span class="o">&gt;</span> <span class="n">fetchPost</span><span class="o">()</span> <span class="o">{</span>
   <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span>
     <span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">,</span>
@@ -204,6 +205,7 @@ recipe.</p>
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'dart:convert'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'dart:io'</span><span class="o">;</span>
+
 <span class="kn">import</span> <span class="s">'package:http/http.dart'</span> <span class="k">as</span> <span class="n">http</span><span class="o">;</span>
 
 <span class="n">Future</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;</span> <span class="n">fetchPost</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
@@ -211,9 +213,9 @@ recipe.</p>
     <span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">,</span>
     <span class="nl">headers:</span> <span class="o">{</span><span class="n">HttpHeaders</span><span class="o">.</span><span class="na">AUTHORIZATION</span><span class="o">:</span> <span class="s">"Basic your_api_token_here"</span><span class="o">},</span>
   <span class="o">);</span>
-  <span class="kd">final</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span> 
-  
-  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">);</span> 
+  <span class="kd">final</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span>
+
+  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">responseJson</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">Post</span> <span class="o">{</span>

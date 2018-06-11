@@ -202,6 +202,7 @@ components, such as Drawers, AppBars, and SnackBars.</p>
 
 <p>In this case, we’ll want to create a <code class="highlighter-rouge">Scaffold</code> with a <code class="highlighter-rouge">drawer</code>:</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Scaffold</span><span class="p">(</span>
   <span class="nl">drawer:</span> <span class="c1">// We'll add our Drawer here in the next step!</span>
 <span class="o">);</span>
@@ -214,6 +215,7 @@ components, such as Drawers, AppBars, and SnackBars.</p>
 it’s often best to use the <code class="highlighter-rouge">Drawer</code> widget from the <a href="https://docs.flutter.io/flutter/material/material-library.html">material library</a>, 
 which adheres to the Material Design spec.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Scaffold</span><span class="p">(</span>
   <span class="nl">drawer:</span> <span class="k">new</span> <span class="n">Drawer</span><span class="o">(</span>
     <span class="nl">child:</span> <span class="c1">// We'll populate the Drawer in the next step!</span>
@@ -235,6 +237,7 @@ and two <a href="https://docs.flutter.io/flutter/material/ListTile-class.html"><
 Widgets. For more information on working with Lists, please see the 
 <a href="/cookbook/#lists">list recipes</a>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Drawer</span><span class="p">(</span>
   <span class="c1">// Add a ListView to the drawer. This ensures the user can scroll</span>
   <span class="c1">// through the options in the Drawer if there isn't enough vertical</span>
@@ -278,6 +281,7 @@ achieve this? Using the <a href="https://docs.flutter.io/flutter/widgets/Navigat
 stack under the hood. Therefore, to close the drawer, we can call 
 <code class="highlighter-rouge">Navigator.pop(context)</code>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">ListTile</span><span class="p">(</span>
   <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 1'</span><span class="o">),</span>
   <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>

@@ -198,6 +198,7 @@ sections in sync. This is the job of the <a href="https://docs.flutter.io/flutte
 Widget. Using the <code class="highlighter-rouge">DefaultTabController</code> is the simplest option, since it will 
 create a <code class="highlighter-rouge">TabController</code> for us and make it available to all descendant Widgets.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">DefaultTabController</span><span class="p">(</span>
   <span class="c1">// The number of tabs / content sections we need to display</span>
   <span class="nl">length:</span> <span class="mi">3</span><span class="o">,</span>
@@ -213,6 +214,7 @@ the <a href="https://docs.flutter.io/flutter/material/TabController-class.html">
 Widget. In this example, we’ll create a <code class="highlighter-rouge">TabBar</code> with 3 <a href="https://docs.flutter.io/flutter/material/Tab-class.html"><code class="highlighter-rouge">Tab</code></a> 
 Widgets and place it within an <a href="https://docs.flutter.io/flutter/material/AppBar-class.html"><code class="highlighter-rouge">AppBar</code></a>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">DefaultTabController</span><span class="p">(</span>
   <span class="nl">length:</span> <span class="mi">3</span><span class="o">,</span>
   <span class="nl">child:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
@@ -243,6 +245,7 @@ Widget.</p>
 <p><em>Note:</em> Order is important and must correspond to the order of the tabs in the 
 <code class="highlighter-rouge">TabBar</code>!</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">TabBarView</span><span class="p">(</span>
   <span class="nl">children:</span> <span class="o">[</span>
     <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">directions_car</span><span class="o">),</span>

@@ -238,12 +238,20 @@ generally compatible with Flutter), and supports searching among all published p
     <ul>
       <li>From the terminal: Run <code class="highlighter-rouge">flutter packages get</code><br />
 <strong>OR</strong></li>
-      <li>From IntelliJ: Click ‘Packages Get’ in the action ribbon at the top of <code class="highlighter-rouge">pubspec.yaml</code></li>
+      <li>From Android Studio/IntelliJ: Click ‘Packages Get’ in the action ribbon at the top of <code class="highlighter-rouge">pubspec.yaml</code></li>
+      <li>From VS Code: Click ‘Get Packages’ located in right side of the action ribbon at the top of <code class="highlighter-rouge">pubspec.yaml</code></li>
     </ul>
   </li>
   <li>Import it
     <ul>
       <li>Add a corresponding <code class="highlighter-rouge">import</code> statement in your Dart code.</li>
+    </ul>
+  </li>
+  <li>Stop and restart the app, if necessary
+    <ul>
+      <li>If the package brings platform-specific code (Java/Kotlin for Android, Swift/Objective-C for iOS), that code
+must be built into your app. Hot reload and hot restart do this only for the Dart code of the package, so you
+may have to do a full restart of the app to avoid errors like <code class="highlighter-rouge">MissingPluginException</code> when using the package.</li>
     </ul>
   </li>
 </ol>
@@ -382,9 +390,11 @@ Flutter framework expects the <code class="highlighter-rouge">Color</code> type.
   <li>
     <p>Run <code class="highlighter-rouge">flutter packages get</code> in the terminal, or click ‘Packages get’ in IntelliJ</p>
   </li>
-  <li>Open <code class="highlighter-rouge">lib/main.dart</code> and replace its full contents with:
-    <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
-<span class="kn">import</span> <span class="s">'package:css_colors/css_colors.dart'</span><span class="o">;</span>
+  <li>Open <code class="highlighter-rouge">lib/main.dart</code> and replace its full contents with:</li>
+</ol>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:css_colors/css_colors.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
@@ -402,14 +412,13 @@ Flutter framework expects the <code class="highlighter-rouge">Color</code> type.
 <span class="kd">class</span> <span class="nc">DemoPage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span><span class="nl">color:</span> <span class="n">CSSColors</span><span class="o">.</span><span class="na">orange</span><span class="o">)</span>
-    <span class="o">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span><span class="nl">body:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span><span class="nl">color:</span> <span class="n">CSSColors</span><span class="o">.</span><span class="na">orange</span><span class="o">));</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-    </div>
-  </li>
+</div>
+
+<ol>
   <li>Run the app. When you click the ‘Show Flutter homepage’ you should see the
 phone’s default browser open, and the Flutter homepage appear.</li>
 </ol>
@@ -445,8 +454,10 @@ given URL. It demonstrates how packages may also contain platform-specific code
   <li>
     <p>Run <code class="highlighter-rouge">flutter packages get</code> in the terminal, or click ‘Packages get’ in IntelliJ</p>
   </li>
-  <li>Open <code class="highlighter-rouge">lib/main.dart</code> and replace its full contents with:
-    <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+  <li>Open <code class="highlighter-rouge">lib/main.dart</code> and replace its full contents with:</li>
+</ol>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:url_launcher/url_launcher.dart'</span><span class="o">;</span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
@@ -480,10 +491,10 @@ given URL. It demonstrates how packages may also contain platform-specific code
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-    </div>
-  </li>
-  <li>Run the app. When you click the ‘Show Flutter homepage’ you should see the
-phone’s default browser open, and the Flutter homepage appear.</li>
+</div>
+
+<ol>
+  <li>Run the app (or stop and restart it, if you already had it running before adding the plugin). When you click the ‘Show Flutter homepage’ you should see the phone’s default browser open, and the Flutter homepage appear.</li>
 </ol>
 
 </article>

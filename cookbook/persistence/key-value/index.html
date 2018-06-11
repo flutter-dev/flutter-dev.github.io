@@ -216,6 +216,7 @@ types, such as <code class="highlighter-rouge">setInt</code>, <code class="highl
 <p>Setter methods do two things: First, synchronously update the key-value pair 
 in-memory. Then, persist the data to disk.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// obtain shared preferences </span>
 <span class="kd">final</span> <span class="n">prefs</span> <span class="o">=</span> <span class="n">await</span> <span class="n">SharedPreferences</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
 
@@ -230,6 +231,7 @@ in-memory. Then, persist the data to disk.</p>
 <code class="highlighter-rouge">SharedPreferences</code> class. For each setter there is a corresponding getter. 
 For example, we can use the <code class="highlighter-rouge">getInt</code>, <code class="highlighter-rouge">getBool</code>, and <code class="highlighter-rouge">getString</code> methods.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">prefs</span> <span class="o">=</span> <span class="n">await</span> <span class="n">SharedPreferences</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
 
 <span class="c1">// Try reading data from the counter key. If it does not exist, return 0.</span>
@@ -241,6 +243,7 @@ For example, we can use the <code class="highlighter-rouge">getInt</code>, <code
 
 <p>To delete data, we can use the <code class="highlighter-rouge">remove</code> method.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">prefs</span> <span class="o">=</span> <span class="n">await</span> <span class="n">SharedPreferences</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
 
 <span class="n">prefs</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">'counter'</span><span class="o">);</span>
@@ -259,6 +262,26 @@ For example, we can use the <code class="highlighter-rouge">getInt</code>, <code
 <p>For more information about Shared Preferences on Android, please visit 
 <a href="https://developer.android.com/guide/topics/data/data-storage.html#pref">Shared preferences documentation</a> 
 on the Android developers website.</p>
+
+<h2 id="testing-support">Testing support</h2>
+
+<p>It can be a good idea to test code that persists data using 
+<code class="highlighter-rouge">shared_preferences</code>. To do so, we’ll need to mock out the <code class="highlighter-rouge">MethodChannel</code> used 
+by the <code class="highlighter-rouge">shared_preferences</code> library.</p>
+
+<p>We can populate <code class="highlighter-rouge">SharedPreferences</code> with initial values in our tests by running
+the following code in a <code class="highlighter-rouge">setupAll</code> method in our test files:</p>
+
+<!-- skip -->
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">const</span> <span class="nf">MethodChannel</span><span class="p">(</span><span class="s">'plugins.flutter.io/shared_preferences'</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">setMockMethodCallHandler</span><span class="o">((</span><span class="n">MethodCall</span> <span class="n">methodCall</span><span class="o">)</span> <span class="n">async</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">methodCall</span><span class="o">.</span><span class="na">method</span> <span class="o">==</span> <span class="s">'getAll'</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;{};</span> <span class="c1">// set initial values here if desired</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">});</span>
+</code></pre>
+</div>
 
 <h2 id="example">Example</h2>
 
@@ -298,14 +321,14 @@ on the Android developers website.</p>
     <span class="n">_loadCounter</span><span class="o">();</span>
   <span class="o">}</span>
 
-  <span class="c1">//Loading counter value on start </span>
+  <span class="c1">//Loading counter value on start</span>
   <span class="n">_loadCounter</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
     <span class="n">SharedPreferences</span> <span class="n">prefs</span> <span class="o">=</span> <span class="n">await</span> <span class="n">SharedPreferences</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
     <span class="n">setState</span><span class="o">(()</span> <span class="o">{</span>
       <span class="n">_counter</span> <span class="o">=</span> <span class="o">(</span><span class="n">prefs</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="s">'counter'</span><span class="o">)</span> <span class="o">??</span> <span class="mi">0</span><span class="o">);</span>
     <span class="o">});</span>
   <span class="o">}</span>
-  
+
   <span class="c1">//Incrementing counter after click</span>
   <span class="n">_incrementCounter</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
     <span class="n">SharedPreferences</span> <span class="n">prefs</span> <span class="o">=</span> <span class="n">await</span> <span class="n">SharedPreferences</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
@@ -344,26 +367,6 @@ on the Android developers website.</p>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
-
-</code></pre>
-</div>
-
-<h2 id="testing-support">Testing support</h2>
-
-<p>It can be a good idea to test code that persists data using 
-<code class="highlighter-rouge">shared_preferences</code>. To do so, we’ll need to mock out the <code class="highlighter-rouge">MethodChannel</code> used 
-by the <code class="highlighter-rouge">shared_preferences</code> library.</p>
-
-<p>We can populate <code class="highlighter-rouge">SharedPreferences</code> with initial values in our tests by running
-the following code in a <code class="highlighter-rouge">setupAll</code> method in our test files:</p>
-
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">const</span> <span class="nf">MethodChannel</span><span class="p">(</span><span class="s">'plugins.flutter.io/shared_preferences'</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">setMockMethodCallHandler</span><span class="o">((</span><span class="n">MethodCall</span> <span class="n">methodCall</span><span class="o">)</span> <span class="n">async</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">methodCall</span><span class="o">.</span><span class="na">method</span> <span class="o">==</span> <span class="s">'getAll'</span><span class="o">)</span> <span class="o">{</span>
-      <span class="k">return</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;{};</span> <span class="c1">// set initial values here if desired</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-  <span class="o">});</span>
 </code></pre>
 </div>
 

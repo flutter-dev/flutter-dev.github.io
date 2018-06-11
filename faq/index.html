@@ -194,6 +194,7 @@
       <li><a href="#does-flutter-work-with-any-editors-or-ides" id="markdown-toc-does-flutter-work-with-any-editors-or-ides">Does Flutter work with any editors or IDEs?</a></li>
       <li><a href="#does-flutter-come-with-a-framework" id="markdown-toc-does-flutter-come-with-a-framework">Does Flutter come with a framework?</a></li>
       <li><a href="#does-flutter-come-with-widgets" id="markdown-toc-does-flutter-come-with-widgets">Does Flutter come with widgets?</a></li>
+      <li><a href="#does-flutter-support-material-theming" id="markdown-toc-does-flutter-support-material-theming">Does Flutter support Material Theming?</a></li>
       <li><a href="#does-flutter-come-with-a-testing-framework" id="markdown-toc-does-flutter-come-with-a-testing-framework">Does Flutter come with a testing framework?</a></li>
       <li><a href="#does-flutter-come-with-a-dependency-injection-framework-or-solution" id="markdown-toc-does-flutter-come-with-a-dependency-injection-framework-or-solution">Does Flutter come with a dependency injection framework or solution?</a></li>
     </ul>
@@ -215,7 +216,7 @@
   <li><a href="#capabilities" id="markdown-toc-capabilities">Capabilities</a>    <ul>
       <li><a href="#what-kind-of-app-performance-can-i-expect" id="markdown-toc-what-kind-of-app-performance-can-i-expect">What kind of app performance can I expect?</a></li>
       <li><a href="#hot-reload" id="markdown-toc-hot-reload">What kind of developer cycles can I expect? How long between edit and refresh?</a></li>
-      <li><a href="#how-is-hot-reload-different-from-full-restart" id="markdown-toc-how-is-hot-reload-different-from-full-restart">How is ‘hot reload’ different from ‘full restart’?</a></li>
+      <li><a href="#how-is-hot-reload-different-from-hot-restart" id="markdown-toc-how-is-hot-reload-different-from-hot-restart">How is ‘hot reload’ different from ‘hot restart’?</a></li>
       <li><a href="#where-can-i-deploy-my-flutter-app" id="markdown-toc-where-can-i-deploy-my-flutter-app">Where can I deploy my Flutter app?</a></li>
       <li><a href="#what-devices-and-os-versions-does-flutter-run-on" id="markdown-toc-what-devices-and-os-versions-does-flutter-run-on">What devices and OS versions does Flutter run on?</a></li>
       <li><a href="#does-flutter-run-on-the-web" id="markdown-toc-does-flutter-run-on-the-web">Does Flutter run on the web?</a></li>
@@ -238,7 +239,7 @@
   <li><a href="#framework" id="markdown-toc-framework">Framework</a>    <ul>
       <li><a href="#why-is-the-build-method-on-state-not-statefulwidget" id="markdown-toc-why-is-the-build-method-on-state-not-statefulwidget">Why is the build() method on State, not StatefulWidget?</a></li>
       <li><a href="#where-is-flutters-markup-language-why-doesnt-flutter-have-a-markup-syntax" id="markdown-toc-where-is-flutters-markup-language-why-doesnt-flutter-have-a-markup-syntax">Where is Flutter’s markup language? Why doesn’t Flutter have a markup syntax?</a></li>
-      <li><a href="#my-app-has-a-slow-mode-bannerribbon-in-the-upper-right-why-am-i-seeing-that" id="markdown-toc-my-app-has-a-slow-mode-bannerribbon-in-the-upper-right-why-am-i-seeing-that">My app has a Slow Mode banner/ribbon in the upper right. Why am I seeing that?</a></li>
+      <li><a href="#my-app-has-a-debug-bannerribbon-in-the-upper-right-why-am-i-seeing-that" id="markdown-toc-my-app-has-a-debug-bannerribbon-in-the-upper-right-why-am-i-seeing-that">My app has a Debug banner/ribbon in the upper right. Why am I seeing that?</a></li>
       <li><a href="#what-programming-paradigm-does-flutters-framework-use" id="markdown-toc-what-programming-paradigm-does-flutters-framework-use">What programming paradigm does Flutter’s framework use?</a></li>
     </ul>
   </li>
@@ -259,10 +260,10 @@
 
 <h3 id="what-is-flutter">What is Flutter?</h3>
 
-<p>Flutter is a mobile app SDK, complete with
-framework, widgets, and tools, that gives developers an
-easy and productive way to build and deploy
-beautiful mobile apps on both Android and iOS.</p>
+<p>Flutter is Google’s mobile app SDK for crafting high-quality
+native experiences on iOS and Android in record time.
+Flutter works with existing code, is used by developers
+and organizations around the world, and is free and open source.</p>
 
 <h3 id="what-does-flutter-do">What does Flutter do?</h3>
 
@@ -361,18 +362,17 @@ to approachability for the majority of the system.</p>
 <h3 id="should-i-build-my-next-production-app-with-flutter">Should I build my next production app with Flutter?</h3>
 
 <p>Flutter is still being developed and is not yet at
-1.0.</p>
+1.0. But Flutter is used inside of Google and apps built
+with Flutter are deployed to users in production.
+A few sample apps are shown in the <a href="/showcase/">showcase</a>.</p>
+
+<p>Some key features are not yet complete, however features that
+are completed are generally of high-quality and ready for use.</p>
 
 <p>Our APIs are stabilizing, and we continue to improve
 parts of the system based on user feedback.
 We email <a href="mailto:flutter-dev@googlegroups.com">flutter-dev@googlegroups.com</a>
 when we make a change that might impact our users.</p>
-
-<p>Flutter is used inside of Google and apps built with Flutter
-are deployed to users.</p>
-
-<p>Some key features, such as accessibility, are not yet ready for
-broad deployment.</p>
 
 <p>So really, it is up to you. The features you need may be
 available today. Please let us know if you released an app
@@ -419,6 +419,12 @@ and themes. Of
 course, these widgets are only a starting point.
 Flutter is designed to make it easy to
 create your own widgets, or customize the existing widgets.</p>
+
+<h3 id="does-flutter-support-material-theming">Does Flutter support Material Theming?</h3>
+
+<p>Yes! The Flutter and Material teams collaborate closely,
+and Material Theming is fully supported. A number of
+examples of this are shown in the <a href="https://codelabs.developers.google.com/codelabs/mdc-103-flutter/">MDC-103 Flutter: Material Theming</a> codelab.</p>
 
 <h3 id="does-flutter-come-with-a-testing-framework">Does Flutter come with a testing framework?</h3>
 
@@ -619,7 +625,7 @@ is retained after a reload. This means you can quickly iterate
 on a screen deeply nested in your app, without starting
 from the home screen after every reload.</p>
 
-<h3 id="how-is-hot-reload-different-from-full-restart">How is ‘hot reload’ different from ‘full restart’?</h3>
+<h3 id="how-is-hot-reload-different-from-hot-restart">How is ‘hot reload’ different from ‘hot restart’?</h3>
 
 <p>Hot Reload works by injecting updated source code files into the running Dart VM
 (Virtual Machine). This includes not only adding new classes, but also adding
@@ -643,14 +649,12 @@ types of code changes cannot be hot reloaded though:</p>
 <p>Mobile operating systems: Android Jelly Bean, v16, 4.1.x or newer, and
 iOS 8 or newer.</p>
 
-<p>Mobile hardware: 64-bit iOS devices (starting with iPhone 5S and newer
-iPhone models), and ARM Android devices.</p>
+<p>Mobile hardware: iOS devices (iPhone 4S or newer) and ARM Android devices.</p>
 
-<p>Note that we currently do not support:</p>
-<ul>
-  <li>ARM32 iOS devices (iPhone 4, iPhone 5; issue <a href="https://github.com/flutter/flutter/issues/2089">#2089</a>)</li>
-  <li>x86 Android devices (issue <a href="https://github.com/flutter/flutter/issues/9253">#9253</a>)</li>
-</ul>
+<p>Note Flutter currently does not support building for x86 Android
+(issue <a href="https://github.com/flutter/flutter/issues/9253">#9253</a>)
+directly, however apps built for ARMv7 or ARM64 run fine (via ARM emulation
+on many x86 Android devices.</p>
 
 <p>We support developing Flutter apps with Android and iOS devices, as
 well as with Android emulators and the iOS simulator.</p>
@@ -770,15 +774,7 @@ what you might need reflection/mirrors for – please let us know at
 <p>Learn more about i18n and l10n in the
 <a href="/tutorials/internationalization/">Flutter Internationalization Tutorial</a>.</p>
 
-<p>Flutter has built-in support for basic accessibility features including
-screen readers on Android and iOS. Check the
-<a href="https://docs.flutter.io/flutter/widgets/Semantics-class.html">Semantics</a>
-widget for ways to customize the accessibility experience of
-your Flutter app.</p>
-
-<p>We encourage you to email
-<a href="mailto:flutter-dev@googlegroups.com">flutter-dev@googlegroups.com</a> with your
-questions regarding these features.</p>
+<p>Learn more about a11y in the <a href="/accessibility/">accessibility documentation</a>.</p>
 
 <h3 id="how-do-i-write-parallel-andor-concurrent-apps-for-flutter">How do I write parallel and/or concurrent apps for Flutter?</h3>
 
@@ -869,7 +865,7 @@ hot reload and dynamic environment adaptations.</p>
 converted to widgets on the fly. Because build methods are “just code”, they
 can do anything, including interpreting markup and turning it into widgets.</p>
 
-<h3 id="my-app-has-a-slow-mode-bannerribbon-in-the-upper-right-why-am-i-seeing-that">My app has a Slow Mode banner/ribbon in the upper right. Why am I seeing that?</h3>
+<h3 id="my-app-has-a-debug-bannerribbon-in-the-upper-right-why-am-i-seeing-that">My app has a Debug banner/ribbon in the upper right. Why am I seeing that?</h3>
 
 <p>By default <code class="highlighter-rouge">flutter run</code> command uses the debug build configuration.</p>
 
@@ -879,7 +875,7 @@ compiled using the standard <a href="#run-android">Android</a> and <a href="#run
 toolchains).</p>
 
 <p>The debug configuration also checks all asserts, which helps you catch errors
-early during development, but imposes a runtime cost. The “slow mode” banner
+early during development, but imposes a runtime cost. The “Debug” banner
 indicates that these checks are enabled. You can run your app without these
 checks by using either the <code class="highlighter-rouge">--profile</code> or <code class="highlighter-rouge">--release</code> flag to <code class="highlighter-rouge">flutter run</code>.</p>
 

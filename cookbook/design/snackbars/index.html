@@ -203,6 +203,7 @@ Widget from the <a href="https://docs.flutter.io/flutter/material/material-libra
 creates this visual structure for us and ensures important Widgets don’t 
 overlap!</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Scaffold</span><span class="p">(</span>
   <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
     <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'SnackBar Demo'</span><span class="o">),</span>
@@ -217,6 +218,7 @@ overlap!</p>
 <p>With the <code class="highlighter-rouge">Scaffold</code> in place, we can display a <code class="highlighter-rouge">SnackBar</code>! First, we need to 
 create a <code class="highlighter-rouge">SnackBar</code>, then display it using the <code class="highlighter-rouge">Scaffold</code>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">snackBar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Yay! A SnackBar!'</span><span class="o">));</span>
 
 <span class="c1">// Find the Scaffold in the Widget tree and use it to show a SnackBar</span>

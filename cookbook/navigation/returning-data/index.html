@@ -198,6 +198,7 @@ can act on that information!</p>
 <p>The home screen will display a button. When tapped, it will launch the selection 
 screen!</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">HomeScreen</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
@@ -222,6 +223,7 @@ screen!</p>
   <li>Wait for the SelectionScreen to return a result</li>
 </ol>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SelectionButton</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
@@ -307,6 +309,7 @@ provide a result, it will be returned to the <code class="highlighter-rouge">Fut
 
 <h3 id="yep-button">Yep button</h3>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">RaisedButton</span><span class="p">(</span>
   <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
     <span class="c1">// Our Yep button will return "Yep!" as the result</span>
@@ -319,6 +322,7 @@ provide a result, it will be returned to the <code class="highlighter-rouge">Fut
 
 <h3 id="nope-button">Nope button</h3>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">RaisedButton</span><span class="p">(</span>
   <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
     <span class="c1">// Our Nope button will return "Nope!" as the result</span>
@@ -337,6 +341,7 @@ to do something with the information that’s returned!</p>
 <p>In this case, we’ll show a Snackbar displaying the result. To do so, we’ll 
 update the <code class="highlighter-rouge">_navigateAndDisplaySelection</code> method in our <code class="highlighter-rouge">SelectionButton</code>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">_navigateAndDisplaySelection</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="n">async</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">result</span> <span class="o">=</span> <span class="n">await</span> <span class="n">Navigator</span><span class="o">.</span><span class="na">push</span><span class="o">(</span>
     <span class="n">context</span><span class="o">,</span>

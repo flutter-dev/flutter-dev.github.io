@@ -209,6 +209,7 @@ the pub website</a>.</p>
 <a href="https://docs.flutter.io/flutter/package-http_http/package-http_http-library.html"><code class="highlighter-rouge">http.get</code></a> 
 method.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="n">http</span><span class="o">.</span><span class="na">Response</span><span class="o">&gt;</span> <span class="n">fetchPost</span><span class="o">()</span> <span class="o">{</span>
   <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">);</span>
 <span class="o">}</span>
@@ -240,6 +241,7 @@ create a <code class="highlighter-rouge">Post</code> from json.</p>
 <p>Converting JSON by hand is only one option. For more information, please see the 
 full article on <a href="/json">JSON and serialization</a>.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Post</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="kt">int</span> <span class="n">userId</span><span class="o">;</span>
   <span class="kd">final</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
@@ -270,6 +272,7 @@ we’ll need to:</p>
   <li>Convert the json <code class="highlighter-rouge">Map</code> into a <code class="highlighter-rouge">Post</code> using the <code class="highlighter-rouge">fromJson</code> factory.</li>
 </ol>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;</span> <span class="n">fetchPost</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">response</span> <span class="o">=</span> <span class="n">await</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">);</span>
   <span class="kd">final</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span> 
@@ -298,6 +301,7 @@ with async data sources.</p>
   state of the <code class="highlighter-rouge">Future</code>: loading, success, or error.</li>
 </ol>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;(</span>
   <span class="nl">future:</span> <span class="n">fetchPost</span><span class="o">(),</span>
   <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>

@@ -207,6 +207,7 @@ multiple form fields.</p>
 This will uniquely identify the <code class="highlighter-rouge">Form</code> that we’re working with, and will allow
 us to validate the form in a later step.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// Define a Custom Form Widget</span>
 <span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
@@ -250,6 +251,7 @@ anything.</p>
 <p>In this example, we will create a <code class="highlighter-rouge">validator</code> that ensures the <code class="highlighter-rouge">TextFormField</code>
 isn’t empty. If it is empty, we will return a friendly error message!</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">TextFormField</span><span class="p">(</span>
   <span class="c1">// The validator receives the text the user has typed in</span>
   <span class="nl">validator:</span> <span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="o">{</span>
@@ -270,6 +272,7 @@ user can tap to submit the information.</p>
 valid. If it is, we will show a success message. If the text field has no 
 content, we’ll want to display the error message.</p>
 
+<!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">RaisedButton</span><span class="p">(</span>
   <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
     <span class="c1">// Validate will return true if the form is valid, or false if</span>

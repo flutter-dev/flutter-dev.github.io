@@ -51,7 +51,7 @@ figcaption {
 .right-figure {
   float: right;
   margin: 0 0 5px 20px; }
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 710px) {
     .right-figure {
       margin: inherit;
       float: inherit; } }
@@ -94,6 +94,14 @@ blockquote {
   font-style: italic; }
   blockquote > :last-child {
     margin-bottom: 0; }
+
+/**
+ * Code
+ */
+code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  word-wrap: break-word; }
 
 /**
  * Wrapper
@@ -146,7 +154,7 @@ blockquote {
   .site-footer .licenses {
     font-size: 10px;
     width: 72%; }
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 710px) {
       .site-footer .licenses {
         width: 100%; } }
   .site-footer .row {
@@ -174,7 +182,7 @@ blockquote {
     font-family: inherit;
     padding: 4px 6px;
     font-size: 15px; }
-    @media screen and (max-width: 740px) {
+    @media screen and (max-width: 860px) {
       .nav-searchbox input[type=search] {
         width: 100px; } }
 
@@ -268,10 +276,10 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
     line-height: 1.5; }
     .site-nav .page-link:not(:first-child) {
       margin-left: 20px; }
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 710px) {
       .site-nav .page-link {
         color: #0091ea; } }
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 710px) {
     .site-nav {
       position: absolute;
       top: 9px;
@@ -327,7 +335,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gs
   float: left;
   position: relative;
   margin-right: 20px; }
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 710px) {
     .logo {
       top: -15px; }
       .logo svg {
@@ -757,10 +765,10 @@ a.dropdown-toggle, .navbar-inverse .navbar-nav > li > a {
 hr.faded {
   border: 0;
   height: 1px;
-  background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
-  background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
-  background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
-  background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent); }
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
 
 hr.shaded {
   height: 12px;
@@ -1151,7 +1159,7 @@ table th code {
   -webkit-transition: opacity 0.5s ease-out;
   transition: opacity 0.5s ease-out; }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 710px) {
   #side-nav-container {
     position: relative; }
 
@@ -1573,7 +1581,7 @@ img.homepage__illustration--image {
   .homepage .main-contents {
     margin-left: auto;
     width: auto; }
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 710px) {
       .homepage .main-contents {
         padding-left: 0;
         padding-right: 0; } }
@@ -1588,7 +1596,7 @@ img.homepage__illustration--image {
     align-items: center;
     font-size: 36px;
     font-weight: 300; }
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 710px) {
       .homepage .contents h1.homepage__title {
         padding-top: 14px;
         font-size: 28px; } }
@@ -1611,7 +1619,7 @@ img.homepage__illustration--image {
     padding: 48px; }
     .homepage .contents section p:last-child {
       margin-bottom: 0; }
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 710px) {
     .homepage .contents section {
       padding: 24px; } }
   .homepage .contents section.card {
@@ -1656,7 +1664,7 @@ img.homepage__illustration--image {
     margin-bottom: 24px; }
   .homepage .contents .homepage__try_flutter .homepage__button_row {
     margin-bottom: 0; }
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 710px) {
     .homepage .contents .key-points {
       display: block; }
       .homepage .contents .key-points p {
@@ -1718,6 +1726,21 @@ ul.tabs__top-bar li.current {
   padding-left: 5px; }
 .sdk-archives .git-hash {
   color: #999999; }
+
+.showcase-grid__item {
+  margin-top: 3em; }
+  .showcase-grid__item h2, .showcase-grid__item p {
+    margin-left: 8px;
+    margin-right: 8px; }
+
+.showcase-grid__screenshot {
+  border: 12px solid #333;
+  background: #333;
+  border-radius: 16px;
+  margin-bottom: 1em; }
+
+.showcase-grid__screenshot--top, .showcase-grid__screenshot--bottom {
+  height: 2em; }
 
 aside > :not(pre) > code[class*="language-"], aside > pre[class*="language-"] {
   background: inherit; }
