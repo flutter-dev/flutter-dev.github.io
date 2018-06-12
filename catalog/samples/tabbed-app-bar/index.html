@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tabbed AppBar  - Flutter </title>
+  <title>TabBar 式的应用栏  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -162,21 +162,21 @@
   
   <header class="post-header">
       <div class="btn-group contribute" role="group">
-         <a href="https://github.com/flutter/website/blob/master/catalog/samples/tabbed_app_bar.md" class="btn btn-sm">
+         <a href="https://github.com/flutter/website/blob/master/zh_CN/catalog/samples/tabbed_app_bar.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Tabbed AppBar&body=From URL: http://localhost:4000/catalog/samples/tabbed-app-bar/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page TabBar 式的应用栏&body=From URL: http://localhost:4000/catalog/samples/tabbed-app-bar/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Tabbed AppBar </h1>
+    <h1 class="post-title">TabBar 式的应用栏 </h1>
    </div>
 
   </header>
   
 
-  <p>An AppBar with a TabBar as its bottom widget.</p>
+  <p>以 TabBar 作为其底部 widget 的应用栏。</p>
 
 <p>
   <div class="container-fluid">
@@ -187,7 +187,7 @@
             <img style="border:1px solid #000000" src="https://storage.googleapis.com/flutter-catalog/cb4a54db8fb3726bf4293b9cc5cb12ce16883803/tabbed_app_bar_small.png" alt="Android screenshot" class="img-responsive" />
           </div>
           <div class="panel-footer">
-            Android screenshot
+            Android 截图
           </div>
         </div>
       </div>
@@ -195,11 +195,9 @@
   </div>
 </p>
 
-<p>A TabBar can be used to navigate among the pages displayed in a TabBarView.
-Although a TabBar is an ordinary widget that can appear anywhere, it’s most often
-included in the application’s AppBar.</p>
+<p>TabBar 可用于 TabBarView 展示的页面之间的导航。尽管 TabBar 是个能出现在任何地方的普通 widget，但它通常包含在应用程序的 AppBar 中。</p>
 
-<p>Try this app out by creating a new project with <code class="highlighter-rouge">flutter create</code> and replacing the contents of <code class="highlighter-rouge">lib/main.dart</code> with the code that follows.</p>
+<p>使用 <code class="highlighter-rouge">flutter create</code> 来创建一个新项目，并用下面的代码替换 <code class="highlighter-rouge">lib/main.dart</code> 的内容来尝试运行。</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// Copyright 2017 The Chromium Authors. All rights reserved.</span>
 <span class="c1">// Use of this source code is governed by a BSD-style license that can be</span>
@@ -241,8 +239,7 @@ included in the application’s AppBar.</p>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">Choice</span> <span class="o">{</span>
-  <span class="kd">const</span> <span class="n">Choice</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">icon</span><span class="o">});</span>
-
+  <span class="kd">const</span> <span class="n">Choice</span><span class="o">({</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">icon</span> <span class="o">});</span>
   <span class="kd">final</span> <span class="kt">String</span> <span class="n">title</span><span class="o">;</span>
   <span class="kd">final</span> <span class="n">IconData</span> <span class="n">icon</span><span class="o">;</span>
 <span class="o">}</span>
@@ -257,7 +254,7 @@ included in the application’s AppBar.</p>
 <span class="o">];</span>
 
 <span class="kd">class</span> <span class="nc">ChoiceCard</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
-  <span class="kd">const</span> <span class="n">ChoiceCard</span><span class="o">({</span><span class="n">Key</span> <span class="n">key</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">choice</span><span class="o">})</span> <span class="o">:</span> <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
+  <span class="kd">const</span> <span class="n">ChoiceCard</span><span class="o">({</span> <span class="n">Key</span> <span class="n">key</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">choice</span> <span class="o">})</span> <span class="o">:</span> <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
 
   <span class="kd">final</span> <span class="n">Choice</span> <span class="n">choice</span><span class="o">;</span>
 
@@ -286,11 +283,11 @@ included in the application’s AppBar.</p>
 </code></pre>
 </div>
 
-<h2>See also:</h2>
+<h2>另请参阅：</h2>
 <ul>
-  <li>The “Components-Tabs” section of the Material Design specification:
+  <li>Material Design 规范中的 “Components-Tabs” 部分：
   <a href="https://material.io/guidelines/components/tabs.html">https://material.io/guidelines/components/tabs.html</a></li>
-  <li>The source code in <a href="https://github.com/flutter/flutter/blob/master/examples/catalog/lib/tabbed_app_bar.dart">examples/catalog/lib/tabbed_app_bar.dart</a>.</li>
+  <li>源码 <a href="https://github.com/flutter/flutter/blob/master/examples/catalog/lib/tabbed_app_bar.dart">examples/catalog/lib/tabbed_app_bar.dart</a>.</li>
 </ul>
 
 </article>
