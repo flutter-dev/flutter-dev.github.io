@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Flutter iOS 开发者  - Flutter </title>
+  <title>Flutter for iOS Developers  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -94,20 +94,19 @@
       <li><a href="/widgets/">Widget 目录</a></li>
       <li><a href="/cookbook/">小案例</a></li>
       <li><a href="/catalog/samples/">示例目录</a></li>
-      <li><a href="https://codelabs.developers.google.com/codelabs/flutter/index.html#0">构建漂亮的用户界面 - Codelab</a></li>
+      <li><a href="/codelabs">Codelab</a></li>
       <li><a href="/tutorials/layout/">构建布局 - 教程</a></li>
       <li><a href="/tutorials/interactive/">添加交互 - 教程</a></li>
-      <li><a href="/web-analogs/">HTML/CSS 模式</a></li>
+      <li><a href="/web-analogs/"> Web 开发者参考</a></li>
       <li><a href="/flutter-for-android/">Android 开发者参考</a></li>
+      <li><a href="/flutter-for-ios/">iOS 开发者参考</a></li>
       <li><a href="/flutter-for-react-native/">React Native 开发者参考</a></li>
       <li><a href="/gestures/">手势</a></li>
       <li><a href="/animations/">动画</a></li>
-      <li><a href="/custom-fonts/">自定义字体</a></li>
       <li><a href="/layout/">框约束</a></li>
       <li><a href="/assets-and-images/">资源与图像</a></li>
-      <li><a href="/text-input/">文本输入</a></li>
-      <li><a href="/routing-and-navigation/">界面路由与导航</a></li>
       <li><a href="/tutorials/internationalization">国际化</a></li>
+      <li><a href="/accessibility">无障碍</a></li>
     </ul>
 
   <li class="sidebar-title">使用设备与 SDK 中的 API</li>
@@ -116,8 +115,6 @@
       <li><a href="/using-packages/">使用扩展包</a></li>
       <li><a href="/developing-packages/">开发扩展包</a></li>
       <li><a href="/platform-channels/">平台特定代码</a></li>
-      <li><a href="/reading-writing-files/">文件的读写</a></li>
-      <li><a href="/networking/">网络和 HTTP</a></li>
       <li><a href="/json/">JSON 和序列化</a></li>
       
     </ul>
@@ -129,9 +126,11 @@
       <li><a href="/hot-reload/">热重载的使用</a></li>
       <li><a href="/testing/">应用测试</a></li>
       <li><a href="/debugging/">应用调试</a></li>
+      <li><a href="/ui-performance/">性能分析</a></li>
       <li><a href="/inspector/">用户界面检查</a></li>
       <li><a href="/android-release/">编译正式版的 Android 应用</a></li>
       <li><a href="/ios-release/">编译正式版的 iOS 应用</a></li>
+      <li><a href="/fastlane-cd/">使用 Fastlane 持续部署</a></li>
       <li><a href="/upgrading/">升级 Flutter</a></li>
       <li><a href="/formatting/"> 格式化代码</a></li>
     </ul>
@@ -165,32 +164,2074 @@
          <a href="https://github.com/flutter/website/blob/master/zh_CN/flutter-for-ios.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Flutter iOS 开发者&body=From URL: http://localhost:4000/flutter-for-ios/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Flutter for iOS Developers&body=From URL: http://localhost:4000/flutter-for-ios/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Flutter iOS 开发者 </h1>
+    <h1 class="post-title">Flutter for iOS Developers </h1>
    </div>
 
   </header>
   
 
-  <h1 id="这份文档是正在进行中的工作">这份文档是正在进行中的工作。</h1>
+  <p>This document is for iOS developers looking to apply their existing iOS knowledge
+to build mobile apps with Flutter. If you understand the fundamentals of the iOS
+framework then you can use this document as a way to get started learning Flutter
+development.</p>
 
-<p>我们正在处理这份文档，在完成之前请不要依赖它的完整性以及准确性，完成之后它将在边栏的显示为链接。</p>
+<p>Your iOS knowledge and skill set are highly valuable when building with
+Flutter, because Flutter relies on the mobile operating system for numerous
+capabilities and configurations. Flutter is a new way to build UIs for mobile,
+but it has a plugin system to communicate with iOS (and Android) for non-UI
+tasks. If you’re an expert in iOS development, you don’t have to relearn everything
+to use Flutter.</p>
 
-<hr />
-
-<p>本文档适用于那些希望用他们目前的 iOS 知识来使用 Flutter 构建移动应用的 iOS 开发者们。如果你熟悉 iOS 框架基础的话，那么你可以借助这个文档快速开始 Flutter 开发。</p>
-
-<p>在使用 Flutter 构建应用时，你的 iOS 知识和技能非常有价值，因为 Flutter 依赖于众多的手机操作系统功能和配置。Flutter 是一种构建手机用户界面的新方法，但它有一个插件系统可以与 iOS（和 Android）进行非 UI 任务进行通信。如果你是 iOS 开发专家，那么你不用重新学习所有内容就可以使用 Flutter。</p>
-
-<p>此文档可作为手册来跳转并查找与您的需求最相关的问题。</p>
+<p>This document can be used as a cookbook by jumping around and finding questions
+that are most relevant to your needs.</p>
 
 <ul id="markdown-toc">
-  <li><a href="#这份文档是正在进行中的工作" id="markdown-toc-这份文档是正在进行中的工作">这份文档是正在进行中的工作。</a></li>
+  <li><a href="#views" id="markdown-toc-views">Views</a>    <ul>
+      <li><a href="#what-is-the-equivalent-of-a-uiview-in-flutter" id="markdown-toc-what-is-the-equivalent-of-a-uiview-in-flutter">What is the equivalent of a <code class="highlighter-rouge">UIView</code> in Flutter?</a></li>
+      <li><a href="#how-do-i-update-widgets" id="markdown-toc-how-do-i-update-widgets">How do I update <code class="highlighter-rouge">Widget</code>s?</a></li>
+      <li><a href="#how-do-i-lay-out-my-widgets-where-is-my-storyboard" id="markdown-toc-how-do-i-lay-out-my-widgets-where-is-my-storyboard">How do I lay out my widgets? Where is my Storyboard?</a></li>
+      <li><a href="#how-do-i-add-or-remove-a-component-from-my-layout" id="markdown-toc-how-do-i-add-or-remove-a-component-from-my-layout">How do I add or remove a component from my layout?</a></li>
+      <li><a href="#how-do-i-animate-a-widget" id="markdown-toc-how-do-i-animate-a-widget">How do I animate a Widget?</a></li>
+      <li><a href="#how-do-i-draw-to-the-screen" id="markdown-toc-how-do-i-draw-to-the-screen">How do I draw to the screen?</a></li>
+      <li><a href="#where-is-the-widgets-opacity" id="markdown-toc-where-is-the-widgets-opacity">Where is the widget’s opacity?</a></li>
+      <li><a href="#how-do-i-build-custom-widgets" id="markdown-toc-how-do-i-build-custom-widgets">How do I build custom widgets?</a></li>
+    </ul>
+  </li>
+  <li><a href="#navigation" id="markdown-toc-navigation">Navigation</a>    <ul>
+      <li><a href="#how-do-i-navigate-between-pages" id="markdown-toc-how-do-i-navigate-between-pages">How do I navigate between pages?</a></li>
+      <li><a href="#how-do-i-navigate-to-another-app" id="markdown-toc-how-do-i-navigate-to-another-app">How do I navigate to another app?</a></li>
+    </ul>
+  </li>
+  <li><a href="#threading--asynchronicity" id="markdown-toc-threading--asynchronicity">Threading &amp; asynchronicity</a>    <ul>
+      <li><a href="#how-do-i-write-asynchronous-code" id="markdown-toc-how-do-i-write-asynchronous-code">How do I write asynchronous code?</a></li>
+      <li><a href="#how-do-you-move-work-to-a-background-thread" id="markdown-toc-how-do-you-move-work-to-a-background-thread">How do you move work to a background thread?</a></li>
+      <li><a href="#how-do-i-make-network-requests" id="markdown-toc-how-do-i-make-network-requests">How do I make network requests?</a></li>
+      <li><a href="#how-do-i-show-the-progress-of-a-long-running-task" id="markdown-toc-how-do-i-show-the-progress-of-a-long-running-task">How do I show the progress of a long-running task?</a></li>
+    </ul>
+  </li>
+  <li><a href="#project-structure-localization-dependencies-and-assets" id="markdown-toc-project-structure-localization-dependencies-and-assets">Project structure, localization, dependencies and assets</a>    <ul>
+      <li><a href="#how-do-i-include-image-assets-for-flutter-what-about-multiple-resolutions" id="markdown-toc-how-do-i-include-image-assets-for-flutter-what-about-multiple-resolutions">How do I include image assets for Flutter? What about multiple resolutions?</a></li>
+      <li><a href="#where-do-i-store-strings-how-do-i-handle-localization" id="markdown-toc-where-do-i-store-strings-how-do-i-handle-localization">Where do I store strings? How do I handle localization?</a></li>
+      <li><a href="#what-is-the-equivalent-of-cocoapods-how-do-i-add-dependencies" id="markdown-toc-what-is-the-equivalent-of-cocoapods-how-do-i-add-dependencies">What is the equivalent of Cocoapods? How do I add dependencies?</a></li>
+    </ul>
+  </li>
+  <li><a href="#viewcontrollers" id="markdown-toc-viewcontrollers">ViewControllers</a>    <ul>
+      <li><a href="#what-is-the-equivalent-to-viewcontrollers-in-flutter" id="markdown-toc-what-is-the-equivalent-to-viewcontrollers-in-flutter">What is the equivalent to <code class="highlighter-rouge">ViewController</code>s in Flutter?</a></li>
+      <li><a href="#how-do-i-listen-to-ios-lifecycle-events" id="markdown-toc-how-do-i-listen-to-ios-lifecycle-events">How do I listen to iOS lifecycle events?</a></li>
+    </ul>
+  </li>
+  <li><a href="#layouts" id="markdown-toc-layouts">Layouts</a>    <ul>
+      <li><a href="#what-is-the-equivalent-of-a-uitableview-or-uicollectionview-in-flutter" id="markdown-toc-what-is-the-equivalent-of-a-uitableview-or-uicollectionview-in-flutter">What is the equivalent of a <code class="highlighter-rouge">UITableView</code> or <code class="highlighter-rouge">UICollectionView</code> in Flutter?</a></li>
+      <li><a href="#how-do-i-know-which-list-item-is-clicked" id="markdown-toc-how-do-i-know-which-list-item-is-clicked">How do I know which list item is clicked?</a></li>
+      <li><a href="#how-do-i-update-listviews-dynamically" id="markdown-toc-how-do-i-update-listviews-dynamically">How do I update <code class="highlighter-rouge">ListView</code>s dynamically?</a></li>
+      <li><a href="#what-is-the-equivalent-of-a-scrollview-in-flutter" id="markdown-toc-what-is-the-equivalent-of-a-scrollview-in-flutter">What is the equivalent of a <code class="highlighter-rouge">ScrollView</code> in Flutter?</a></li>
+    </ul>
+  </li>
+  <li><a href="#gesture-detection-and-touch-event-handling" id="markdown-toc-gesture-detection-and-touch-event-handling">Gesture detection and touch event handling</a>    <ul>
+      <li><a href="#how-do-i-add-a-click-listener-to-a-widget-in-flutter" id="markdown-toc-how-do-i-add-a-click-listener-to-a-widget-in-flutter">How do I add a click listener to a widget in Flutter?</a></li>
+      <li><a href="#how-do-i-handle-other-gestures-on-widgets" id="markdown-toc-how-do-i-handle-other-gestures-on-widgets">How do I handle other gestures on widgets?</a></li>
+    </ul>
+  </li>
+  <li><a href="#theming-and-text" id="markdown-toc-theming-and-text">Theming and text</a>    <ul>
+      <li><a href="#how-do-i-theme-an-app" id="markdown-toc-how-do-i-theme-an-app">How do I theme an app?</a></li>
+      <li><a href="#how-do-i-set-custom-fonts-on-my-text-widgets" id="markdown-toc-how-do-i-set-custom-fonts-on-my-text-widgets">How do I set custom fonts on my <code class="highlighter-rouge">Text</code> widgets?</a></li>
+      <li><a href="#how-do-i-style-my-text-widgets" id="markdown-toc-how-do-i-style-my-text-widgets">How do I style my <code class="highlighter-rouge">Text</code> widgets?</a></li>
+    </ul>
+  </li>
+  <li><a href="#form-input" id="markdown-toc-form-input">Form input</a>    <ul>
+      <li><a href="#how-do-forms-work-in-flutter-how-do-i-retrieve-user-input" id="markdown-toc-how-do-forms-work-in-flutter-how-do-i-retrieve-user-input">How do forms work in Flutter? How do I retrieve user input?</a></li>
+      <li><a href="#what-is-the-equivalent-of-a-placeholder-in-a-text-field" id="markdown-toc-what-is-the-equivalent-of-a-placeholder-in-a-text-field">What is the equivalent of a placeholder in a text field?</a></li>
+      <li><a href="#how-do-i-show-validation-errors" id="markdown-toc-how-do-i-show-validation-errors">How do I show validation errors?</a></li>
+    </ul>
+  </li>
+  <li><a href="#interacting-with-hardware-third-party-services-and-the-platform" id="markdown-toc-interacting-with-hardware-third-party-services-and-the-platform">Interacting with hardware, third party services and the platform</a>    <ul>
+      <li><a href="#how-do-i-interact-with-the-platform-and-with-platform-native-code" id="markdown-toc-how-do-i-interact-with-the-platform-and-with-platform-native-code">How do I interact with the platform, and with platform native code?</a></li>
+      <li><a href="#how-do-i-access-the-gps-sensor" id="markdown-toc-how-do-i-access-the-gps-sensor">How do I access the GPS sensor?</a></li>
+      <li><a href="#how-do-i-access-the-camera" id="markdown-toc-how-do-i-access-the-camera">How do I access the camera?</a></li>
+      <li><a href="#how-do-i-log-in-with-facebook" id="markdown-toc-how-do-i-log-in-with-facebook">How do I log in with Facebook?</a></li>
+      <li><a href="#how-do-i-use-firebase-features" id="markdown-toc-how-do-i-use-firebase-features">How do I use Firebase features?</a></li>
+      <li><a href="#how-do-i-build-my-own-custom-native-integrations" id="markdown-toc-how-do-i-build-my-own-custom-native-integrations">How do I build my own custom native integrations?</a></li>
+    </ul>
+  </li>
+  <li><a href="#databases-and-local-storage" id="markdown-toc-databases-and-local-storage">Databases and local storage</a>    <ul>
+      <li><a href="#how-do-i-access-userdefaults-in-flutter" id="markdown-toc-how-do-i-access-userdefaults-in-flutter">How do I access <code class="highlighter-rouge">UserDefaults</code> in Flutter?</a></li>
+      <li><a href="#what-is-the-equivalent-to-coredata-in-flutter" id="markdown-toc-what-is-the-equivalent-to-coredata-in-flutter">What is the equivalent to CoreData in Flutter?</a></li>
+    </ul>
+  </li>
+  <li><a href="#notifications" id="markdown-toc-notifications">Notifications</a>    <ul>
+      <li><a href="#how-do-i-set-up-push-notifications" id="markdown-toc-how-do-i-set-up-push-notifications">How do I set up push notifications?</a></li>
+    </ul>
+  </li>
 </ul>
+
+<h1 id="views">Views</h1>
+
+<h2 id="what-is-the-equivalent-of-a-uiview-in-flutter">What is the equivalent of a <code class="highlighter-rouge">UIView</code> in Flutter?</h2>
+
+<p>On iOS, most of what you create in the UI is done using view objects, which are
+instances of the <code class="highlighter-rouge">UIView</code> class. These can act as containers for other <code class="highlighter-rouge">UIView</code>
+classes, which form your layout.</p>
+
+<p>In Flutter, the rough equivalent to a <code class="highlighter-rouge">UIView</code> is a <code class="highlighter-rouge">Widget</code>. Widgets don’t map
+exactly to iOS views, but while you’re getting acquainted with how Flutter works
+you can think of them as “the way you declare and construct UI”.</p>
+
+<p>However, these have a few differences to a <code class="highlighter-rouge">UIView</code>. To start, widgets have a
+different lifespan: they are immutable and only exist until they need to be
+changed. Whenever widgets or their state change, Flutter’s framework creates
+a new tree of widget instances. In comparison, an iOS view is not recreated when
+it changes, but rather it’s a mutable entity that is drawn once and doesn’t
+redraw until it is invalidated using <code class="highlighter-rouge">setNeedsDisplay()</code>.</p>
+
+<p>Furthermore, unlike <code class="highlighter-rouge">UIView</code>, Flutter’s widgets are lightweight, in part due
+to their immutability. Because they aren’t views themselves, and aren’t directly
+drawing anything, but rather are a description of the UI and its semantics that get
+“inflated” into actual view objects under the hood.</p>
+
+<p>Flutter includes the <a href="https://material.io/develop/flutter/">Material Components</a>
+library. These are widgets that implement the
+<a href="https://material.io/design/">Material Design guidelines</a>. Material Design is a
+flexible design system <a href="https://material.io/design/platform-guidance/cross-platform-adaptation.html#cross-platform-guidelines">optimized for all
+platforms</a>,
+including iOS.</p>
+
+<p>But Flutter is flexible and expressive enough to implement any design language.
+On iOS, you can use the <a href="https://flutter.io/widgets/cupertino/">Cupertino widgets</a>
+to produce an interface that looks like
+<a href="https://developer.apple.com/design/resources/">Apple’s iOS design language</a>.</p>
+
+<h2 id="how-do-i-update-widgets">How do I update <code class="highlighter-rouge">Widget</code>s?</h2>
+
+<p>To update your views on iOS, you directly mutate them. In Flutter, widgets are
+immutable and not updated directly. Instead, you have to manipulate the
+widget’s state.</p>
+
+<p>This is where the concept of Stateful vs Stateless widgets
+comes in. A <code class="highlighter-rouge">StatelessWidget</code> is just what it sounds like—a widget with no
+state attached.</p>
+
+<p><code class="highlighter-rouge">StatelessWidgets</code> are useful when the part of the user interface you are
+describing does not depend on anything other than the initial configuration
+information in the widget.</p>
+
+<p>For example, in iOS, this is similar to placing a <code class="highlighter-rouge">UIImageView</code> with
+your logo as the <code class="highlighter-rouge">image</code>. If the logo is not changing during runtime,
+use a <code class="highlighter-rouge">StatelessWidget</code> in Flutter.</p>
+
+<p>If you want to dynamically change the UI based on data received after making an
+HTTP call, use a <code class="highlighter-rouge">StatefulWidget</code>. After the HTTP call has
+completed, tell the Flutter framework that the widget’s <code class="highlighter-rouge">State</code> is
+updated, so it can update the UI.</p>
+
+<p>The important difference between stateless and
+stateful widgets is that <code class="highlighter-rouge">StatefulWidget</code>s have a <code class="highlighter-rouge">State</code> object that stores
+state data and carries it over across tree rebuilds, so it’s not lost.</p>
+
+<p>If you are in doubt, remember this rule: if a widget changes outside of
+the <code class="highlighter-rouge">build</code> method (because of runtime user interactions, for example), it’s stateful.
+If the widget never changes, once built, it’s stateless.
+However, even if a widget is stateful, the containing parent widget can still
+be stateless if it isn’t itself reacting to those changes (or other inputs).</p>
+
+<p>The following example shows how to use a <code class="highlighter-rouge">StatelessWidget</code>. A common
+<code class="highlighter-rouge">StatelessWidget</code> is the <code class="highlighter-rouge">Text</code> widget. If you look at the implementation of
+the <code class="highlighter-rouge">Text</code> widget you’ll find it subclasses <code class="highlighter-rouge">StatelessWidget</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>new Text(
+  &#39;I like Flutter!&#39;,
+  style: new TextStyle(fontWeight: FontWeight.bold),
+);</code></pre>
+
+<p>If you look at the code above, you might notice that the <code class="highlighter-rouge">Text</code> widget
+carries no explicit state with it. It renders what is passed in its
+constructors and nothing more.</p>
+
+<p>But, what if you want to make “I Like Flutter” change dynamically, for example
+when clicking a <code class="highlighter-rouge">FloatingActionButton</code>?</p>
+
+<p>To achieve this, wrap the <code class="highlighter-rouge">Text</code> widget in a <code class="highlighter-rouge">StatefulWidget</code> and
+update it when the user clicks the button.</p>
+
+<p>For example:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  // Default placeholder text
+  String textToShow = &quot;I Like Flutter&quot;;
+  void _updateText() {
+    setState(() {
+      // update the text
+      textToShow = &quot;Flutter is Awesome!&quot;;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&quot;Sample App&quot;),
+      ),
+      body: new Center(child: new Text(textToShow)),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: _updateText,
+        tooltip: &#39;Update Text&#39;,
+        child: new Icon(Icons.update),
+      ),
+    );
+  }
+}</code></pre>
+
+<h2 id="how-do-i-lay-out-my-widgets-where-is-my-storyboard">How do I lay out my widgets? Where is my Storyboard?</h2>
+
+<p>In iOS, you might use a Storyboard file to organize your views and set
+constraints, or you might set your constraints programmatically in your view
+controllers. In Flutter, declare your layout in code by composing
+a widget tree.</p>
+
+<p>The following example shows how to display a simple widget with padding:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>@override
+Widget build(BuildContext context) {
+  return new Scaffold(
+    appBar: new AppBar(
+      title: new Text(&quot;Sample App&quot;),
+    ),
+    body: new Center(
+      child: new CupertinoButton(
+        onPressed: () {
+          setState(() { _pressedCount += 1; });
+        },
+        child: new Text(&#39;Hello&#39;),
+        padding: new EdgeInsets.only(left: 10.0, right: 10.0),
+      ),
+    ),
+  );
+}</code></pre>
+
+<p>You can add padding to any widget, which mimics the functionality of
+constraints in iOS.</p>
+
+<p>You can view the layouts that Flutter has to offer in the <a href="/widgets/layout/">widget
+catalog</a>.</p>
+
+<h2 id="how-do-i-add-or-remove-a-component-from-my-layout">How do I add or remove a component from my layout?</h2>
+
+<p>In iOS, you call <code class="highlighter-rouge">addSubview()</code> on the parent, or <code class="highlighter-rouge">removeFromSuperview()</code>
+on a child view to dynamically add or remove child views. In Flutter, because
+widgets are immutable there is no direct equivalent to <code class="highlighter-rouge">addSubview()</code>.
+Instead, you can pass a function to the parent that returns a widget, and
+control that child’s creation with a boolean flag.</p>
+
+<p>The following example shows how to toggle between two widgets when the user clicks
+the <code class="highlighter-rouge">FloatingActionButton</code>:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  // Default value for toggle
+  bool toggle = true;
+  void _toggle() {
+    setState(() {
+      toggle = !toggle;
+    });
+  }
+
+  _getToggleChild() {
+    if (toggle) {
+      return new Text(&#39;Toggle One&#39;);
+    } else {
+      return new CupertinoButton(
+        onPressed: () {},
+        child: new Text(&#39;Toggle Two&#39;),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&quot;Sample App&quot;),
+      ),
+      body: new Center(
+        child: _getToggleChild(),
+      ),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: _toggle,
+        tooltip: &#39;Update Text&#39;,
+        child: new Icon(Icons.update),
+      ),
+    );
+  }
+}</code></pre>
+
+<h2 id="how-do-i-animate-a-widget">How do I animate a Widget?</h2>
+
+<p>In iOS, you create an animation by calling the
+<code class="highlighter-rouge">animate(withDuration:animations:)</code> method on a view. In Flutter,
+use the animation library to wrap widgets inside an animated widget.</p>
+
+<p>In Flutter, use an <code class="highlighter-rouge">AnimationController</code> which is an <code class="highlighter-rouge">Animation&lt;double&gt;</code>
+that can pause, seek, stop and reverse the animation. It requires a <code class="highlighter-rouge">Ticker</code>
+that signals when vsync happens and produces a linear interpolation between
+0 and 1 on each frame while it’s running. You then create one or more
+<code class="highlighter-rouge">Animation</code>s and attach them to the controller.</p>
+
+<p>For example, you might use <code class="highlighter-rouge">CurvedAnimation</code> to implement an animation
+along an interpolated curve. In this sense, the controller
+is the “master” source of the animation progress and the <code class="highlighter-rouge">CurvedAnimation</code>
+computes the curve that replaces the controller’s default linear motion.
+Like widgets, animations in Flutter work with composition.</p>
+
+<p>When building the widget tree you assign the <code class="highlighter-rouge">Animation</code> to an animated
+property of a widget, such as the opacity of a <code class="highlighter-rouge">FadeTransition</code>, and tell the
+controller to start the animation.</p>
+
+<p>The following example shows how to write a <code class="highlighter-rouge">FadeTransition</code> that fades the widget
+into a logo when you press the <code class="highlighter-rouge">FloatingActionButton</code>:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Fade Demo&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new MyFadeTest(title: &#39;Fade Demo&#39;),
+    );
+  }
+}
+
+class MyFadeTest extends StatefulWidget {
+  MyFadeTest({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyFadeTest createState() =&gt; new _MyFadeTest();
+}
+
+class _MyFadeTest extends State&lt;MyFadeTest&gt; with TickerProviderStateMixin {
+  AnimationController controller;
+  CurvedAnimation curve;
+
+  @override
+  void initState() {
+    controller = new AnimationController(duration: const Duration(milliseconds: 2000), vsync: this);
+    curve = new CurvedAnimation(parent: controller, curve: Curves.easeIn);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(widget.title),
+      ),
+      body: new Center(
+        child: new Container(
+          child: new FadeTransition(
+            opacity: curve,
+            child: new FlutterLogo(
+              size: 100.0,
+            )
+          )
+        )
+      ),
+      floatingActionButton: new FloatingActionButton(
+        tooltip: &#39;Fade&#39;,
+        child: new Icon(Icons.brush),
+        onPressed: () {
+          controller.forward();
+        },
+      ),
+    );
+  }
+
+  @override
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}</code></pre>
+
+<p>For more information, see
+<a href="/widgets/animation/">Animation &amp; Motion widgets</a>,
+the <a href="/tutorials/animation">Animations tutorial</a>,
+and the <a href="/animations/">Animations overview</a>.</p>
+
+<h2 id="how-do-i-draw-to-the-screen">How do I draw to the screen?</h2>
+
+<p>On iOS, you use <code class="highlighter-rouge">CoreGraphics</code> to draw lines and shapes to the
+screen. Flutter has a different API based on the <code class="highlighter-rouge">Canvas</code> class, with two
+other classes that help you draw: <code class="highlighter-rouge">CustomPaint</code> and <code class="highlighter-rouge">CustomPainter</code>, the
+latter of which implements your algorithm to draw to the canvas.</p>
+
+<p>To learn how to implement a signature painter in Flutter, see Collin’s answer on
+<a href="https://stackoverflow.com/questions/46241071/create-signature-area-
+for-mobile-app-in-dart-flutter">StackOverflow</a>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class SignaturePainter extends CustomPainter {
+  SignaturePainter(this.points);
+
+  final List&lt;Offset&gt; points;
+
+  void paint(Canvas canvas, Size size) {
+    var paint = new Paint()
+      ..color = Colors.black
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = 5.0;
+    for (int i = 0; i &lt; points.length - 1; i++) {
+      if (points[i] != null &amp;&amp; points[i + 1] != null)
+        canvas.drawLine(points[i], points[i + 1], paint);
+    }
+  }
+
+  bool shouldRepaint(SignaturePainter other) =&gt; other.points != points;
+}
+
+class Signature extends StatefulWidget {
+  SignatureState createState() =&gt; new SignatureState();
+}
+
+class SignatureState extends State&lt;Signature&gt; {
+
+  List&lt;Offset&gt; _points = &lt;Offset&gt;[];
+
+  Widget build(BuildContext context) {
+    return new GestureDetector(
+      onPanUpdate: (DragUpdateDetails details) {
+        setState(() {
+          RenderBox referenceBox = context.findRenderObject();
+          Offset localPosition =
+          referenceBox.globalToLocal(details.globalPosition);
+          _points = new List.from(_points)..add(localPosition);
+        });
+      },
+      onPanEnd: (DragEndDetails details) =&gt; _points.add(null),
+      child: new CustomPaint(painter: new SignaturePainter(_points), size: Size.infinite),
+    );
+  }
+}</code></pre>
+
+<h2 id="where-is-the-widgets-opacity">Where is the widget’s opacity?</h2>
+
+<p>On iOS, everything has .opacity or .alpha. In Flutter, most of the time you need to
+wrap a widget in an Opacity widget to accomplish this.</p>
+
+<h2 id="how-do-i-build-custom-widgets">How do I build custom widgets?</h2>
+
+<p>In iOS, you typically subclass <code class="highlighter-rouge">UIView</code>, or use a pre-existing view, to
+override and implement methods that achieve the desired behavior. In
+In Flutter, build a custom widget by
+<a href="/technical-overview/#everythings-a-widget">composing</a> smaller widgets
+(instead of extending them).</p>
+
+<p>For example, how do you build a <code class="highlighter-rouge">CustomButton</code> that takes a label in
+the constructor? Create a CustomButton that composes a <code class="highlighter-rouge">RaisedButton</code> with a label,
+rather than by extending <code class="highlighter-rouge">RaisedButton</code>:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class CustomButton extends StatelessWidget {
+  final String label;
+
+  CustomButton(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    return new RaisedButton(onPressed: () {}, child: new Text(label));
+  }
+}</code></pre>
+
+<p>Then use <code class="highlighter-rouge">CustomButton</code>, just as you’d use any other Flutter widget:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>@override
+Widget build(BuildContext context) {
+  return new Center(
+    child: new CustomButton(&quot;Hello&quot;),
+  );
+}</code></pre>
+
+<h1 id="navigation">Navigation</h1>
+
+<h2 id="how-do-i-navigate-between-pages">How do I navigate between pages?</h2>
+
+<p>In iOS, to travel between view controllers, you can use a
+<code class="highlighter-rouge">UINavigationController</code> that manages the stack of view controllers to
+display.</p>
+
+<p>Flutter has a similar implementation, using a <code class="highlighter-rouge">Navigator</code> and
+<code class="highlighter-rouge">Routes</code>. A <code class="highlighter-rouge">Route</code> is an abstraction for a “screen” or “page” of an app, and
+a <code class="highlighter-rouge">Navigator</code> is a <a href="technical-overview/#everythings-a-widget">widget</a>
+that manages routes. A route roughly maps to a
+<code class="highlighter-rouge">UIViewController</code>. The navigator works in a similar way to the iOS
+<code class="highlighter-rouge">UINavigationController</code>, in that it can <code class="highlighter-rouge">push()</code> and <code class="highlighter-rouge">pop()</code> routes depending
+on whether you want to navigate to, or back from, a view.</p>
+
+<p>To navigate between pages, you have a couple options:</p>
+
+<ul>
+  <li>Specify a <code class="highlighter-rouge">Map</code> of route names. (MaterialApp)</li>
+  <li>Directly navigate to a route. (WidgetApp)</li>
+</ul>
+
+<p>The following example builds a Map.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>void main() {
+  runApp(new MaterialApp(
+    home: new MyAppHome(), // becomes the route named &#39;/&#39;
+    routes: &lt;String, WidgetBuilder&gt; {
+      &#39;/a&#39;: (BuildContext context) =&gt; new MyPage(title: &#39;page A&#39;),
+      &#39;/b&#39;: (BuildContext context) =&gt; new MyPage(title: &#39;page B&#39;),
+      &#39;/c&#39;: (BuildContext context) =&gt; new MyPage(title: &#39;page C&#39;),
+    },
+  ));
+}</code></pre>
+
+<p>Navigate to a route by <code class="highlighter-rouge">push</code>ing its name to the <code class="highlighter-rouge">Navigator</code>.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>Navigator.of(context).pushNamed(&#39;/b&#39;);</code></pre>
+
+<p>The <code class="highlighter-rouge">Navigator</code> class handles routing in Flutter and is used to get
+a result back from a route that you have pushed on the stack. This is done
+by <code class="highlighter-rouge">await</code>ing on the <code class="highlighter-rouge">Future</code> returned by <code class="highlighter-rouge">push()</code>.</p>
+
+<p>For example, to start a ‘location’ route that lets the user select their
+location, you might do the following:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>Map coordinates = await Navigator.of(context).pushNamed(&#39;/location&#39;);</code></pre>
+
+<p>And then, inside your ‘location’ route, once the user has selected their
+location, <code class="highlighter-rouge">pop()</code> the stack with the result:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>Navigator.of(context).pop({&quot;lat&quot;:43.821757,&quot;long&quot;:-79.226392});</code></pre>
+
+<h2 id="how-do-i-navigate-to-another-app">How do I navigate to another app?</h2>
+
+<p>In iOS, to send the user to another application, you use a
+specific URL scheme. For the system level apps, the scheme
+depends on the app. To implement this functionality in Flutter,
+create a native platform integration, or use an existing
+<a href="#plugins">plugin</a>, such as
+<a href="https://pub.dartlang.org/packages/url_launcher"><code class="highlighter-rouge">url_launcher</code></a>.</p>
+
+<h1 id="threading--asynchronicity">Threading &amp; asynchronicity</h1>
+
+<h2 id="how-do-i-write-asynchronous-code">How do I write asynchronous code?</h2>
+
+<p>Dart has a single-threaded execution model, with support for <code class="highlighter-rouge">Isolate</code>s (a way
+to run Dart code on another thread), an event loop, and asynchronous programming.
+Unless you spawn an <code class="highlighter-rouge">Isolate</code>, your Dart code runs in the main UI thread and is
+driven by an event loop. Flutter’s event loop is equivalent to the iOS main
+loop—that is, the <code class="highlighter-rouge">Looper</code> that is attached to the main thread.</p>
+
+<p>Dart’s single-threaded model doesn’t mean you are required to run everything as
+a blocking operation that causes the UI to freeze. Instead,
+use the asynchronous facilities that the Dart language provides, such as
+<code class="highlighter-rouge">async</code>/<code class="highlighter-rouge">await</code>, to perform asynchronous work.</p>
+
+<p>For example, you can run network code without causing the UI to hang by using
+<code class="highlighter-rouge">async</code>/<code class="highlighter-rouge">await</code> and letting Dart do the heavy lifting:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>loadData() async {
+  String dataURL = &quot;https://jsonplaceholder.typicode.com/posts&quot;;
+  http.Response response = await http.get(dataURL);
+  setState(() {
+    widgets = json.decode(response.body);
+  });
+}</code></pre>
+
+<p>Once the <code class="highlighter-rouge">await</code>ed network call is done, update the UI by calling <code class="highlighter-rouge">setState()</code>,
+which triggers a rebuild of the widget sub-tree and updates the data.</p>
+
+<p>The following example loads data asynchronously and displays it in a <code class="highlighter-rouge">ListView</code>:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;dart:convert&#39;;
+
+import &#39;package:flutter/material.dart&#39;;
+import &#39;package:http/http.dart&#39; as http;
+
+void main() {
+  runApp(new SampleApp());
+}
+
+class SampleApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  List widgets = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    loadData();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&quot;Sample App&quot;),
+      ),
+      body: new ListView.builder(
+          itemCount: widgets.length,
+          itemBuilder: (BuildContext context, int position) {
+            return getRow(position);
+          }));
+  }
+
+  Widget getRow(int i) {
+    return new Padding(
+      padding: new EdgeInsets.all(10.0),
+      child: new Text(&quot;Row ${widgets[i][&quot;title&quot;]}&quot;)
+    );
+  }
+
+  loadData() async {
+    String dataURL = &quot;https://jsonplaceholder.typicode.com/posts&quot;;
+    http.Response response = await http.get(dataURL);
+    setState(() {
+      widgets = json.decode(response.body);
+    });
+  }
+}</code></pre>
+
+<p>Refer to the next section for more information on doing work in the
+background, and how Flutter differs from iOS.</p>
+
+<h2 id="how-do-you-move-work-to-a-background-thread">How do you move work to a background thread?</h2>
+
+<p>Since Flutter is single threaded and runs an event loop (like Node.js), you
+don’t have to worry about thread management or spawning background threads. If
+you’re doing I/O-bound work, such as disk access or a network call, then
+you can safely use <code class="highlighter-rouge">async</code>/<code class="highlighter-rouge">await</code> and you’re done. If, on the other
+hand, you need to do computationally intensive work that keeps the CPU busy,
+you want to move it to an <code class="highlighter-rouge">Isolate</code> to avoid blocking the event loop.</p>
+
+<p>For I/O-bound work, declare the function as an <code class="highlighter-rouge">async</code> function,
+and <code class="highlighter-rouge">await</code> on long-running tasks inside the function:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>loadData() async {
+  String dataURL = &quot;https://jsonplaceholder.typicode.com/posts&quot;;
+  http.Response response = await http.get(dataURL);
+  setState(() {
+    widgets = json.decode(response.body);
+  });
+}</code></pre>
+
+<p>This is how you typically do network or database calls, which are both
+I/O operations.</p>
+
+<p>However, there are times when you might be processing a large amount of data and
+your UI hangs. In Flutter, use <code class="highlighter-rouge">Isolate</code>s to take advantage of
+multiple CPU cores to do long-running or computationally intensive tasks.</p>
+
+<p>Isolates are separate execution threads that do not share any memory
+with the main execution memory heap. This means you can’t access variables from
+the main thread, or update your UI by calling <code class="highlighter-rouge">setState()</code>. Isolates are true to
+their name, and cannot share memory (in the form of static fields, for example).</p>
+
+<p>The following example shows, in a simple isolate, how to share data back to
+the main thread to update the UI.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>loadData() async {
+  ReceivePort receivePort = new ReceivePort();
+  await Isolate.spawn(dataLoader, receivePort.sendPort);
+
+  // The &#39;echo&#39; isolate sends its SendPort as the first message
+  SendPort sendPort = await receivePort.first;
+
+  List msg = await sendReceive(sendPort, &quot;https://jsonplaceholder.typicode.com/posts&quot;);
+
+  setState(() {
+    widgets = msg;
+  });
+}
+
+// The entry point for the isolate
+static dataLoader(SendPort sendPort) async {
+  // Open the ReceivePort for incoming messages.
+  ReceivePort port = new ReceivePort();
+
+  // Notify any other isolates what port this isolate listens to.
+  sendPort.send(port.sendPort);
+
+  await for (var msg in port) {
+    String data = msg[0];
+    SendPort replyTo = msg[1];
+
+    String dataURL = data;
+    http.Response response = await http.get(dataURL);
+    // Lots of JSON to parse
+    replyTo.send(json.decode(response.body));
+  }
+}
+
+Future sendReceive(SendPort port, msg) {
+  ReceivePort response = new ReceivePort();
+  port.send([msg, response.sendPort]);
+  return response.first;
+}</code></pre>
+
+<p>Here, <code class="highlighter-rouge">dataLoader()</code> is the <code class="highlighter-rouge">Isolate</code> that runs in its own separate execution thread.
+In the isolate you can perform more CPU intensive processing (parsing a big JSON, for
+example), or perform computationally intensive math, such as encryption or signal processing.</p>
+
+<p>You can run the full example below:</p>
+
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;dart:convert&#39;;
+
+import &#39;package:flutter/material.dart&#39;;
+import &#39;package:http/http.dart&#39; as http;
+import &#39;dart:async&#39;;
+import &#39;dart:isolate&#39;;
+
+void main() {
+  runApp(new SampleApp());
+}
+
+class SampleApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  List widgets = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  showLoadingDialog() {
+    if (widgets.length == 0) {
+      return true;
+    }
+
+    return false;
+  }
+
+  getBody() {
+    if (showLoadingDialog()) {
+      return getProgressDialog();
+    } else {
+      return getListView();
+    }
+  }
+
+  getProgressDialog() {
+    return new Center(child: new CircularProgressIndicator());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text(&quot;Sample App&quot;),
+        ),
+        body: getBody());
+  }
+
+  ListView getListView() =&gt; new ListView.builder(
+      itemCount: widgets.length,
+      itemBuilder: (BuildContext context, int position) {
+        return getRow(position);
+      });
+
+  Widget getRow(int i) {
+    return new Padding(padding: new EdgeInsets.all(10.0), child: new Text(&quot;Row ${widgets[i][&quot;title&quot;]}&quot;));
+  }
+
+  loadData() async {
+    ReceivePort receivePort = new ReceivePort();
+    await Isolate.spawn(dataLoader, receivePort.sendPort);
+
+    // The &#39;echo&#39; isolate sends its SendPort as the first message
+    SendPort sendPort = await receivePort.first;
+
+    List msg = await sendReceive(sendPort, &quot;https://jsonplaceholder.typicode.com/posts&quot;);
+
+    setState(() {
+      widgets = msg;
+    });
+  }
+
+// the entry point for the isolate
+  static dataLoader(SendPort sendPort) async {
+    // Open the ReceivePort for incoming messages.
+    ReceivePort port = new ReceivePort();
+
+    // Notify any other isolates what port this isolate listens to.
+    sendPort.send(port.sendPort);
+
+    await for (var msg in port) {
+      String data = msg[0];
+      SendPort replyTo = msg[1];
+
+      String dataURL = data;
+      http.Response response = await http.get(dataURL);
+      // Lots of JSON to parse
+      replyTo.send(json.decode(response.body));
+    }
+  }
+
+  Future sendReceive(SendPort port, msg) {
+    ReceivePort response = new ReceivePort();
+    port.send([msg, response.sendPort]);
+    return response.first;
+  }
+}</code></pre>
+
+<h2 id="how-do-i-make-network-requests">How do I make network requests?</h2>
+
+<p>Making a network call in Flutter is easy when you use the popular
+<a href="https://pub.dartlang.org/packages/http"><code class="highlighter-rouge">http</code> package</a>. This abstracts
+away a lot of the networking that you might normally implement yourself,
+making it simple to make network calls.</p>
+
+<p>To use the <code class="highlighter-rouge">http</code> package, add it to your dependencies in <code class="highlighter-rouge">pubspec.yaml</code>:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-yaml language-yaml"><code>dependencies:
+  ...
+  http: ^0.11.3+16</code></pre>
+
+<p>To make a network call, call <code class="highlighter-rouge">await</code> on the <code class="highlighter-rouge">async</code> function <code class="highlighter-rouge">http.get()</code>:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;dart:convert&#39;;
+
+import &#39;package:flutter/material.dart&#39;;
+import &#39;package:http/http.dart&#39; as http;
+[...]
+  loadData() async {
+    String dataURL = &quot;https://jsonplaceholder.typicode.com/posts&quot;;
+    http.Response response = await http.get(dataURL);
+    setState(() {
+      widgets = json.decode(response.body);
+    });
+  }
+}</code></pre>
+
+<h2 id="how-do-i-show-the-progress-of-a-long-running-task">How do I show the progress of a long-running task?</h2>
+
+<p>In iOS, you typically use a <code class="highlighter-rouge">UIProgressView</code> while executing a
+long-running task in the background.</p>
+
+<p>In Flutter, use a <code class="highlighter-rouge">ProgressIndicator</code> widget.
+Show the progress programmatically by controlling when it’s rendered
+through a boolean flag. Tell Flutter to update its state before your
+long-running task starts, and hide it after it ends.</p>
+
+<p>In the example below, the build function is separated into three different
+functions. If <code class="highlighter-rouge">showLoadingDialog()</code> is <code class="highlighter-rouge">true</code> (when <code class="highlighter-rouge">widgets.length == 0</code>),
+then render the <code class="highlighter-rouge">ProgressIndicator</code>. Otherwise, render the
+<code class="highlighter-rouge">ListView</code> with the data returned from a network call.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;dart:convert&#39;;
+
+import &#39;package:flutter/material.dart&#39;;
+import &#39;package:http/http.dart&#39; as http;
+
+void main() {
+  runApp(new SampleApp());
+}
+
+class SampleApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  List widgets = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  showLoadingDialog() {
+    return widgets.length == 0;
+  }
+
+  getBody() {
+    if (showLoadingDialog()) {
+      return getProgressDialog();
+    } else {
+      return getListView();
+    }
+  }
+
+  getProgressDialog() {
+    return new Center(child: new CircularProgressIndicator());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text(&quot;Sample App&quot;),
+        ),
+        body: getBody());
+  }
+
+  ListView getListView() =&gt; new ListView.builder(
+      itemCount: widgets.length,
+      itemBuilder: (BuildContext context, int position) {
+        return getRow(position);
+      });
+
+  Widget getRow(int i) {
+    return new Padding(padding: new EdgeInsets.all(10.0), child: new Text(&quot;Row ${widgets[i][&quot;title&quot;]}&quot;));
+  }
+
+  loadData() async {
+    String dataURL = &quot;https://jsonplaceholder.typicode.com/posts&quot;;
+    http.Response response = await http.get(dataURL);
+    setState(() {
+      widgets = json.decode(response.body);
+    });
+  }
+}</code></pre>
+
+<h1 id="project-structure-localization-dependencies-and-assets">Project structure, localization, dependencies and assets</h1>
+
+<h2 id="how-do-i-include-image-assets-for-flutter-what-about-multiple-resolutions">How do I include image assets for Flutter? What about multiple resolutions?</h2>
+
+<p>While iOS treats images and assets as distinct items, Flutter apps have only
+assets. Resources that are placed in the <code class="highlighter-rouge">Images.xcasset</code> folder on iOS,
+are placed in an assets folder for Flutter.
+As with iOS, assets are any type of file, not just images.
+For example, you might have a JSON file located in the <code class="highlighter-rouge">my-assets</code> folder:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>my-assets/data.json
+</code></pre>
+</div>
+
+<p>Declare the asset in the <code class="highlighter-rouge">pubspec.yaml</code> file:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-yaml language-yaml"><code>assets:
+ - my-assets/data.json</code></pre>
+
+<p>And then access it from code using an
+<a href="https://docs.flutter.io/flutter/services/AssetBundle-class.html"><code class="highlighter-rouge">AssetBundle</code></a>:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;dart:async&#39; show Future;
+import &#39;package:flutter/services.dart&#39; show rootBundle;
+
+Future&lt;String&gt; loadAsset() async {
+  return await rootBundle.loadString(&#39;my-assets/data.json&#39;);
+}</code></pre>
+
+<p>For images, Flutter follows a simple density-based format like iOS. Image assets
+might be <code class="highlighter-rouge">1.0x</code>, <code class="highlighter-rouge">2.0x</code>, <code class="highlighter-rouge">3.0x</code>, or any other multiplier. The so-called
+<a href="https://docs.flutter.io/flutter/dart-ui/Window/devicePixelRatio.html"><code class="highlighter-rouge">devicePixelRatio</code></a>
+expresses the ratio of physical pixels in a single logical pixel.</p>
+
+<p>Assets are located in any arbitrary folder—Flutter has no
+predefined folder structure. You declare the assets (with location) in
+the <code class="highlighter-rouge">pubspec.yaml</code> file, and Flutter picks them up.</p>
+
+<p>For example, to add an image called <code class="highlighter-rouge">my_icon.png</code> to your Flutter
+project, you might decide to store it in a folder arbitrarily called <code class="highlighter-rouge">images</code>.
+Place the base image (1.0x) in the <code class="highlighter-rouge">images</code> folder, and the
+other variants in sub-folders named after the appropriate ratio multiplier:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>images/my_icon.png       // Base: 1.0x image
+images/2.0x/my_icon.png  // 2.0x image
+images/3.0x/my_icon.png  // 3.0x image
+</code></pre>
+</div>
+
+<p>Next, declare these images in the <code class="highlighter-rouge">pubspec.yaml</code> file:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-yaml language-yaml"><code>assets:
+ - images/my_icon.jpeg</code></pre>
+
+<p>You can now access your images using <code class="highlighter-rouge">AssetImage</code>:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>return new AssetImage(&quot;images/a_dot_burr.jpeg&quot;);</code></pre>
+
+<p>or directly in an <code class="highlighter-rouge">Image</code> widget:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>@override
+Widget build(BuildContext context) {
+  return new Image.asset(&quot;images/my_image.png&quot;);
+}</code></pre>
+
+<p>For more details, see
+<a href="/assets-and-images">Adding Assets and Images in Flutter</a>.</p>
+
+<h2 id="where-do-i-store-strings-how-do-i-handle-localization">Where do I store strings? How do I handle localization?</h2>
+
+<p>Unlike iOS, which has the <code class="highlighter-rouge">Localizable.strings</code> file, Flutter doesn’t
+currently have a dedicated system for handling strings. At the moment, the
+best practice is to declare your copy text in a class as static fields and
+access them from there. For example:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class Strings {
+  static String welcomeMessage = &quot;Welcome To Flutter&quot;;
+}</code></pre>
+
+<p>You can access your strings as such:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>new Text(Strings.welcomeMessage)</code></pre>
+
+<p>By default, Flutter only supports US English for its strings. If you need to
+add support for other languages, include the <code class="highlighter-rouge">flutter_localizations</code>
+package. You might also need to add Dart’s <a href="https://pub.dartlang.org/packages/intl"><code class="highlighter-rouge">intl</code></a>
+package to use i10n machinery, such as date/time formatting.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-yaml language-yaml"><code>dependencies:
+  # ...
+  flutter_localizations:
+    sdk: flutter
+  intl: &quot;^0.15.6&quot;</code></pre>
+
+<p>To use the <code class="highlighter-rouge">flutter_localizations</code> package,
+specify the <code class="highlighter-rouge">localizationsDelegates</code> and <code class="highlighter-rouge">supportedLocales</code> on the app widget:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter_localizations/flutter_localizations.dart&#39;;
+
+new MaterialApp(
+ localizationsDelegates: [
+   // Add app-specific localization delegate[s] here
+   GlobalMaterialLocalizations.delegate,
+   GlobalWidgetsLocalizations.delegate,
+ ],
+ supportedLocales: [
+    const Locale(&#39;en&#39;, &#39;US&#39;), // English
+    const Locale(&#39;he&#39;, &#39;IL&#39;), // Hebrew
+    // ... other locales the app supports
+  ],
+  // ...
+)</code></pre>
+
+<p>The delegates contain the actual localized values, while the <code class="highlighter-rouge">supportedLocales</code>
+defines which locales the app supports. The above example uses a <code class="highlighter-rouge">MaterialApp</code>,
+so it has both a <code class="highlighter-rouge">GlobalWidgetsLocalizations</code> for the base
+widgets localized values, and a <code class="highlighter-rouge">MaterialWidgetsLocalizations</code> for the Material
+widgets localizations. If you use <code class="highlighter-rouge">WidgetsApp</code> for your app, you don’t
+need the latter. Note that these two delegates contain “default”
+values, but you’ll need to provide one or more delegates for your own app’s
+localizable copy, if you want those to be localized too.</p>
+
+<p>When initialized, the <code class="highlighter-rouge">WidgetsApp</code> (or <code class="highlighter-rouge">MaterialApp</code>) creates a
+<a href="https://docs.flutter.io/flutter/widgets/Localizations-class.html"><code class="highlighter-rouge">Localizations</code></a>
+widget for you, with the delegates you specify.
+The current locale for the device is always accessible from the <code class="highlighter-rouge">Localizations</code>
+widget from the current context (in the form of a <code class="highlighter-rouge">Locale</code> object), or using the
+<a href="https://docs.flutter.io/flutter/dart-ui/Window/locale.html"><code class="highlighter-rouge">Window.locale</code></a>.</p>
+
+<p>To access localized resources, use the <code class="highlighter-rouge">Localizations.of()</code> method to
+access a specific localizations class that is provided by a given delegate.
+Use the <a href="https://pub.dartlang.org/packages/intl_translation"><code class="highlighter-rouge">intl_translation</code></a>
+package to extract translatable copy to
+<a href="https://code.google.com/p/arb/wiki/ApplicationResourceBundleSpecification">arb</a>
+files for translating, and importing them back into the app for using them
+with <code class="highlighter-rouge">intl</code>.</p>
+
+<p>For further details on internationalization and localization in Flutter, see the
+<a href="/tutorials/internationalization">internationalization guide</a>,
+which has sample code with and without the <code class="highlighter-rouge">intl</code> package.</p>
+
+<p>Note that before Flutter 1.0 beta 2, assets defined in Flutter were not
+accessible from the native side, and vice versa, native assets and resources
+weren’t available to Flutter, as they lived in separate folders.</p>
+
+<h2 id="what-is-the-equivalent-of-cocoapods-how-do-i-add-dependencies">What is the equivalent of Cocoapods? How do I add dependencies?</h2>
+
+<p>In iOS, you add dependencies by adding to your <code class="highlighter-rouge">Podfile</code>. Flutter uses Dart’s
+build system and the Pub package manager to handle dependencies. The tools
+delegate the building of the native Android and iOS wrapper apps to the
+respective build systems.</p>
+
+<p>While there is a Podfile in the iOS folder in your
+Flutter project, only use this if you are adding native
+dependencies needed for per-platform integration. In general, use
+<code class="highlighter-rouge">pubspec.yaml</code> to declare external dependencies in Flutter. A good place to
+find great packages for Flutter is
+<a href="https://pub.dartlang.org/flutter/packages/">Pub</a>.</p>
+
+<h1 id="viewcontrollers">ViewControllers</h1>
+
+<h2 id="what-is-the-equivalent-to-viewcontrollers-in-flutter">What is the equivalent to <code class="highlighter-rouge">ViewController</code>s in Flutter?</h2>
+
+<p>In iOS, a <code class="highlighter-rouge">ViewController</code> represents a portion of user interface, most
+commonly used for a screen or section. These are composed together to build
+complex user interfaces, and help scale your application’s UI. In Flutter, this
+job falls to Widgets. As mentioned in the Navigation
+section, screens in Flutter are represented by Widgets since “everything is a
+widget!” Use a <code class="highlighter-rouge">Navigator</code> to move between different <code class="highlighter-rouge">Route</code>s
+that represent different screens or pages, or maybe different states or
+renderings of the same data.</p>
+
+<h2 id="how-do-i-listen-to-ios-lifecycle-events">How do I listen to iOS lifecycle events?</h2>
+
+<p>In iOS, you can override methods to the <code class="highlighter-rouge">ViewController</code> to capture lifecycle
+methods for the view itself, or register lifecycle callbacks in the
+<code class="highlighter-rouge">AppDelegate</code>. In Flutter you have neither concept, but you can instead listen
+to lifecycle events by hooking into the <code class="highlighter-rouge">WidgetsBinding</code> observer and
+listening to the <code class="highlighter-rouge">didChangeAppLifecycleState()</code> change event.</p>
+
+<p>The observable lifecycle events are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">inactive</code> — The application is in an inactive state and is not receiving
+user input. This event only works on iOS, as there is no equivalent event on
+Android.</li>
+  <li><code class="highlighter-rouge">paused</code> — The application is not currently visible to
+the user, is not responding to user input, but is running in the background.</li>
+  <li><code class="highlighter-rouge">resumed</code> — The application is visible and responding to user input.</li>
+  <li><code class="highlighter-rouge">suspending</code> — The application is suspended momentarily. The iOS platform
+has no equivalent event.</li>
+</ul>
+
+<p>For more details on the meaning of these states, see
+<a href="https://docs.flutter.io/flutter/dart-ui
+/AppLifecycleState-class.html"><code class="highlighter-rouge">AppLifecycleStatus</code> documentation</a>.</p>
+
+<h1 id="layouts">Layouts</h1>
+
+<h2 id="what-is-the-equivalent-of-a-uitableview-or-uicollectionview-in-flutter">What is the equivalent of a <code class="highlighter-rouge">UITableView</code> or <code class="highlighter-rouge">UICollectionView</code> in Flutter?</h2>
+
+<p>In iOS, you might show a list in either a <code class="highlighter-rouge">UITableView</code> or a
+<code class="highlighter-rouge">UICollectionView</code>. In Flutter, you have a similar implementation using a
+<code class="highlighter-rouge">ListView</code>.
+In iOS, these views have delegate methods for deciding the number of rows, the
+cell for each index path, and the size of the cells.</p>
+
+<p>Due to Flutter’s immutable widget pattern, you pass a list of widgets to your
+<code class="highlighter-rouge">ListView</code>, and Flutter takes care of making sure that scrolling is fast
+and smooth.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
+
+void main() {
+  runApp(new SampleApp());
+}
+
+class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&quot;Sample App&quot;),
+      ),
+      body: new ListView(children: _getListData()),
+    );
+  }
+
+  _getListData() {
+    List&lt;Widget&gt; widgets = [];
+    for (int i = 0; i &lt; 100; i++) {
+      widgets.add(new Padding(padding: new EdgeInsets.all(10.0), child: new Text(&quot;Row $i&quot;)));
+    }
+    return widgets;
+  }
+}</code></pre>
+
+<h2 id="how-do-i-know-which-list-item-is-clicked">How do I know which list item is clicked?</h2>
+
+<p>In iOS, you implement the delegate method, <code class="highlighter-rouge">tableView:didSelectRowAtIndexPath:</code>.
+In Flutter, use the touch handling provided by the passed-in widgets.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
+
+void main() {
+  runApp(new SampleApp());
+}
+
+class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&quot;Sample App&quot;),
+      ),
+      body: new ListView(children: _getListData()),
+    );
+  }
+
+  _getListData() {
+    List&lt;Widget&gt; widgets = [];
+    for (int i = 0; i &lt; 100; i++) {
+      widgets.add(new GestureDetector(
+        child: new Padding(
+          padding: new EdgeInsets.all(10.0),
+          child: new Text(&quot;Row $i&quot;),
+        ),
+        onTap: () {
+          print(&#39;row tapped&#39;);
+        },
+      ));
+    }
+    return widgets;
+  }
+}</code></pre>
+
+<h2 id="how-do-i-update-listviews-dynamically">How do I update <code class="highlighter-rouge">ListView</code>s dynamically?</h2>
+
+<p>In iOS, you update the data for the list view, and notify the table or
+collection view using the <code class="highlighter-rouge">reloadData</code> method.</p>
+
+<p>In Flutter, if you were to update the list of widgets inside a <code class="highlighter-rouge">setState()</code>,
+you would quickly see that your data did not change visually.
+This is because when <code class="highlighter-rouge">setState()</code> is called, the Flutter rendering engine
+looks at the widget tree to see if anything has changed. When it gets to your
+<code class="highlighter-rouge">ListView</code>, it performs a <code class="highlighter-rouge">==</code> check, and determines that the two <code class="highlighter-rouge">ListView</code>s are the
+same. Nothing has changed, so no update is required.</p>
+
+<p>For a simple way to update your <code class="highlighter-rouge">ListView</code>, create a new <code class="highlighter-rouge">List</code> inside of
+<code class="highlighter-rouge">setState()</code>, and copy the data from the old list to the new list.
+While this approach is simple, it is not recommended for large data sets,
+as shown in the next example.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
+
+void main() {
+  runApp(new SampleApp());
+}
+
+class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  List widgets = [];
+
+  @override
+  void initState() {
+    super.initState();
+    for (int i = 0; i &lt; 100; i++) {
+      widgets.add(getRow(i));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&quot;Sample App&quot;),
+      ),
+      body: new ListView(children: widgets),
+    );
+  }
+
+  Widget getRow(int i) {
+    return new GestureDetector(
+      child: new Padding(
+        padding: new EdgeInsets.all(10.0),
+        child: new Text(&quot;Row $i&quot;),
+      ),
+      onTap: () {
+        setState(() {
+          widgets = new List.from(widgets);
+          widgets.add(getRow(widgets.length + 1));
+          print(&#39;row $i&#39;);
+        });
+      },
+    );
+  }
+}</code></pre>
+
+<p>The recommended, efficient, and effective way to build a list uses a
+<code class="highlighter-rouge">ListView.Builder</code>. This method is great when you have a dynamic
+list or a list with very large amounts of data.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>import &#39;package:flutter/material.dart&#39;;
+
+void main() {
+  runApp(new SampleApp());
+}
+
+class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  List widgets = [];
+
+  @override
+  void initState() {
+    super.initState();
+    for (int i = 0; i &lt; 100; i++) {
+      widgets.add(getRow(i));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&quot;Sample App&quot;),
+      ),
+      body: new ListView.builder(
+        itemCount: widgets.length,
+        itemBuilder: (BuildContext context, int position) {
+          return getRow(position);
+        },
+      ),
+    );
+  }
+
+  Widget getRow(int i) {
+    return new GestureDetector(
+      child: new Padding(
+        padding: new EdgeInsets.all(10.0),
+        child: new Text(&quot;Row $i&quot;),
+      ),
+      onTap: () {
+        setState(() {
+          widgets.add(getRow(widgets.length + 1));
+          print(&#39;row $i&#39;);
+        });
+      },
+    );
+  }
+}</code></pre>
+
+<p>Instead of creating a “ListView”, create a <code class="highlighter-rouge">ListView.builder</code> that
+takes two key parameters: the initial length of the list, and an <code class="highlighter-rouge">ItemBuilder</code>
+function.</p>
+
+<p>The <code class="highlighter-rouge">ItemBuilder</code> function is similar to the <code class="highlighter-rouge">cellForItemAt</code> delegate method
+in an iOS table or collection view, as it takes a position, and returns the
+cell you want rendered at that position.</p>
+
+<p>Finally, but most importantly, notice that the <code class="highlighter-rouge">onTap()</code> function
+doesn’t recreate the list anymore, but instead <code class="highlighter-rouge">.add</code>s to it.</p>
+
+<h2 id="what-is-the-equivalent-of-a-scrollview-in-flutter">What is the equivalent of a <code class="highlighter-rouge">ScrollView</code> in Flutter?</h2>
+
+<p>In iOS, you wrap your views in a <code class="highlighter-rouge">ScrollView</code> that allows a user to scroll
+your content if needed.</p>
+
+<p>In Flutter the easiest way to do this is using the <code class="highlighter-rouge">ListView</code> widget. This
+acts as both a <code class="highlighter-rouge">ScrollView</code> and an iOS <code class="highlighter-rouge">TableView</code>, as you can layout widgets
+in a vertical format.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>@override
+Widget build(BuildContext context) {
+  return new ListView(
+    children: &lt;Widget&gt;[
+      new Text(&#39;Row One&#39;),
+      new Text(&#39;Row Two&#39;),
+      new Text(&#39;Row Three&#39;),
+      new Text(&#39;Row Four&#39;),
+    ],
+  );
+}</code></pre>
+
+<p>For more detailed docs on how to lay out widgets in Flutter,
+see the <a href="/widgets/layout/">layout tutorial</a>.</p>
+
+<h1 id="gesture-detection-and-touch-event-handling">Gesture detection and touch event handling</h1>
+
+<h2 id="how-do-i-add-a-click-listener-to-a-widget-in-flutter">How do I add a click listener to a widget in Flutter?</h2>
+
+<p>In iOS, you attach a <code class="highlighter-rouge">GestureRecognizer</code> to a view to handle
+click events. In Flutter, there are two ways of adding touch listeners:</p>
+
+<ol>
+<li>
+    <p>If the widget supports event detection, pass a function to it,
+ and handle the event in the function. For example, the
+<code class="highlighter-rouge">RaisedButton</code> widget has an <code class="highlighter-rouge">onPressed</code> parameter:</p>
+
+    <p><!-- skip --></p>
+    <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>@override
+Widget build(BuildContext context) {
+  return new RaisedButton(
+    onPressed: () {
+      print(&quot;click&quot;);
+    },
+    child: new Text(&quot;Button&quot;),
+  );
+}</code></pre>
+  </li>
+
+<li>
+    <p>If the Widget doesn’t support event detection, wrap the
+widget in a GestureDetector and pass a function to the <code class="highlighter-rouge">onTap</code> parameter.</p>
+
+    <p><!-- skip --></p>
+    <pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class SampleApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Center(
+        child: new GestureDetector(
+          child: new FlutterLogo(
+            size: 200.0,
+          ),
+          onTap: () {
+            print(&quot;tap&quot;);
+          },
+        ),
+      ),
+    );
+  }
+}</code></pre>
+  </li>
+</ol>
+
+<h2 id="how-do-i-handle-other-gestures-on-widgets">How do I handle other gestures on widgets?</h2>
+
+<p>Using <code class="highlighter-rouge">GestureDetector</code> you can listen to a wide range of gestures such as:</p>
+
+<ul>
+  <li>
+    <p>Tapping</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">onTapDown</code> — A pointer that might cause a tap has contacted the screen at a
+particular location.</li>
+      <li><code class="highlighter-rouge">onTapUp</code> — A pointer that triggers a tap has stopped contacting the
+screen at a particular location.</li>
+      <li><code class="highlighter-rouge">onTap</code> — A tap has occurred.</li>
+      <li><code class="highlighter-rouge">onTapCancel</code> — The pointer that previously triggered the <code class="highlighter-rouge">onTapDown</code> won’t
+cause a tap.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Double tapping</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">onDoubleTap</code> — The user tapped the screen at the same location twice in
+quick succession.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Long pressing</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">onLongPress</code> — A pointer has remained in contact with the screen at the same
+location for a long period of time.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Vertical dragging</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">onVerticalDragStart</code> — A pointer has contacted the screen and might begin to
+move vertically.</li>
+      <li><code class="highlighter-rouge">onVerticalDragUpdate</code> — A pointer in contact with the screen
+has moved further in the vertical direction.</li>
+      <li><code class="highlighter-rouge">onVerticalDragEnd</code> — A pointer that was previously in contact with the
+screen and moving vertically is no longer in contact with the screen and was
+moving at a specific velocity when it stopped contacting the screen.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Horizontal dragging</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">onHorizontalDragStart</code> — A pointer has contacted the screen and might begin
+to move horizontally.</li>
+      <li><code class="highlighter-rouge">onHorizontalDragUpdate</code> — A pointer in contact with the screen
+has moved further in the horizontal direction.</li>
+      <li><code class="highlighter-rouge">onHorizontalDragEnd</code> — A pointer that was previously in contact with the
+screen and moving horizontally is no longer in contact with the screen.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The following example shows a <code class="highlighter-rouge">GestureDetector</code> that rotates the Flutter logo
+on a double tap:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>AnimationController controller;
+CurvedAnimation curve;
+
+@override
+void initState() {
+  controller = new AnimationController(duration: const Duration(milliseconds: 2000), vsync: this);
+  curve = new CurvedAnimation(parent: controller, curve: Curves.easeIn);
+}
+
+class SampleApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Center(
+        child: new GestureDetector(
+          child: new RotationTransition(
+            turns: curve,
+            child: new FlutterLogo(
+              size: 200.0,
+            )),
+          onDoubleTap: () {
+            if (controller.isCompleted) {
+              controller.reverse();
+            } else {
+              controller.forward();
+            }
+          },
+        ),
+      ),
+    );
+  }
+}</code></pre>
+
+<h1 id="theming-and-text">Theming and text</h1>
+
+<h2 id="how-do-i-theme-an-app">How do I theme an app?</h2>
+
+<p>Out of the box, Flutter comes with a beautiful implementation of Material Design,
+which takes care of a lot of styling and theming needs that you would typically do.</p>
+
+<p>To take full advantage of Material Components in your app, declare a top-level
+widget, MaterialApp, as the entry point to your application. MaterialApp is a convenience
+widget that wraps a number of widgets that are commonly required for applications
+implementing Material Design. It builds upon a WidgetsApp by adding Material
+specific functionality.</p>
+
+<p>But Flutter is flexible and expressive enough to implement any design language.
+On iOS, you can use the
+<a href="https://docs.flutter.io/flutter/cupertino/cupertino-library.html">Cupertino library</a>
+to produce an interface that adheres to the <a href="https://developer.apple.com/ios/human-interface-guidelines/overview/themes/">Human Interface
+Guidelines</a>.
+For the full set of these widgets, see the
+<a href="/widgets/cupertino/">Cupertino widgets gallery</a>.</p>
+
+<p>You can also use a <code class="highlighter-rouge">WidgetApp</code> as your app widget, which provides some of the
+same functionality, but is not as rich as <code class="highlighter-rouge">MaterialApp</code>.</p>
+
+<p>To customize the colors and styles of any child components, pass a
+<code class="highlighter-rouge">ThemeData</code> object to the <code class="highlighter-rouge">MaterialApp</code> widget. For example, in the code below,
+the primary swatch is set to blue and text selection color is red.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class SampleApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+        textSelectionColor: Colors.red
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}</code></pre>
+
+<h2 id="how-do-i-set-custom-fonts-on-my-text-widgets">How do I set custom fonts on my <code class="highlighter-rouge">Text</code> widgets?</h2>
+
+<p>In iOS, you import any <code class="highlighter-rouge">ttf</code> font files into your project and create a
+reference in the <code class="highlighter-rouge">info.plist</code> file. In Flutter, place the font file
+in a folder and reference it in the <code class="highlighter-rouge">pubspec.yaml</code> file, similar to how you
+import images.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-yaml language-yaml"><code>fonts:
+   - family: MyCustomFont
+     fonts:
+       - asset: fonts/MyCustomFont.ttf
+       - style: italic</code></pre>
+
+<p>Then assign the font to your <code class="highlighter-rouge">Text</code> widget:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>@override
+Widget build(BuildContext context) {
+  return new Scaffold(
+    appBar: new AppBar(
+      title: new Text(&quot;Sample App&quot;),
+    ),
+    body: new Center(
+      child: new Text(
+        &#39;This is a custom font text&#39;,
+        style: new TextStyle(fontFamily: &#39;MyCustomFont&#39;),
+      ),
+    ),
+  );
+}</code></pre>
+
+<h2 id="how-do-i-style-my-text-widgets">How do I style my <code class="highlighter-rouge">Text</code> widgets?</h2>
+
+<p>Along with fonts, you can customize other styling elements on a <code class="highlighter-rouge">Text</code> widget.
+The style parameter of a <code class="highlighter-rouge">Text</code> widget takes a <code class="highlighter-rouge">TextStyle</code> object, where you can
+customize many parameters, such as:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">color</code></li>
+  <li><code class="highlighter-rouge">decoration</code></li>
+  <li><code class="highlighter-rouge">decorationColor</code></li>
+  <li><code class="highlighter-rouge">decorationStyle</code></li>
+  <li><code class="highlighter-rouge">fontFamily</code></li>
+  <li><code class="highlighter-rouge">fontSize</code></li>
+  <li><code class="highlighter-rouge">fontStyle</code></li>
+  <li><code class="highlighter-rouge">fontWeight</code></li>
+  <li><code class="highlighter-rouge">hashCode</code></li>
+  <li><code class="highlighter-rouge">height</code></li>
+  <li><code class="highlighter-rouge">inherit</code></li>
+  <li><code class="highlighter-rouge">letterSpacing</code></li>
+  <li><code class="highlighter-rouge">textBaseline</code></li>
+  <li><code class="highlighter-rouge">wordSpacing</code></li>
+</ul>
+
+<h1 id="form-input">Form input</h1>
+
+<h2 id="how-do-forms-work-in-flutter-how-do-i-retrieve-user-input">How do forms work in Flutter? How do I retrieve user input?</h2>
+
+<p>Given how Flutter uses immutable widgets with a separate state, you might be
+wondering how user input fits into the picture. On iOS, you usually
+query the widgets for their current values when it’s time to submit the
+user input, or action on it. How does that work in Flutter?</p>
+
+<p>In practice forms are handled, like everything in Flutter, by specialized
+widgets. If you have a <code class="highlighter-rouge">TextField</code> or a <code class="highlighter-rouge">TextFormField</code>, you can supply a
+<a href="https://docs.flutter.io/flutter/widgets/TextEditingController-class.html"><code class="highlighter-rouge">TextEditingController</code></a>
+to retrieve user input:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class _MyFormState extends State&lt;MyForm&gt; {
+  // Create a text controller and use it to retrieve the current value.
+  // of the TextField!
+  final myController = new TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when disposing of the Widget.
+    myController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&#39;Retrieve Text Input&#39;),
+      ),
+      body: new Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: new TextField(
+          controller: myController,
+        ),
+      ),
+      floatingActionButton: new FloatingActionButton(
+        // When the user presses the button, show an alert dialog with the
+        // text the user has typed into our text field.
+        onPressed: () {
+          return showDialog(
+            context: context,
+            builder: (context) {
+              return new AlertDialog(
+                // Retrieve the text the user has typed in using our
+                // TextEditingController
+                content: new Text(myController.text),
+              );
+            },
+          );
+        },
+        tooltip: &#39;Show me the value!&#39;,
+        child: new Icon(Icons.text_fields),
+      ),
+    );
+  }
+}</code></pre>
+
+<p>You can find more information and the full code listing in
+<a href="/cookbook/forms/retrieve-input/">Retrieve the value of a text field</a>,
+from the <a href="https://flutter.io/cookbook/">Flutter Cookbook</a>.</p>
+
+<h2 id="what-is-the-equivalent-of-a-placeholder-in-a-text-field">What is the equivalent of a placeholder in a text field?</h2>
+
+<p>In Flutter you can easily show a “hint” or a placeholder text for your field by
+adding an <code class="highlighter-rouge">InputDecoration</code> object to the decoration constructor parameter for
+the <code class="highlighter-rouge">Text</code> widget:</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>body: new Center(
+  child: new TextField(
+    decoration: new InputDecoration(hintText: &quot;This is a hint&quot;),
+  ),
+)</code></pre>
+
+<h2 id="how-do-i-show-validation-errors">How do I show validation errors?</h2>
+
+<p>Just as you would with a “hint”, pass an <code class="highlighter-rouge">InputDecoration</code> object
+to the decoration constructor for the <code class="highlighter-rouge">Text</code> widget.</p>
+
+<p>However, you don’t want to start off by showing an error.
+Instead, when the user has entered invalid data,
+update the state, and pass a new <code class="highlighter-rouge">InputDecoration</code> object.</p>
+
+<!-- skip -->
+<pre class="prettyprint highlighter-rouge highlight lang-dart language-dart"><code>class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: &#39;Sample App&#39;,
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new SampleAppPage(),
+    );
+  }
+}
+
+class SampleAppPage extends StatefulWidget {
+  SampleAppPage({Key key}) : super(key: key);
+
+  @override
+  _SampleAppPageState createState() =&gt; new _SampleAppPageState();
+}
+
+class _SampleAppPageState extends State&lt;SampleAppPage&gt; {
+  String _errorText;
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(&quot;Sample App&quot;),
+      ),
+      body: new Center(
+        child: new TextField(
+          onSubmitted: (String text) {
+            setState(() {
+              if (!isEmail(text)) {
+                _errorText = &#39;Error: This is not an email&#39;;
+              } else {
+                _errorText = null;
+              }
+            });
+          },
+          decoration: new InputDecoration(hintText: &quot;This is a hint&quot;, errorText: _getErrorText()),
+        ),
+      ),
+    );
+  }
+
+  _getErrorText() {
+    return _errorText;
+  }
+
+  bool isEmail(String em) {
+    String emailRegexp =
+        r&#39;^(([^&lt;&gt;()[\]\\.,;:\s@\&quot;]+(\.[^&lt;&gt;()[\]\\.,;:\s@\&quot;]+)*)|(\&quot;.+\&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$&#39;;
+
+    RegExp regExp = new RegExp(p);
+
+    return regExp.hasMatch(em);
+  }
+}</code></pre>
+
+<h1 id="interacting-with-hardware-third-party-services-and-the-platform">Interacting with hardware, third party services and the platform</h1>
+
+<h2 id="how-do-i-interact-with-the-platform-and-with-platform-native-code">How do I interact with the platform, and with platform native code?</h2>
+
+<p>Flutter doesn’t run code directly on the underlying platform; rather, the Dart code
+that makes up a Flutter app is run natively on the device, “sidestepping” the SDK
+provided by the platform. That means, for example, when you perform a network request
+in Dart, it runs directly in the Dart context. You don’t use the Android or iOS
+APIs you normally take advantage of when writing native apps. Your Flutter
+app is still hosted in a native app’s <code class="highlighter-rouge">ViewController</code> as a view, but you don’t
+have direct access to the <code class="highlighter-rouge">ViewController</code> itself, or the native framework.</p>
+
+<p>This doesn’t mean Flutter apps cannot interact with those native APIs, or with any
+native code you have. Flutter provides <a href="/platform-channels/">platform channels</a>,
+that communicate and exchange data with the <code class="highlighter-rouge">ViewController</code> that
+hosts your Flutter view. Platform channels are essentially an asynchronous messaging
+mechanism that bridge the Dart code with the host <code class="highlighter-rouge">ViewController</code> and
+the iOS framework it runs on. You can use platform channels to execute a method on
+the native side, or to retrieve some data from the device’s sensors, for example.</p>
+
+<p>In addition to directly using platform channels, you can use a variety of pre-made
+<a href="/using-packages/">plugins</a> that encapsulate the native and
+Dart code for a specific goal. For example, you can use a plugin to access
+the camera roll and the device camera directly from Flutter, without having to
+write your own integration. Plugins are found <a href="https://pub.dartlang.org/">on Pub</a>,
+Dart and Flutter’s open source package repository. Some packages might
+support native integrations on iOS, or Android, or both.</p>
+
+<p>If you can’t find a plugin on Pub that fits your needs, you can
+<a href="/developing-packages/">write your own</a>
+and <a href="/developing-packages/#publish">publish it on Pub</a>.</p>
+
+<h2 id="how-do-i-access-the-gps-sensor">How do I access the GPS sensor?</h2>
+
+<p>Use the <a href="https://pub.dartlang.org/packages/location"><code class="highlighter-rouge">location</code></a> community plugin.</p>
+
+<h2 id="how-do-i-access-the-camera">How do I access the camera?</h2>
+
+<p>The <a href="https://pub.dartlang.org/packages/image_picker"><code class="highlighter-rouge">image_picker</code></a> plugin is popular
+for accessing the camera.</p>
+
+<h2 id="how-do-i-log-in-with-facebook">How do I log in with Facebook?</h2>
+
+<p>To log in with Facebook, use the
+<a href="https://pub.dartlang.org/packages/flutter_facebook_login"><code class="highlighter-rouge">flutter_facebook_login</code></a> community plugin.</p>
+
+<h2 id="how-do-i-use-firebase-features">How do I use Firebase features?</h2>
+
+<p>Most Firebase functions are covered by
+<a href="https://pub.dartlang.org/flutter/packages?q=firebase">first party plugins</a>.
+These plugins are first-party integrations, maintained by the Flutter team:</p>
+
+<ul>
+  <li><a href="https://pub.dartlang.org/packages/firebase_admob"><code class="highlighter-rouge">firebase_admob</code></a> for Firebase AdMob</li>
+  <li><a href="https://pub.dartlang.org/packages/firebase_analytics"><code class="highlighter-rouge">firebase_analytics</code></a> for Firebase Analytics</li>
+  <li><a href="https://pub.dartlang.org/packages/firebase_auth"><code class="highlighter-rouge">firebase_auth</code></a> for Firebase Auth</li>
+  <li><a href="https://pub.dartlang.org/packages/firebase_core"><code class="highlighter-rouge">firebase_core</code></a> for Firebase’s Core package</li>
+  <li><a href="https://pub.dartlang.org/packages/firebase_database"><code class="highlighter-rouge">firebase_database</code></a> for Firebase RTDB</li>
+  <li><a href="https://pub.dartlang.org/packages/firebase_storage"><code class="highlighter-rouge">firebase_storage</code></a> for Firebase Cloud Storage</li>
+  <li><a href="https://pub.dartlang.org/packages/firebase_messaging"><code class="highlighter-rouge">firebase_messaging</code></a> for Firebase Messaging (FCM)</li>
+  <li><a href="https://pub.dartlang.org/packages/cloud_firestore"><code class="highlighter-rouge">cloud_firestore</code></a> for Firebase Cloud Firestore</li>
+</ul>
+
+<p>You can also find some third-party Firebase plugins on Pub that cover areas
+not directly covered by the first-party plugins.</p>
+
+<h2 id="how-do-i-build-my-own-custom-native-integrations">How do I build my own custom native integrations?</h2>
+
+<p>If there is platform-specific functionality that Flutter or its community
+Plugins are missing, you can build your own following the
+<a href="/developing-packages/">developing packages and plugins</a> page.</p>
+
+<p>Flutter’s plugin architecture, in a nutshell, is much like using an Event bus in
+Android: you fire off a message and let the receiver process and emit a result
+back to you. In this case, the receiver is code running on the native side
+on Android or iOS.</p>
+
+<h1 id="databases-and-local-storage">Databases and local storage</h1>
+
+<h2 id="how-do-i-access-userdefaults-in-flutter">How do I access <code class="highlighter-rouge">UserDefaults</code> in Flutter?</h2>
+
+<p>In iOS, you can store a collection of key-value pairs using a property list,
+known as the <code class="highlighter-rouge">UserDefaults</code>.</p>
+
+<p>In Flutter, access equivalent functionality using the
+<a href="https://pub.dartlang.org/packages/shared_preferences">Shared Preferences plugin</a>.
+This plugin wraps the functionality of both <code class="highlighter-rouge">UserDefaults</code> and the Android
+equivalent, <code class="highlighter-rouge">SharedPreferences</code>.</p>
+
+<h2 id="what-is-the-equivalent-to-coredata-in-flutter">What is the equivalent to CoreData in Flutter?</h2>
+
+<p>In iOS, you can use CoreData to store structured data. This is simply a
+layer on top of an SQL database, making it easier to make queries that
+relate to your models.</p>
+
+<p>In Flutter, access this functionality using the
+<a href="https://pub.dartlang.org/packages/sqflite">SQFlite</a> plugin.</p>
+
+<h1 id="notifications">Notifications</h1>
+
+<h2 id="how-do-i-set-up-push-notifications">How do I set up push notifications?</h2>
+
+<p>In iOS, you need to register your app on the developer portal to allow
+push notifications.</p>
+
+<p>In Flutter, access this functionality using the
+<code class="highlighter-rouge">firebase_messaging</code> plugin.</p>
+
+<p>For more information on using the Firebase Cloud Messaging API, see the
+<a href="https://pub.dartlang.org/packages/firebase_messaging"><code class="highlighter-rouge">firebase_messaging</code></a>
+plugin documentation.</p>
 
 </article>
 
