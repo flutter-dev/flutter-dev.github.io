@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rendering in Flutter  - Flutter </title>
+  <title>在 Flutter 中渲染  - Flutter </title>
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <meta name="description" content="">
@@ -164,23 +164,23 @@
          <a href="https://github.com/flutter/website/blob/master/rendering.md" class="btn btn-sm">
             <i class="fa fa-pencil"></i> Edit Source
          </a>
-         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page Rendering in Flutter&body=From URL: http://localhost:4000/rendering/&labels=dev: docs - website" class="btn btn-sm">
+         <a href="https://github.com/flutter/flutter/issues/new?title=Issue from website page 在 Flutter 中渲染&body=From URL: http://localhost:4000/rendering/&labels=dev: docs - website" class="btn btn-sm">
             <i class="fa fa-github"></i> File Issue
         </a>
      </div>
    <div>
-    <h1 class="post-title">Rendering in Flutter </h1>
+    <h1 class="post-title">在 Flutter 中渲染 </h1>
    </div>
 
   </header>
   
 
   <ul id="markdown-toc">
-  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a>    <ul>
-      <li><a href="#base-model" id="markdown-toc-base-model">Base Model</a></li>
-      <li><a href="#parent-data" id="markdown-toc-parent-data">Parent Data</a></li>
-      <li><a href="#box-model" id="markdown-toc-box-model">Box Model</a>        <ul>
-          <li><a href="#dimensions" id="markdown-toc-dimensions">Dimensions</a></li>
+  <li><a href="#介绍" id="markdown-toc-介绍">介绍</a>    <ul>
+      <li><a href="#基本模型" id="markdown-toc-基本模型">基本模型</a></li>
+      <li><a href="#父数据" id="markdown-toc-父数据">父数据</a></li>
+      <li><a href="#盒子模型" id="markdown-toc-盒子模型">盒子模型</a>        <ul>
+          <li><a href="#尺寸" id="markdown-toc-尺寸">尺寸</a></li>
           <li><a href="#edgeinsets" id="markdown-toc-edgeinsets">EdgeInsets</a></li>
           <li><a href="#boxconstraints" id="markdown-toc-boxconstraints">BoxConstraints</a></li>
         </ul>
@@ -188,7 +188,7 @@
       <li><a href="#bespoke-models" id="markdown-toc-bespoke-models">Bespoke Models</a></li>
     </ul>
   </li>
-  <li><a href="#using-the-provided-subclasses" id="markdown-toc-using-the-provided-subclasses">Using the provided subclasses</a>    <ul>
+  <li><a href="#使用所提供的子类" id="markdown-toc-使用所提供的子类">使用所提供的子类</a>    <ul>
       <li><a href="#render_boxdart" id="markdown-toc-render_boxdart">render_box.dart</a>        <ul>
           <li><a href="#renderconstrainedbox" id="markdown-toc-renderconstrainedbox">RenderConstrainedBox</a></li>
           <li><a href="#rendershrinkwrapwidth" id="markdown-toc-rendershrinkwrapwidth">RenderShrinkWrapWidth</a></li>
@@ -211,146 +211,92 @@
       <li><a href="#renderstack-render_stackdart" id="markdown-toc-renderstack-render_stackdart">RenderStack (render_stack.dart)</a></li>
     </ul>
   </li>
-  <li><a href="#writing-new-subclasses" id="markdown-toc-writing-new-subclasses">Writing new subclasses</a>    <ul>
-      <li><a href="#the-renderobject-contract" id="markdown-toc-the-renderobject-contract">The RenderObject contract</a>        <ul>
-          <li><a href="#the-parentdata-contract" id="markdown-toc-the-parentdata-contract">The ParentData contract</a></li>
-          <li><a href="#using-renderobjectwithchildmixin" id="markdown-toc-using-renderobjectwithchildmixin">Using RenderObjectWithChildMixin</a></li>
-          <li><a href="#using-containerrenderobjectmixin-and-containerparentdatamixin" id="markdown-toc-using-containerrenderobjectmixin-and-containerparentdatamixin">Using ContainerRenderObjectMixin (and ContainerParentDataMixin)</a></li>
+  <li><a href="#编写新的子类" id="markdown-toc-编写新的子类">编写新的子类</a>    <ul>
+      <li><a href="#renderobject的协议" id="markdown-toc-renderobject的协议">RenderObject的协议</a>        <ul>
+          <li><a href="#parentdata-的协议" id="markdown-toc-parentdata-的协议">ParentData 的协议</a></li>
+          <li><a href="#renderobjectwithchildmixin-的使用" id="markdown-toc-renderobjectwithchildmixin-的使用">RenderObjectWithChildMixin 的使用</a></li>
+          <li><a href="#containerrenderobjectmixin和-containerparentdatamixin-的使用" id="markdown-toc-containerrenderobjectmixin和-containerparentdatamixin-的使用">ContainerRenderObjectMixin(和 ContainerParentDataMixin) 的使用</a></li>
         </ul>
       </li>
-      <li><a href="#the-renderbox-contract" id="markdown-toc-the-renderbox-contract">The RenderBox contract</a>        <ul>
-          <li><a href="#using-renderproxybox" id="markdown-toc-using-renderproxybox">Using RenderProxyBox</a></li>
+      <li><a href="#renderbox的协议" id="markdown-toc-renderbox的协议">RenderBox的协议</a>        <ul>
+          <li><a href="#renderproxybox-的使用" id="markdown-toc-renderproxybox-的使用">RenderProxyBox 的使用</a></li>
         </ul>
       </li>
-      <li><a href="#the-hit-testing-contract" id="markdown-toc-the-hit-testing-contract">The Hit Testing contract</a></li>
+      <li><a href="#hit-testing-的协议" id="markdown-toc-hit-testing-的协议">Hit Testing 的协议</a></li>
     </ul>
   </li>
-  <li><a href="#performance-rules-of-thumb" id="markdown-toc-performance-rules-of-thumb">Performance rules of thumb</a></li>
-  <li><a href="#useful-debugging-tools" id="markdown-toc-useful-debugging-tools">Useful debugging tools</a></li>
+  <li><a href="#性能经验法则" id="markdown-toc-性能经验法则">性能经验法则</a></li>
+  <li><a href="#有用的调试工具" id="markdown-toc-有用的调试工具">有用的调试工具</a></li>
 </ul>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="介绍">介绍</h2>
 
-<p>The Flutter render tree is a low-level layout and painting system based on a
-retained tree of objects that inherit from <code class="highlighter-rouge">RenderObject</code>. Most
-developers using Flutter will not need to interact directly with the rendering tree.
-Instead, most developers should use
-<a href="/widgets-intro/">widgets</a>, which are built using
-the render tree.</p>
+<p>Flutter 的渲染树 (rendering tree) 是一个低层次的布局和绘制系统，基于一颗保留着继承自 <code class="highlighter-rouge">RenderObject</code> 对象的树。大多数使用 Flutter 的开发人员不需要直接与渲染树交互，而应使用 
+<a href="/widgets-intro/">widgets</a>，他们是用渲染树创建。</p>
 
-<h3 id="base-model">Base Model</h3>
+<h3 id="基本模型">基本模型</h3>
 
-<p>The base class for every node in the render tree is
-<code class="highlighter-rouge">RenderObject</code>, which defines the base layout model. The base
-layout mode is extremely general and can accommodate a large number of more
-concrete layout models that can co-exist in the same tree. For example, the base
-model does not commit to a fixed number of dimensions or even a cartesian
-coordinate system. In this way, a single render tree can contain render objects
-operating in three-dimensional space together with other render objects
-operating in two-dimensional space, e.g., on the face of a cube in the three-
-dimensional space. Moreover, the two-dimensional layout might be partially
-computed in cartesian coordinates and partially computed in polar coordinates.
-These distinct models can interact during layout, for example determining the
-size of the cube by the height of a block of text on the cube’s face.</p>
+<p><code class="highlighter-rouge">RenderObject</code> 是渲染树中每个节点的基类，它定义了基本布局模型。基本布局模型是非常普遍的，可以容纳大量的具体的布局模型并存于同一棵树中。例如，基本布局模型提交一个尺寸的固定数量甚至笛卡尔
+坐标系。这样看来，一颗渲染树让在三维空间里的渲染对象与其他在二维空间里的渲染对象一起运作，例如，在一个三维空间中的立方体表面上。并且，这个二维布局可能一部分的在笛卡尔坐标计算一部分在极坐标中计算。
+这些不同的模型可以在布局过程中进行交互，例如根据立方体表面上文本块的高度来该确定立方体的大小。</p>
 
-<p>Not entirely free-wheeling, the base model does impose some structure on the
-render tree:</p>
+<p>渲染树并不完全是自由运转的，基本布局模型强加一些构造在渲染树上：</p>
 
 <ul>
   <li>
-    <p>Subclasses of <code class="highlighter-rouge">RenderObject</code> must implement a <code class="highlighter-rouge">performLayout</code> function that
-takes as input a <code class="highlighter-rouge">constraints</code> object provided by its parent. <code class="highlighter-rouge">RenderObject</code>
-has no opinion about the structure of this object and different layout models
-use different types of constraints. However, whatever type they choose must
-implement <code class="highlighter-rouge">operator==</code> in such a way that <code class="highlighter-rouge">performLayout</code> produces the same
-output for two <code class="highlighter-rouge">constraints</code> objects that are <code class="highlighter-rouge">operator==</code>.</p>
+    <p><code class="highlighter-rouge">RenderObject</code> 的子类必须实现一个 <code class="highlighter-rouge">performLayout</code> 的方法把其父对象提供的 <code class="highlighter-rouge">constraints</code> 对象作为输入。
+<code class="highlighter-rouge">RenderObject</code> 对这个对象的构造和不同的布局模型使用不同类型的约束的没有决定权。但是，无论他们选择什么都必须实现 <code class="highlighter-rouge">operator==</code> 函数，这样才能使得 <code class="highlighter-rouge">performLayout</code> 为两个可以 <code class="highlighter-rouge">operator ==</code> 的 <code class="highlighter-rouge">constraints</code> 对象为产生相同输出。</p>
   </li>
   <li>
-    <p>Implementations of <code class="highlighter-rouge">performLayout</code> are expected to call <code class="highlighter-rouge">layout</code> on their
-children. When calling <code class="highlighter-rouge">layout</code>, a <code class="highlighter-rouge">RenderObject</code> must use the
-<code class="highlighter-rouge">parentUsesSize</code> parameter to declare whether its <code class="highlighter-rouge">performLayout</code> function
-depends on information read from the child. If the parent doesn’t declare
-that it uses the child’s size, the edge from the parent to the child becomes
-a <em>relayout boundary</em>, which means the child (and its subtree) might undergo
-layout without the parent undergoing layout.</p>
+    <p><code class="highlighter-rouge">performLayout</code> 的实现者们期望调用子类的 <code class="highlighter-rouge">layout</code> 方法。当调用 <code class="highlighter-rouge">layout</code> 时，<code class="highlighter-rouge">RenderObject</code> 必须用 <code class="highlighter-rouge">parentUsesSize</code> 作为参数,来声明是否它的 <code class="highlighter-rouge">performLayout</code> 函数要依赖从子类读取的信息。如果父类没有声明它要使用到子类的大小，从父到子的边缘变成一种 <em>relayout boundary</em> ，意味着子类（及其子树）的布局可能不受父类布局影响。</p>
   </li>
   <li>
-    <p>Subclasses of <code class="highlighter-rouge">RenderObject</code> must implement a <code class="highlighter-rouge">paint</code> function that draws a
-visual representation of the object onto a <code class="highlighter-rouge">PaintingCanvas</code>. If
-the <code class="highlighter-rouge">RenderObject</code> has children, the <code class="highlighter-rouge">RenderObject</code> is responsible for
-painting its children using the <code class="highlighter-rouge">paintChild</code> function on the
-<code class="highlighter-rouge">PaintingCanvas</code>.</p>
+    <p><code class="highlighter-rouge">RenderObject</code> 的子类必须实现一个 <code class="highlighter-rouge">paint</code> 函数将一个可视化对象绘制一个到 <code class="highlighter-rouge">PaintingCanvas</code> 上。如果 <code class="highlighter-rouge">RenderObject</code> 有子类，<code class="highlighter-rouge">RenderObject</code> 就有绘制子类的责任,通过调用在 <code class="highlighter-rouge">PaintingCanvas</code> 上 <code class="highlighter-rouge">paintChild</code> 方法。</p>
   </li>
   <li>
-    <p>Subclasses of <code class="highlighter-rouge">RenderObject</code> must call <code class="highlighter-rouge">adoptChild</code> whenever they add a
-child. Similarly, they must call <code class="highlighter-rouge">dropChild</code> whenever they remove a child.</p>
+    <p><code class="highlighter-rouge">RenderObject</code> 在添加子类时必须调用 <code class="highlighter-rouge">adoptChild</code>。类似地，在删除子类时必须调用 <code class="highlighter-rouge">dropChild</code>。</p>
   </li>
   <li>
-    <p>Most subclasses of <code class="highlighter-rouge">RenderObject</code> will implement a <code class="highlighter-rouge">hitTest</code> function that
-lets clients query the render tree for objects that intersect with a given
-user input location. <code class="highlighter-rouge">RenderObject</code> itself does not impose a particular
-type signature on <code class="highlighter-rouge">hitTest</code>, but most implementations will take an argument
-of type <code class="highlighter-rouge">HitTestResult</code> (or, more likely, a model-specific subclass of
-<code class="highlighter-rouge">HitTestResult</code>) as well as an object that describes the location at which
-the user provided input (e.g., a <code class="highlighter-rouge">Point</code> for a two-dimensional cartesian
-model).</p>
+    <p><code class="highlighter-rouge">RenderObject</code> 的大多数子类将实现一个 <code class="highlighter-rouge">hitTest</code> 方法，让客户端查询渲染树上的跟给定用户输入位置相交的对象。<code class="highlighter-rouge">RenderObject</code> 自身并不会强加一个特定的类型标识在 <code class="highlighter-rouge">hitTest</code> 上，但是大多数的实现者会接收一个参数类型为 <code class="highlighter-rouge">HitTestResult</code>（或者，更有可能的是 <code class="highlighter-rouge">HitTestResult</code> 的特定模型子类）以及一个描述给用户提供输入位置的对象（例如，一个在二维笛卡儿坐标系中的“点”模型）。</p>
   </li>
   <li>
-    <p>Finally, subclasses of <code class="highlighter-rouge">RenderObject</code> can override the default, do-nothing
-implemenations of <code class="highlighter-rouge">handleEvent</code> and <code class="highlighter-rouge">rotate</code> to respond to user input and
-screen rotation, respectively.</p>
+    <p>最后，<code class="highlighter-rouge">RenderObject</code> 的子类可以重载默认的空实现 <code class="highlighter-rouge">handleEvent</code> 和 <code class="highlighter-rouge">rotate</code> 函数来分别响应用户的输入、屏幕旋转。</p>
   </li>
 </ul>
 
-<p>The base model also provides two mixins for common child models:</p>
+<p>基本模型还提供了两个常见的孩子混合模型：</p>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">RenderObjectWithChildMixin</code> is useful for subclasses of <code class="highlighter-rouge">RenderObject</code> that
-have a unique child.</p>
+    <p><code class="highlighter-rouge">RenderObjectWithChildMixin</code> 是 <code class="highlighter-rouge">RenderObject</code> 非常有用的子类，它有一个独特的孩子。</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">ContainerRenderObjectMixin</code> is useful for subclasses of <code class="highlighter-rouge">RenderObject</code> that
-have a child list.</p>
+    <p><code class="highlighter-rouge">RenderObjectWithChildMixin</code> 是 <code class="highlighter-rouge">RenderObject</code> 非常有用的子类，有一个孩子列表。</p>
   </li>
 </ul>
 
-<p>Subclasses of <code class="highlighter-rouge">RenderObject</code> are not required to use either of these child
-models and are free to invent novel child models for their specific use cases.</p>
+<p><code class="highlighter-rouge">RenderObject</code> 的子类不一定要使用这些模型，它可以为其特定用例自由地创建新的子类模型 。</p>
 
-<h3 id="parent-data">Parent Data</h3>
+<h3 id="父数据">父数据</h3>
 
-<p>TODO(ianh): Describe the parent data concept.</p>
+<p>TODO(ianh) : 描述父数据的概念。</p>
 
-<p>The <code class="highlighter-rouge">setupParentData()</code> method is automatically called for each child
-when the child’s parent is changed. However, if you need to
-preinitialize the <code class="highlighter-rouge">parentData</code> member to set its values before you add
-a node to its parent, you can preemptively call that future parent’s
-<code class="highlighter-rouge">setupParentData()</code> method with the future child as the argument.</p>
+<p>当父节点发生变化时,每个 child 都会自发调用 <code class="highlighter-rouge">setupParentData()</code> 方法。但是，如果你想在一个 节点添加到父级之前设置其 <code class="highlighter-rouge">parentData</code>  成员的初始值，你可以先调用未来的父节点的 <code class="highlighter-rouge">setupParentData()</code>  方法并把未来子节点作为参数。</p>
 
-<p>TODO(ianh): Discuss putting per-child configuration information for
-the parent on the child’s parentData.</p>
+<p>TODO(ianh) : 讨论子节点的 parentData 会把每个子节点的的配置信息给到父级。</p>
 
-<p>If you change a child’s parentData dynamically, you must also call
-markNeedsLayout() on the parent, otherwise the new information will
-not take effect until something else triggers a layout.</p>
+<p>如果动态更改子级 的parentData，则还必须调用父级的  markNeedsLayout()，否则新消息不会生效
+直到被其他事件触发布局。</p>
 
-<h3 id="box-model">Box Model</h3>
+<h3 id="盒子模型">盒子模型</h3>
+<h4 id="尺寸">尺寸</h4>
 
-<h4 id="dimensions">Dimensions</h4>
+<p>所有尺寸均以逻辑像素单位表示。字体大小也是逻辑像素单位。逻辑像素单位大约为 96 dpi，但是精确值根据硬件而不同，在这样
+可优化性能和渲染质量，保持在不同的硬件像素密度下界面尺寸大致相同。</p>
 
-<p>All dimensions are expressed as logical pixel units. Font sizes are
-also in logical pixel units. Logical pixel units are approximately
-96dpi, but the precise value varies based on the hardware, in such a
-way as to optimize for performance and rendering quality while keeping
-interfaces roughly the same size across devices regardless of the
-hardware pixel density.</p>
+<p>绘制图像时逻辑像素单元会根据合适的比例因子自动转换为设备（硬件）的像素。</p>
 
-<p>Logical pixel units are automatically converted to device (hardware)
-pixels when painting by applying an appropriate scale factor.</p>
-
-<p>TODO(ianh): Define how you actually get the device pixel ratio if you
-need it, and document best practices around that.</p>
+<p>TODO(ianh) : 您是如何在需要时获得设备像素比例的，并记录最佳实践。</p>
 
 <h4 id="edgeinsets">EdgeInsets</h4>
 
@@ -358,7 +304,7 @@ need it, and document best practices around that.</p>
 
 <h3 id="bespoke-models">Bespoke Models</h3>
 
-<h2 id="using-the-provided-subclasses">Using the provided subclasses</h2>
+<h2 id="使用所提供的子类">使用所提供的子类</h2>
 
 <h3 id="render_boxdart">render_box.dart</h3>
 
@@ -396,110 +342,76 @@ need it, and document best practices around that.</p>
 
 <h3 id="renderstack-render_stackdart">RenderStack (render_stack.dart)</h3>
 
-<h2 id="writing-new-subclasses">Writing new subclasses</h2>
+<h2 id="编写新的子类">编写新的子类</h2>
 
-<h3 id="the-renderobject-contract">The RenderObject contract</h3>
+<h3 id="renderobject的协议">RenderObject的协议</h3>
 
-<p>If you want to define a <code class="highlighter-rouge">RenderObject</code> that uses a new coordinate
-system, then you should inherit straight from <code class="highlighter-rouge">RenderObject</code>. Examples
-of doing this can be found in <code class="highlighter-rouge">RenderBox</code>, which deals in
-rectangles in cartesian space, and in the <a href="https://github.com/flutter/flutter/blob/master/examples/layers/rendering/src/sector_layout.dart">sector_layout.dart
-example</a>, which
-implements a toy model based on polar coordinates. The <code class="highlighter-rouge">RenderView</code>
-class, which is used internally to adapt from the host system to this
-rendering framework, is another example.</p>
+<p>如果你想使用新坐标系定义一个 <code class="highlighter-rouge">RenderObject</code>，那么您应该直接从  <code class="highlighter-rouge">RenderObject</code> 继承。可以在 <code class="highlighter-rouge">RenderBox</code> 中找到这样做的示例，它在笛卡尔空间中处理矩形，在 <a href="https://github.com/flutter/flutter/blob/master/examples/layers/rendering/src/sector_layout.dart">sector_layout.dart
+example</a> 示例中可以实现基于极坐标的玩具模型。 <code class="highlighter-rouge">RenderView</code> 类是另一个例子，它在内部使用来适应从系统主机到渲染框架。</p>
 
-<p>A subclass of <code class="highlighter-rouge">RenderObject</code> must fulfill the following contract:</p>
+<p>一个 <code class="highlighter-rouge">RenderObject</code> 的子类必须满足以下协议:</p>
 
 <ul>
   <li>
-    <p>It must fulfill the <code class="highlighter-rouge">AbstractNode</code> contract when
-dealing with children. Using <code class="highlighter-rouge">RenderObjectWithChildMixin</code> or
-<code class="highlighter-rouge">ContainerRenderObjectMixin</code> can make this easier.</p>
+    <p>在处理子类时，必须遵循 <code class="highlighter-rouge">AbstractNode</code> 协议。使用  <code class="highlighter-rouge">RenderObjectWithChildMixin</code> 或  <code class="highlighter-rouge">ContainerRenderObjectMixin</code>  可以使这更容易。</p>
   </li>
   <li>
-    <p>Information about the child managed by the parent, e.g. typically
-position information and configuration for the parent’s layout,
-should be stored on the <code class="highlighter-rouge">parentData</code> member; to this effect, a
-ParentData subclass should be defined and the <code class="highlighter-rouge">setupParentData()</code>
-method should be overridden to initialize the child’s parent data
-appropriately.</p>
+    <p>有关由父类管理的子类的信息，例如，通常父类布局的位置信息和配置应存储在  <code class="highlighter-rouge">parentData</code> 成员上；为此，应该定义一个 ParentData 子类，并重写 <code class="highlighter-rouge">setupParentData()</code> 方法以适当地初始化子类的父数据。</p>
   </li>
   <li>
-    <p>Layout constraints must be expressed in a Constraints subclass. This
-subclass must implement <code class="highlighter-rouge">operator==</code> (and <code class="highlighter-rouge">hashCode</code>).</p>
+    <p>布局约束必须用 Constraints 的子类表示。这个子类必须实现  <code class="highlighter-rouge">operator==</code>（和 <code class="highlighter-rouge">hashCode</code>）。</p>
   </li>
   <li>
-    <p>Whenever the layout needs updating, the <code class="highlighter-rouge">markNeedsLayout()</code> method
-should be called.</p>
+    <p>每当布局需要更新时，都应该调用 <code class="highlighter-rouge">markNeedsLayout()</code> 方法。</p>
   </li>
   <li>
-    <p>Whenever the rendering needs updating without changing the layout,
-the <code class="highlighter-rouge">markNeedsPaint()</code> method should be called. (Calling
-<code class="highlighter-rouge">markNeedsLayout()</code> implies a call to <code class="highlighter-rouge">markNeedsPaint()</code>, so you
-don’t need to call both.)</p>
+    <p>每当需要更新渲染而不更改布局时，应调用 <code class="highlighter-rouge">markNeedsPaint()</code> 函数。（调用 <code class="highlighter-rouge">markNeedsLayout()</code> 就意味着调用 <code class="highlighter-rouge">markNeedsPaint()</code>，所以你不需要同时调用它们。）</p>
   </li>
   <li>
-    <p>The subclass must override <code class="highlighter-rouge">performLayout()</code> to perform layout based
-on the constraints given in the <code class="highlighter-rouge">constraints</code> member. Each object is
-responsible for sizing itself; positioning must be done by the
-object calling <code class="highlighter-rouge">performLayout()</code>. Whether positioning is done before
-or after the child’s layout is a decision to be made by the class.
-TODO(ianh): Document sizedByParent, performResize(), rotate</p>
+    <p>子类必须重载 <code class="highlighter-rouge">performLayout()</code> 以根据 <code class="highlighter-rouge">constraints</code> 成员中给出的约束条件执行布局。每个对象都负责确定自己的尺寸;定位必须由调用了  <code class="highlighter-rouge">performLayout()</code> 的对象完成。是在孩子布局之前还是之后进行定位是由这个类决定的。</p>
+
+    <p>TODO(ianh): sizedByParent, performResize(), rotate 的文档</p>
   </li>
   <li>
-    <p>TODO(ianh): Document painting, hit testing, debug*</p>
+    <p>TODO(ianh): painting, hit testing, debug* 的文档</p>
   </li>
 </ul>
 
-<h4 id="the-parentdata-contract">The ParentData contract</h4>
+<h4 id="parentdata-的协议">ParentData 的协议</h4>
 
-<h4 id="using-renderobjectwithchildmixin">Using RenderObjectWithChildMixin</h4>
+<h4 id="renderobjectwithchildmixin-的使用">RenderObjectWithChildMixin 的使用</h4>
 
-<h4 id="using-containerrenderobjectmixin-and-containerparentdatamixin">Using ContainerRenderObjectMixin (and ContainerParentDataMixin)</h4>
+<h4 id="containerrenderobjectmixin和-containerparentdatamixin-的使用">ContainerRenderObjectMixin(和 ContainerParentDataMixin) 的使用</h4>
 
-<p>This mixin can be used for classes that have a child list, to manage
-the list. It implements the list using linked list pointers in the
-<code class="highlighter-rouge">parentData</code> structure.</p>
+<p>这个 mixin 可以用在有孩子列表的类来管理列表。它使用 <code class="highlighter-rouge">parentData</code>  结构中的链表指针实现这个列表。</p>
 
-<p>TODO(ianh): Document this mixin.</p>
+<p>TODO(ianh): 这个 mixin 的文档</p>
 
-<p>Subclasses must follow the following contract, in addition to the
-contracts of any other classes they subclass:</p>
+<p>除了父类的协议，子类还必须遵循以下约束：</p>
 
 <ul>
-  <li>If the constructor takes a list of children, it must call addAll()
-with that list.</li>
+  <li>如果构造函数有一列的孩子，它必须调用 addAll() 添加那个列表。</li>
 </ul>
 
-<p>TODO(ianh): Document how to walk the children.</p>
+<p>TODO(ianh): 说明如何使用这些孩子们。</p>
 
-<h3 id="the-renderbox-contract">The RenderBox contract</h3>
+<h3 id="renderbox的协议">RenderBox的协议</h3>
 
-<p>A <code class="highlighter-rouge">RenderBox</code> subclass is required to implement the following contract:</p>
+<p>一个 <code class="highlighter-rouge">RenderBox</code> 子类需要实现以下协议：</p>
 
 <ul>
   <li>
-    <p>It must fulfill the <code class="highlighter-rouge">AbstractNode</code> contract when
-dealing with children. Note that using <code class="highlighter-rouge">RenderObjectWithChildMixin</code>
-or <code class="highlighter-rouge">ContainerRenderObjectMixin</code> takes care of this for you, assuming
-you fulfill their contract instead.</p>
+    <p>在处理孩子们时，它必须遵循 <code class="highlighter-rouge">AbstractNode</code> 协议。请注意， <code class="highlighter-rouge">RenderObjectWithChildMixin</code> 或 <code class="highlighter-rouge">ContainerRenderObjectMixin</code> 时为你服务时,你也得遵循他们的协议。</p>
   </li>
   <li>
-    <p>If it has any data to store on its children, it must define a
-BoxParentData subclass and override setupParentData() to initialize
-the child’s parent data appropriately, as in the following example.
-(If the subclass has an opinion about what type its children must
-be, e.g. the way that <code class="highlighter-rouge">RenderBlock</code> wants its children to be
-<code class="highlighter-rouge">RenderBox</code> nodes, then change the <code class="highlighter-rouge">setupParentData()</code> signature
-accordingly, to catch misuse of the method.)</p>
+    <p>如果有任何数据存储在其子节点上，它必须定义一个 BoxParentData 的子类并重载 setupParentData() 以给孩子的 parent data 初始化合适的数据，如下面示例。（如果子类想让它孩子们必须是什么类型，例如，  <code class="highlighter-rouge">RenderBlock</code> 希望其子级都为 <code class="highlighter-rouge">RenderBox</code> 节点，则相应地更改  <code class="highlighter-rouge">setupParentData()</code> 识别标志，以捕获该方法的误用。）</p>
   </li>
 </ul>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code>  <span class="kd">class</span> <span class="nc">FooParentData</span> <span class="kd">extends</span> <span class="n">BoxParentData</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
 
-  <span class="c1">// In RenderFoo</span>
+  <span class="c1">// 在RenderFoo中</span>
   <span class="kt">void</span> <span class="n">setupParentData</span><span class="o">(</span><span class="n">RenderObject</span> <span class="n">child</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">child</span><span class="o">.</span><span class="na">parentData</span> <span class="k">is</span><span class="o">!</span> <span class="n">FooParentData</span><span class="o">)</span>
       <span class="n">child</span><span class="o">.</span><span class="na">parentData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FooParentData</span><span class="o">();</span>
@@ -508,166 +420,105 @@ accordingly, to catch misuse of the method.)</p>
 </div>
 
 <ul>
-  <li>The class must encapsulate a layout algorithm that has the following
-features:</li>
+  <li>该类必须封装具有以下功能的布局算法：</li>
 </ul>
 
-<p>** It uses as input a set of constraints, described by a
-   BoxConstraints object, and a set of zero or more children, as
-   determined by the class itself, and has as output a Size (which is
-   set on the object’s own <code class="highlighter-rouge">size</code> field), and positions for each child
-   (which are set on the children’s <code class="highlighter-rouge">parentData.position</code> field).</p>
+<p>** 用一个 BoxConstraints 对象来描述的一系列的约束集合作为输入，以及通过类自已来决定零或多个的孩子集，并输出一个 Size（在对象自己的 <code class="highlighter-rouge">size</code> 属性中设置） ，以及每个孩子的位置（在孩子的 <code class="highlighter-rouge">parentData.position</code> 属性中设置）。</p>
 
-<p>** The algorithm can decide the Size in one of two ways: either
-   exclusively based on the given constraints (i.e. it is effectively
-   sized entirely by its parent), or based on those constraints and
-   the dimensions of the children.</p>
+<p>** 该算法可以通过以下两种方式之一来决定大小：或者完全基于给定的约束条件（即，它完全由其父级完全确定大小），或者基于以上这些约束条件和孩子们的尺寸。</p>
 
-<p>In the former case, the class must have a sizedByParent getter that
-   returns true, and it must have a <code class="highlighter-rouge">performResize()</code> method that uses
-   the object’s <code class="highlighter-rouge">constraints</code> member to size itself by setting the
-   <code class="highlighter-rouge">size</code> member. The size must be consistent, a given set of
-   constraints must always result in the same size.</p>
+<p>在前一种情况下，该类必须具有返回 true 的 sizeByParent的getter，并且它必须有一个 <code class="highlighter-rouge">performResize()</code> 的方法来用这个对象的  <code class="highlighter-rouge">constraints</code> 成员去计算自身的大小。大小必须保持一致，一组给定约束结果总是相同的大小。</p>
 
-<p>In the latter case, it will inherit the default <code class="highlighter-rouge">sizedByParent</code>
-   getter that returns false, and it will size itself in the
-   <code class="highlighter-rouge">performLayout()</code> function described below.</p>
+<p>在后一种情况下，它将继承 <code class="highlighter-rouge">sizedByParent</code> 默认的 getter 方法返回 false，并且它将在下面描述的 <code class="highlighter-rouge">performLayout()</code> 函数中计算自身的大小。</p>
 
-<p>The <code class="highlighter-rouge">sizedByParent</code> distinction is purely a performance
-   optimization. It allows nodes that only set their size based on the
-   incoming constraints to skip that logic when they need to be
-   re-laid-out, and, more importantly, it allows the layout system to
-   treat the node as a <em>layout boundary</em>, which reduces the amount of
-   work that needs to happen when the node is marked as needing
-   layout.</p>
+<p><code class="highlighter-rouge">sizedByParent</code> 优势就是纯粹的性能优化。它使得节点根据基于传入的约束只设置其大小而跳过那些在重新布局时的逻辑，更重要的是，它让布局系统将节点作为一个 <em>layout boundary</em>，从而减少当节点被标记为需要 layout 时的工作量。</p>
 
 <ul>
   <li>
-    <p>The following methods must report numbers consistent with the output
-of the layout algorithm used:</p>
+    <p>以下方法返回值必须与使过的布局算法的输出数值一致：</p>
 
     <ul>
       <li>
-        <p><code class="highlighter-rouge">double getMinIntrinsicWidth(BoxConstraints constraints)</code> must
- return the width that fits within the given constraints below which
- making the width constraint smaller would not increase the
- resulting height, or, to put it another way, the narrowest width at
- which the box can be rendered without failing to lay the children
- out within itself.</p>
+        <p><code class="highlighter-rouge">double getMinIntrinsicWidth(BoxConstraints constraints)</code>  的返回值必须在给定约束的高度以下，使得当在宽度的约束变小时不会增加结果的高度,或者,换句话说，这个盒子可以在完全的把孩子们放在自己的里面的最小渲染宽度。</p>
 
-        <p>For example, the minimum intrinsic width of a piece of text like “a
- b cd e”, where the text is allowed to wrap at spaces, would be the
- width of “cd”.</p>
+        <p>例如，像 “a b cd e” 这样的文本的最小固有宽度，允许文本空格处换行，the minimum intrinsic width 应该是”cd”的宽度。</p>
       </li>
       <li>
-        <p><code class="highlighter-rouge">double getMaxIntrinsicWidth(BoxConstraints constraints)</code> must
- return the width that fits within the given constraints above which
- making the width constraint larger would not decrease the resulting
- height.</p>
+        <p><code class="highlighter-rouge">double getMaxIntrinsicWidth(BoxConstraints constraints)</code>  的返回值必须在给定约束的宽度以上，使得当在宽度的约束变大时不会降低结果的高度。</p>
 
-        <p>For example, the maximum intrinsic width of a piece of text like “a
- b cd e”, where the text is allowed to wrap at spaces, would be the
- width of the whole “a b cd e” string, with no wrapping.</p>
+        <p>例如，像 “a b cd e” 这样的文本的最大固有宽度，允许文本空格处换行，the maximum intrinsic width 将是没有换行的 “a b cd e” 字符串整体的宽度。</p>
       </li>
       <li>
-        <p><code class="highlighter-rouge">double getMinIntrinsicHeight(BoxConstraints constraints)</code> must
- return the height that fits within the given constraints below
- which making the height constraint smaller would not increase the
- resulting width, or, to put it another way, the shortest height at
- which the box can be rendered without failing to lay the children
- out within itself.</p>
+        <p><code class="highlighter-rouge">double getMinIntrinsicHeight(BoxConstraints constraints)</code> 的返回值必须在给定约束的高度以下，使得当在高度的约束变小时不会增加结果的宽度，或者,换句话说，这个盒子可以在完全的把孩子们放在自己的里面的最短渲染高度。</p>
 
-        <p>The minimum intrinsic height of a width-in-height-out algorithm,
- like English text layout, would be the height of the text at the
- width that would be used given the constraints. So for instance,
- given the text “hello world”, if the constraints were such that it
- had to wrap at the space, then the minimum intrinsic height would
- be the height of two lines (and the appropriate line spacing). If
- the constraints were such that it all fit on one line, then it
- would be the height of one line.</p>
+        <p>宽高算法中的最小固有高度，像英文文本布局一样，将是给定宽度约束条件的文本的高度 。举例来说，给到 “hello world” 文本，如果约束条件是它必须在空格处换行，那么最小固有高度将是两行的高度（加上适当的行间距）。如果满足了约束条件后全部一行，那么它就是一行的高度。</p>
       </li>
       <li>
-        <p><code class="highlighter-rouge">double getMaxIntrinsicHeight(BoxConstraints constraints)</code> must
-return the height that fits within the given constraints above
-which making the height constraint larger would not decrease the
-resulting width. If the height depends exclusively on the width,
-and the width does not depend on the height, then
-<code class="highlighter-rouge">getMinIntrinsicHeight()</code> and <code class="highlighter-rouge">getMaxIntrinsicHeight()</code> will return the
-same number given the same constraints.</p>
+        <p><code class="highlighter-rouge">double getMaxIntrinsicHeight(BoxConstraints constraints)</code>  的返回值必须在给定约束的高度以上，使得当在高度的约束变小时不会减少结果的宽度，如果高度完全取决于宽度，而宽度不取决于高度，则给 <code class="highlighter-rouge">getMinIntrinsicHeight()</code> 和 <code class="highlighter-rouge">getMaxIntrinsicHeight()</code> 相同约束
+将返回相同的数值。</p>
 
-        <p>In the case of English text, the maximum intrinsic height is the
-same as the minimum intrinsic height.</p>
+        <p>在英文文本的中，最大固有高度与最小固有高度相同。</p>
       </li>
     </ul>
   </li>
   <li>
-    <p>The box must have a <code class="highlighter-rouge">performLayout()</code> method that encapsulates the
-layout algorithm that this class represents. It is responsible for
-telling the children to lay out, positioning the children, and, if
-sizedByParent is false, sizing the object.</p>
+    <p>盒子中必须有一个 <code class="highlighter-rouge">performLayout()</code> 方法来封装这个类显示时布局算法。
+它负责告诉孩子们如何布局，布置孩子位置，并且,如果 sizedByParent 返回 false，还要计算对象的大小。</p>
 
-    <p>Specifically, the method must walk over the object’s children, if
-any, and for each one call <code class="highlighter-rouge">child.layout()</code> with a BoxConstraints
-object as the first argument, and a second argument named
-<code class="highlighter-rouge">parentUsesSize</code> which is set to true if the child’s resulting size
-will in any way influence the layout, and omitted (or set to false)
-if the child’s resulting size is ignored. The children’s positions
-(<code class="highlighter-rouge">child.parentData.position</code>) must then be set.</p>
+    <p>具体来说，该方法必须遍历对象的子对象（如果有的话），
+并且为每个子对象调用 <code class="highlighter-rouge">child.layout()</code> 并把 BoxConstraints 对象的作为第一个参数的，
+第二个参数名为 <code class="highlighter-rouge">parentUsesSize</code>，如果孩子大小的结果将会以任何方式影响布局则 <code class="highlighter-rouge">parentUsesSize</code> 必须为 true，
+如果孩子的结果大小是被忽略的，则省略掉（或设为 false）。
+还必须设置孩子的位置(<code class="highlighter-rouge">child.parentData.position</code>) 。</p>
 
-    <p>(Calling <code class="highlighter-rouge">layout()</code> can result in the child’s own <code class="highlighter-rouge">performLayout()</code>
-method being called recursively, if the child also needs to be laid
-out. If the child’s constraints haven’t changed and the child is not
-marked as needing layout, however, this will be skipped.)</p>
+    <p>（调用 <code class="highlighter-rouge">layout()</code> 可以导致孩子自己的 <code class="highlighter-rouge">performLayout()</code> 方法被递归地调用，如果孩子也需要布局的话
+。如果孩子的约束没有改变，并且孩子没有被标记为需要布局，该方法将被跳过。）</p>
 
-    <p>The parent must not set a child’s <code class="highlighter-rouge">size</code> directly. If the parent
-wants to influence the child’s size, it must do so via the
-constraints that it passes to the child’s <code class="highlighter-rouge">layout()</code> method.</p>
+    <p>父节点不得直接设置孩子的 <code class="highlighter-rouge">size</code>。
+如果父节点想要影响子节点的尺寸，那么必须通过传递给孩子 <code class="highlighter-rouge">layout()</code> 方法的约束来实现。</p>
 
-    <p>If an object’s <code class="highlighter-rouge">sizedByParent</code> is false, then its <code class="highlighter-rouge">performLayout()</code>
-must also size the object (by setting <code class="highlighter-rouge">size</code>), otherwise, the size
-must be left untouched.</p>
+    <p>如果对象的 <code class="highlighter-rouge">sizedByParent</code> 为 false，
+则其 <code class="highlighter-rouge">performLayout()</code> 也必须测量对象的大小（通过设置 <code class="highlighter-rouge">size</code>），否则，对象的大小将不改变。</p>
   </li>
   <li>
-    <p>The <code class="highlighter-rouge">size</code> member must never be set to an infinite value.</p>
+    <p><code class="highlighter-rouge">size</code> 值不能设置为无限大。</p>
   </li>
   <li>
-    <p>The box must also implement <code class="highlighter-rouge">hitTestChildren()</code>.
-TODO(ianh): Define this better</p>
+    <p>该盒子还必须实现 <code class="highlighter-rouge">hitTestChildren()</code>。
+TODO(ianh): 定义这个更好</p>
   </li>
   <li>
-    <p>The box must also implement <code class="highlighter-rouge">paint()</code>.
-TODO(ianh): Define this better</p>
+    <p>该盒子还必须实现<code class="highlighter-rouge">paint()</code>。
+TODO(ianh): 定义这个更好</p>
   </li>
 </ul>
 
-<h4 id="using-renderproxybox">Using RenderProxyBox</h4>
+<h4 id="renderproxybox-的使用">RenderProxyBox 的使用</h4>
 
-<h3 id="the-hit-testing-contract">The Hit Testing contract</h3>
+<h3 id="hit-testing-的协议">Hit Testing 的协议</h3>
 
-<h2 id="performance-rules-of-thumb">Performance rules of thumb</h2>
+<h2 id="性能经验法则">性能经验法则</h2>
 
 <ul>
   <li>
-    <p>Avoid using transforms where mere maths would be sufficient (e.g.
-draw your rectangle at x,y rather than translating by x,y and
-drawing it at 0,0).</p>
+    <p>如果只是简单的计算就足够请避免使用 transforms 
+（例如，在 x，y 处绘制矩形，而不是用 x，y 进行平移并在 0,0 处绘制）。</p>
   </li>
   <li>
-    <p>Avoid using save/restore on canvases.</p>
+    <p>避免在画布上使用 save/restore。</p>
   </li>
 </ul>
 
-<h2 id="useful-debugging-tools">Useful debugging tools</h2>
+<h2 id="有用的调试工具">有用的调试工具</h2>
 
-<p>This is a quick way to dump the entire render tree to the console every frame.
-This can be quite useful in figuring out exactly what is going on when
-working with the render tree.</p>
+<p>这是一种快速方式将整个渲染树每帧转存到控制台上。
+这在确定使用渲染树工作时究竟发生了什么非常有用。</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/rendering.dart'</span><span class="o">;</span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">RendererBinding</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">addPersistentFrameCallback</span><span class="o">((</span><span class="n">_</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// This dumps the entire render tree every frame.</span>
+    <span class="c1">// 这样会转存整个渲染树的每一帧</span>
     <span class="n">debugDumpRenderTree</span><span class="o">();</span>
   <span class="o">});</span>
   <span class="c1">// ...</span>
