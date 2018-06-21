@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -238,7 +239,7 @@ library to achieve this.</p>
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="kd">get</span> <span class="n">_localFile</span> <span class="n">async</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">path</span> <span class="o">=</span> <span class="n">await</span> <span class="n">_localPath</span><span class="o">;</span>
-  <span class="k">return</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">'</span><span class="si">$path</span><span class="s">/counter.txt'</span><span class="o">);</span>
+  <span class="k">return</span> <span class="n">File</span><span class="o">(</span><span class="s">'</span><span class="si">$path</span><span class="s">/counter.txt'</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
 </div>
@@ -312,7 +313,7 @@ This function will run before the tests are executed.</p>
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'dart:io'</span><span class="o">;</span>
@@ -323,9 +324,9 @@ This function will run before the tests are executed.</p>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">runApp</span><span class="o">(</span>
-    <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="s">'Reading and Writing Files'</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">FlutterDemo</span><span class="o">(</span><span class="nl">storage:</span> <span class="k">new</span> <span class="n">CounterStorage</span><span class="o">()),</span>
+      <span class="nl">home:</span> <span class="n">FlutterDemo</span><span class="o">(</span><span class="nl">storage:</span> <span class="n">CounterStorage</span><span class="o">()),</span>
     <span class="o">),</span>
   <span class="o">);</span>
 <span class="o">}</span>
@@ -339,7 +340,7 @@ This function will run before the tests are executed.</p>
 
   <span class="n">Future</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;</span> <span class="kd">get</span> <span class="n">_localFile</span> <span class="n">async</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">path</span> <span class="o">=</span> <span class="n">await</span> <span class="n">_localPath</span><span class="o">;</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">'</span><span class="si">$path</span><span class="s">/counter.txt'</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">File</span><span class="o">(</span><span class="s">'</span><span class="si">$path</span><span class="s">/counter.txt'</span><span class="o">);</span>
   <span class="o">}</span>
 
   <span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">readCounter</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
@@ -370,7 +371,7 @@ This function will run before the tests are executed.</p>
   <span class="n">FlutterDemo</span><span class="o">({</span><span class="n">Key</span> <span class="n">key</span><span class="o">,</span> <span class="nd">@required</span> <span class="k">this</span><span class="o">.</span><span class="na">storage</span><span class="o">})</span> <span class="o">:</span> <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
 
   <span class="nd">@override</span>
-  <span class="n">_FlutterDemoState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_FlutterDemoState</span><span class="o">();</span>
+  <span class="n">_FlutterDemoState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="n">_FlutterDemoState</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">_FlutterDemoState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">FlutterDemo</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -397,17 +398,17 @@ This function will run before the tests are executed.</p>
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span><span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Reading and Writing Files'</span><span class="o">)),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span><span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Reading and Writing Files'</span><span class="o">)),</span>
+      <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span>
           <span class="s">'Button tapped </span><span class="si">$_counter</span><span class="s"> time</span><span class="si">${_counter == 1 ? '' : 's'}</span><span class="s">.'</span><span class="o">,</span>
         <span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">floatingActionButton:</span> <span class="k">new</span> <span class="n">FloatingActionButton</span><span class="o">(</span>
+      <span class="nl">floatingActionButton:</span> <span class="n">FloatingActionButton</span><span class="o">(</span>
         <span class="nl">onPressed:</span> <span class="n">_incrementCounter</span><span class="o">,</span>
         <span class="nl">tooltip:</span> <span class="s">'Increment'</span><span class="o">,</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">add</span><span class="o">),</span>
+        <span class="nl">child:</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">add</span><span class="o">),</span>
       <span class="o">),</span>
     <span class="o">);</span>
   <span class="o">}</span>

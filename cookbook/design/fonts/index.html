@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -273,11 +274,11 @@ the app’s <code class="highlighter-rouge">theme</code>. The value we provide t
 name declared in the <code class="highlighter-rouge">pubspec.yaml</code>.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">MaterialApp</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">MaterialApp</span><span class="o">(</span>
   <span class="nl">title:</span> <span class="s">'Custom Fonts'</span><span class="o">,</span>
   <span class="c1">// Set Raleway as the default app font</span>
-  <span class="nl">theme:</span> <span class="k">new</span> <span class="n">ThemeData</span><span class="o">(</span><span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">),</span>
-  <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyHomePage</span><span class="o">(),</span>
+  <span class="nl">theme:</span> <span class="n">ThemeData</span><span class="o">(</span><span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">),</span>
+  <span class="nl">home:</span> <span class="n">MyHomePage</span><span class="o">(),</span>
 <span class="o">);</span>
 </code></pre>
 </div>
@@ -296,9 +297,9 @@ again, the <code class="highlighter-rouge">fontFamily</code> must match the <cod
 <code class="highlighter-rouge">pubspec.yaml</code>.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Text</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Text</span><span class="o">(</span>
   <span class="s">'Roboto Mono sample'</span><span class="o">,</span>
-  <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="o">(</span><span class="nl">fontFamily:</span> <span class="s">'RobotoMono'</span><span class="o">),</span>
+  <span class="nl">style:</span> <span class="n">TextStyle</span><span class="o">(</span><span class="nl">fontFamily:</span> <span class="s">'RobotoMono'</span><span class="o">),</span>
 <span class="o">);</span>
 </code></pre>
 </div>
@@ -310,7 +311,7 @@ object specifies a weight or style for which is there is no exact font file, the
 engine uses one of the more generic files for the font and attempts to
 extrapolate outlines for the requested weight and style.</p>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <h3 id="fonts">Fonts</h3>
 
@@ -349,16 +350,16 @@ extrapolate outlines for the requested weight and style.</p>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="s">'Custom Fonts'</span><span class="o">,</span>
       <span class="c1">// Set Raleway as the default app font</span>
-      <span class="nl">theme:</span> <span class="k">new</span> <span class="n">ThemeData</span><span class="o">(</span><span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">),</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyHomePage</span><span class="o">(),</span>
+      <span class="nl">theme:</span> <span class="n">ThemeData</span><span class="o">(</span><span class="nl">fontFamily:</span> <span class="s">'Raleway'</span><span class="o">),</span>
+      <span class="nl">home:</span> <span class="n">MyHomePage</span><span class="o">(),</span>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -366,14 +367,14 @@ extrapolate outlines for the requested weight and style.</p>
 <span class="kd">class</span> <span class="nc">MyHomePage</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
       <span class="c1">// The AppBar will use the app-default Raleway font</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span><span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Custom Fonts'</span><span class="o">)),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span><span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Custom Fonts'</span><span class="o">)),</span>
+      <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span>
         <span class="c1">// This Text Widget will use the RobotoMono font</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span>
           <span class="s">'Roboto Mono sample'</span><span class="o">,</span>
-          <span class="nl">style:</span> <span class="k">new</span> <span class="n">TextStyle</span><span class="o">(</span><span class="nl">fontFamily:</span> <span class="s">'RobotoMono'</span><span class="o">),</span>
+          <span class="nl">style:</span> <span class="n">TextStyle</span><span class="o">(</span><span class="nl">fontFamily:</span> <span class="s">'RobotoMono'</span><span class="o">),</span>
         <span class="o">),</span>
       <span class="o">),</span>
     <span class="o">);</span>

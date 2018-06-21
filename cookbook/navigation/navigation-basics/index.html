@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -204,13 +205,13 @@ second screen will return our user back to the first!</p>
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">FirstScreen</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'First Screen'</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'First Screen'</span><span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
-          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Launch new screen'</span><span class="o">),</span>
+      <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">RaisedButton</span><span class="o">(</span>
+          <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Launch screen'</span><span class="o">),</span>
           <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
             <span class="c1">// Navigate to second screen when tapped!</span>
           <span class="o">},</span>
@@ -223,16 +224,16 @@ second screen will return our user back to the first!</p>
 <span class="kd">class</span> <span class="nc">SecondScreen</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Second Screen"</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Second Screen"</span><span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
+      <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">RaisedButton</span><span class="o">(</span>
           <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
             <span class="c1">// Navigate back to first screen when tapped!</span>
           <span class="o">},</span>
-          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Go back!'</span><span class="o">),</span>
+          <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Go back!'</span><span class="o">),</span>
         <span class="o">),</span>
       <span class="o">),</span>
     <span class="o">);</span>
@@ -261,7 +262,7 @@ callback:</p>
 <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
   <span class="n">Navigator</span><span class="o">.</span><span class="na">push</span><span class="o">(</span>
     <span class="n">context</span><span class="o">,</span>
-    <span class="k">new</span> <span class="n">MaterialPageRoute</span><span class="o">(</span><span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">SecondScreen</span><span class="o">()),</span>
+    <span class="n">MaterialPageRoute</span><span class="o">(</span><span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">SecondScreen</span><span class="o">()),</span>
   <span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
@@ -285,31 +286,31 @@ routes managed by the navigator.</p>
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="n">MaterialApp</span><span class="o">(</span>
     <span class="nl">title:</span> <span class="s">'Navigation Basics'</span><span class="o">,</span>
-    <span class="nl">home:</span> <span class="k">new</span> <span class="n">FirstScreen</span><span class="o">(),</span>
+    <span class="nl">home:</span> <span class="n">FirstScreen</span><span class="o">(),</span>
   <span class="o">));</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">FirstScreen</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'First Screen'</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'First Screen'</span><span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
-          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Launch new screen'</span><span class="o">),</span>
+      <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">RaisedButton</span><span class="o">(</span>
+          <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Launch screen'</span><span class="o">),</span>
           <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
             <span class="n">Navigator</span><span class="o">.</span><span class="na">push</span><span class="o">(</span>
               <span class="n">context</span><span class="o">,</span>
-              <span class="k">new</span> <span class="n">MaterialPageRoute</span><span class="o">(</span><span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">SecondScreen</span><span class="o">()),</span>
+              <span class="n">MaterialPageRoute</span><span class="o">(</span><span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">SecondScreen</span><span class="o">()),</span>
             <span class="o">);</span>
           <span class="o">},</span>
         <span class="o">),</span>
@@ -321,16 +322,16 @@ routes managed by the navigator.</p>
 <span class="kd">class</span> <span class="nc">SecondScreen</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Second Screen"</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Second Screen"</span><span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
+      <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">RaisedButton</span><span class="o">(</span>
           <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
             <span class="n">Navigator</span><span class="o">.</span><span class="na">pop</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
           <span class="o">},</span>
-          <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Go back!'</span><span class="o">),</span>
+          <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Go back!'</span><span class="o">),</span>
         <span class="o">),</span>
       <span class="o">),</span>
     <span class="o">);</span>

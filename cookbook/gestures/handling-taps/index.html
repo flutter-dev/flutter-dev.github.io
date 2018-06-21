@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -192,21 +193,21 @@ we approach this?</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// Our GestureDetector wraps our button</span>
-<span class="k">new</span> <span class="nf">GestureDetector</span><span class="p">(</span>
+<span class="n">GestureDetector</span><span class="o">(</span>
   <span class="c1">// When the child is tapped, show a snackbar </span>
   <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
-    <span class="kd">final</span> <span class="n">snackBar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Tap"</span><span class="o">));</span>
+    <span class="kd">final</span> <span class="n">snackBar</span> <span class="o">=</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Tap"</span><span class="o">));</span>
 
     <span class="n">Scaffold</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">showSnackBar</span><span class="o">(</span><span class="n">snackBar</span><span class="o">);</span>
   <span class="o">},</span>
   <span class="c1">// Our Custom Button!</span>
-  <span class="nl">child:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
-    <span class="nl">padding:</span> <span class="k">new</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">12.0</span><span class="o">),</span>
-    <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+  <span class="nl">child:</span> <span class="n">Container</span><span class="o">(</span>
+    <span class="nl">padding:</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">12.0</span><span class="o">),</span>
+    <span class="nl">decoration:</span> <span class="n">BoxDecoration</span><span class="o">(</span>
       <span class="nl">color:</span> <span class="n">Theme</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">buttonColor</span><span class="o">,</span>
-      <span class="nl">borderRadius:</span> <span class="k">new</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">8.0</span><span class="o">),</span>
+      <span class="nl">borderRadius:</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">8.0</span><span class="o">),</span>
     <span class="o">),</span>
-    <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'My Button'</span><span class="o">),</span>
+    <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'My Button'</span><span class="o">),</span>
   <span class="o">),</span>
 <span class="o">);</span>
 </code></pre>
@@ -223,20 +224,20 @@ we approach this?</p>
   and <a href="https://docs.flutter.io/flutter/cupertino/CupertinoButton-class.html">CupertinoButton</a></li>
 </ol>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Gesture Demo'</span><span class="o">;</span>
 
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">title</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyHomePage</span><span class="o">(</span><span class="nl">title:</span> <span class="n">title</span><span class="o">),</span>
+      <span class="nl">home:</span> <span class="n">MyHomePage</span><span class="o">(</span><span class="nl">title:</span> <span class="n">title</span><span class="o">),</span>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -248,11 +249,11 @@ we approach this?</p>
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span><span class="nl">child:</span> <span class="k">new</span> <span class="n">MyButton</span><span class="o">()),</span>
+      <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span><span class="nl">child:</span> <span class="n">MyButton</span><span class="o">()),</span>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -261,21 +262,21 @@ we approach this?</p>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// Our GestureDetector wraps our button</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">GestureDetector</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">GestureDetector</span><span class="o">(</span>
       <span class="c1">// When the child is tapped, show a snackbar</span>
       <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="n">snackBar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Tap"</span><span class="o">));</span>
+        <span class="kd">final</span> <span class="n">snackBar</span> <span class="o">=</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="n">Text</span><span class="o">(</span><span class="s">"Tap"</span><span class="o">));</span>
 
         <span class="n">Scaffold</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">showSnackBar</span><span class="o">(</span><span class="n">snackBar</span><span class="o">);</span>
       <span class="o">},</span>
       <span class="c1">// Our Custom Button!</span>
-      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Container</span><span class="o">(</span>
-        <span class="nl">padding:</span> <span class="k">new</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">12.0</span><span class="o">),</span>
-        <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+      <span class="nl">child:</span> <span class="n">Container</span><span class="o">(</span>
+        <span class="nl">padding:</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">12.0</span><span class="o">),</span>
+        <span class="nl">decoration:</span> <span class="n">BoxDecoration</span><span class="o">(</span>
           <span class="nl">color:</span> <span class="n">Theme</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">buttonColor</span><span class="o">,</span>
-          <span class="nl">borderRadius:</span> <span class="k">new</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">8.0</span><span class="o">),</span>
+          <span class="nl">borderRadius:</span> <span class="n">BorderRadius</span><span class="o">.</span><span class="na">circular</span><span class="o">(</span><span class="mf">8.0</span><span class="o">),</span>
         <span class="o">),</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'My Button'</span><span class="o">),</span>
+        <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'My Button'</span><span class="o">),</span>
       <span class="o">),</span>
     <span class="o">);</span>
   <span class="o">}</span>

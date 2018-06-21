@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -245,7 +246,7 @@ starting with a json object.</p>
   <span class="n">Photo</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">id</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">thumbnailUrl</span><span class="o">});</span>
 
   <span class="kd">factory</span> <span class="n">Photo</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;</span> <span class="n">json</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Photo</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Photo</span><span class="o">(</span>
       <span class="nl">id:</span> <span class="n">json</span><span class="o">[</span><span class="s">'id'</span><span class="o">]</span> <span class="k">as</span> <span class="kt">int</span><span class="o">,</span>
       <span class="nl">title:</span> <span class="n">json</span><span class="o">[</span><span class="s">'title'</span><span class="o">]</span> <span class="k">as</span> <span class="kt">String</span><span class="o">,</span>
       <span class="nl">thumbnailUrl:</span> <span class="n">json</span><span class="o">[</span><span class="s">'thumbnailUrl'</span><span class="o">]</span> <span class="k">as</span> <span class="kt">String</span><span class="o">,</span>
@@ -270,7 +271,7 @@ starting with a json object.</p>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;</span> <span class="n">parsePhotos</span><span class="o">(</span><span class="kt">String</span> <span class="n">responseBody</span><span class="o">)</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">responseBody</span><span class="o">).</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;&gt;();</span>
 
-  <span class="k">return</span> <span class="n">parsed</span><span class="o">.</span><span class="na">map</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;((</span><span class="n">json</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">Photo</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">)).</span><span class="na">toList</span><span class="o">();</span>
+  <span class="k">return</span> <span class="n">parsed</span><span class="o">.</span><span class="na">map</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;((</span><span class="n">json</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">Photo</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">)).</span><span class="na">toList</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="n">Future</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;&gt;</span> <span class="n">fetchPhotos</span><span class="o">(</span><span class="n">http</span><span class="o">.</span><span class="na">Client</span> <span class="n">client</span><span class="o">)</span> <span class="n">async</span> <span class="o">{</span>
@@ -314,7 +315,7 @@ simple objects such as the <code class="highlighter-rouge">List&lt;Photo&gt;</co
 <p>You may experience errors if you try to pass more complex objects, such as 
 a <code class="highlighter-rouge">Future</code> or <code class="highlighter-rouge">http.Response</code> between isolates.</p>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'dart:convert'</span><span class="o">;</span>
@@ -335,7 +336,7 @@ a <code class="highlighter-rouge">Future</code> or <code class="highlighter-roug
 <span class="n">List</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;</span> <span class="n">parsePhotos</span><span class="o">(</span><span class="kt">String</span> <span class="n">responseBody</span><span class="o">)</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">responseBody</span><span class="o">).</span><span class="na">cast</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;&gt;();</span>
 
-  <span class="k">return</span> <span class="n">parsed</span><span class="o">.</span><span class="na">map</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;((</span><span class="n">json</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">Photo</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">)).</span><span class="na">toList</span><span class="o">();</span>
+  <span class="k">return</span> <span class="n">parsed</span><span class="o">.</span><span class="na">map</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;((</span><span class="n">json</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">Photo</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">)).</span><span class="na">toList</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">Photo</span> <span class="o">{</span>
@@ -348,7 +349,7 @@ a <code class="highlighter-rouge">Future</code> or <code class="highlighter-roug
   <span class="n">Photo</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">albumId</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">id</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">url</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">thumbnailUrl</span><span class="o">});</span>
 
   <span class="kd">factory</span> <span class="n">Photo</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;</span> <span class="n">json</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Photo</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Photo</span><span class="o">(</span>
       <span class="nl">albumId:</span> <span class="n">json</span><span class="o">[</span><span class="s">'albumId'</span><span class="o">]</span> <span class="k">as</span> <span class="kt">int</span><span class="o">,</span>
       <span class="nl">id:</span> <span class="n">json</span><span class="o">[</span><span class="s">'id'</span><span class="o">]</span> <span class="k">as</span> <span class="kt">int</span><span class="o">,</span>
       <span class="nl">title:</span> <span class="n">json</span><span class="o">[</span><span class="s">'title'</span><span class="o">]</span> <span class="k">as</span> <span class="kt">String</span><span class="o">,</span>
@@ -358,16 +359,16 @@ a <code class="highlighter-rouge">Future</code> or <code class="highlighter-roug
   <span class="o">}</span>
 <span class="o">}</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">appTitle</span> <span class="o">=</span> <span class="s">'Isolate Demo'</span><span class="o">;</span>
 
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">appTitle</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyHomePage</span><span class="o">(</span><span class="nl">title:</span> <span class="n">appTitle</span><span class="o">),</span>
+      <span class="nl">home:</span> <span class="n">MyHomePage</span><span class="o">(</span><span class="nl">title:</span> <span class="n">appTitle</span><span class="o">),</span>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -379,18 +380,18 @@ a <code class="highlighter-rouge">Future</code> or <code class="highlighter-roug
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;&gt;(</span>
-        <span class="nl">future:</span> <span class="n">fetchPhotos</span><span class="o">(</span><span class="k">new</span> <span class="n">http</span><span class="o">.</span><span class="na">Client</span><span class="o">()),</span>
+      <span class="nl">body:</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Photo</span><span class="o">&gt;&gt;(</span>
+        <span class="nl">future:</span> <span class="n">fetchPhotos</span><span class="o">(</span><span class="n">http</span><span class="o">.</span><span class="na">Client</span><span class="o">()),</span>
         <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>
           <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasError</span><span class="o">)</span> <span class="n">print</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">error</span><span class="o">);</span>
 
           <span class="k">return</span> <span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span>
-              <span class="o">?</span> <span class="k">new</span> <span class="n">PhotosList</span><span class="o">(</span><span class="nl">photos:</span> <span class="n">snapshot</span><span class="o">.</span><span class="na">data</span><span class="o">)</span>
-              <span class="o">:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span><span class="nl">child:</span> <span class="k">new</span> <span class="n">CircularProgressIndicator</span><span class="o">());</span>
+              <span class="o">?</span> <span class="n">PhotosList</span><span class="o">(</span><span class="nl">photos:</span> <span class="n">snapshot</span><span class="o">.</span><span class="na">data</span><span class="o">)</span>
+              <span class="o">:</span> <span class="n">Center</span><span class="o">(</span><span class="nl">child:</span> <span class="n">CircularProgressIndicator</span><span class="o">());</span>
         <span class="o">},</span>
       <span class="o">),</span>
     <span class="o">);</span>
@@ -404,13 +405,13 @@ a <code class="highlighter-rouge">Future</code> or <code class="highlighter-roug
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">GridView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
-      <span class="nl">gridDelegate:</span> <span class="k">new</span> <span class="n">SliverGridDelegateWithFixedCrossAxisCount</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">GridView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
+      <span class="nl">gridDelegate:</span> <span class="n">SliverGridDelegateWithFixedCrossAxisCount</span><span class="o">(</span>
         <span class="nl">crossAxisCount:</span> <span class="mi">2</span><span class="o">,</span>
       <span class="o">),</span>
       <span class="nl">itemCount:</span> <span class="n">photos</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
       <span class="nl">itemBuilder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">Image</span><span class="o">.</span><span class="na">network</span><span class="o">(</span><span class="n">photos</span><span class="o">[</span><span class="n">index</span><span class="o">].</span><span class="na">thumbnailUrl</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="na">network</span><span class="o">(</span><span class="n">photos</span><span class="o">[</span><span class="n">index</span><span class="o">].</span><span class="na">thumbnailUrl</span><span class="o">);</span>
       <span class="o">},</span>
     <span class="o">);</span>
   <span class="o">}</span>

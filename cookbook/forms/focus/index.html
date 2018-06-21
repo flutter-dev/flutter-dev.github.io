@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -194,7 +195,7 @@ as well as how to focus a text field when a button is tapped.</p>
 <code class="highlighter-rouge">autofocus</code> property.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">TextField</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">TextField</span><span class="o">(</span>
   <span class="nl">autofocus:</span> <span class="kc">true</span><span class="o">,</span>
 <span class="o">);</span>
 </code></pre>
@@ -231,14 +232,14 @@ class. In addition, we need to <code class="highlighter-rouge">dispose</code> of
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// Define a Custom Form Widget</span>
 <span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
-  <span class="n">_MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_MyFormState</span><span class="o">();</span>
+  <span class="n">_MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="n">_MyFormState</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="c1">// Define a corresponding State class. This class will hold the data related to</span>
 <span class="c1">// the form.</span>
 <span class="kd">class</span> <span class="nc">_MyFormState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyForm</span><span class="o">&gt;</span> <span class="o">{</span>
   <span class="c1">// Create the focus node. We will pass it to the TextField below.</span>
-  <span class="kd">final</span> <span class="n">FocusNode</span> <span class="n">myFocusNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FocusNode</span><span class="o">();</span>
+  <span class="kd">final</span> <span class="n">FocusNode</span> <span class="n">myFocusNode</span> <span class="o">=</span> <span class="n">FocusNode</span><span class="o">();</span>
 
   <span class="nd">@override</span>
   <span class="kt">void</span> <span class="n">dispose</span><span class="o">()</span> <span class="o">{</span>
@@ -267,7 +268,7 @@ the <code class="highlighter-rouge">build</code> method.</p>
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">TextField</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">TextField</span><span class="o">(</span>
       <span class="nl">focusNode:</span> <span class="n">myFocusNode</span><span class="o">,</span>
     <span class="o">);</span>
   <span class="o">}</span>
@@ -282,7 +283,7 @@ action button! We’ll use the <a href="https://docs.flutter.io/flutter/widgets/
 method to achieve this task.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">FloatingActionButton</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">FloatingActionButton</span><span class="o">(</span>
   <span class="c1">// When the button is pressed, ask Flutter to focus our text field using</span>
   <span class="c1">// myFocusNode.</span>
   <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">=&gt;</span> <span class="n">FocusScope</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">requestFocus</span><span class="o">(</span><span class="n">myFocusNode</span><span class="o">),</span>
@@ -290,18 +291,18 @@ method to achieve this task.</p>
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="s">'Text Field Focus'</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyForm</span><span class="o">(),</span>
+      <span class="nl">home:</span> <span class="n">MyForm</span><span class="o">(),</span>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -309,14 +310,14 @@ method to achieve this task.</p>
 <span class="c1">// Define a Custom Form Widget</span>
 <span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
-  <span class="n">_MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_MyFormState</span><span class="o">();</span>
+  <span class="n">_MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="n">_MyFormState</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="c1">// Define a corresponding State class. This class will hold the data related to</span>
 <span class="c1">// the form.</span>
 <span class="kd">class</span> <span class="nc">_MyFormState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyForm</span><span class="o">&gt;</span> <span class="o">{</span>
   <span class="c1">// Create the focus node. We will pass it to the TextField below.</span>
-  <span class="kd">final</span> <span class="n">FocusNode</span> <span class="n">myFocusNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FocusNode</span><span class="o">();</span>
+  <span class="kd">final</span> <span class="n">FocusNode</span> <span class="n">myFocusNode</span> <span class="o">=</span> <span class="n">FocusNode</span><span class="o">();</span>
 
   <span class="nd">@override</span>
   <span class="kt">void</span> <span class="n">dispose</span><span class="o">()</span> <span class="o">{</span>
@@ -328,32 +329,32 @@ method to achieve this task.</p>
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Text Field Focus'</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Text Field Focus'</span><span class="o">),</span>
       <span class="o">),</span>
       <span class="nl">body:</span> <span class="n">Padding</span><span class="o">(</span>
         <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">16.0</span><span class="o">),</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">Column</span><span class="o">(</span>
           <span class="nl">children:</span> <span class="o">[</span>
             <span class="c1">// The first text field will be focused as soon as the app starts</span>
-            <span class="k">new</span> <span class="n">TextField</span><span class="o">(</span>
+            <span class="n">TextField</span><span class="o">(</span>
               <span class="nl">autofocus:</span> <span class="kc">true</span><span class="o">,</span>
             <span class="o">),</span>
             <span class="c1">// The second text field will be focused when a user taps on the</span>
             <span class="c1">// FloatingActionButton</span>
-            <span class="k">new</span> <span class="n">TextField</span><span class="o">(</span>
+            <span class="n">TextField</span><span class="o">(</span>
               <span class="nl">focusNode:</span> <span class="n">myFocusNode</span><span class="o">,</span>
             <span class="o">),</span>
           <span class="o">],</span>
         <span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">floatingActionButton:</span> <span class="k">new</span> <span class="n">FloatingActionButton</span><span class="o">(</span>
+      <span class="nl">floatingActionButton:</span> <span class="n">FloatingActionButton</span><span class="o">(</span>
         <span class="c1">// When the button is pressed, ask Flutter to focus our text field using</span>
         <span class="c1">// myFocusNode.</span>
         <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">=&gt;</span> <span class="n">FocusScope</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">requestFocus</span><span class="o">(</span><span class="n">myFocusNode</span><span class="o">),</span>
         <span class="nl">tooltip:</span> <span class="s">'Focus Second Text Field'</span><span class="o">,</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">edit</span><span class="o">),</span>
+        <span class="nl">child:</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">edit</span><span class="o">),</span>
       <span class="o">),</span> <span class="c1">// This trailing comma makes auto-formatting nicer for build methods.</span>
     <span class="o">);</span>
   <span class="o">}</span>

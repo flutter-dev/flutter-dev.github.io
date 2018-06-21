@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -195,7 +196,7 @@ the time, this data will come from the internet or a database.</p>
 constructor.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span><span class="mi">10000</span><span class="o">,</span> <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">"Item </span><span class="si">$i</span><span class="s">"</span><span class="o">);</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">items</span> <span class="o">=</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span><span class="mi">10000</span><span class="o">,</span> <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">"Item </span><span class="si">$i</span><span class="s">"</span><span class="o">);</span>
 </code></pre>
 </div>
 
@@ -208,25 +209,25 @@ a Widget!</p>
 display each String on it’s own line.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
   <span class="nl">itemCount:</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
   <span class="nl">itemBuilder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
-      <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'</span><span class="si">${items[index]}</span><span class="s">'</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">ListTile</span><span class="o">(</span>
+      <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'</span><span class="si">${items[index]}</span><span class="s">'</span><span class="o">),</span>
     <span class="o">);</span>
   <span class="o">},</span>
 <span class="o">);</span>
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/foundation.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">(</span>
-    <span class="nl">items:</span> <span class="k">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span><span class="mi">10000</span><span class="o">,</span> <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">"Item </span><span class="si">$i</span><span class="s">"</span><span class="o">),</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">(</span>
+    <span class="nl">items:</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;.</span><span class="na">generate</span><span class="o">(</span><span class="mi">10000</span><span class="o">,</span> <span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">"Item </span><span class="si">$i</span><span class="s">"</span><span class="o">),</span>
   <span class="o">));</span>
 <span class="o">}</span>
 
@@ -239,17 +240,17 @@ display each String on it’s own line.</p>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Long List'</span><span class="o">;</span>
 
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">title</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-        <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-          <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
+      <span class="nl">home:</span> <span class="n">Scaffold</span><span class="o">(</span>
+        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+          <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
         <span class="o">),</span>
-        <span class="nl">body:</span> <span class="k">new</span> <span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
+        <span class="nl">body:</span> <span class="n">ListView</span><span class="o">.</span><span class="na">builder</span><span class="o">(</span>
           <span class="nl">itemCount:</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">,</span>
           <span class="nl">itemBuilder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
-              <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'</span><span class="si">${items[index]}</span><span class="s">'</span><span class="o">),</span>
+            <span class="k">return</span> <span class="n">ListTile</span><span class="o">(</span>
+              <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'</span><span class="si">${items[index]}</span><span class="s">'</span><span class="o">),</span>
             <span class="o">);</span>
           <span class="o">},</span>
         <span class="o">),</span>

@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -236,7 +237,7 @@ error tracking service.</p>
 error reports to the sentry service!</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">SentryClient</span> <span class="n">_sentry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SentryClient</span><span class="o">(</span><span class="nl">dsn:</span> <span class="s">"App DSN goes Here"</span><span class="o">);</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">SentryClient</span> <span class="n">_sentry</span> <span class="o">=</span> <span class="n">SentryClient</span><span class="o">(</span><span class="nl">dsn:</span> <span class="s">"App DSN goes Here"</span><span class="o">);</span>
 </code></pre>
 </div>
 
@@ -298,7 +299,7 @@ providing an <code class="highlighter-rouge">onError</code> callback.</p>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">runZoned</span><span class="o">&lt;</span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Null</span><span class="o">&gt;&gt;(()</span> <span class="n">async</span> <span class="o">{</span>
-  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">CrashyApp</span><span class="o">());</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="n">CrashyApp</span><span class="o">());</span>
 <span class="o">},</span> <span class="nl">onError:</span> <span class="o">(</span><span class="n">error</span><span class="o">,</span> <span class="n">stackTrace</span><span class="o">)</span> <span class="o">{</span>
   <span class="c1">// Whenever an error occurs, call the `_reportError` function. This will send</span>
   <span class="c1">// Dart errors to our dev console or Sentry depending on the environment.</span>
@@ -334,7 +335,7 @@ send the error to our <code class="highlighter-rouge">onError</code> callback de
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <p>To view a working example, please view the 
 <a href="https://github.com/flutter/crashy">Crashy</a> example app.</p>

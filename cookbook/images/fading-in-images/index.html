@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -186,26 +187,26 @@ Widget packaged with Flutter for exactly this purpose!</p>
 <p><code class="highlighter-rouge">FadeInImage</code> works with images of any type: in-memory, local assets, or images 
 from the internet.</p>
 
+<h2 id="in-memory">In-Memory</h2>
+
 <p>In this example, we’ll use the <a href="https://pub.dartlang.org/packages/transparent_image">transparent_image</a>
-package for a simple transparent placeholder. You can also consider using local
-assets for placeholders by following the <a href="/assets-and-images/">Assets and Images</a>
-guide.</p>
+package for a simple transparent placeholder.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">FadeInImage</span><span class="o">.</span><span class="na">memoryNetwork</span><span class="o">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">FadeInImage</span><span class="o">.</span><span class="na">memoryNetwork</span><span class="o">(</span>
   <span class="nl">placeholder:</span> <span class="n">kTransparentImage</span><span class="o">,</span>
   <span class="nl">image:</span> <span class="s">'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'</span><span class="o">,</span>
 <span class="o">);</span>
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h3 id="complete-example">Complete example</h3>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:transparent_image/transparent_image.dart'</span><span class="o">;</span>
 
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
@@ -213,17 +214,17 @@ guide.</p>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Fade in images'</span><span class="o">;</span>
 
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">title</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-        <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-          <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
+      <span class="nl">home:</span> <span class="n">Scaffold</span><span class="o">(</span>
+        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+          <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
         <span class="o">),</span>
-        <span class="nl">body:</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">(</span>
+        <span class="nl">body:</span> <span class="n">Stack</span><span class="o">(</span>
           <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
-            <span class="k">new</span> <span class="n">Center</span><span class="o">(</span><span class="nl">child:</span> <span class="k">new</span> <span class="n">CircularProgressIndicator</span><span class="o">()),</span>
-            <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
-              <span class="nl">child:</span> <span class="k">new</span> <span class="n">FadeInImage</span><span class="o">.</span><span class="na">memoryNetwork</span><span class="o">(</span>
+            <span class="n">Center</span><span class="o">(</span><span class="nl">child:</span> <span class="n">CircularProgressIndicator</span><span class="o">()),</span>
+            <span class="n">Center</span><span class="o">(</span>
+              <span class="nl">child:</span> <span class="n">FadeInImage</span><span class="o">.</span><span class="na">memoryNetwork</span><span class="o">(</span>
                 <span class="nl">placeholder:</span> <span class="n">kTransparentImage</span><span class="o">,</span>
                 <span class="nl">image:</span>
                     <span class="s">'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'</span><span class="o">,</span>
@@ -239,6 +240,66 @@ guide.</p>
 </div>
 
 <p><img src="/images/cookbook/fading-in-images.gif" alt="Fading In Image Demo" /></p>
+
+<h3 id="from-asset-bundle">From Asset Bundle</h3>
+
+<p>You can also consider using local assets for placeholders. First, add the asset
+to the project’s <em>pubspec.yaml</em> file:</p>
+
+<!-- skip -->
+<div class="language-diff highlighter-rouge"><pre class="highlight"><code> flutter:
+   assets:
+<span class="gi">+    - assets/loading.gif
+</span></code></pre>
+</div>
+
+<p>(See <a href="/assets-and-images/">Assets and Images</a> for a full guide to adding assets.)</p>
+
+<p>Then, use the <a href="https://docs.flutter.io/flutter/widgets/FadeInImage/FadeInImage.assetNetwork.html"><code class="highlighter-rouge">FadeInImage.assetNetwork</code></a>
+constructor:</p>
+
+<!-- skip -->
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">FadeInImage</span><span class="o">.</span><span class="na">assetNetwork</span><span class="o">(</span>
+  <span class="nl">placeholder:</span> <span class="s">'assets/loading.gif'</span><span class="o">,</span>
+  <span class="nl">image:</span> <span class="s">'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'</span><span class="o">,</span>
+<span class="o">);</span>
+</code></pre>
+</div>
+
+<h3 id="complete-example-1">Complete example</h3>
+
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'Fade in images'</span><span class="o">;</span>
+
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
+      <span class="nl">title:</span> <span class="n">title</span><span class="o">,</span>
+      <span class="nl">home:</span> <span class="n">Scaffold</span><span class="o">(</span>
+        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+          <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">),</span>
+        <span class="o">),</span>
+        <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span>
+          <span class="nl">child:</span> <span class="n">FadeInImage</span><span class="o">.</span><span class="na">assetNetwork</span><span class="o">(</span>
+            <span class="nl">placeholder:</span> <span class="s">'assets/loading.gif'</span><span class="o">,</span>
+            <span class="nl">image:</span>
+                <span class="s">'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true'</span><span class="o">,</span>
+          <span class="o">),</span>
+        <span class="o">),</span>
+      <span class="o">),</span>
+    <span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p><img alt="Demo of asset fading in" height="566" src="/images/cookbook/fading-in-asset-demo.gif" width="318" /></p>
 
 </article>
 

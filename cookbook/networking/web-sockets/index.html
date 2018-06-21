@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -203,7 +204,7 @@ messages from the server as well as push messages to the server.</p>
 line:</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">channel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IOWebSocketChannel</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="s">'ws://echo.websocket.org'</span><span class="o">);</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kd">final</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">IOWebSocketChannel</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="s">'ws://echo.websocket.org'</span><span class="o">);</span>
 </code></pre>
 </div>
 
@@ -220,10 +221,10 @@ Widget to listen for new messages and a <a href="https://docs.flutter.io/flutter
 Widget to display them.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">StreamBuilder</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">StreamBuilder</span><span class="o">(</span>
   <span class="nl">stream:</span> <span class="n">widget</span><span class="o">.</span><span class="na">channel</span><span class="o">.</span><span class="na">stream</span><span class="o">,</span>
   <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span> <span class="o">?</span> <span class="s">'</span><span class="si">${snapshot.data}</span><span class="s">'</span> <span class="o">:</span> <span class="s">''</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span> <span class="o">?</span> <span class="s">'</span><span class="si">${snapshot.data}</span><span class="s">'</span> <span class="o">:</span> <span class="s">''</span><span class="o">);</span>
   <span class="o">},</span>
 <span class="o">);</span>
 </code></pre>
@@ -271,24 +272,24 @@ so, we can close the <code class="highlighter-rouge">sink</code>.</p>
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/foundation.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:web_socket_channel/io.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:web_socket_channel/web_socket_channel.dart'</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">title</span> <span class="o">=</span> <span class="s">'WebSocket Demo'</span><span class="o">;</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">title</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyHomePage</span><span class="o">(</span>
+      <span class="nl">home:</span> <span class="n">MyHomePage</span><span class="o">(</span>
         <span class="nl">title:</span> <span class="n">title</span><span class="o">,</span>
-        <span class="nl">channel:</span> <span class="k">new</span> <span class="n">IOWebSocketChannel</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="s">'ws://echo.websocket.org'</span><span class="o">),</span>
+        <span class="nl">channel:</span> <span class="n">IOWebSocketChannel</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="s">'ws://echo.websocket.org'</span><span class="o">),</span>
       <span class="o">),</span>
     <span class="o">);</span>
   <span class="o">}</span>
@@ -302,45 +303,45 @@ so, we can close the <code class="highlighter-rouge">sink</code>.</p>
       <span class="o">:</span> <span class="k">super</span><span class="o">(</span><span class="nl">key:</span> <span class="n">key</span><span class="o">);</span>
 
   <span class="nd">@override</span>
-  <span class="n">_MyHomePageState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_MyHomePageState</span><span class="o">();</span>
+  <span class="n">_MyHomePageState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="n">_MyHomePageState</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">_MyHomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyHomePage</span><span class="o">&gt;</span> <span class="o">{</span>
-  <span class="n">TextEditingController</span> <span class="n">_controller</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextEditingController</span><span class="o">();</span>
+  <span class="n">TextEditingController</span> <span class="n">_controller</span> <span class="o">=</span> <span class="n">TextEditingController</span><span class="o">();</span>
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">widget</span><span class="o">.</span><span class="na">title</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="n">widget</span><span class="o">.</span><span class="na">title</span><span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Padding</span><span class="o">(</span>
+      <span class="nl">body:</span> <span class="n">Padding</span><span class="o">(</span>
         <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">20.0</span><span class="o">),</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">Column</span><span class="o">(</span>
           <span class="nl">crossAxisAlignment:</span> <span class="n">CrossAxisAlignment</span><span class="o">.</span><span class="na">start</span><span class="o">,</span>
           <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
-            <span class="k">new</span> <span class="n">Form</span><span class="o">(</span>
-              <span class="nl">child:</span> <span class="k">new</span> <span class="n">TextFormField</span><span class="o">(</span>
+            <span class="n">Form</span><span class="o">(</span>
+              <span class="nl">child:</span> <span class="n">TextFormField</span><span class="o">(</span>
                 <span class="nl">controller:</span> <span class="n">_controller</span><span class="o">,</span>
-                <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">InputDecoration</span><span class="o">(</span><span class="nl">labelText:</span> <span class="s">'Send a message'</span><span class="o">),</span>
+                <span class="nl">decoration:</span> <span class="n">InputDecoration</span><span class="o">(</span><span class="nl">labelText:</span> <span class="s">'Send a message'</span><span class="o">),</span>
               <span class="o">),</span>
             <span class="o">),</span>
-            <span class="k">new</span> <span class="n">StreamBuilder</span><span class="o">(</span>
+            <span class="n">StreamBuilder</span><span class="o">(</span>
               <span class="nl">stream:</span> <span class="n">widget</span><span class="o">.</span><span class="na">channel</span><span class="o">.</span><span class="na">stream</span><span class="o">,</span>
               <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="k">new</span> <span class="n">Padding</span><span class="o">(</span>
+                <span class="k">return</span> <span class="n">Padding</span><span class="o">(</span>
                   <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">symmetric</span><span class="o">(</span><span class="nl">vertical:</span> <span class="mf">24.0</span><span class="o">),</span>
-                  <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span> <span class="o">?</span> <span class="s">'</span><span class="si">${snapshot.data}</span><span class="s">'</span> <span class="o">:</span> <span class="s">''</span><span class="o">),</span>
+                  <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span> <span class="o">?</span> <span class="s">'</span><span class="si">${snapshot.data}</span><span class="s">'</span> <span class="o">:</span> <span class="s">''</span><span class="o">),</span>
                 <span class="o">);</span>
               <span class="o">},</span>
             <span class="o">)</span>
           <span class="o">],</span>
         <span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">floatingActionButton:</span> <span class="k">new</span> <span class="n">FloatingActionButton</span><span class="o">(</span>
+      <span class="nl">floatingActionButton:</span> <span class="n">FloatingActionButton</span><span class="o">(</span>
         <span class="nl">onPressed:</span> <span class="n">_sendMessage</span><span class="o">,</span>
         <span class="nl">tooltip:</span> <span class="s">'Send message'</span><span class="o">,</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">send</span><span class="o">),</span>
+        <span class="nl">child:</span> <span class="n">Icon</span><span class="o">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">send</span><span class="o">),</span>
       <span class="o">),</span> <span class="c1">// This trailing comma makes auto-formatting nicer for build methods.</span>
     <span class="o">);</span>
   <span class="o">}</span>

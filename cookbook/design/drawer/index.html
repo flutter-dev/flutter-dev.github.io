@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -202,7 +203,7 @@ components, such as Drawers, AppBars, and SnackBars.</p>
 <p>In this case, we’ll want to create a <code class="highlighter-rouge">Scaffold</code> with a <code class="highlighter-rouge">drawer</code>:</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Scaffold</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Scaffold</span><span class="o">(</span>
   <span class="nl">drawer:</span> <span class="c1">// We'll add our Drawer here in the next step!</span>
 <span class="o">);</span>
 </code></pre>
@@ -215,8 +216,8 @@ it’s often best to use the <code class="highlighter-rouge">Drawer</code> widge
 which adheres to the Material Design spec.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Scaffold</span><span class="p">(</span>
-  <span class="nl">drawer:</span> <span class="k">new</span> <span class="n">Drawer</span><span class="o">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Scaffold</span><span class="o">(</span>
+  <span class="nl">drawer:</span> <span class="n">Drawer</span><span class="o">(</span>
     <span class="nl">child:</span> <span class="c1">// We'll populate the Drawer in the next step!</span>
   <span class="o">)</span>
 <span class="o">);</span>
@@ -237,29 +238,29 @@ Widgets. For more information on working with Lists, please see the
 <a href="/cookbook/#lists">list recipes</a>.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Drawer</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Drawer</span><span class="o">(</span>
   <span class="c1">// Add a ListView to the drawer. This ensures the user can scroll</span>
   <span class="c1">// through the options in the Drawer if there isn't enough vertical</span>
   <span class="c1">// space to fit everything.</span>
-  <span class="nl">child:</span> <span class="k">new</span> <span class="n">ListView</span><span class="o">(</span>
+  <span class="nl">child:</span> <span class="n">ListView</span><span class="o">(</span>
     <span class="c1">// Important: Remove any padding from the ListView.</span>
     <span class="nl">padding:</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">zero</span><span class="o">,</span>
     <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
-      <span class="k">new</span> <span class="n">DrawerHeader</span><span class="o">(</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Drawer Header'</span><span class="o">),</span>
-        <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+      <span class="n">DrawerHeader</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Drawer Header'</span><span class="o">),</span>
+        <span class="nl">decoration:</span> <span class="n">BoxDecoration</span><span class="o">(</span>
           <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">blue</span><span class="o">,</span>
         <span class="o">),</span>
       <span class="o">),</span>
-      <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 1'</span><span class="o">),</span>
+      <span class="n">ListTile</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 1'</span><span class="o">),</span>
         <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
           <span class="c1">// Update the state of the app</span>
           <span class="c1">// ...</span>
         <span class="o">},</span>
       <span class="o">),</span>
-      <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 2'</span><span class="o">),</span>
+      <span class="n">ListTile</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 2'</span><span class="o">),</span>
         <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
           <span class="c1">// Update the state of the app</span>
           <span class="c1">// ...</span>
@@ -281,8 +282,8 @@ stack under the hood. Therefore, to close the drawer, we can call
 <code class="highlighter-rouge">Navigator.pop(context)</code>.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">ListTile</span><span class="p">(</span>
-  <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 1'</span><span class="o">),</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">ListTile</span><span class="o">(</span>
+  <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 1'</span><span class="o">),</span>
   <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
     <span class="c1">// Update the state of the app</span>
     <span class="c1">// ...</span>
@@ -293,20 +294,20 @@ stack under the hood. Therefore, to close the drawer, we can call
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">appTitle</span> <span class="o">=</span> <span class="s">'Drawer Demo'</span><span class="o">;</span>
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">appTitle</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyHomePage</span><span class="o">(</span><span class="nl">title:</span> <span class="n">appTitle</span><span class="o">),</span>
+      <span class="nl">home:</span> <span class="n">MyHomePage</span><span class="o">(</span><span class="nl">title:</span> <span class="n">appTitle</span><span class="o">),</span>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -318,25 +319,25 @@ stack under the hood. Therefore, to close the drawer, we can call
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span><span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">)),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span><span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'My Page!'</span><span class="o">)),</span>
-      <span class="nl">drawer:</span> <span class="k">new</span> <span class="n">Drawer</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span><span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="n">title</span><span class="o">)),</span>
+      <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span><span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'My Page!'</span><span class="o">)),</span>
+      <span class="nl">drawer:</span> <span class="n">Drawer</span><span class="o">(</span>
         <span class="c1">// Add a ListView to the drawer. This ensures the user can scroll</span>
         <span class="c1">// through the options in the Drawer if there isn't enough vertical</span>
         <span class="c1">// space to fit everything.</span>
-        <span class="nl">child:</span> <span class="k">new</span> <span class="n">ListView</span><span class="o">(</span>
+        <span class="nl">child:</span> <span class="n">ListView</span><span class="o">(</span>
           <span class="c1">// Important: Remove any padding from the ListView.</span>
           <span class="nl">padding:</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">zero</span><span class="o">,</span>
           <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
-            <span class="k">new</span> <span class="n">DrawerHeader</span><span class="o">(</span>
-              <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Drawer Header'</span><span class="o">),</span>
-              <span class="nl">decoration:</span> <span class="k">new</span> <span class="n">BoxDecoration</span><span class="o">(</span>
+            <span class="n">DrawerHeader</span><span class="o">(</span>
+              <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Drawer Header'</span><span class="o">),</span>
+              <span class="nl">decoration:</span> <span class="n">BoxDecoration</span><span class="o">(</span>
                 <span class="nl">color:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">blue</span><span class="o">,</span>
               <span class="o">),</span>
             <span class="o">),</span>
-            <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
-              <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 1'</span><span class="o">),</span>
+            <span class="n">ListTile</span><span class="o">(</span>
+              <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 1'</span><span class="o">),</span>
               <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
                 <span class="c1">// Update the state of the app</span>
                 <span class="c1">// ...</span>
@@ -344,8 +345,8 @@ stack under the hood. Therefore, to close the drawer, we can call
                 <span class="n">Navigator</span><span class="o">.</span><span class="na">pop</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
               <span class="o">},</span>
             <span class="o">),</span>
-            <span class="k">new</span> <span class="n">ListTile</span><span class="o">(</span>
-              <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 2'</span><span class="o">),</span>
+            <span class="n">ListTile</span><span class="o">(</span>
+              <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Item 2'</span><span class="o">),</span>
               <span class="nl">onTap:</span> <span class="o">()</span> <span class="o">{</span>
                 <span class="c1">// Update the state of the app</span>
                 <span class="c1">// ...</span>

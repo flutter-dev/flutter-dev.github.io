@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -250,7 +251,7 @@ full article on <a href="/json">JSON and serialization</a>.</p>
   <span class="n">Post</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">userId</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">id</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">body</span><span class="o">});</span>
 
   <span class="kd">factory</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;</span> <span class="n">json</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Post</span><span class="o">(</span>
       <span class="nl">userId:</span> <span class="n">json</span><span class="o">[</span><span class="s">'userId'</span><span class="o">],</span>
       <span class="nl">id:</span> <span class="n">json</span><span class="o">[</span><span class="s">'id'</span><span class="o">],</span>
       <span class="nl">title:</span> <span class="n">json</span><span class="o">[</span><span class="s">'title'</span><span class="o">],</span>
@@ -267,16 +268,25 @@ full article on <a href="/json">JSON and serialization</a>.</p>
 we’ll need to:</p>
 
 <ol>
-  <li>Convert the response body into a json <code class="highlighter-rouge">Map</code> with the <code class="highlighter-rouge">dart:convert</code> package</li>
-  <li>Convert the json <code class="highlighter-rouge">Map</code> into a <code class="highlighter-rouge">Post</code> using the <code class="highlighter-rouge">fromJson</code> factory.</li>
+  <li>Convert the response body into a json <code class="highlighter-rouge">Map</code> with the <code class="highlighter-rouge">dart:convert</code>
+  package.</li>
+  <li>If the server returns an “OK” response with a status code of 200, convert 
+  the json <code class="highlighter-rouge">Map</code> into a <code class="highlighter-rouge">Post</code> using the <code class="highlighter-rouge">fromJson</code> factory.</li>
+  <li>If the server returns an unexpected response, throw an error</li>
 </ol>
 
 <!-- skip -->
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;</span> <span class="n">fetchPost</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
-  <span class="kd">final</span> <span class="n">response</span> <span class="o">=</span> <span class="n">await</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">);</span>
-  <span class="kd">final</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span> 
-  
-  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">responseJson</span><span class="o">);</span> 
+  <span class="kd">final</span> <span class="n">response</span> <span class="o">=</span>
+      <span class="n">await</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">);</span>
+
+  <span class="k">if</span> <span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">statusCode</span> <span class="o">==</span> <span class="mi">200</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// If server returns an OK response, parse the JSON</span>
+    <span class="k">return</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">));</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="c1">// If that response was not OK, throw an error.</span>
+    <span class="k">throw</span> <span class="n">Exception</span><span class="o">(</span><span class="s">'Failed to load post'</span><span class="o">);</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
 </div>
@@ -301,23 +311,33 @@ with async data sources.</p>
 </ol>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;(</span>
   <span class="nl">future:</span> <span class="n">fetchPost</span><span class="o">(),</span>
   <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span><span class="o">)</span> <span class="o">{</span>
-      <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">title</span><span class="o">);</span>
+      <span class="k">return</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">title</span><span class="o">);</span>
     <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasError</span><span class="o">)</span> <span class="o">{</span>
-      <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"</span><span class="si">${snapshot.error}</span><span class="s">"</span><span class="o">);</span>
+      <span class="k">return</span> <span class="n">Text</span><span class="o">(</span><span class="s">"</span><span class="si">${snapshot.error}</span><span class="s">"</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="c1">// By default, show a loading spinner</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">CircularProgressIndicator</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">CircularProgressIndicator</span><span class="o">();</span>
   <span class="o">},</span>
 <span class="o">);</span>
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="testing">Testing</h2>
+
+<p>For information on how to test this functionality, please see the following 
+recipes:</p>
+
+<ul>
+  <li><a href="/cookbook/testing/unit-test/">Introduction to unit testing</a></li>
+  <li><a href="/cookbook/testing/mocking/">Mock dependencies using Mockito</a></li>
+</ul>
+
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:async'</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'dart:convert'</span><span class="o">;</span>
@@ -328,9 +348,14 @@ with async data sources.</p>
 <span class="n">Future</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;</span> <span class="n">fetchPost</span><span class="o">()</span> <span class="n">async</span> <span class="o">{</span>
   <span class="kd">final</span> <span class="n">response</span> <span class="o">=</span>
       <span class="n">await</span> <span class="n">http</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">'https://jsonplaceholder.typicode.com/posts/1'</span><span class="o">);</span>
-  <span class="kd">final</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span>
 
-  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">responseJson</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">statusCode</span> <span class="o">==</span> <span class="mi">200</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// If the call to the server was successful, parse the JSON</span>
+    <span class="k">return</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">));</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="c1">// If that call was not successful, throw an error.</span>
+    <span class="k">throw</span> <span class="n">Exception</span><span class="o">(</span><span class="s">'Failed to load post'</span><span class="o">);</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">Post</span> <span class="o">{</span>
@@ -342,7 +367,7 @@ with async data sources.</p>
   <span class="n">Post</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">userId</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">id</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">body</span><span class="o">});</span>
 
   <span class="kd">factory</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;</span> <span class="n">json</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Post</span><span class="o">(</span>
       <span class="nl">userId:</span> <span class="n">json</span><span class="o">[</span><span class="s">'userId'</span><span class="o">],</span>
       <span class="nl">id:</span> <span class="n">json</span><span class="o">[</span><span class="s">'id'</span><span class="o">],</span>
       <span class="nl">title:</span> <span class="n">json</span><span class="o">[</span><span class="s">'title'</span><span class="o">],</span>
@@ -351,32 +376,32 @@ with async data sources.</p>
   <span class="o">}</span>
 <span class="o">}</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="s">'Fetch Data Example'</span><span class="o">,</span>
-      <span class="nl">theme:</span> <span class="k">new</span> <span class="n">ThemeData</span><span class="o">(</span>
+      <span class="nl">theme:</span> <span class="n">ThemeData</span><span class="o">(</span>
         <span class="nl">primarySwatch:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">blue</span><span class="o">,</span>
       <span class="o">),</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-        <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-          <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Fetch Data Example'</span><span class="o">),</span>
+      <span class="nl">home:</span> <span class="n">Scaffold</span><span class="o">(</span>
+        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+          <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Fetch Data Example'</span><span class="o">),</span>
         <span class="o">),</span>
-        <span class="nl">body:</span> <span class="k">new</span> <span class="n">Center</span><span class="o">(</span>
-          <span class="nl">child:</span> <span class="k">new</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;(</span>
+        <span class="nl">body:</span> <span class="n">Center</span><span class="o">(</span>
+          <span class="nl">child:</span> <span class="n">FutureBuilder</span><span class="o">&lt;</span><span class="n">Post</span><span class="o">&gt;(</span>
             <span class="nl">future:</span> <span class="n">fetchPost</span><span class="o">(),</span>
             <span class="nl">builder:</span> <span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">snapshot</span><span class="o">)</span> <span class="o">{</span>
               <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasData</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">title</span><span class="o">);</span>
+                <span class="k">return</span> <span class="n">Text</span><span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">title</span><span class="o">);</span>
               <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">snapshot</span><span class="o">.</span><span class="na">hasError</span><span class="o">)</span> <span class="o">{</span>
-                <span class="k">return</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">"</span><span class="si">${snapshot.error}</span><span class="s">"</span><span class="o">);</span>
+                <span class="k">return</span> <span class="n">Text</span><span class="o">(</span><span class="s">"</span><span class="si">${snapshot.error}</span><span class="s">"</span><span class="o">);</span>
               <span class="o">}</span>
 
               <span class="c1">// By default, show a loading spinner</span>
-              <span class="k">return</span> <span class="k">new</span> <span class="n">CircularProgressIndicator</span><span class="o">();</span>
+              <span class="k">return</span> <span class="n">CircularProgressIndicator</span><span class="o">();</span>
             <span class="o">},</span>
           <span class="o">),</span>
         <span class="o">),</span>

@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -199,7 +200,7 @@ approach is it does not work with <code class="highlighter-rouge">TextFormField<
 console every time the text changes.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">TextField</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">TextField</span><span class="o">(</span>
   <span class="nl">onChanged:</span> <span class="o">(</span><span class="n">text</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">print</span><span class="o">(</span><span class="s">"First text field: </span><span class="si">$text</span><span class="s">"</span><span class="o">);</span>
   <span class="o">},</span>
@@ -237,7 +238,7 @@ these two classes together, we can listen for changes to the text field!</p>
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="c1">// Define a Custom Form Widget</span>
 <span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
-  <span class="n">_MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_MyFormState</span><span class="o">();</span>
+  <span class="n">_MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="n">_MyFormState</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="c1">// Define a corresponding State class. This class will hold the data related to</span>
@@ -245,7 +246,7 @@ these two classes together, we can listen for changes to the text field!</p>
 <span class="kd">class</span> <span class="nc">_MyFormState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyForm</span><span class="o">&gt;</span> <span class="o">{</span>
   <span class="c1">// Create a text controller. We will use it to retrieve the current value</span>
   <span class="c1">// of the TextField!</span>
-  <span class="kd">final</span> <span class="n">myController</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextEditingController</span><span class="o">();</span>
+  <span class="kd">final</span> <span class="n">myController</span> <span class="o">=</span> <span class="n">TextEditingController</span><span class="o">();</span>
 
   <span class="nd">@override</span>
   <span class="kt">void</span> <span class="n">dispose</span><span class="o">()</span> <span class="o">{</span>
@@ -272,7 +273,7 @@ longer needed. This will ensure we discard any resources used by the object.</p>
 for changes to the text field.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">TextField</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">TextField</span><span class="o">(</span>
   <span class="nl">controller:</span> <span class="n">myController</span><span class="o">,</span>
 <span class="o">);</span>
 </code></pre>
@@ -326,18 +327,18 @@ class is initialized, and stop listening when the <code class="highlighter-rouge
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="s">'Retrieve Text Input'</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">MyForm</span><span class="o">(),</span>
+      <span class="nl">home:</span> <span class="n">MyForm</span><span class="o">(),</span>
     <span class="o">);</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -345,7 +346,7 @@ class is initialized, and stop listening when the <code class="highlighter-rouge
 <span class="c1">// Define a Custom Form Widget</span>
 <span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
-  <span class="n">_MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="n">_MyFormState</span><span class="o">();</span>
+  <span class="n">_MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">=&gt;</span> <span class="n">_MyFormState</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="c1">// Define a corresponding State class. This class will hold the data related to</span>
@@ -353,7 +354,7 @@ class is initialized, and stop listening when the <code class="highlighter-rouge
 <span class="kd">class</span> <span class="nc">_MyFormState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyForm</span><span class="o">&gt;</span> <span class="o">{</span>
   <span class="c1">// Create a text controller. We will use it to retrieve the current value</span>
   <span class="c1">// of the TextField!</span>
-  <span class="kd">final</span> <span class="n">myController</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextEditingController</span><span class="o">();</span>
+  <span class="kd">final</span> <span class="n">myController</span> <span class="o">=</span> <span class="n">TextEditingController</span><span class="o">();</span>
 
   <span class="nd">@override</span>
   <span class="kt">void</span> <span class="n">initState</span><span class="o">()</span> <span class="o">{</span>
@@ -376,20 +377,20 @@ class is initialized, and stop listening when the <code class="highlighter-rouge
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-      <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-        <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Retrieve Text Input'</span><span class="o">),</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="o">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Retrieve Text Input'</span><span class="o">),</span>
       <span class="o">),</span>
-      <span class="nl">body:</span> <span class="k">new</span> <span class="n">Padding</span><span class="o">(</span>
+      <span class="nl">body:</span> <span class="n">Padding</span><span class="o">(</span>
         <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="o">(</span><span class="mf">16.0</span><span class="o">),</span>
         <span class="nl">child:</span> <span class="n">Column</span><span class="o">(</span>
           <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
-            <span class="k">new</span> <span class="n">TextField</span><span class="o">(</span>
+            <span class="n">TextField</span><span class="o">(</span>
               <span class="nl">onChanged:</span> <span class="o">(</span><span class="n">text</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">print</span><span class="o">(</span><span class="s">"First text field: </span><span class="si">$text</span><span class="s">"</span><span class="o">);</span>
               <span class="o">},</span>
             <span class="o">),</span>
-            <span class="k">new</span> <span class="n">TextField</span><span class="o">(</span>
+            <span class="n">TextField</span><span class="o">(</span>
               <span class="nl">controller:</span> <span class="n">myController</span><span class="o">,</span>
             <span class="o">),</span>
           <span class="o">],</span>

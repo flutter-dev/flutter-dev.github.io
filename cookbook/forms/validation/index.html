@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -211,7 +212,7 @@ us to validate the form in a later step.</p>
 <span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MyFormState</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">MyFormState</span><span class="o">();</span>
   <span class="o">}</span>
 <span class="o">}</span>
 
@@ -220,12 +221,12 @@ us to validate the form in a later step.</p>
 <span class="kd">class</span> <span class="nc">MyFormState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyForm</span><span class="o">&gt;</span> <span class="o">{</span>
   <span class="c1">// Create a global key that will uniquely identify the Form widget and allow</span>
   <span class="c1">// us to validate the form</span>
-  <span class="kd">final</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;</span> <span class="n">_formKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;();</span>
+  <span class="kd">final</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;</span> <span class="n">_formKey</span> <span class="o">=</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;();</span>
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// Build a Form widget using the _formKey we created above</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Form</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Form</span><span class="o">(</span>
       <span class="nl">key:</span> <span class="n">_formKey</span><span class="o">,</span>
       <span class="nl">child:</span> <span class="c1">// We'll build this out in the next steps!</span>
     <span class="o">);</span>
@@ -251,7 +252,7 @@ anything.</p>
 isn’t empty. If it is empty, we will return a friendly error message!</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">TextFormField</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">TextFormField</span><span class="o">(</span>
   <span class="c1">// The validator receives the text the user has typed in</span>
   <span class="nl">validator:</span> <span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">)</span> <span class="o">{</span>
@@ -272,18 +273,19 @@ valid. If it is, we will show a success message. If the text field has no
 content, we’ll want to display the error message.</p>
 
 <!-- skip -->
-<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">RaisedButton</span><span class="p">(</span>
+<div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="n">RaisedButton</span><span class="o">(</span>
   <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
     <span class="c1">// Validate will return true if the form is valid, or false if</span>
     <span class="c1">// the form is invalid.</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">_formKey</span><span class="o">.</span><span class="na">currentState</span><span class="o">.</span><span class="na">validate</span><span class="o">())</span> <span class="o">{</span>
       <span class="c1">// If the form is valid, display a snackbar. In the real world, you'd</span>
       <span class="c1">// often want to call a server or save the information in a database</span>
-      <span class="n">Scaffold</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">showSnackBar</span><span class="o">(</span>
-          <span class="k">new</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Processing Data'</span><span class="o">)));</span>
+      <span class="n">Scaffold</span>
+          <span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">)</span>
+          <span class="o">.</span><span class="na">showSnackBar</span><span class="o">(</span><span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Processing Data'</span><span class="o">)));</span>
     <span class="o">}</span>
   <span class="o">},</span>
-  <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Submit'</span><span class="o">),</span>
+  <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Submit'</span><span class="o">),</span>
 <span class="o">);</span>
 </code></pre>
 </div>
@@ -301,24 +303,24 @@ If everything looks good, the method returns <code class="highlighter-rouge">tru
 errors, it will display the error message for each invalid text field and return 
 <code class="highlighter-rouge">false</code>.</p>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <div class="language-dart highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">());</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">runApp</span><span class="o">(</span><span class="n">MyApp</span><span class="o">());</span>
 
 <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">appTitle</span> <span class="o">=</span> <span class="s">'Form Validation Demo'</span><span class="o">;</span>
 
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MaterialApp</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="o">(</span>
       <span class="nl">title:</span> <span class="n">appTitle</span><span class="o">,</span>
-      <span class="nl">home:</span> <span class="k">new</span> <span class="n">Scaffold</span><span class="o">(</span>
-        <span class="nl">appBar:</span> <span class="k">new</span> <span class="n">AppBar</span><span class="o">(</span>
-          <span class="nl">title:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="n">appTitle</span><span class="o">),</span>
+      <span class="nl">home:</span> <span class="n">Scaffold</span><span class="o">(</span>
+        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="o">(</span>
+          <span class="nl">title:</span> <span class="n">Text</span><span class="o">(</span><span class="n">appTitle</span><span class="o">),</span>
         <span class="o">),</span>
-        <span class="nl">body:</span> <span class="k">new</span> <span class="n">MyForm</span><span class="o">(),</span>
+        <span class="nl">body:</span> <span class="n">MyForm</span><span class="o">(),</span>
       <span class="o">),</span>
     <span class="o">);</span>
   <span class="o">}</span>
@@ -328,7 +330,7 @@ errors, it will display the error message for each invalid text field and return
 <span class="kd">class</span> <span class="nc">MyForm</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="o">{</span>
   <span class="nd">@override</span>
   <span class="n">MyFormState</span> <span class="n">createState</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">MyFormState</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">MyFormState</span><span class="o">();</span>
   <span class="o">}</span>
 <span class="o">}</span>
 
@@ -336,36 +338,37 @@ errors, it will display the error message for each invalid text field and return
 <span class="c1">// the form.</span>
 <span class="kd">class</span> <span class="nc">MyFormState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyForm</span><span class="o">&gt;</span> <span class="o">{</span>
   <span class="c1">// Create a global key that will uniquely identify the `Form` widget</span>
-  <span class="kd">final</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;</span> <span class="n">_formKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;();</span>
+  <span class="kd">final</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;</span> <span class="n">_formKey</span> <span class="o">=</span> <span class="n">GlobalKey</span><span class="o">&lt;</span><span class="n">FormState</span><span class="o">&gt;();</span>
 
   <span class="nd">@override</span>
   <span class="n">Widget</span> <span class="n">build</span><span class="o">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// Build a Form widget using the _formKey we created above</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Form</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Form</span><span class="o">(</span>
       <span class="nl">key:</span> <span class="n">_formKey</span><span class="o">,</span>
-      <span class="nl">child:</span> <span class="k">new</span> <span class="n">Column</span><span class="o">(</span>
+      <span class="nl">child:</span> <span class="n">Column</span><span class="o">(</span>
         <span class="nl">crossAxisAlignment:</span> <span class="n">CrossAxisAlignment</span><span class="o">.</span><span class="na">start</span><span class="o">,</span>
         <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;[</span>
-          <span class="k">new</span> <span class="n">TextFormField</span><span class="o">(</span>
+          <span class="n">TextFormField</span><span class="o">(</span>
             <span class="nl">validator:</span> <span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="o">{</span>
               <span class="k">if</span> <span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">)</span> <span class="o">{</span>
                 <span class="k">return</span> <span class="s">'Please enter some text'</span><span class="o">;</span>
               <span class="o">}</span>
             <span class="o">},</span>
           <span class="o">),</span>
-          <span class="k">new</span> <span class="n">Padding</span><span class="o">(</span>
+          <span class="n">Padding</span><span class="o">(</span>
             <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">symmetric</span><span class="o">(</span><span class="nl">vertical:</span> <span class="mf">16.0</span><span class="o">),</span>
-            <span class="nl">child:</span> <span class="k">new</span> <span class="n">RaisedButton</span><span class="o">(</span>
+            <span class="nl">child:</span> <span class="n">RaisedButton</span><span class="o">(</span>
               <span class="nl">onPressed:</span> <span class="o">()</span> <span class="o">{</span>
                 <span class="c1">// Validate will return true if the form is valid, or false if</span>
                 <span class="c1">// the form is invalid.</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">_formKey</span><span class="o">.</span><span class="na">currentState</span><span class="o">.</span><span class="na">validate</span><span class="o">())</span> <span class="o">{</span>
                   <span class="c1">// If the form is valid, we want to show a Snackbar</span>
-                  <span class="n">Scaffold</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">showSnackBar</span><span class="o">(</span>
-                      <span class="k">new</span> <span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Processing Data'</span><span class="o">)));</span>
+                  <span class="n">Scaffold</span>
+                      <span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">context</span><span class="o">)</span>
+                      <span class="o">.</span><span class="na">showSnackBar</span><span class="o">(</span><span class="n">SnackBar</span><span class="o">(</span><span class="nl">content:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Processing Data'</span><span class="o">)));</span>
                 <span class="o">}</span>
               <span class="o">},</span>
-              <span class="nl">child:</span> <span class="k">new</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Submit'</span><span class="o">),</span>
+              <span class="nl">child:</span> <span class="n">Text</span><span class="o">(</span><span class="s">'Submit'</span><span class="o">),</span>
             <span class="o">),</span>
           <span class="o">),</span>
         <span class="o">],</span>

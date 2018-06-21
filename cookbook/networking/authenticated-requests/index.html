@@ -50,10 +50,11 @@
           </a>
           <div class="trigger">
             <a class="page-link" href="/docs/">文档</a>
+            <a class="page-link" href="/showcase/">案例</a>
             <a class="page-link" href="https://github.com/flutter/flutter">GitHub</a>
             <a class="page-link" href="https://pub.dartlang.org/flutter">库</a>
             <a class="page-link" href="/support/">支持</a>
-            <a class="page-link" href="http://flutter-dev.cn">论坛</a>
+            <a class="page-link" href="http://flutter-dev.cn">中文开发者论坛</a>
             <form action="/search/" class="nav-searchbox" id="cse-search-box" style="display: inline">
               <input type="hidden" name="cx" value="007067728241810524621:gm6vraqlc8c">
               <input type="hidden" name="ie" value="UTF-8">
@@ -196,7 +197,7 @@ the <code class="highlighter-rouge">dart:io</code> package for common <code clas
 </code></pre>
 </div>
 
-<h2 id="complete-example">Complete Example</h2>
+<h2 id="complete-example">Complete example</h2>
 
 <p>This example builds upon the <a href="/cookbook/networking/fetch-data/">Fetching Data from the Internet</a> 
 recipe.</p>
@@ -214,7 +215,7 @@ recipe.</p>
   <span class="o">);</span>
   <span class="kd">final</span> <span class="n">responseJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">);</span>
 
-  <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">responseJson</span><span class="o">);</span>
+  <span class="k">return</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">responseJson</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">Post</span> <span class="o">{</span>
@@ -226,7 +227,7 @@ recipe.</p>
   <span class="n">Post</span><span class="o">({</span><span class="k">this</span><span class="o">.</span><span class="na">userId</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">id</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">body</span><span class="o">});</span>
 
   <span class="kd">factory</span> <span class="n">Post</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kd">dynamic</span><span class="o">&gt;</span> <span class="n">json</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">Post</span><span class="o">(</span>
+    <span class="k">return</span> <span class="n">Post</span><span class="o">(</span>
       <span class="nl">userId:</span> <span class="n">json</span><span class="o">[</span><span class="s">'userId'</span><span class="o">],</span>
       <span class="nl">id:</span> <span class="n">json</span><span class="o">[</span><span class="s">'id'</span><span class="o">],</span>
       <span class="nl">title:</span> <span class="n">json</span><span class="o">[</span><span class="s">'title'</span><span class="o">],</span>
